@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ステップ別プロンプト -  プロジェクトアーカイブ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="page-wrapper">
+  <aside class="sidebar" data-nav-level="prompts"></aside>
+
+    <main class="main-content">
+      <header class="doc-header">
+        <div class="doc-category">PROMPT COLLECTION</div>
+        <h1 class="doc-title">ステップ別プロンプト</h1>
+        <div class="doc-meta">
+          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-XX-XX</span>
+          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：（氏名を入力）</span>
+          <span><span class="material-symbols-outlined icon-sm">push_pin</span> Ver 1.0</span>
+        </div>
+      </header>
+
+      <div class="doc-body">
+
+        <div class="info-box info">
+          <strong>生成プロンプト</strong>
+          Spring Bootアプリケーションを段階的に構築するためのプロンプトです。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol class="toc-list">
+            <li><a href="#step01">STEP 01: プロジェクト作成</a></li>
+            <li><a href="#step02">STEP 02: Entity作成</a></li>
+            <li><a href="#step03">STEP 03: Repository作成</a></li>
+            <li><a href="#step04">STEP 04: Service作成</a></li>
+            <li><a href="#step05">STEP 05: Controller作成</a></li>
+            <li><a href="#step06">STEP 06: View作成（一覧画面）</a></li>
+            <li><a href="#step07">STEP 07: View作成（登録・編集画面）</a></li>
+            <li><a href="#step08">STEP 08: 認証機能</a></li>
+            <li><a href="#step09">STEP 09: 画面デザイン適用</a></li>
+          </ol>
+        </div>
+
+        <!-- STEP 01 -->
+        <section class="section" id="step01">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">01</div>
+              <div>
+                <div class="step-title">プロジェクト作成</div>
+                <div class="step-desc">Spring Initializrでプロジェクトを作成し、基本設定を行う</div>
+              </div>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>Java 17以上がインストールされていること</li>
+                <li>Maven または Gradle が使用可能なこと</li>
+                <li>IDE（Eclipse、IntelliJ IDEA、VS Code等）が設定済みであること</li>
+              </ul>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 01: プロジェクト初期設定</div>
+              <div class="prompt-text">Spring Bootプロジェクトの初期設定を行ってください。
+
+【プロジェクト情報】
+・プロジェクト名：taskapp
+・パッケージ名：com.example.taskapp
+・Java バージョン：17
+・Spring Boot バージョン：3.x（最新安定版）
+・ビルドツール：Maven
+
+【必要な依存関係】
+・Spring Web
+・Thymeleaf
+・MyBatis Framework
+・MySQL Driver
+・Lombok
+・Spring Boot DevTools
+・Validation
+
+【作成してほしいファイル】
+1. pom.xml の依存関係設定
+2. application.properties の基本設定
+   - データベース接続設定（MySQL）
+   - MyBatis設定
+   - Thymeleaf設定
+3. 基本的なディレクトリ構造
+
+【データベース接続情報】
+・URL: jdbc:mysql://localhost:3306/taskapp
+・ユーザー名: root
+・パスワード: （環境に合わせて設定）</div>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">期待される出力</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>pom.xml（依存関係設定済み）</li>
+                <li>src/main/resources/application.properties</li>
+                <li>メインクラス（TaskAppApplication.java）</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>アプリケーションが正常に起動するか</li>
+                <li>http://localhost:8080 にアクセスできるか（エラーページでもOK）</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 02 -->
+        <section class="section" id="step02">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">02</div>
+              <div>
+                <div class="step-title">Entity作成</div>
+                <div class="step-desc">DB設計書を元にEntityクラスを作成する</div>
+              </div>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>DB設計書が完成していること</li>
+                <li>MySQLにデータベースとテーブルが作成済みであること</li>
+              </ul>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 02: Entity作成</div>
+              <div class="prompt-text">以下のDB設計書を元に、Entityクラスを作成してください。
+
+【テーブル定義】
+■ tasks テーブル
+| カラム名     | 型           | NULL | 説明         |
+|-------------|--------------|------|--------------|
+| id          | BIGINT       | NO   | 主キー（自動採番）|
+| title       | VARCHAR(100) | NO   | タイトル      |
+| content     | TEXT         | YES  | 内容         |
+| due_date    | DATE         | YES  | 期限         |
+| priority    | INT          | NO   | 優先度（1-3）  |
+| status      | VARCHAR(20)  | NO   | ステータス    |
+| user_id     | BIGINT       | NO   | ユーザーID（外部キー）|
+| created_at  | DATETIME     | NO   | 作成日時      |
+| updated_at  | DATETIME     | NO   | 更新日時      |
+
+【要件】
+・パッケージ：com.example.taskapp.entity
+・Lombokアノテーション使用（@Data, @NoArgsConstructor, @AllArgsConstructor）
+・日付型はLocalDate、日時型はLocalDateTimeを使用
+・フィールド名はキャメルケース、カラム名はスネークケースで対応</div>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>フィールドの型が適切か（Long, String, LocalDate等）</li>
+                <li>Lombokアノテーションが正しく設定されているか</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 03 -->
+        <section class="section" id="step03">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">03</div>
+              <div>
+                <div class="step-title">Repository作成</div>
+                <div class="step-desc">MyBatis Mapperインターフェースを作成する</div>
+              </div>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 03: Repository（Mapper）作成</div>
+              <div class="prompt-text">TaskエンティティのMyBatis Mapperを作成してください。
+
+【要件】
+・パッケージ：com.example.taskapp.repository
+・インターフェース名：TaskMapper
+・@Mapperアノテーションを使用
+
+【実装するメソッド】
+1. selectAll() - 全件取得（作成日時降順）
+2. selectById(Long id) - ID指定取得
+3. selectByUserId(Long userId) - ユーザー別取得
+4. insert(Task task) - 新規登録（自動採番のIDを取得）
+5. update(Task task) - 更新
+6. delete(Long id) - 削除
+
+【SQL実装方式】
+・アノテーション方式（@Select, @Insert, @Update, @Delete）を使用
+・カラム名とフィールド名のマッピングは@Resultsを使用
+
+【注意点】
+・insertではuseGeneratedKeys=trueを指定してIDを取得
+・キャメルケース⇔スネークケースの変換に対応</div>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>@Mapperアノテーションが付与されているか</li>
+                <li>SQLの構文が正しいか</li>
+                <li>カラム名とフィールド名のマッピングが正しいか</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 04 -->
+        <section class="section" id="step04">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">04</div>
+              <div>
+                <div class="step-title">Service作成</div>
+                <div class="step-desc">ビジネスロジック層のServiceクラスを作成する</div>
+              </div>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 04: Service作成</div>
+              <div class="prompt-text">TaskServiceクラスを作成してください。
+
+【要件】
+・パッケージ：com.example.taskapp.service
+・クラス名：TaskService
+・@Serviceアノテーションを使用
+・TaskMapperをコンストラクタインジェクション
+
+【実装するメソッド】
+1. findAll() - 全タスク取得
+2. findById(Long id) - ID指定取得
+3. findByUserId(Long userId) - ユーザー別取得
+4. create(TaskForm form, Long userId) - 新規作成
+   - FormからEntityへの変換処理
+   - 作成日時・更新日時の設定
+5. update(Long id, TaskForm form) - 更新
+   - 既存データの取得と更新
+   - 更新日時の設定
+6. delete(Long id) - 削除
+
+【トランザクション】
+・create, update, deleteメソッドには@Transactionalを付与
+
+【Form → Entity 変換】
+・TaskForm（画面入力）からTask（エンティティ）への変換ロジックを含める</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 05 -->
+        <section class="section" id="step05">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">05</div>
+              <div>
+                <div class="step-title">Controller作成</div>
+                <div class="step-desc">HTTPリクエストを処理するControllerを作成する</div>
+              </div>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 05: Controller作成</div>
+              <div class="prompt-text">TaskControllerクラスを作成してください。
+
+【要件】
+・パッケージ：com.example.taskapp.controller
+・クラス名：TaskController
+・@Controller、@RequestMapping("/tasks") を使用
+・TaskServiceをコンストラクタインジェクション
+
+【エンドポイント】
+1. GET /tasks - 一覧表示
+   - タスク一覧を取得してModelに追加
+   - list.html を返却
+
+2. GET /tasks/{id} - 詳細表示
+   - 指定IDのタスクを取得
+   - detail.html を返却
+
+3. GET /tasks/new - 新規作成フォーム
+   - 空のTaskFormをModelに追加
+   - create.html を返却
+
+4. POST /tasks - 新規作成処理
+   - @Valid でバリデーション
+   - エラー時は create.html に戻る
+   - 成功時は /tasks にリダイレクト
+   - Flash属性で成功メッセージを設定
+
+5. GET /tasks/{id}/edit - 編集フォーム
+   - 既存タスクをFormに変換
+   - edit.html を返却
+
+6. POST /tasks/{id} - 更新処理
+   - @Valid でバリデーション
+   - エラー時は edit.html に戻る
+   - 成功時は /tasks にリダイレクト
+
+7. POST /tasks/{id}/delete - 削除処理
+   - 削除後 /tasks にリダイレクト
+
+【バリデーション】
+・@Valid と BindingResult を使用
+・エラー時はフォームに戻る</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 06 -->
+        <section class="section" id="step06">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">06</div>
+              <div>
+                <div class="step-title">View作成（一覧画面）</div>
+                <div class="step-desc">Thymeleafテンプレートで一覧・詳細画面を作成する</div>
+              </div>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 06: 一覧画面のThymeleafテンプレート</div>
+              <div class="prompt-text">タスク一覧画面のThymeleafテンプレートを作成してください。
+
+【ファイルパス】
+src/main/resources/templates/task/list.html
+
+【画面要件】
+・タイトル：「タスク一覧」
+・新規作成ボタン（/tasks/new へのリンク）
+・タスク一覧テーブル
+  - 列：ID、タイトル、期限、優先度、ステータス、操作
+  - 操作：詳細、編集、削除ボタン
+・タスクが0件の場合のメッセージ表示
+・成功メッセージの表示（Flash属性から）
+
+【Thymeleaf構文】
+・th:each でリスト繰り返し
+・th:text でテキスト出力
+・th:href でリンク生成
+・th:if / th:unless で条件分岐
+・#temporals.format() で日付フォーマット
+
+【レイアウト】
+・共通レイアウト（layout.html）を使用する場合は Thymeleaf Layout Dialect を使用
+・または単独のHTMLとして作成</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 07 -->
+        <section class="section" id="step07">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">07</div>
+              <div>
+                <div class="step-title">View作成（登録・編集画面）</div>
+                <div class="step-desc">フォーム入力画面を作成する</div>
+              </div>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 07: 登録・編集画面のThymeleafテンプレート</div>
+              <div class="prompt-text">タスク登録・編集画面のThymeleafテンプレートを作成してください。
+
+【ファイルパス】
+1. src/main/resources/templates/task/create.html（新規作成）
+2. src/main/resources/templates/task/edit.html（編集）
+
+【フォーム項目】
+・タイトル（テキスト、必須、最大100文字）
+・内容（テキストエリア、任意、最大1000文字）
+・期限（日付入力、必須）
+・優先度（セレクトボックス：高/中/低）
+・ステータス（セレクトボックス、編集時のみ）
+
+【バリデーションエラー表示】
+・各フィールドの下にエラーメッセージを表示
+・th:errors でエラー取得
+・エラー時はフィールドにエラークラスを付与
+
+【Thymeleaf構文】
+・th:object でフォームバインド
+・th:field でフィールドバインド
+・th:classappend でエラー時のクラス追加
+・th:errorclass でエラークラス
+
+【送信先】
+・新規作成：POST /tasks
+・編集：POST /tasks/{id}</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 08 -->
+        <section class="section" id="step08">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">08</div>
+              <div>
+                <div class="step-title">認証機能</div>
+                <div class="step-desc">Spring Securityでログイン機能を実装する</div>
+              </div>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 08: Spring Security認証機能</div>
+              <div class="prompt-text">Spring Securityを使用したログイン認証機能を実装してください。
+
+【依存関係追加】
+・spring-boot-starter-security
+
+【作成するファイル】
+1. SecurityConfig.java（セキュリティ設定）
+   - /login, /css/**, /js/** は認証不要
+   - その他のURLは認証必須
+   - ログインページ：/login
+   - ログイン成功後：/tasks
+   - ログアウト後：/login?logout
+
+2. CustomUserDetailsService.java
+   - UserDetailsServiceを実装
+   - UserMapperからユーザー情報を取得
+   - UserDetailsを返却
+
+3. login.html（ログイン画面）
+   - メールアドレス入力
+   - パスワード入力
+   - ログインボタン
+   - エラーメッセージ表示
+
+【ユーザーテーブル】
+usersテーブルが必要：
+- id, email, password, name, role, enabled, created_at
+
+【パスワードハッシュ化】
+・BCryptPasswordEncoderを使用
+
+【ログインユーザー取得】
+・@AuthenticationPrincipal でログインユーザーを取得</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 09 -->
+        <section class="section" id="step09">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">09</div>
+              <div>
+                <div class="step-title">画面デザイン適用</div>
+                <div class="step-desc">CSSを適用してUIを整える</div>
+              </div>
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> STEP 09: 画面デザイン適用</div>
+              <div class="prompt-text">Spring Bootアプリケーションにデザインを適用してください。
+
+【要件】
+・レスポンシブ対応
+・モダンでシンプルなデザイン
+
+【CSSファイル配置】
+・src/main/resources/static/css/style.css
+
+【デザイン要件】
+1. 共通レイアウト
+   - ヘッダー（サービス名、ログインユーザー名、ログアウトボタン）
+   - サイドバー（ナビゲーション）
+   - メインコンテンツエリア
+   - フッター
+
+2. 一覧画面
+   - テーブルのストライプ表示
+   - ステータスバッジ（色分け）
+   - ホバーエフェクト
+
+3. フォーム画面
+   - ラベルとフィールドの配置
+   - エラー表示のスタイル
+   - ボタンのスタイル
+
+4. レスポンシブ
+   - 768px以下でサイドバーをハンバーガーメニュー化
+   - テーブルの横スクロール対応
+
+【カラースキーム】
+・プライマリ：#2563eb（青）
+・成功：#059669（緑）
+・警告：#d97706（オレンジ）
+・エラー：#dc2626（赤）</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

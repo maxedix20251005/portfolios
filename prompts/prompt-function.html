@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>機能追加別プロンプト -  プロジェクトアーカイブ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="page-wrapper">
+  <aside class="sidebar" data-nav-level="prompts"></aside>
+
+    <main class="main-content">
+      <header class="doc-header">
+        <div class="doc-category">PROMPT COLLECTION</div>
+        <h1 class="doc-title">機能追加別プロンプト</h1>
+        <div class="doc-meta">
+          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-XX-XX</span>
+          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：（氏名を入力）</span>
+          <span><span class="material-symbols-outlined icon-sm">push_pin</span> Ver 1.0</span>
+        </div>
+      </header>
+
+      <div class="doc-body">
+
+        <div class="info-box info">
+          <strong>生成プロンプト</strong>
+          基本CRUDが完成した後に追加する機能のプロンプトです。
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次（機能一覧）</div>
+          <ol class="toc-list">
+            <li><a href="#func01">バリデーション強化</a></li>
+            <li><a href="#func02">検索機能</a></li>
+            <li><a href="#func03">ソート機能</a></li>
+            <li><a href="#func04">ページネーション</a></li>
+            <li><a href="#func05">CSV出力</a></li>
+            <li><a href="#func06">ファイルアップロード</a></li>
+            <li><a href="#func07">削除確認ダイアログ</a></li>
+            <li><a href="#func08">一括削除</a></li>
+            <li><a href="#func09">ステータス管理</a></li>
+            <li><a href="#func10">カテゴリ管理</a></li>
+          </ol>
+        </div>
+
+        <!-- 機能01: バリデーション強化 -->
+        <section class="section" id="func01">
+          <h2 class="section-title"><span class="section-icon">1</span> バリデーション強化</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">Bean Validationとカスタムバリデーションの実装</div>
+            <div class="fill-content">
+              <p>・入力値の厳密なチェック</p>
+              <p>・日本語エラーメッセージ</p>
+              <p>・カスタムバリデーションアノテーション</p>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> バリデーション強化プロンプト</div>
+            <div class="prompt-text">TaskFormのバリデーションを強化してください。
+
+【Bean Validationアノテーション】
+・title: @NotBlank, @Size(max=100)
+・content: @Size(max=1000)
+・dueDate: @NotNull, @FutureOrPresent
+・priority: @NotNull, @Min(1), @Max(3)
+
+【エラーメッセージ日本語化】
+・src/main/resources/messages.properties を作成
+・各フィールドに日本語メッセージを設定
+
+【カスタムバリデーション】
+・期限が過去の日付でないことをチェック
+・@FutureDateアノテーションを自作
+
+【実装ファイル】
+1. TaskForm.java（アノテーション追加）
+2. messages.properties（日本語メッセージ）
+3. FutureDate.java（カスタムアノテーション）
+4. FutureDateValidator.java（バリデータ実装）</div>
+          </div>
+        </section>
+
+        <!-- 機能02: 検索機能 -->
+        <section class="section" id="func02">
+          <h2 class="section-title"><span class="section-icon">2</span> 検索機能</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">キーワード検索と複合条件検索</div>
+            <div class="fill-content">
+              <p>・キーワードによるタイトル・内容検索</p>
+              <p>・カテゴリ、ステータスでの絞り込み</p>
+              <p>・期間指定での絞り込み</p>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> 検索機能プロンプト</div>
+            <div class="prompt-text">タスク検索機能を実装してください。
+
+【検索条件】
+・キーワード（title, content のLIKE検索）
+・カテゴリID（完全一致）
+・ステータス（完全一致）
+・期間（開始日〜終了日）
+
+【実装内容】
+1. SearchForm.java（検索条件フォーム）
+   - keyword, categoryId, status, startDate, endDate
+
+2. TaskMapper.java に search メソッド追加
+   - 動的SQL（&lt;if&gt;タグ）で条件を組み立て
+   - 条件がある場合のみWHERE句に追加
+
+3. TaskService.java に search メソッド追加
+
+4. TaskController.java
+   - GET /tasks に検索フォーム対応
+   - クエリパラメータで検索条件を受け取り
+
+5. list.html に検索フォーム追加
+   - 入力フィールド
+   - 検索ボタン
+   - クリアボタン
+   - 検索結果件数表示</div>
+          </div>
+        </section>
+
+        <!-- 機能03: ソート機能 -->
+        <section class="section" id="func03">
+          <h2 class="section-title"><span class="section-icon">3</span> ソート機能</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> ソート機能プロンプト</div>
+            <div class="prompt-text">一覧画面にソート機能を追加してください。
+
+【ソート対象】
+・タイトル（昇順/降順）
+・期限（昇順/降順）
+・優先度（昇順/降順）
+・作成日時（昇順/降順）
+
+【実装内容】
+1. TaskMapper.java
+   - selectAllWithSort(String sortBy, String order) メソッド
+   - ORDER BY句を動的に構築
+
+2. TaskController.java
+   - sortBy, order パラメータを受け取り
+   - デフォルトは作成日時降順
+
+3. list.html
+   - 各カラムヘッダーをクリック可能に
+   - 現在のソート状態をアイコンで表示（▲▼）
+   - ソート状態をURLパラメータで保持</div>
+          </div>
+        </section>
+
+        <!-- 機能04: ページネーション -->
+        <section class="section" id="func04">
+          <h2 class="section-title"><span class="section-icon">4</span> ページネーション</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> ページネーション機能プロンプト</div>
+            <div class="prompt-text">一覧画面にページネーションを追加してください。
+
+【要件】
+・1ページあたり10件表示
+・ページナビゲーション（前へ/次へ/ページ番号）
+・総件数と現在表示範囲の表示
+
+【実装内容】
+1. Page&lt;T&gt; クラス（汎用ページングクラス）
+   - content: List&lt;T&gt;（データ）
+   - totalElements: long（総件数）
+   - totalPages: int（総ページ数）
+   - currentPage: int（現在ページ）
+   - size: int（1ページあたり件数）
+
+2. TaskMapper.java
+   - selectWithPaging(int offset, int limit)
+   - count() メソッド
+
+3. TaskService.java
+   - findAll(int page, int size) → Page&lt;Task&gt;
+
+4. TaskController.java
+   - page パラメータを受け取り（デフォルト0）
+
+5. list.html
+   - ページナビゲーションコンポーネント
+   - 「1-10 / 全100件」のような表示</div>
+          </div>
+        </section>
+
+        <!-- 機能05: CSV出力 -->
+        <section class="section" id="func05">
+          <h2 class="section-title"><span class="section-icon">5</span> CSV出力</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> CSV出力機能プロンプト</div>
+            <div class="prompt-text">タスク一覧をCSVでダウンロードする機能を追加してください。
+
+【出力内容】
+・ヘッダー行：ID,タイトル,内容,期限,優先度,ステータス,作成日時
+・全タスクをCSV形式で出力
+・文字コード：UTF-8（BOM付き、Excelで開けるように）
+
+【実装内容】
+1. CsvService.java
+   - タスクリストをCSV文字列に変換
+   - 改行やカンマを含む場合はダブルクォート囲み
+
+2. TaskController.java
+   - GET /tasks/export
+   - Content-Type: text/csv
+   - Content-Disposition: attachment; filename="tasks.csv"
+
+3. list.html
+   - 「CSVダウンロード」ボタン追加</div>
+          </div>
+        </section>
+
+        <!-- 機能06: ファイルアップロード -->
+        <section class="section" id="func06">
+          <h2 class="section-title"><span class="section-icon">6</span> ファイルアップロード</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> ファイルアップロード機能プロンプト</div>
+            <div class="prompt-text">タスクに添付ファイルをアップロードする機能を追加してください。
+
+【要件】
+・画像ファイル（jpg, png, gif）のみ許可
+・ファイルサイズ上限：5MB
+・アップロード先：src/main/resources/static/uploads/
+
+【実装内容】
+1. application.properties
+   - spring.servlet.multipart.max-file-size=5MB
+   - アップロード先パス設定
+
+2. FileUploadService.java
+   - ファイル保存処理
+   - ファイル名の重複回避（UUID付与）
+   - 拡張子チェック
+
+3. TaskForm.java
+   - MultipartFile attachmentFile フィールド追加
+
+4. Task.java / tasksテーブル
+   - attachment_path カラム追加
+
+5. create.html / edit.html
+   - ファイル選択フォーム追加
+   - enctype="multipart/form-data"
+
+6. detail.html
+   - 添付ファイル表示</div>
+          </div>
+        </section>
+
+        <!-- 機能07: 削除確認ダイアログ -->
+        <section class="section" id="func07">
+          <h2 class="section-title"><span class="section-icon">7</span> 削除確認ダイアログ</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> 削除確認ダイアログプロンプト</div>
+            <div class="prompt-text">削除ボタンクリック時に確認ダイアログを表示してください。
+
+【要件】
+・モーダルダイアログで確認
+・「本当に削除しますか？」メッセージ
+・「削除する」「キャンセル」ボタン
+
+【実装内容】
+1. JavaScript（static/js/delete-confirm.js）
+   - 削除ボタンクリック時にモーダル表示
+   - 確認後にフォーム送信
+
+2. CSS（モーダルスタイル）
+   - オーバーレイ
+   - 中央配置のダイアログ
+   - アニメーション
+
+3. list.html
+   - モーダルHTMLの追加
+   - 削除ボタンにdata属性で削除対象IDを設定
+
+【JavaScriptの動作】
+・削除ボタンクリック → モーダル表示
+・「削除する」クリック → 隠しフォームをsubmit
+・「キャンセル」クリック → モーダルを閉じる</div>
+          </div>
+        </section>
+
+        <!-- 機能08: 一括削除 -->
+        <section class="section" id="func08">
+          <h2 class="section-title"><span class="section-icon">8</span> 一括削除</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> 一括削除機能プロンプト</div>
+            <div class="prompt-text">複数タスクを選択して一括削除する機能を追加してください。
+
+【要件】
+・チェックボックスで複数選択
+・「選択したタスクを削除」ボタン
+・全選択/全解除機能
+
+【実装内容】
+1. TaskController.java
+   - POST /tasks/bulk-delete
+   - List&lt;Long&gt; ids パラメータで削除対象ID受け取り
+
+2. TaskService.java
+   - deleteMultiple(List&lt;Long&gt; ids) メソッド
+
+3. TaskMapper.java
+   - deleteByIds(List&lt;Long&gt; ids) メソッド
+   - WHERE id IN (&lt;foreach&gt;) で削除
+
+4. list.html
+   - 各行にチェックボックス追加
+   - ヘッダーに全選択チェックボックス
+   - 「選択削除」ボタン
+
+5. JavaScript
+   - 全選択/全解除の連動
+   - 選択件数の表示
+   - 0件選択時はボタン無効化</div>
+          </div>
+        </section>
+
+        <!-- 機能09: ステータス管理 -->
+        <section class="section" id="func09">
+          <h2 class="section-title"><span class="section-icon">9</span> ステータス管理</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> ステータス管理機能プロンプト</div>
+            <div class="prompt-text">タスクのステータス管理を強化してください。
+
+【ステータス一覧】
+・TODO（未着手）
+・DOING（作業中）
+・HOLD（保留）
+・DONE（完了）
+・CANCELLED（中止）
+
+【実装内容】
+1. TaskStatus.java（Enum）
+   - 各ステータスの定義
+   - 表示名、色コードを保持
+   - 遷移可能なステータスリストを返すメソッド
+
+2. TaskService.java
+   - changeStatus(Long id, String status)
+   - 遷移可否チェック
+
+3. TaskController.java
+   - POST /tasks/{id}/status
+   - ステータス変更処理
+
+4. list.html / detail.html
+   - ステータスバッジ表示（色分け）
+   - ワンクリックでステータス変更
+   - 遷移可能なステータスのみ選択可能</div>
+          </div>
+        </section>
+
+        <!-- 機能10: カテゴリ管理 -->
+        <section class="section" id="func10">
+          <h2 class="section-title"><span class="section-icon">10</span> カテゴリ管理</h2>
+
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> カテゴリ管理機能プロンプト</div>
+            <div class="prompt-text">タスクにカテゴリを設定できる機能を追加してください。
+
+【要件】
+・カテゴリのCRUD機能
+・タスクにカテゴリを紐付け
+・カテゴリ別のタスク一覧
+
+【テーブル追加】
+categories テーブル
+- id: BIGINT (PK)
+- name: VARCHAR(50)
+- color: VARCHAR(20)
+- user_id: BIGINT (FK)
+
+tasksテーブルに category_id カラム追加
+
+【実装内容】
+1. Category.java（Entity）
+2. CategoryMapper.java
+3. CategoryService.java
+4. CategoryController.java
+   - /categories でCRUD
+
+5. TaskFormにcategoryId追加
+6. タスク作成/編集時にカテゴリ選択
+
+7. 画面
+   - カテゴリ管理画面
+   - タスク一覧でカテゴリバッジ表示
+   - カテゴリでフィルタリング</div>
+          </div>
+        </section>
+
+        
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
