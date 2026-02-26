@@ -52,30 +52,26 @@
         <div class="toc">
           <div class="toc-title">目次</div>
           <ol class="toc-list">
-            <li><a href="#sec-01">Executive Summary</a></li>
-            <li><a href="#sec-02">背景・現状</a></li>
-            <li><a href="#sec-03">課題の構造化</a></li>
-            <li><a href="#sec-04">仮説設定</a></li>
-            <li><a href="#sec-05">解決戦略</a></li>
-            <li><a href="#sec-06">施策設計</a></li>
-            <li><a href="#sec-07">数値シミュレーション</a></li>
-            <li><a href="#sec-08">検証設計</a></li>
-            <li><a href="#sec-09">実行計画</a></li>
-            <li><a href="#sec-10">予算</a></li>
-            <li><a href="#sec-11">次フェーズ</a></li>
+            <li><a href="#re-01">プロジェクト概要</a></li>
+            <li><a href="#re-02">背景と課題</a></li>
+            <li><a href="#re-03">提案するソリューション</a></li>
+            <li><a href="#re-04">制作範囲</a></li>
+            <li><a href="#re-05">使用技術</a></li>
+            <li><a href="#re-06">スケジュール</a></li>
+            <li><a href="#re-07">Appendix</a></li>
           </ol>
         </div>
 
-        <section class="section proposal-section" id="sec-01">
+        <section class="section proposal-section" id="re-01">
           <header class="section__head">
-            <h2 class="section__title">01 Executive Summary</h2>
+            <h2 class="section__title section__title--bar">01 プロジェクト概要</h2>
             <p class="section__lead">
               「香りが作れるワークショップ」（以降ワークショップ）は、参加者から高い体験価値と評価（じゃらん：4.9）を得ている一方で、直近では予約（開催）数が減少傾向にあります。<br>
               本提案では、このギャップをWebサイト改善で解消し、予約数の回復につなげる具体策を提示します。<br>
               「体験価値は既に証明されています。あとは、その価値を“正しく届ける設計”に最適化するだけです。」
             </p>
           </header>
-          <div class="proposal-card">
+           <div class="proposal-card">
             <h3 class="h3">ポイント（結論）</h3>
             <ul class="list">
               <li>課題の中心は「体験の質」ではなく、Web上の<strong>辿り着き方（到達）</strong>と<strong>決め手（CVR）</strong>にある可能性が高い</li>
@@ -83,17 +79,43 @@
               <li>改善は数値（到達率／CVR）で検証し、段階的に拡張する</li>
             </ul>
           </div>
+         <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">現状認識</h3>
+              <ul class="list">
+                <li>参加者評価は高水準（じゃらん 4.9）</li>
+                <li>直近の予約（開催）数は減少傾向</li>
+                <li>課題の中心は「体験の質」より「届け方」の可能性が高い</li>
+              </ul>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">短期ゴール</h3>
+              <pre class="code">予約数目標：月40回以上
+現状想定：月25回
+必要倍率：×1.6（+60%）</pre>
+              <p class="note">達成手段は、流入よりも「到達率 × CVR」の改善を優先します。</p>
+            </div>
+          </div>
+          <div class="proposal-card">
+            <h3 class="h3">提案の結論</h3>
+            <ul class="list">
+              <li>短期施策は「導線設計」と「価値伝達」に絞る</li>
+              <li>Phase1で実行と検証を完了し、数値を見て拡張判断する</li>
+            </ul>
+          </div>
         </section>
 
-        <section class="section proposal-section" id="sec-02">
+        <section class="section proposal-section" id="re-02">
           <header class="section__head">
-            <h2 class="section__title">02 背景・現状</h2>
+            <h2 class="section__title section__title--bar">02 背景と課題</h2>
             <p class="section__lead">
               体験の満足度が高いにもかかわらず予約（開催）数が減少している、という事実は重要です。<br>
               本章ではまず「何が起きているか」を事実ベースで整理し、次章以降の構造整理・仮説設定につなげます。
             </p>
-          </header>
-          <div class="grid grid--2">
+
+         </header>
+             <h2>現状の明確化</h2>
+                      <div class="grid grid--2">
             <div class="proposal-card">
               <h3 class="h3">観測されている事実</h3>
               <ul class="list">
@@ -110,18 +132,8 @@
               </ul>
             </div>
           </div>
-        </section>
-
-        <section class="section proposal-section" id="sec-03">
-          <header class="section__head">
-            <h2 class="section__title">03 課題の構造化</h2>
-            <p class="section__lead">
-              予約数は偶然の結果ではなく、<strong>流入 × 到達率 × 決定率（CVR）</strong>として分解できます。<br>
-              本章では、どこにロスがあり得るかを構造で整理します。
-            </p>
-          </header>
-
-          <div class="proposal-card">
+                       <h2>課題の構造化</h2>
+         <div class="proposal-card">
             <h3 class="h3">構造式</h3>
             <pre class="code">予約数 ＝ 流入（セッション） × 到達率 × 決定率（CVR）</pre>
             <p class="note">どこか一つでもロスがあれば、最終的な予約数は大きく減少します。</p>
@@ -185,19 +197,18 @@ CVR：1.5%</pre>
   ↓
 予約完了（CVR）</pre>
             <p class="note">ロスが発生しやすいのは「トップ→ワークショップ到達」と「ページ内→予約完了」です。</p>
-          </div>
-        </section>
+          </div>        </section>
 
-        <section class="section proposal-section" id="sec-04">
+        <section class="section proposal-section" id="re-03">
           <header class="section__head">
-            <h2 class="section__title">04 仮説設定</h2>
+            <h2 class="section__title section__title--bar">03 提案するソリューション</h2>
             <p class="section__lead">
-              構造整理の結果、短期で改善可能な論点は<strong>到達率</strong>と<strong>決定率（CVR）</strong>です。<br>
-              本章では、可能性のある仮説を網羅し、影響度・改善可能性・検証可能性で優先順位を整理します。
+              優先仮説に対して、短期で成果を狙える施策をパッケージ化してご提案します。<br>
+              到達率改善とCVR改善を同時に進め、予約数の回復速度を最大化します。
             </p>
           </header>
-
-          <div class="proposal-card">
+             <h2>仮説 → 評価 → 結論</h2>
+            <div class="proposal-card">
             <h3 class="h3">仮説一覧（網羅）</h3>
             <div class="table-wrap">
               <table class="table">
@@ -320,24 +331,14 @@ CVR ×1.45（例：1.5%→2.2%）
           </div>
 
           <div class="proposal-card">
-            <h3 class="h3">結論（断定）</h3>
+            <h3 class="h3">結論</h3>
             <p class="lead">
               体験評価が高水準である以上、まず疑うべきは「体験の質」ではなく「届け方」です。<br>
               以上の検討から、短期で成果を出すためには<strong>「導線設計」</strong>と<strong>「体験価値の伝達」</strong>に集中するのが最も合理的であると判断します。
             </p>
             <p class="note">本仮説は数値で検証可能です。想定した改善が見られない場合は、価格心理やターゲット要因へ段階的に拡張します。</p>
           </div>
-        </section>
-
-        <section class="section proposal-section" id="sec-05">
-          <header class="section__head">
-            <h2 class="section__title">05 解決戦略</h2>
-            <p class="section__lead">
-              04章の結論（導線設計／価値伝達に集中）を、実行に落とし込むための改善方針を整理します。<br>
-              “短期で成果を出す”ために、対象と手順をあえて絞り込みます。
-            </p>
-          </header>
-
+          <h2>導き出される戦略</h2>
           <div class="grid grid--2">
             <div class="proposal-card">
               <h3 class="h3">戦略①：改善対象を絞る</h3>
@@ -389,17 +390,7 @@ CVR ×1.45（例：1.5%→2.2%）
             </div>
             <p class="note"><strong>まずは「辿り着ける状態」と「決められる状態」を作る。</strong></p>
           </div>
-        </section>
-
-        <section class="section proposal-section" id="sec-06">
-          <header class="section__head">
-            <h2 class="section__title">06 施策設計</h2>
-            <p class="section__lead">
-              戦略（05章）を実行レベルに落とし込むため、施策を幅出し→分類→選定の順で整理します。<br>
-              “結論に至る過程”を見える化し、意思決定しやすい形にまとめます。
-            </p>
-          </header>
-
+          <h2>施策設計</h2>
           <div class="grid grid--2">
             <div class="proposal-card">
               <h3 class="h3">仮説①：導線設計の弱さ（施策例）</h3>
@@ -494,262 +485,220 @@ CVR ×1.45（例：1.5%→2.2%）
             <p class="note"><strong>本提案ではPhase1を実行対象として確定し、数値改善の確認後にPhase2以降へ段階的に拡張します。</strong></p>
           </div>
 
-          <div class="proposal-card">
+          <!-- <div class="proposal-card">
             <p class="note">では、これらの施策を実行した場合、どの程度の数値改善が見込めるのか。次章でシミュレーションを提示します。</p>
-          </div>
-        </section>
+          </div> -->
+          </section>
 
-        <section class="section proposal-section" id="sec-07">
+        <section class="section proposal-section" id="re-04">
           <header class="section__head">
-            <h2 class="section__title">07 数値シミュレーション</h2>
+            <h2 class="section__title section__title--bar">04 制作範囲</h2>
             <p class="section__lead">
-              Phase1（Quick Win）施策を実行した場合、予約数がどの程度改善するかをシミュレーションします。<br>
-              目標は<strong>月40回以上</strong>の回復です。
+              Phase1（Quick Win）は、<strong>バッファ込み合計10人日</strong>でのご提案です。<br />
+              カレンダー期間（2/20–4/3）と工数（10人日）は別物であり、レビュー待ち・打ち合わせ等の「非作業日」を含む前提で、無理のない計画にしています。
             </p>
           </header>
-
           <div class="grid grid--2">
             <div class="proposal-card">
-              <h3 class="h3">現状の再確認（仮定）</h3>
-              <pre class="code">月間セッション：5,000
-到達率：30%
-CVR：1.5%</pre>
-              <pre class="code">5,000 × 0.30 × 0.015 ≒ 25回</pre>
-              <p class="note">※前提値が確定したら差し替え可能</p>
+              <h3 class="h3">In Scope（今回実施）</h3>
+              <ul class="list">
+                <li>トップページとワークショップページの導線・訴求改善</li>
+                <li>CTA配置最適化、FV改善、レビュー・安心材料の再配置</li>
+                <li>KPI計測と微調整までを含む実行</li>
+              </ul>
             </div>
             <div class="proposal-card">
-              <h3 class="h3">目標達成に必要な倍率</h3>
-              <pre class="code">40 ÷ 25 ＝ ×1.6（+60%）</pre>
-              <p class="note">全体で×1.6の改善が必要</p>
+              <h3 class="h3">Out of Scope（今回は対象外）</h3>
+              <ul class="list">
+                <li>検索・マップ・外部集客の流入拡張施策</li>
+                <li>大規模な情報設計刷新や新規機能開発</li>
+              </ul>
             </div>
           </div>
-
+ 
           <div class="proposal-card">
-            <h3 class="h3">シナリオ比較（経営判断用）</h3>
-            <div class="table-wrap">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>シナリオ</th>
-                    <th>狙い</th>
-                    <th>短期実現性</th>
-                    <th>コメント</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>A</td>
-                    <td>流入×1.6（5,000→8,000）</td>
-                    <td>低</td>
-                    <td>広告/SEO等が必要（短期では非現実的）</td>
-                  </tr>
-                  <tr>
-                    <td>B</td>
-                    <td>到達率×1.17 ＆ CVR×1.45</td>
-                    <td>中〜高</td>
-                    <td>ページ改善で検証しながら実行可能</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <pre class="code">25 × 1.17 × 1.45 ≒ 42回（標準シナリオ）</pre>
-          </div>
-
-          <div class="proposal-card">
-            <h3 class="h3">想定レンジ（目安）</h3>
-            <div class="table-wrap">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>レンジ</th>
-                    <th>想定予約数</th>
-                    <th>実現性</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>保守</td>
-                    <td>33回</td>
-                    <td>高</td>
-                  </tr>
-                  <tr>
-                    <td><strong>標準</strong></td>
-                    <td><strong>42回</strong></td>
-                    <td>中〜高</td>
-                  </tr>
-                  <tr>
-                    <td>上振れ</td>
-                    <td>48回</td>
-                    <td>中</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="proposal-card">
-            <h3 class="h3">結論</h3>
-            <p class="lead">
-              Phase1施策により、予約数40回以上の回復は十分射程圏内です。<br>
-              改善は再現性のある指標（到達率／CVR）で検証可能です。
-            </p>
-          </div>
-        </section>
-
-        <section class="section proposal-section" id="sec-08">
-          <header class="section__head">
-            <h2 class="section__title">08 検証設計</h2>
-            <p class="section__lead">
-              Phase1施策は「やったか」ではなく「数値が動いたか」で判断します。<br>
-              仮説→施策→指標→判断のルールを先に決め、短期で学習し、次フェーズへ確実につなげます。
-            </p>
-          </header>
-
-          <div class="proposal-card">
-            <h3 class="h3">検証の原則</h3>
+            <h3 class="h3">前提</h3>
             <ul class="list">
-              <li><strong>改善＝実験</strong>：施策はすべて仮説。結果が出て初めて正当化される</li>
-              <li><strong>先行指標→遅行指標</strong>：まず到達率とCVRの変化を確認し、最終的に予約数で評価</li>
-              <li><strong>日次判断はしない</strong>：最低2週間単位で傾向を見る（曜日要因・イベント要因を吸収）</li>
+              <li>人月単価：600,000円（20営業日換算）</li>
+              <li>人日単価：30,000円</li>
+              <li>体制：1名（End-to-End）</li>
             </ul>
           </div>
 
-          <div class="proposal-card">
-            <h3 class="h3">KPI（倍率表現で統一）</h3>
-            <pre class="code">予約数 ＝ 流入（セッション） × 到達率 × CVR</pre>
+           <div class="proposal-card">
+            <h3 class="h3">内訳（Phase1：Quick Win）</h3>
             <div class="table-wrap">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>KPI</th>
-                    <th>定義</th>
-                    <th>現状（仮）</th>
-                    <th>目標（仮）</th>
-                    <th>改善倍率</th>
-                    <th>判断基準（例）</th>
+                    <th>工程</th>
+                    <th>人日</th>
+                    <th>単価</th>
+                    <th>小計</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>到達率</td>
-                    <td>トップ→ワークショップ到達率</td>
-                    <td>30%</td>
-                    <td>35%</td>
-                    <td>×1.17</td>
-                    <td>4週平均で+4pt以上</td>
+                    <td>設計・要件整理</td>
+                    <td>3日</td>
+                    <td>30,000円</td>
+                    <td>90,000円</td>
                   </tr>
                   <tr>
-                    <td>CVR</td>
-                    <td>ワークショップ→予約完了率</td>
-                    <td>1.5%</td>
-                    <td>2.2%</td>
-                    <td>×1.45</td>
-                    <td>2週間以上で改善傾向を確認</td>
+                    <td>デザイン・実装</td>
+                    <td>4日</td>
+                    <td>30,000円</td>
+                    <td>120,000円</td>
                   </tr>
                   <tr>
-                    <td>予約数</td>
-                    <td>月次予約完了数</td>
-                    <td>25回</td>
-                    <td>40回以上</td>
-                    <td>×1.60</td>
-                    <td>月次で40回到達</td>
+                    <td>検証・改善</td>
+                    <td>2日</td>
+                    <td>30,000円</td>
+                    <td>60,000円</td>
+                  </tr>
+                  <tr>
+                    <td>バッファ</td>
+                    <td>1日</td>
+                    <td>30,000円</td>
+                    <td>30,000円</td>
+                  </tr>
+                  <tr>
+                    <td><strong>合計</strong></td>
+                    <td><strong>10日</strong></td>
+                    <td>-</td>
+                    <td><strong>300,000円</strong></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="note">※現状値は確定後に差し替え可能（構造は不変）。</p>
-          </div>
-
-          <div class="grid grid--2">
-            <div class="proposal-card">
-              <h3 class="h3">仮説×指標（観測設計）</h3>
-              <div class="table-wrap">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>仮説</th>
-                      <th>主要KPI</th>
-                      <th>先行指標（例）</th>
-                      <th>確認観点</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>①導線設計の弱さ</td>
-                      <td>到達率</td>
-                      <td>CTAクリック率／トップ内の導線クリック</td>
-                      <td>到達が増えるか</td>
-                    </tr>
-                    <tr>
-                      <td>②ベネフィット伝達不足</td>
-                      <td>CVR</td>
-                      <td>スクロール到達率／滞在時間／FAQクリック</td>
-                      <td>決断材料が効くか</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="proposal-card">
-              <h3 class="h3">実験デザイン（A/Bまたは差分検証）</h3>
-              <ul class="list">
-                <li><strong>導線（到達率）</strong>：固定CTA／トップ主役化／中間CTA（位置別）</li>
-                <li><strong>価値（CVR）</strong>：完成写真の上位配置／レビュー抜粋の上部配置／不安低減要素（初心者歓迎・持ち物不要）</li>
-                <li><strong>期間</strong>：最低2週間（曜日要因を吸収）</li>
-              </ul>
-              <p class="note">外部フォームで完了計測が難しい場合は、フォーム遷移クリックを代替指標として併用します。</p>
-            </div>
+            <p class="note">※Phase2/3はPhase1の効果検証後に、優先順位と範囲を確定し別途見積します。</p>
           </div>
 
           <div class="proposal-card">
-            <h3 class="h3">判断分岐（次の一手）</h3>
+            <h3 class="h3">スケジュール連動（いつ・どこでコストを使うか）</h3>
+            <p class="note">工数（人日）は、カレンダー上の期間に対して下記のイメージで消化します（レビュー待ち等を含むため、毎日フル稼働ではありません）。</p>
             <div class="table-wrap">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>観測結果</th>
-                    <th>解釈</th>
-                    <th>次アクション</th>
+                    <th>区分</th>
+                    <th>カレンダー期間</th>
+                    <th>配分工数</th>
+                    <th>配分金額</th>
+                    <th>成果確認ポイント</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>到達率↑ / CVR→</td>
-                    <td>導線が主因</td>
-                    <td>導線施策を拡張（Phase1内で追加）</td>
+                    <td>設計</td>
+                    <td>2/20–3/11</td>
+                    <td>3人日</td>
+                    <td>90,000円</td>
+                    <td>ワイヤー／ガイドライン確定</td>
                   </tr>
                   <tr>
-                    <td>到達率→ / CVR↑</td>
-                    <td>価値伝達が主因</td>
-                    <td>訴求設計を拡張（Phase2の一部前倒し）</td>
+                    <td>実装</td>
+                    <td>3/16–3/27</td>
+                    <td>4人日</td>
+                    <td>120,000円</td>
+                    <td>改修リリース</td>
                   </tr>
                   <tr>
-                    <td>到達率↑ / CVR↑</td>
-                    <td>仮説支持</td>
-                    <td>Phase2へ（情報設計を厚くして伸ばす）</td>
+                    <td>検証</td>
+                    <td>3/30–4/3</td>
+                    <td>2人日</td>
+                    <td>60,000円</td>
+                    <td>到達率／CVRの改善傾向</td>
                   </tr>
                   <tr>
-                    <td>到達率→ / CVR→</td>
-                    <td>仮説棄却の可能性</td>
-                    <td>価格心理／ターゲット／告知へ論点移行</td>
+                    <td>バッファ</td>
+                    <td>全期間</td>
+                    <td>1人日</td>
+                    <td>30,000円</td>
+                    <td>想定外対応・微調整</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="note">「動かない」ことも成果です。次の仮説に進む判断ができます。</p>
           </div>
         </section>
 
-        <section class="section proposal-section" id="sec-09">
+        <section class="section proposal-section" id="re-05">
           <header class="section__head">
-            <h2 class="section__title">09 実行計画</h2>
+            <h2 class="section__title section__title--bar">05 使用技術</h2>
+          </header>
+          <div class="proposal-card">
+            <h3 class="h3">技術スタック</h3>
+            <div class="table-wrap">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>区分</th>
+                    <th>技術</th>
+                    <th>用途</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="template-row">
+                    <td>フロントエンド</td>
+                    <td>HTML / CSS / JavaScript</td>
+                    <td>Webサイト構築</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>CSSフレームワーク</td>
+                    <td>（Tailwind CSS 等）</td>
+                    <td>スタイリング効率化</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>バックエンド</td>
+                    <td>Java / Spring Boot</td>
+                    <td>Webアプリケーション</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>テンプレートエンジン</td>
+                    <td>Thymeleaf</td>
+                    <td>画面表示</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>O/Rマッピング</td>
+                    <td>MyBatis</td>
+                    <td>データベース操作</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>データベース</td>
+                    <td>（MySQL / H2 等）</td>
+                    <td>データ永続化</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>デザインツール</td>
+                    <td>Figma</td>
+                    <td>ワイヤーフレーム・モックアップ</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>バージョン管理</td>
+                    <td>Git / GitHub</td>
+                    <td>ソースコード管理・公開</td>
+                  </tr>
+                  <tr class="template-row">
+                    <td>AI活用</td>
+                    <td>ChatGPT / Claude</td>
+                    <td>プロンプトプログラミング</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section proposal-section" id="re-06">
+          <header class="section__head">
+            <h2 class="section__title section__title--bar">06 スケジュール</h2>
             <p class="section__lead">
-              Phase1（Quick Win）を確実に実行するため、実日付で計画を固定します。<br>
-              稼働は平日のみ。打ち合わせ等で作業できない日（2/27・3/2・3/3）は除外しています。
+              実行順序と意思決定タイミングを明確にし、合意後すぐに着手できる計画をご提示します。<br />
+              ※Phase1（Quick Win）を確実に実行するため、実日付で計画を固定します。<br />
+              ※稼働は平日のみ。打ち合わせ等で作業できない日（2/27・3/2・3/3）は除外しています。
             </p>
           </header>
-
           <div class="proposal-card">
             <h3 class="h3">スケジュール（Phase1〜3：実日付）</h3>
             <div class="table-wrap">
@@ -802,14 +751,14 @@ CVR：1.5%</pre>
                   <tr>
                     <td>Phase2</td>
                     <td>構造強化（設計＋実装）</td>
-                    <td>4/16–5/8（想定）</td>
+                    <td>4/16–5/8</td>
                     <td>17</td>
                     <td>情報設計強化／FAQ／フォーム整理</td>
                   </tr>
                   <tr>
                     <td>Phase3</td>
                     <td>流入拡張（中期）</td>
-                    <td>5/11–7/3（想定）</td>
+                    <td>5/11–7/3</td>
                     <td>40</td>
                     <td>SEO／マップ最適化／イベント施策</td>
                   </tr>
@@ -974,125 +923,268 @@ CVR：1.5%</pre>
           </div>
         </section>
 
-        <section class="section proposal-section" id="sec-10">
+        <section class="section proposal-section" id="re-07">
           <header class="section__head">
-            <h2 class="section__title">10 予算</h2>
+            <h2 class="section__title section__title--bar">07 Appendix</h2>
             <p class="section__lead">
-              Phase1（Quick Win）は、<strong>バッファ込み合計10人日</strong>でのご提案です。<br>
-              カレンダー期間（2/20–4/3）と工数（10人日）は別物であり、レビュー待ち・打ち合わせ等の「非作業日」を含む前提で、無理のない計画にしています。
+              ※Placeholder（ここにリード文を記載予定）
+            </p>
+          <div class="proposal-card">
+            <!-- <h3 class="h3">Appendix</h3> -->
+            <ul class="list">
+              <li><a href="#sec-07">A01 数値シミュレーション</a></li>
+              <li><a href="#sec-08">A02 検証設計</a></li>
+              <li><a href="#sec-11">A03 次フェーズ（中期計画）</a></li>
+            </ul>
+          </div>
+          </header>
+        </section>
+
+        <section class="section proposal-section" id="sec-A1">
+          <header class="section__head">
+            <h2 class="section__title">A1 数値シミュレーション</h2>
+            <p class="section__lead">
+              Phase1（Quick Win）施策を実行した場合、予約数がどの程度改善するかをシミュレーションします。<br>
+              目標は<strong>月40回以上</strong>の回復です。
+            </p>
+          </header>
+
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">現状の再確認（仮定）</h3>
+              <pre class="code">月間セッション：5,000
+到達率：30%
+CVR：1.5%</pre>
+              <pre class="code">5,000 × 0.30 × 0.015 ≒ 25回</pre>
+              <p class="note">※前提値が確定したら差し替え可能</p>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">目標達成に必要な倍率</h3>
+              <pre class="code">40 ÷ 25 ＝ ×1.6（+60%）</pre>
+              <p class="note">全体で×1.6の改善が必要</p>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">シナリオ比較（経営判断用）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>シナリオ</th>
+                    <th>狙い</th>
+                    <th>短期実現性</th>
+                    <th>コメント</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A</td>
+                    <td>流入×1.6（5,000→8,000）</td>
+                    <td>低</td>
+                    <td>広告/SEO等が必要（短期では非現実的）</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>到達率×1.17 ＆ CVR×1.45</td>
+                    <td>中〜高</td>
+                    <td>ページ改善で検証しながら実行可能</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code">25 × 1.17 × 1.45 ≒ 42回（標準シナリオ）</pre>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">想定レンジ（目安）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>レンジ</th>
+                    <th>想定予約数</th>
+                    <th>実現性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>保守</td>
+                    <td>33回</td>
+                    <td>高</td>
+                  </tr>
+                  <tr>
+                    <td><strong>標準</strong></td>
+                    <td><strong>42回</strong></td>
+                    <td>中〜高</td>
+                  </tr>
+                  <tr>
+                    <td>上振れ</td>
+                    <td>48回</td>
+                    <td>中</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">結論</h3>
+            <p class="lead">
+              Phase1施策により、予約数40回以上の回復は十分射程圏内です。<br>
+              改善は再現性のある指標（到達率／CVR）で検証可能です。
+            </p>
+          </div>
+        </section>
+
+        <section class="section proposal-section" id="sec-A2">
+          <header class="section__head">
+            <h2 class="section__title">A2 検証設計</h2>
+            <p class="section__lead">
+              Phase1施策は「やったか」ではなく「数値が動いたか」で判断します。<br>
+              仮説→施策→指標→判断のルールを先に決め、短期で学習し、次フェーズへ確実につなげます。
             </p>
           </header>
 
           <div class="proposal-card">
-            <h3 class="h3">前提</h3>
+            <h3 class="h3">検証の原則</h3>
             <ul class="list">
-              <li>人月単価：600,000円（20営業日換算）</li>
-              <li>人日単価：30,000円</li>
-              <li>体制：1名（End-to-End）</li>
+              <li><strong>改善＝実験</strong>：施策はすべて仮説。結果が出て初めて正当化される</li>
+              <li><strong>先行指標→遅行指標</strong>：まず到達率とCVRの変化を確認し、最終的に予約数で評価</li>
+              <li><strong>日次判断はしない</strong>：最低2週間単位で傾向を見る（曜日要因・イベント要因を吸収）</li>
             </ul>
           </div>
 
           <div class="proposal-card">
-            <h3 class="h3">内訳（Phase1：Quick Win）</h3>
+            <h3 class="h3">KPI（倍率表現で統一）</h3>
+            <pre class="code">予約数 ＝ 流入（セッション） × 到達率 × CVR</pre>
             <div class="table-wrap">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>工程</th>
-                    <th>人日</th>
-                    <th>単価</th>
-                    <th>小計</th>
+                    <th>KPI</th>
+                    <th>定義</th>
+                    <th>現状（仮）</th>
+                    <th>目標（仮）</th>
+                    <th>改善倍率</th>
+                    <th>判断基準（例）</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>設計・要件整理</td>
-                    <td>3日</td>
-                    <td>30,000円</td>
-                    <td>90,000円</td>
+                    <td>到達率</td>
+                    <td>トップ→ワークショップ到達率</td>
+                    <td>30%</td>
+                    <td>35%</td>
+                    <td>×1.17</td>
+                    <td>4週平均で+4pt以上</td>
                   </tr>
                   <tr>
-                    <td>デザイン・実装</td>
-                    <td>4日</td>
-                    <td>30,000円</td>
-                    <td>120,000円</td>
+                    <td>CVR</td>
+                    <td>ワークショップ→予約完了率</td>
+                    <td>1.5%</td>
+                    <td>2.2%</td>
+                    <td>×1.45</td>
+                    <td>2週間以上で改善傾向を確認</td>
                   </tr>
                   <tr>
-                    <td>検証・改善</td>
-                    <td>2日</td>
-                    <td>30,000円</td>
-                    <td>60,000円</td>
-                  </tr>
-                  <tr>
-                    <td>バッファ</td>
-                    <td>1日</td>
-                    <td>30,000円</td>
-                    <td>30,000円</td>
-                  </tr>
-                  <tr>
-                    <td><strong>合計</strong></td>
-                    <td><strong>10日</strong></td>
-                    <td>-</td>
-                    <td><strong>300,000円</strong></td>
+                    <td>予約数</td>
+                    <td>月次予約完了数</td>
+                    <td>25回</td>
+                    <td>40回以上</td>
+                    <td>×1.60</td>
+                    <td>月次で40回到達</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="note">※Phase2/3はPhase1の効果検証後に、優先順位と範囲を確定し別途見積します。</p>
+            <p class="note">※現状値は確定後に差し替え可能（構造は不変）。</p>
+          </div>
+
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">仮説×指標（観測設計）</h3>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>仮説</th>
+                      <th>主要KPI</th>
+                      <th>先行指標（例）</th>
+                      <th>確認観点</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>①導線設計の弱さ</td>
+                      <td>到達率</td>
+                      <td>CTAクリック率／トップ内の導線クリック</td>
+                      <td>到達が増えるか</td>
+                    </tr>
+                    <tr>
+                      <td>②ベネフィット伝達不足</td>
+                      <td>CVR</td>
+                      <td>スクロール到達率／滞在時間／FAQクリック</td>
+                      <td>決断材料が効くか</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="proposal-card">
+              <h3 class="h3">実験デザイン（A/Bまたは差分検証）</h3>
+              <ul class="list">
+                <li><strong>導線（到達率）</strong>：固定CTA／トップ主役化／中間CTA（位置別）</li>
+                <li><strong>価値（CVR）</strong>：完成写真の上位配置／レビュー抜粋の上部配置／不安低減要素（初心者歓迎・持ち物不要）</li>
+                <li><strong>期間</strong>：最低2週間（曜日要因を吸収）</li>
+              </ul>
+              <p class="note">外部フォームで完了計測が難しい場合は、フォーム遷移クリックを代替指標として併用します。</p>
+            </div>
           </div>
 
           <div class="proposal-card">
-            <h3 class="h3">スケジュール連動（いつ・どこでコストを使うか）</h3>
-            <p class="note">工数（人日）は、カレンダー上の期間に対して下記のイメージで消化します（レビュー待ち等を含むため、毎日フル稼働ではありません）。</p>
+            <h3 class="h3">判断分岐（次の一手）</h3>
             <div class="table-wrap">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>区分</th>
-                    <th>カレンダー期間</th>
-                    <th>配分工数</th>
-                    <th>配分金額</th>
-                    <th>成果確認ポイント</th>
+                    <th>観測結果</th>
+                    <th>解釈</th>
+                    <th>次アクション</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>設計</td>
-                    <td>2/20–3/11</td>
-                    <td>3人日</td>
-                    <td>90,000円</td>
-                    <td>ワイヤー／ガイドライン確定</td>
+                    <td>到達率↑ / CVR→</td>
+                    <td>導線が主因</td>
+                    <td>導線施策を拡張（Phase1内で追加）</td>
                   </tr>
                   <tr>
-                    <td>実装</td>
-                    <td>3/16–3/27</td>
-                    <td>4人日</td>
-                    <td>120,000円</td>
-                    <td>改修リリース</td>
+                    <td>到達率→ / CVR↑</td>
+                    <td>価値伝達が主因</td>
+                    <td>訴求設計を拡張（Phase2の一部前倒し）</td>
                   </tr>
                   <tr>
-                    <td>検証</td>
-                    <td>3/30–4/3</td>
-                    <td>2人日</td>
-                    <td>60,000円</td>
-                    <td>到達率／CVRの改善傾向</td>
+                    <td>到達率↑ / CVR↑</td>
+                    <td>仮説支持</td>
+                    <td>Phase2へ（情報設計を厚くして伸ばす）</td>
                   </tr>
                   <tr>
-                    <td>バッファ</td>
-                    <td>全期間</td>
-                    <td>1人日</td>
-                    <td>30,000円</td>
-                    <td>想定外対応・微調整</td>
+                    <td>到達率→ / CVR→</td>
+                    <td>仮説棄却の可能性</td>
+                    <td>価格心理／ターゲット／告知へ論点移行</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p class="note">「動かない」ことも成果です。次の仮説に進む判断ができます。</p>
           </div>
         </section>
 
-        <section class="section proposal-section" id="sec-11">
+        <section class="section proposal-section" id="sec-A3">
           <header class="section__head">
-            <h2 class="section__title">11 次フェーズ</h2>
+            <h2 class="section__title">A3 次フェーズ以降のご提案</h2>
             <p class="section__lead">Phase1の成果を確認した上で、次に取り組むべき中期テーマを整理します。</p>
           </header>
           <div class="grid grid--2">
