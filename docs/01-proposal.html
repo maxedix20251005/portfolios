@@ -26,7 +26,7 @@
         </div>
       </header>
 
-      <div class="doc-body">
+      <div class="doc-body proposal-v2">
 
         <div class="external-link-box">
           <div class="external-link-box-title">
@@ -48,201 +48,931 @@
         <div class="toc">
           <div class="toc-title">目次</div>
           <ol class="toc-list">
-            <li><a href="#sec1">プロジェクト概要</a></li>
-            <li><a href="#sec2">背景と課題</a></li>
-            <li><a href="#sec3">提案するソリューション</a></li>
-            <li><a href="#sec4">制作範囲</a></li>
-            <li><a href="#sec5">使用技術</a></li>
-            <li><a href="#sec6">スケジュール</a></li>
+            <li><a href="#sec-01">Executive Summary</a></li>
+            <li><a href="#sec-02">背景・現状</a></li>
+            <li><a href="#sec-03">課題の構造化</a></li>
+            <li><a href="#sec-04">仮説設定</a></li>
+            <li><a href="#sec-05">解決戦略</a></li>
+            <li><a href="#sec-06">施策設計</a></li>
+            <li><a href="#sec-07">数値シミュレーション</a></li>
+            <li><a href="#sec-08">検証設計</a></li>
+            <li><a href="#sec-09">実行計画</a></li>
+            <li><a href="#sec-10">予算</a></li>
+            <li><a href="#sec-11">次フェーズ</a></li>
           </ol>
         </div>
 
-        <section class="section" id="sec1">
-          <h2 class="section-title"><span class="section-icon">1</span> プロジェクト概要</h2>
-
-        <div class="fill-block">
-          <div class="fill-label">サービス名 <span class="required">必須</span></div>
-          <div class="fill-hint">制作するWebサービスの名前</div>
-          <div class="fill-content">
-            <p>（サービス名を入力）</p>
+        <section class="section proposal-section" id="sec-01">
+          <header class="section__head">
+            <h2 class="section__title">01 Executive Summary</h2>
+            <p class="section__lead">
+              「香りが作れるワークショップ」（以降ワークショップ）は、参加者から高い体験価値と評価（じゃらん：4.9）を得ている一方で、直近では予約（開催）数が減少傾向にあります。<br>
+              本提案では、このギャップをWebサイト改善で解消し、予約数の回復につなげる具体策を提示します。<br>
+              「体験価値は既に証明されています。あとは、その価値を“正しく届ける設計”に最適化するだけです。」
+            </p>
+          </header>
+          <div class="proposal-card">
+            <h3 class="h3">ポイント（結論）</h3>
+            <ul class="list">
+              <li>課題の中心は「体験の質」ではなく、Web上の<strong>辿り着き方（到達）</strong>と<strong>決め手（CVR）</strong>にある可能性が高い</li>
+              <li>短期は「流入」ではなく<strong>到達率 × 決定率（CVR）</strong>の改善に集中するのが合理的</li>
+              <li>改善は数値（到達率／CVR）で検証し、段階的に拡張する</li>
+            </ul>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">以下の条件でWebサービスの名前を5つ提案してください。
-・業種：（例：カフェ、学習塾、フリーランス向けなど）
-・ターゲット：（例：20代女性、ビジネスパーソンなど）
-・イメージ：（例：おしゃれ、信頼感、親しみやすいなど）
-名前ごとに選んだ理由も説明してください。</div>
-          </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">コンセプト <span class="required">必須</span></div>
-          <div class="fill-hint">サービスを一言で表す説明（キャッチコピー＋1〜2文の説明）</div>
-          <div class="fill-content">
-            <p>（キャッチコピーとコンセプト説明を入力）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">「（サービス名）」のコンセプトを作成してください。
-・キャッチコピー（15字以内）
-・サービスの説明（50〜100字）
-ターゲットは（ターゲット情報）です。</div>
-          </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">ターゲットユーザー <span class="required">必須</span></div>
-          <div class="fill-hint">このサービスを使う主なユーザー像（概要レベル）</div>
-          <div class="fill-content">
-            <p>（ターゲットユーザーの概要を入力）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（サービス名）のターゲットユーザーを以下の形式で3パターン提案してください。
-・年齢層
-・職業
-・このサービスを使う理由
-・主な利用シーン</div>
-          </div>
-        </div>
-
         </section>
 
-        <section class="section" id="sec2">
-          <h2 class="section-title"><span class="section-icon">2</span> 背景と課題</h2>
-
-        <div class="fill-block">
-          <div class="fill-label">市場の現状 <span class="required">必須</span></div>
-          <div class="fill-hint">このサービスが存在する市場の現状と課題</div>
-          <div class="fill-content">
-            <p>（市場の現状を記載）</p>
+        <section class="section proposal-section" id="sec-02">
+          <header class="section__head">
+            <h2 class="section__title">02 背景・現状</h2>
+            <p class="section__lead">
+              体験の満足度が高いにもかかわらず予約（開催）数が減少している、という事実は重要です。<br>
+              本章ではまず「何が起きているか」を事実ベースで整理し、次章以降の構造整理・仮説設定につなげます。
+            </p>
+          </header>
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">観測されている事実</h3>
+              <ul class="list">
+                <li>参加者から高評価（じゃらん：4.9）</li>
+                <li>一方で、直近の開催数は減少傾向</li>
+              </ul>
+              <p class="note">※数値の詳細はPDF原本に準拠</p>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">示唆</h3>
+              <ul class="list">
+                <li>「体験の質」では説明できないギャップがある</li>
+                <li>Web上の“伝わり方／辿り着き方”に改善余地がある可能性</li>
+              </ul>
+            </div>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（業種名）業界について以下を教えてください。
-・市場の現状やトレンド
-・ユーザーが抱えている一般的な課題や不満
-・既存サービスの問題点
-就職活動のプロジェクトアーカイブで使用するため、200字程度で簡潔にまとめてください。</div>
-          </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">解決すべき課題 <span class="required">必須</span></div>
-          <div class="fill-hint">本プロジェクトで解決を目指す具体的な課題（3つ程度）</div>
-          <div class="fill-content">
-            <p>（課題を3つ入力）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（サービス名）で解決したい課題を3つ挙げてください。
-各課題について以下の形式で記載してください。
-・課題の名称
-・現状の問題点（なぜ課題なのか）
-・本サービスでの解決アプローチ</div>
-          </div>
-        </div>
-
         </section>
 
-        <section class="section" id="sec3">
-          <h2 class="section-title"><span class="section-icon">3</span> 提案するソリューション</h2>
+        <section class="section proposal-section" id="sec-03">
+          <header class="section__head">
+            <h2 class="section__title">03 課題の構造化</h2>
+            <p class="section__lead">
+              予約数は偶然の結果ではなく、<strong>流入 × 到達率 × 決定率（CVR）</strong>として分解できます。<br>
+              本章では、どこにロスがあり得るかを構造で整理します。
+            </p>
+          </header>
 
-        <div class="fill-block">
-          <div class="fill-label">サービスの特長 <span class="required">必須</span></div>
-          <div class="fill-hint">競合と差別化するサービスの特長を3つ</div>
-          <div class="fill-content">
-            <p>（サービスの特長を3つ記載）</p>
+          <div class="proposal-card">
+            <h3 class="h3">構造式</h3>
+            <pre class="code">予約数 ＝ 流入（セッション） × 到達率 × 決定率（CVR）</pre>
+            <p class="note">どこか一つでもロスがあれば、最終的な予約数は大きく減少します。</p>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（サービス名）の特長を3つ提案してください。
-競合サービスと差別化できるポイントを含め、各特長は以下の形式で記載してください。
-・特長の名称（一言）
-・説明（50〜80字）
-・ユーザーにとってのメリット</div>
-          </div>
-        </div>
 
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">現状モデル（仮定）</h3>
+              <pre class="code">月間セッション：5,000
+到達率：30%
+CVR：1.5%</pre>
+              <pre class="code">5,000 × 0.30 × 0.015 ＝ 22.5 ≒ 25回</pre>
+              <p class="note">※現状値が確定したら差し替え可能（構造は不変）</p>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">目標（40回）逆算</h3>
+              <pre class="code">必要倍率：40 ÷ 25 ＝ ×1.6（+60%）</pre>
+              <p class="note">短期で「流入」だけを×1.6するより、到達率とCVRを改善する方が現実的です。</p>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">改善パターン（比較）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>パターン</th>
+                    <th>狙う指標</th>
+                    <th>短期実現性</th>
+                    <th>コメント</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A</td>
+                    <td>流入（セッション）×1.6</td>
+                    <td>低</td>
+                    <td>大規模施策が必要（中期向き）</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>到達率×1.17 ＆ CVR×1.45</td>
+                    <td>高</td>
+                    <td>短期で検証しながら改善可能</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code">25 × 1.17 × 1.45 ＝ 約42回（標準シナリオ）</pre>
+            <p class="note"><strong>短期で成果を出すなら、「流入」ではなく「到達率と決定率」に集中するのが合理的です。</strong></p>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">ファネル（簡易）</h3>
+            <pre class="code">流入
+  ↓
+トップページ
+  ↓
+ワークショップページ（到達）
+  ↓
+予約完了（CVR）</pre>
+            <p class="note">ロスが発生しやすいのは「トップ→ワークショップ到達」と「ページ内→予約完了」です。</p>
+          </div>
         </section>
 
-        <section class="section" id="sec4">
-          <h2 class="section-title"><span class="section-icon">4</span> 制作範囲</h2>
+        <section class="section proposal-section" id="sec-04">
+          <header class="section__head">
+            <h2 class="section__title">04 仮説設定</h2>
+            <p class="section__lead">
+              構造整理の結果、短期で改善可能な論点は<strong>到達率</strong>と<strong>決定率（CVR）</strong>です。<br>
+              本章では、可能性のある仮説を網羅し、影響度・改善可能性・検証可能性で優先順位を整理します。
+            </p>
+          </header>
 
-        <div class="fill-block">
-          <div class="fill-label">Webサイト（フロントエンド）の範囲 <span class="required">必須</span></div>
-          <div class="fill-hint">制作するWebサイトのページ一覧と概要</div>
-          <div class="fill-content">
-            <p>（Webサイトのページ一覧を記載）</p>
+          <div class="proposal-card">
+            <h3 class="h3">仮説一覧（網羅）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>仮説</th>
+                    <th>概要</th>
+                    <th>影響領域</th>
+                    <th>改善難易度</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>① 導線設計の弱さ</td>
+                    <td>ワークショップページに辿り着きにくい</td>
+                    <td>到達率</td>
+                    <td>低〜中</td>
+                  </tr>
+                  <tr>
+                    <td>② ベネフィット伝達不足</td>
+                    <td>魅力が十分伝わらず、決断できない</td>
+                    <td>CVR</td>
+                    <td>中</td>
+                  </tr>
+                  <tr>
+                    <td>③ 価格心理</td>
+                    <td>価格・コストの心理的ハードル</td>
+                    <td>CVR</td>
+                    <td>中</td>
+                  </tr>
+                  <tr>
+                    <td>④ 告知不足</td>
+                    <td>認知・接触機会が不足</td>
+                    <td>流入</td>
+                    <td>高</td>
+                  </tr>
+                  <tr>
+                    <td>⑤ ターゲット不一致</td>
+                    <td>想定ターゲットと実ニーズのズレ</td>
+                    <td>流入/CVR</td>
+                    <td>高</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（サービス名）のWebサイトに必要なページ構成を提案してください。
-以下の形式で5ページ以上リストアップしてください。
-・ページ名
-・ページの目的
-・主要コンテンツ</div>
-          </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">Webアプリケーション（サーバーサイド）の範囲 <span class="required">必須</span></div>
-          <div class="fill-hint">制作するWebアプリケーションの機能概要</div>
-          <div class="fill-content">
-            <p>（Webアプリの機能一覧を記載）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（サービス名）の管理システムとして必要な機能を提案してください。
-以下の形式で記載してください。
-・機能名
-・概要
-・優先度（Must / Should / Could）</div>
-          </div>
-        </div>
 
+          <div class="proposal-card">
+            <h3 class="h3">2分岐での整理（視覚化）</h3>
+            <pre class="code">予約数減少
+      ↓
+ ┌──────────────┬──────────────┐
+ 到達率の問題         決定率の問題
+      ↓                      ↓
+ 導線設計の弱さ       ベネフィット伝達不足</pre>
+            <p class="note">短期で成果を出すなら、流入ではなく「到達率」と「決定率」に集中するのが合理的です。</p>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">数値根拠（短期で到達し得る改善幅）</h3>
+            <pre class="code">到達率 ×1.17（例：30%→35%）
+CVR ×1.45（例：1.5%→2.2%）
+25 × 1.17 × 1.45 ＝ 約42回</pre>
+            <p class="note">流入を短期で×1.6するより、改善の再現性と検証性が高いアプローチです。</p>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">優先順位（評価軸）</h3>
+            <p class="note">優先度は「影響度／実行容易性／検証可能性／スコープ適合性」で判断します。</p>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>仮説</th>
+                    <th>影響度</th>
+                    <th>実行容易性</th>
+                    <th>検証可能性</th>
+                    <th>優先度</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>① 導線</td>
+                    <td>高</td>
+                    <td>高</td>
+                    <td>高</td>
+                    <td>◎</td>
+                  </tr>
+                  <tr>
+                    <td>② ベネフィット</td>
+                    <td>高</td>
+                    <td>中</td>
+                    <td>高</td>
+                    <td>◎</td>
+                  </tr>
+                  <tr>
+                    <td>③ 価格</td>
+                    <td>中</td>
+                    <td>中</td>
+                    <td>中</td>
+                    <td>△</td>
+                  </tr>
+                  <tr>
+                    <td>④ 告知</td>
+                    <td>高</td>
+                    <td>低</td>
+                    <td>低</td>
+                    <td>×（中期）</td>
+                  </tr>
+                  <tr>
+                    <td>⑤ ターゲット</td>
+                    <td>中</td>
+                    <td>低</td>
+                    <td>低</td>
+                    <td>×</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">結論（断定）</h3>
+            <p class="lead">
+              体験評価が高水準である以上、まず疑うべきは「体験の質」ではなく「届け方」です。<br>
+              以上の検討から、短期で成果を出すためには<strong>「導線設計」</strong>と<strong>「体験価値の伝達」</strong>に集中するのが最も合理的であると判断します。
+            </p>
+            <p class="note">本仮説は数値で検証可能です。想定した改善が見られない場合は、価格心理やターゲット要因へ段階的に拡張します。</p>
+          </div>
         </section>
 
-        <section class="section" id="sec5">
-          <h2 class="section-title"><span class="section-icon">5</span> 使用技術</h2>
+        <section class="section proposal-section" id="sec-05">
+          <header class="section__head">
+            <h2 class="section__title">05 解決戦略</h2>
+            <p class="section__lead">
+              04章の結論（導線設計／価値伝達に集中）を、実行に落とし込むための改善方針を整理します。<br>
+              “短期で成果を出す”ために、対象と手順をあえて絞り込みます。
+            </p>
+          </header>
 
-<p style="font-size:13px;color:var(--text-light);margin-bottom:8px;">※ 自分の実際の使用技術に合わせて編集してください</p>
-        <table class="doc-table">
-          <thead><tr><th>区分</th><th>技術</th><th>用途</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>フロントエンド</td><td>HTML / CSS / JavaScript</td><td>Webサイト構築</td></tr>
-          <tr class="template-row"><td>CSSフレームワーク</td><td>（Tailwind CSS 等）</td><td>スタイリング効率化</td></tr>
-          <tr class="template-row"><td>バックエンド</td><td>Java / Spring Boot</td><td>Webアプリケーション</td></tr>
-          <tr class="template-row"><td>テンプレートエンジン</td><td>Thymeleaf</td><td>画面表示</td></tr>
-          <tr class="template-row"><td>O/Rマッピング</td><td>MyBatis</td><td>データベース操作</td></tr>
-          <tr class="template-row"><td>データベース</td><td>（MySQL / H2 等）</td><td>データ永続化</td></tr>
-          <tr class="template-row"><td>デザインツール</td><td>Figma</td><td>ワイヤーフレーム・モックアップ</td></tr>
-          <tr class="template-row"><td>バージョン管理</td><td>Git / GitHub</td><td>ソースコード管理・公開</td></tr>
-          <tr class="template-row"><td>AI活用</td><td>ChatGPT / Claude</td><td>プロンプトプログラミング</td></tr>
-          </tbody>
-        </table>
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">戦略①：改善対象を絞る</h3>
+              <ul class="list">
+                <li>短期は「流入」ではなく、到達率・CVRに集中</li>
+                <li>スコープ内（トップページ／ワークショップページ）で完結させる</li>
+              </ul>
+              <p class="note">※流入施策は次フェーズ候補として整理</p>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">戦略②：構造に沿って設計する</h3>
+              <ul class="list">
+                <li>トップ→ワークショップ到達：導線最適化</li>
+                <li>ページ内→予約完了：意思決定設計（ベネフィット／安心材料）</li>
+              </ul>
+              <p class="note">予約数＝流入×到達率×CVR の「どこを動かすか」を明確化</p>
+            </div>
+          </div>
 
+          <div class="proposal-card">
+            <h3 class="h3">戦略③：段階的に積み上げる（フェーズ設計）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>フェーズ</th>
+                    <th>目的</th>
+                    <th>位置づけ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Phase1（Quick Win）</td>
+                    <td>予約率の即時改善</td>
+                    <td>今回の実行対象</td>
+                  </tr>
+                  <tr>
+                    <td>Phase2</td>
+                    <td>構造の強化（情報設計の厚み）</td>
+                    <td>効果確認後に拡張</td>
+                  </tr>
+                  <tr>
+                    <td>Phase3（中期）</td>
+                    <td>流入拡張（検索・マップ・企画）</td>
+                    <td>中期テーマ</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note"><strong>まずは「辿り着ける状態」と「決められる状態」を作る。</strong></p>
+          </div>
         </section>
 
-        <section class="section" id="sec6">
-          <h2 class="section-title"><span class="section-icon">6</span> スケジュール</h2>
+        <section class="section proposal-section" id="sec-06">
+          <header class="section__head">
+            <h2 class="section__title">06 施策設計</h2>
+            <p class="section__lead">
+              戦略（05章）を実行レベルに落とし込むため、施策を幅出し→分類→選定の順で整理します。<br>
+              “結論に至る過程”を見える化し、意思決定しやすい形にまとめます。
+            </p>
+          </header>
 
-        <table class="doc-table">
-          <thead><tr><th>期間</th><th>フェーズ</th><th>内容</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>Day 1〜3</td><td>企画</td><td>マーケットリサーチ・企画立案</td></tr>
-          <tr class="template-row"><td>Day 4〜5</td><td>設計</td><td>ペルソナ・サイトマップ設計</td></tr>
-          <tr class="template-row"><td>Day 6〜7</td><td>デザイン</td><td>ワイヤーフレーム・デザインガイドライン</td></tr>
-          <tr class="template-row"><td>Day 8〜12</td><td>フロント実装</td><td>HTML/CSS/JavaScript によるWebサイト構築</td></tr>
-          <tr class="template-row"><td>Day 13〜14</td><td>プロジェクトアーカイブ構築</td><td>プロジェクトアーカイブサイト・ドキュメント配置</td></tr>
-          <tr class="template-row"><td>Day 15〜16</td><td>前半完了</td><td>GitHub Pages 公開・前半振り返り</td></tr>
-          <tr class="template-row"><td>Day 17〜19</td><td>バックエンド設計</td><td>仕様書・DB設計書作成</td></tr>
-          <tr class="template-row"><td>Day 20〜24</td><td>バックエンド実装</td><td>Spring Boot アプリケーション開発</td></tr>
-          <tr class="template-row"><td>Day 25〜27</td><td>追加機能</td><td>検索・認証・追加機能の実装</td></tr>
-          <tr class="template-row"><td>Day 28〜29</td><td>テスト</td><td>テスト実施・バグ修正</td></tr>
-          <tr class="template-row"><td>Day 30〜31</td><td>ドキュメント</td><td>振り返り・技術記事・最終調整</td></tr>
-          <tr class="template-row"><td>Day 32</td><td>最終提出</td><td>プロジェクトアーカイブ最終版公開</td></tr>
-          </tbody>
-        </table>
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">仮説①：導線設計の弱さ（施策例）</h3>
+              <ul class="list">
+                <li>トップヒーロー直下に予約ボタン追加</li>
+                <li>ヘッダー固定の予約ボタン設置</li>
+                <li>価格直下に予約ボタン追加</li>
+                <li>トップページでワークショップを主役化</li>
+                <li>ページ内の中間CTA設置</li>
+              </ul>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">仮説②：ベネフィット伝達不足（施策例）</h3>
+              <ul class="list">
+                <li>完成写真をファーストビューに移動</li>
+                <li>所要時間と価格を強調（視認性改善）</li>
+                <li>初心者歓迎・持ち物不要を明文化</li>
+                <li>レビュー抜粋を上部に追加</li>
+                <li>記念日・プレゼント文言の追加</li>
+              </ul>
+            </div>
+          </div>
 
+          <div class="proposal-card">
+            <h3 class="h3">分類（どこを直すか）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>カテゴリ</th>
+                    <th>代表施策</th>
+                    <th>狙う指標</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>導線（CTA配置）</td>
+                    <td>固定CTA／中間CTA／トップ主役化</td>
+                    <td>到達率</td>
+                  </tr>
+                  <tr>
+                    <td>見せ方（情報順）</td>
+                    <td>写真の上位配置／工程の見せ方</td>
+                    <td>CVR</td>
+                  </tr>
+                  <tr>
+                    <td>不安低減</td>
+                    <td>初心者歓迎／持ち物不要／FAQ</td>
+                    <td>CVR</td>
+                  </tr>
+                  <tr>
+                    <td>社会的証明</td>
+                    <td>レビュー抜粋の上部表示</td>
+                    <td>CVR</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note">※施策はすべて「到達率」「CVR」に紐づくよう設計</p>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">選定（フェーズ別パッケージ）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>フェーズ</th>
+                    <th>位置づけ</th>
+                    <th>主な内容</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Phase1（Quick Win）</strong></td>
+                    <td>今回の実行対象</td>
+                    <td>CTA再設計／FV再構成／強調表示／レビュー抜粋／記念日文言</td>
+                  </tr>
+                  <tr>
+                    <td>Phase2</td>
+                    <td>効果確認後に拡張</td>
+                    <td>利用シーン設計／工程図解／FAQ強化／フォーム整理</td>
+                  </tr>
+                  <tr>
+                    <td>Phase3（中期）</td>
+                    <td>中期テーマ</td>
+                    <td>検索・マップ強化／季節イベント設計／流入拡張</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note"><strong>本提案ではPhase1を実行対象として確定し、数値改善の確認後にPhase2以降へ段階的に拡張します。</strong></p>
+          </div>
+
+          <div class="proposal-card">
+            <p class="note">では、これらの施策を実行した場合、どの程度の数値改善が見込めるのか。次章でシミュレーションを提示します。</p>
+          </div>
         </section>
+
+        <section class="section proposal-section" id="sec-07">
+          <header class="section__head">
+            <h2 class="section__title">07 数値シミュレーション</h2>
+            <p class="section__lead">
+              Phase1（Quick Win）施策を実行した場合、予約数がどの程度改善するかをシミュレーションします。<br>
+              目標は<strong>月40回以上</strong>の回復です。
+            </p>
+          </header>
+
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">現状の再確認（仮定）</h3>
+              <pre class="code">月間セッション：5,000
+到達率：30%
+CVR：1.5%</pre>
+              <pre class="code">5,000 × 0.30 × 0.015 ≒ 25回</pre>
+              <p class="note">※前提値が確定したら差し替え可能</p>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">目標達成に必要な倍率</h3>
+              <pre class="code">40 ÷ 25 ＝ ×1.6（+60%）</pre>
+              <p class="note">全体で×1.6の改善が必要</p>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">シナリオ比較（経営判断用）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>シナリオ</th>
+                    <th>狙い</th>
+                    <th>短期実現性</th>
+                    <th>コメント</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A</td>
+                    <td>流入×1.6（5,000→8,000）</td>
+                    <td>低</td>
+                    <td>広告/SEO等が必要（短期では非現実的）</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>到達率×1.17 ＆ CVR×1.45</td>
+                    <td>中〜高</td>
+                    <td>ページ改善で検証しながら実行可能</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code">25 × 1.17 × 1.45 ≒ 42回（標準シナリオ）</pre>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">想定レンジ（目安）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>レンジ</th>
+                    <th>想定予約数</th>
+                    <th>実現性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>保守</td>
+                    <td>33回</td>
+                    <td>高</td>
+                  </tr>
+                  <tr>
+                    <td><strong>標準</strong></td>
+                    <td><strong>42回</strong></td>
+                    <td>中〜高</td>
+                  </tr>
+                  <tr>
+                    <td>上振れ</td>
+                    <td>48回</td>
+                    <td>中</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">結論</h3>
+            <p class="lead">
+              Phase1施策により、予約数40回以上の回復は十分射程圏内です。<br>
+              改善は再現性のある指標（到達率／CVR）で検証可能です。
+            </p>
+          </div>
+        </section>
+
+        <section class="section proposal-section" id="sec-08">
+          <header class="section__head">
+            <h2 class="section__title">08 検証設計</h2>
+            <p class="section__lead">
+              Phase1施策は「やったか」ではなく「数値が動いたか」で判断します。<br>
+              仮説→施策→指標→判断のルールを先に決め、短期で学習し、次フェーズへ確実につなげます。
+            </p>
+          </header>
+
+          <div class="proposal-card">
+            <h3 class="h3">検証の原則</h3>
+            <ul class="list">
+              <li><strong>改善＝実験</strong>：施策はすべて仮説。結果が出て初めて正当化される</li>
+              <li><strong>先行指標→遅行指標</strong>：まず到達率とCVRの変化を確認し、最終的に予約数で評価</li>
+              <li><strong>日次判断はしない</strong>：最低2週間単位で傾向を見る（曜日要因・イベント要因を吸収）</li>
+            </ul>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">KPI（倍率表現で統一）</h3>
+            <pre class="code">予約数 ＝ 流入（セッション） × 到達率 × CVR</pre>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>KPI</th>
+                    <th>定義</th>
+                    <th>現状（仮）</th>
+                    <th>目標（仮）</th>
+                    <th>改善倍率</th>
+                    <th>判断基準（例）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>到達率</td>
+                    <td>トップ→ワークショップ到達率</td>
+                    <td>30%</td>
+                    <td>35%</td>
+                    <td>×1.17</td>
+                    <td>4週平均で+4pt以上</td>
+                  </tr>
+                  <tr>
+                    <td>CVR</td>
+                    <td>ワークショップ→予約完了率</td>
+                    <td>1.5%</td>
+                    <td>2.2%</td>
+                    <td>×1.45</td>
+                    <td>2週間以上で改善傾向を確認</td>
+                  </tr>
+                  <tr>
+                    <td>予約数</td>
+                    <td>月次予約完了数</td>
+                    <td>25回</td>
+                    <td>40回以上</td>
+                    <td>×1.60</td>
+                    <td>月次で40回到達</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note">※現状値は確定後に差し替え可能（構造は不変）。</p>
+          </div>
+
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">仮説×指標（観測設計）</h3>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>仮説</th>
+                      <th>主要KPI</th>
+                      <th>先行指標（例）</th>
+                      <th>確認観点</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>①導線設計の弱さ</td>
+                      <td>到達率</td>
+                      <td>CTAクリック率／トップ内の導線クリック</td>
+                      <td>到達が増えるか</td>
+                    </tr>
+                    <tr>
+                      <td>②ベネフィット伝達不足</td>
+                      <td>CVR</td>
+                      <td>スクロール到達率／滞在時間／FAQクリック</td>
+                      <td>決断材料が効くか</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="proposal-card">
+              <h3 class="h3">実験デザイン（A/Bまたは差分検証）</h3>
+              <ul class="list">
+                <li><strong>導線（到達率）</strong>：固定CTA／トップ主役化／中間CTA（位置別）</li>
+                <li><strong>価値（CVR）</strong>：完成写真の上位配置／レビュー抜粋の上部配置／不安低減要素（初心者歓迎・持ち物不要）</li>
+                <li><strong>期間</strong>：最低2週間（曜日要因を吸収）</li>
+              </ul>
+              <p class="note">外部フォームで完了計測が難しい場合は、フォーム遷移クリックを代替指標として併用します。</p>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">判断分岐（次の一手）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>観測結果</th>
+                    <th>解釈</th>
+                    <th>次アクション</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>到達率↑ / CVR→</td>
+                    <td>導線が主因</td>
+                    <td>導線施策を拡張（Phase1内で追加）</td>
+                  </tr>
+                  <tr>
+                    <td>到達率→ / CVR↑</td>
+                    <td>価値伝達が主因</td>
+                    <td>訴求設計を拡張（Phase2の一部前倒し）</td>
+                  </tr>
+                  <tr>
+                    <td>到達率↑ / CVR↑</td>
+                    <td>仮説支持</td>
+                    <td>Phase2へ（情報設計を厚くして伸ばす）</td>
+                  </tr>
+                  <tr>
+                    <td>到達率→ / CVR→</td>
+                    <td>仮説棄却の可能性</td>
+                    <td>価格心理／ターゲット／告知へ論点移行</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note">「動かない」ことも成果です。次の仮説に進む判断ができます。</p>
+          </div>
+        </section>
+
+        <section class="section proposal-section" id="sec-09">
+          <header class="section__head">
+            <h2 class="section__title">09 実行計画</h2>
+            <p class="section__lead">
+              Phase1（Quick Win）を確実に実行するため、実日付で計画を固定します。<br>
+              稼働は平日のみ。打ち合わせ等で作業できない日（2/27・3/2・3/3）は除外しています。
+            </p>
+          </header>
+
+          <div class="proposal-card">
+            <h3 class="h3">スケジュール（Phase1〜3：実日付）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>フェーズ</th>
+                    <th>区分</th>
+                    <th>期間</th>
+                    <th>営業日</th>
+                    <th>主なアウトプット</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Phase1</td>
+                    <td>市場調査・要件整理</td>
+                    <td>2/20–2/26</td>
+                    <td>5</td>
+                    <td>調査まとめ／要件・論点整理</td>
+                  </tr>
+                  <tr>
+                    <td>Phase1</td>
+                    <td>Wireframe</td>
+                    <td>3/4–3/6</td>
+                    <td>3</td>
+                    <td>ワイヤー（Figma）</td>
+                  </tr>
+                  <tr>
+                    <td>Phase1</td>
+                    <td>Design Guideline</td>
+                    <td>3/9–3/11</td>
+                    <td>3</td>
+                    <td>ガイドライン（Figma）</td>
+                  </tr>
+                  <tr>
+                    <td>Phase1</td>
+                    <td>実装（改善）</td>
+                    <td>3/16–3/27</td>
+                    <td>10</td>
+                    <td>トップ／ワークショップ改修</td>
+                  </tr>
+                  <tr>
+                    <td>Phase1</td>
+                    <td>検証・微調整</td>
+                    <td>3/30–4/3</td>
+                    <td>5</td>
+                    <td>計測・学習・微調整</td>
+                  </tr>
+                  <tr>
+                    <td>Phase2</td>
+                    <td>構造強化（設計＋実装）</td>
+                    <td>4/16–5/8（想定）</td>
+                    <td>17</td>
+                    <td>情報設計強化／FAQ／フォーム整理</td>
+                  </tr>
+                  <tr>
+                    <td>Phase3</td>
+                    <td>流入拡張（中期）</td>
+                    <td>5/11–7/3（想定）</td>
+                    <td>40</td>
+                    <td>SEO／マップ最適化／イベント施策</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note">※Phase2/3は、Phase1検証結果に応じて優先順位・期間を再調整します（線は目安）。</p>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">ガントチャート（営業日ベース）</h3>
+            <p class="note">横スクロールできます（1営業日=1セル）。</p>
+            <div class="gantt-wrap" role="region" aria-label="スケジュール（営業日ベース）" tabindex="0">
+              <div class="gantt">
+                <div class="gantt__row gantt__row--months">
+                  <div class="gantt__label gantt__label--head">工程</div>
+                  <div class="gantt__month" style="grid-column:2 / 7;">2026年2月</div>
+                  <div class="gantt__month" style="grid-column:7 / 27;">2026年3月</div>
+                  <div class="gantt__month" style="grid-column:27 / 49;">2026年4月</div>
+                  <div class="gantt__month" style="grid-column:49 / 70;">2026年5月</div>
+                  <div class="gantt__month" style="grid-column:70 / 92;">2026年6月</div>
+                  <div class="gantt__month" style="grid-column:92 / 95;">2026年7月</div>
+                </div>
+                <div class="gantt__row gantt__row--days">
+                  <div class="gantt__label gantt__label--head">日付</div>
+                  <div class="gantt__day" style="grid-column:2;">2/20</div><div class="gantt__day" style="grid-column:3;">2/23</div><div class="gantt__day" style="grid-column:4;">2/24</div><div class="gantt__day" style="grid-column:5;">2/25</div><div class="gantt__day" style="grid-column:6;">2/26</div>
+                  <div class="gantt__day" style="grid-column:7;">3/04</div><div class="gantt__day" style="grid-column:8;">3/05</div><div class="gantt__day" style="grid-column:9;">3/06</div><div class="gantt__day" style="grid-column:10;">3/09</div><div class="gantt__day" style="grid-column:11;">3/10</div><div class="gantt__day" style="grid-column:12;">3/11</div><div class="gantt__day" style="grid-column:13;">3/12</div><div class="gantt__day" style="grid-column:14;">3/13</div><div class="gantt__day" style="grid-column:15;">3/16</div><div class="gantt__day" style="grid-column:16;">3/17</div><div class="gantt__day" style="grid-column:17;">3/18</div><div class="gantt__day" style="grid-column:18;">3/19</div><div class="gantt__day" style="grid-column:19;">3/20</div><div class="gantt__day" style="grid-column:20;">3/23</div><div class="gantt__day" style="grid-column:21;">3/24</div><div class="gantt__day" style="grid-column:22;">3/25</div><div class="gantt__day" style="grid-column:23;">3/26</div><div class="gantt__day" style="grid-column:24;">3/27</div><div class="gantt__day" style="grid-column:25;">3/30</div><div class="gantt__day" style="grid-column:26;">3/31</div>
+                  <div class="gantt__day" style="grid-column:27;">4/01</div><div class="gantt__day" style="grid-column:28;">4/02</div><div class="gantt__day" style="grid-column:29;">4/03</div><div class="gantt__day" style="grid-column:30;">4/06</div><div class="gantt__day" style="grid-column:31;">4/07</div><div class="gantt__day" style="grid-column:32;">4/08</div><div class="gantt__day" style="grid-column:33;">4/09</div><div class="gantt__day" style="grid-column:34;">4/10</div><div class="gantt__day" style="grid-column:35;">4/13</div><div class="gantt__day" style="grid-column:36;">4/14</div><div class="gantt__day" style="grid-column:37;">4/15</div><div class="gantt__day" style="grid-column:38;">4/16</div><div class="gantt__day" style="grid-column:39;">4/17</div><div class="gantt__day" style="grid-column:40;">4/20</div><div class="gantt__day" style="grid-column:41;">4/21</div><div class="gantt__day" style="grid-column:42;">4/22</div><div class="gantt__day" style="grid-column:43;">4/23</div><div class="gantt__day" style="grid-column:44;">4/24</div><div class="gantt__day" style="grid-column:45;">4/27</div><div class="gantt__day" style="grid-column:46;">4/28</div><div class="gantt__day" style="grid-column:47;">4/29</div><div class="gantt__day" style="grid-column:48;">4/30</div>
+                  <div class="gantt__day" style="grid-column:49;">5/01</div><div class="gantt__day" style="grid-column:50;">5/04</div><div class="gantt__day" style="grid-column:51;">5/05</div><div class="gantt__day" style="grid-column:52;">5/06</div><div class="gantt__day" style="grid-column:53;">5/07</div><div class="gantt__day" style="grid-column:54;">5/08</div><div class="gantt__day" style="grid-column:55;">5/11</div><div class="gantt__day" style="grid-column:56;">5/12</div><div class="gantt__day" style="grid-column:57;">5/13</div><div class="gantt__day" style="grid-column:58;">5/14</div><div class="gantt__day" style="grid-column:59;">5/15</div><div class="gantt__day" style="grid-column:60;">5/18</div><div class="gantt__day" style="grid-column:61;">5/19</div><div class="gantt__day" style="grid-column:62;">5/20</div><div class="gantt__day" style="grid-column:63;">5/21</div><div class="gantt__day" style="grid-column:64;">5/22</div><div class="gantt__day" style="grid-column:65;">5/25</div><div class="gantt__day" style="grid-column:66;">5/26</div><div class="gantt__day" style="grid-column:67;">5/27</div><div class="gantt__day" style="grid-column:68;">5/28</div><div class="gantt__day" style="grid-column:69;">5/29</div>
+                  <div class="gantt__day" style="grid-column:70;">6/01</div><div class="gantt__day" style="grid-column:71;">6/02</div><div class="gantt__day" style="grid-column:72;">6/03</div><div class="gantt__day" style="grid-column:73;">6/04</div><div class="gantt__day" style="grid-column:74;">6/05</div><div class="gantt__day" style="grid-column:75;">6/08</div><div class="gantt__day" style="grid-column:76;">6/09</div><div class="gantt__day" style="grid-column:77;">6/10</div><div class="gantt__day" style="grid-column:78;">6/11</div><div class="gantt__day" style="grid-column:79;">6/12</div><div class="gantt__day" style="grid-column:80;">6/15</div><div class="gantt__day" style="grid-column:81;">6/16</div><div class="gantt__day" style="grid-column:82;">6/17</div><div class="gantt__day" style="grid-column:83;">6/18</div><div class="gantt__day" style="grid-column:84;">6/19</div><div class="gantt__day" style="grid-column:85;">6/22</div><div class="gantt__day" style="grid-column:86;">6/23</div><div class="gantt__day" style="grid-column:87;">6/24</div><div class="gantt__day" style="grid-column:88;">6/25</div><div class="gantt__day" style="grid-column:89;">6/26</div><div class="gantt__day" style="grid-column:90;">6/29</div><div class="gantt__day" style="grid-column:91;">6/30</div>
+                  <div class="gantt__day" style="grid-column:92;">7/01</div><div class="gantt__day" style="grid-column:93;">7/02</div><div class="gantt__day" style="grid-column:94;">7/03</div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase1｜市場調査・要件整理</div>
+                  <div class="gantt__bar bar--design" style="grid-column:2 / 7;"><span class="gantt__bartext">2/20–2/26</span></div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase1｜Wireframe</div>
+                  <div class="gantt__bar bar--design" style="grid-column:7 / 10;"><span class="gantt__bartext">3/04–3/06</span></div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase1｜Design Guideline</div>
+                  <div class="gantt__bar bar--design" style="grid-column:10 / 13;"><span class="gantt__bartext">3/09–3/11</span></div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase1｜実装（改善）</div>
+                  <div class="gantt__bar bar--dev" style="grid-column:15 / 25;"><span class="gantt__bartext">3/16–3/27</span></div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase1｜検証・微調整</div>
+                  <div class="gantt__bar bar--verify" style="grid-column:25 / 30;"><span class="gantt__bartext">3/30–4/03</span></div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase2｜情報設計強化</div>
+                  <div class="gantt__bar bar--phase2" style="grid-column:38 / 43;"><span class="gantt__bartext">4/16–4/22</span></div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase2｜実装（拡張）</div>
+                  <div class="gantt__bar bar--phase2" style="grid-column:43 / 55;"><span class="gantt__bartext">4/23–5/08</span></div>
+                </div>
+                <div class="gantt__row gantt__row--task">
+                  <div class="gantt__label">Phase3｜流入拡張（中期）</div>
+                  <div class="gantt__bar bar--phase3" style="grid-column:55 / 95;"><span class="gantt__bartext">5/11–7/03</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section proposal-section" id="sec-10">
+          <header class="section__head">
+            <h2 class="section__title">10 予算</h2>
+            <p class="section__lead">
+              Phase1（Quick Win）は、<strong>バッファ込み合計10人日</strong>でのご提案です。<br>
+              カレンダー期間（2/20–4/3）と工数（10人日）は別物であり、レビュー待ち・打ち合わせ等の「非作業日」を含む前提で、無理のない計画にしています。
+            </p>
+          </header>
+
+          <div class="proposal-card">
+            <h3 class="h3">前提</h3>
+            <ul class="list">
+              <li>人月単価：600,000円（20営業日換算）</li>
+              <li>人日単価：30,000円</li>
+              <li>体制：1名（End-to-End）</li>
+            </ul>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">内訳（Phase1：Quick Win）</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>工程</th>
+                    <th>人日</th>
+                    <th>単価</th>
+                    <th>小計</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>設計・要件整理</td><td>3日</td><td>30,000円</td><td>90,000円</td></tr>
+                  <tr><td>デザイン・実装</td><td>4日</td><td>30,000円</td><td>120,000円</td></tr>
+                  <tr><td>検証・改善</td><td>2日</td><td>30,000円</td><td>60,000円</td></tr>
+                  <tr><td>バッファ</td><td>1日</td><td>30,000円</td><td>30,000円</td></tr>
+                  <tr><td><strong>合計</strong></td><td><strong>10日</strong></td><td>-</td><td><strong>300,000円</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note">※Phase2/3はPhase1の効果検証後に、優先順位と範囲を確定し別途見積します。</p>
+          </div>
+
+          <div class="proposal-card">
+            <h3 class="h3">スケジュール連動（いつ・どこでコストを使うか）</h3>
+            <p class="note">工数（人日）は、カレンダー上の期間に対して下記のイメージで消化します（レビュー待ち等を含むため、毎日フル稼働ではありません）。</p>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>区分</th>
+                    <th>カレンダー期間</th>
+                    <th>配分工数</th>
+                    <th>配分金額</th>
+                    <th>成果確認ポイント</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>設計</td><td>2/20–3/11</td><td>3人日</td><td>90,000円</td><td>ワイヤー／ガイドライン確定</td></tr>
+                  <tr><td>実装</td><td>3/16–3/27</td><td>4人日</td><td>120,000円</td><td>改修リリース</td></tr>
+                  <tr><td>検証</td><td>3/30–4/3</td><td>2人日</td><td>60,000円</td><td>到達率／CVRの改善傾向</td></tr>
+                  <tr><td>バッファ</td><td>全期間</td><td>1人日</td><td>30,000円</td><td>想定外対応・微調整</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section proposal-section" id="sec-11">
+          <header class="section__head">
+            <h2 class="section__title">11 次フェーズ</h2>
+            <p class="section__lead">Phase1の成果を確認した上で、次に取り組むべき中期テーマを整理します。</p>
+          </header>
+          <div class="grid grid--2">
+            <div class="proposal-card">
+              <h3 class="h3">Phase2（構造強化）</h3>
+              <ul class="list">
+                <li>利用シーン別セクション設計（誰に・何が刺さるかの明確化）</li>
+                <li>制作工程の図解／当日の流れの視覚化</li>
+                <li>FAQ強化／キャンセルポリシー整理</li>
+                <li>フォーム項目整理（可能ならステップ化）</li>
+              </ul>
+            </div>
+            <div class="proposal-card">
+              <h3 class="h3">Phase3（流入拡張：中期）</h3>
+              <ul class="list">
+                <li>検索キーワード最適化（SEO）</li>
+                <li>Googleマップ情報の最適化（写真・投稿・カテゴリ等）</li>
+                <li>季節・イベント連動（記念日／プレゼント需要の施策化）</li>
+                <li>専用LP新設による導線拡張</li>
+              </ul>
+              <p class="note">※Phase1の結果に応じて優先順位を再評価します。</p>
+            </div>
+          </div>
+        </section>
+
+        <footer class="proposal-footer">
+          <p class="note">© inim-dx / Proposal Draft</p>
+        </footer>
 
       </div>
     </main>
