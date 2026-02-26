@@ -743,6 +743,16 @@ a:hover { color: var(--black); }
   letter-spacing: -0.02em;
 }
 
+.proposal-v2 .section__title--bar {
+  display: inline-flex;
+  align-items: center;
+  border-left: 4px solid var(--gray-600);
+  padding-left: 12px;
+  min-height: 38px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
 .proposal-v2 .section__lead {
   color: var(--text-light);
   line-height: 1.85;
@@ -1015,6 +1025,11 @@ a:hover { color: var(--black); }
 
   .proposal-v2 .section__title {
     font-size: 20px;
+  }
+
+  .proposal-v2 .section__title--bar {
+    min-height: 34px;
+    padding-left: 10px;
   }
 
   .proposal-v2 .grid--2 {
