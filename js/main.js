@@ -85,6 +85,62 @@ function generateNavigation() {
   sidebar.innerHTML = navHTML;
 }
 
+// Reusable image lightbox
+function initImageLightbox() {
+  const triggers = Array.from(document.querySelectorAll('[data-lightbox-src]'));
+  if (!triggers.length) return;
+
+  let modal = document.getElementById('imageLightbox');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'imageLightbox';
+    modal.className = 'image-lightbox';
+    modal.hidden = true;
+    modal.innerHTML = `
+      <div class="image-lightbox__backdrop" data-lightbox-close></div>
+      <div class="image-lightbox__inner" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+        <button type="button" class="image-lightbox__close" data-lightbox-close aria-label="拡大表示を閉じる">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <img src="" alt="" class="image-lightbox__image" id="imageLightboxImage">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const image = modal.querySelector('#imageLightboxImage');
+  if (!image) return;
+
+  const open = (src, alt) => {
+    image.src = src;
+    image.alt = alt || '拡大画像';
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    image.src = '';
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const src = trigger.getAttribute('data-lightbox-src');
+      if (!src) return;
+      open(src, trigger.getAttribute('data-lightbox-alt') || '');
+    });
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target.closest('[data-lightbox-close]')) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) close();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // ナビゲーションを生成
   generateNavigation();
@@ -160,4 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Reusable image lightbox
+  initImageLightbox();
 });
