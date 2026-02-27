@@ -716,49 +716,49 @@ CVR：1.5%</pre>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="template-row">
+                  <tr>
                     <td>フロントエンド</td>
                     <td>HTML / CSS / JavaScript</td>
                     <td>Webサイト構築</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>CSSフレームワーク</td>
-                    <td>（Tailwind CSS 等）</td>
+                    <td class="unverified">（Tailwind CSS 等）</td>
                     <td>スタイリング効率化</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>バックエンド</td>
-                    <td>Java / Spring Boot</td>
+                    <td class="unverified">（Java / Spring Boot）</td>
                     <td>Webアプリケーション</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>テンプレートエンジン</td>
-                    <td>Thymeleaf</td>
+                    <td class="unverified">（Thymeleaf）</td>
                     <td>画面表示</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>O/Rマッピング</td>
-                    <td>MyBatis</td>
+                    <td class="unverified">（MyBatis）</td>
                     <td>データベース操作</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>データベース</td>
-                    <td>（MySQL / H2 等）</td>
-                    <td>データ永続化</td>
+                    <td class="unverified">（SaaS基盤のため非公開）</td>
+                    <td>データ永続化（基盤側）</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>デザインツール</td>
                     <td>Figma</td>
                     <td>ワイヤーフレーム・モックアップ</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>バージョン管理</td>
                     <td>Git / GitHub</td>
                     <td>ソースコード管理・公開</td>
                   </tr>
-                  <tr class="template-row">
+                  <tr>
                     <td>AI活用</td>
-                    <td>ChatGPT / Claude</td>
+                    <td>ChatGPT</td>
                     <td>プロンプトプログラミング</td>
                   </tr>
                 </tbody>
@@ -790,35 +790,35 @@ CVR：1.5%</pre>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr class="phase1-row">
                     <td>Phase1</td>
                     <td>市場調査・要件整理</td>
                     <td>2/20–2/26</td>
                     <td>5</td>
                     <td>調査まとめ／要件・論点整理</td>
                   </tr>
-                  <tr>
+                  <tr class="phase1-row">
                     <td>Phase1</td>
                     <td>Wireframe</td>
                     <td>3/4–3/6</td>
                     <td>3</td>
                     <td>ワイヤー（Figma）</td>
                   </tr>
-                  <tr>
+                  <tr class="phase1-row">
                     <td>Phase1</td>
                     <td>Design Guideline</td>
                     <td>3/9–3/11</td>
                     <td>3</td>
                     <td>ガイドライン（Figma）</td>
                   </tr>
-                  <tr>
+                  <tr class="phase1-row">
                     <td>Phase1</td>
                     <td>実装（改善）</td>
                     <td>3/16–3/27</td>
                     <td>10</td>
                     <td>トップ／ワークショップ改修</td>
                   </tr>
-                  <tr>
+                  <tr class="phase1-row">
                     <td>Phase1</td>
                     <td>検証・微調整</td>
                     <td>3/30–4/3</td>
@@ -1047,7 +1047,15 @@ CVR：1.5%</pre>
             </div>
             <div class="proposal-card">
               <h3 class="h3">目標達成に必要な倍率</h3>
-              <pre class="code">40 ÷ 25 ＝ ×1.6（+60%）</pre>
+              <div class="formula-card" aria-label="目標達成に必要な倍率">
+                <div class="formula-main">
+                  <span class="formula-chip">40</span>
+                  <span class="formula-op">÷</span>
+                  <span class="formula-chip">25</span>
+                  <span class="formula-op">＝</span>
+                  <span class="formula-chip">×1.6（+60%）</span>
+                </div>
+              </div>
               <p class="note">全体で×1.6の改善が必要</p>
             </div>
           </div>
@@ -1067,13 +1075,29 @@ CVR：1.5%</pre>
                 <tbody>
                   <tr>
                     <td>A</td>
-                    <td>流入×1.6（5,000→8,000）</td>
+                    <td>
+                      <div class="formula-inline">
+                        <span class="formula-chip">流入</span>
+                        <span class="formula-op">×</span>
+                        <span class="formula-chip">1.6（5,000→8,000）</span>
+                      </div>
+                    </td>
                     <td>低</td>
                     <td>広告/SEO等が必要（短期では非現実的）</td>
                   </tr>
                   <tr>
                     <td>B</td>
-                    <td>到達率×1.17 ＆ CVR×1.45</td>
+                    <td>
+                      <div class="formula-inline">
+                        <span class="formula-chip">到達率</span>
+                        <span class="formula-op">×</span>
+                        <span class="formula-chip">1.17</span>
+                        <span class="formula-op">＆</span>
+                        <span class="formula-chip">CVR</span>
+                        <span class="formula-op">×</span>
+                        <span class="formula-chip">1.45</span>
+                      </div>
+                    </td>
                     <td>中〜高</td>
                     <td>ページ改善で検証しながら実行可能</td>
                   </tr>
@@ -1208,34 +1232,22 @@ CVR：1.5%</pre>
             <p class="note">※現状値は確定後に差し替え可能（構造は不変）。</p>
           </div>
 
-          <div class="grid grid--2">
+          <div class="grid">
             <div class="proposal-card">
               <h3 class="h3">仮説×指標（観測設計）</h3>
-              <div class="table-wrap">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>仮説</th>
-                      <th>主要KPI</th>
-                      <th>先行指標（例）</th>
-                      <th>確認観点</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>①導線設計の弱さ</td>
-                      <td>到達率</td>
-                      <td>CTAクリック率／トップ内の導線クリック</td>
-                      <td>到達が増えるか</td>
-                    </tr>
-                    <tr>
-                      <td>②ベネフィット伝達不足</td>
-                      <td>CVR</td>
-                      <td>スクロール到達率／滞在時間／FAQクリック</td>
-                      <td>決断材料が効くか</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="observation-list">
+                <div class="observation-item">
+                  <div class="observation-title">① 導線設計の弱さ</div>
+                  <div class="observation-row"><span class="observation-key">主要KPI</span><span class="observation-val">到達率</span></div>
+                  <div class="observation-row"><span class="observation-key">先行指標（例）</span><span class="observation-val">CTAクリック率／トップ内の導線クリック</span></div>
+                  <div class="observation-row"><span class="observation-key">確認観点</span><span class="observation-val">到達が増えるか</span></div>
+                </div>
+                <div class="observation-item">
+                  <div class="observation-title">② ベネフィット伝達不足</div>
+                  <div class="observation-row"><span class="observation-key">主要KPI</span><span class="observation-val">CVR</span></div>
+                  <div class="observation-row"><span class="observation-key">先行指標（例）</span><span class="observation-val">スクロール到達率／滞在時間／FAQクリック</span></div>
+                  <div class="observation-row"><span class="observation-key">確認観点</span><span class="observation-val">決断材料が効くか</span></div>
+                </div>
               </div>
             </div>
 

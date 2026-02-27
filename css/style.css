@@ -400,6 +400,10 @@ a:hover { color: var(--black); }
   font-style: italic;
 }
 
+.doc-table td.unverified {
+  font-style: italic;
+}
+
 /* --- Status Badge --- */
 .badge {
   display: inline-flex;
@@ -812,6 +816,41 @@ a:hover { color: var(--black); }
   color: var(--gray-600);
 }
 
+.proposal-v2 .observation-list {
+  display: grid;
+  gap: 12px;
+}
+
+.proposal-v2 .observation-item {
+  border: 1px solid var(--border);
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 12px 12px 10px;
+}
+
+.proposal-v2 .observation-title {
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.proposal-v2 .observation-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.proposal-v2 .observation-key {
+  color: var(--gray-600);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.proposal-v2 .observation-val {
+  font-size: 14px;
+}
+
 .proposal-v2 .h3 {
   font-size: 18px;
   font-weight: 800;
@@ -869,6 +908,10 @@ a:hover { color: var(--black); }
   border: 1px solid var(--border);
   padding: 10px 12px;
   vertical-align: top;
+}
+
+.proposal-v2 .table .phase1-row td {
+  font-weight: 700;
 }
 
 .proposal-v2 .table th {
@@ -943,6 +986,13 @@ a:hover { color: var(--black); }
   font-size: 13px;
   color: var(--text-light);
   line-height: 1.5;
+}
+
+.proposal-v2 .formula-inline {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .proposal-v2 .funnel-diagram {
