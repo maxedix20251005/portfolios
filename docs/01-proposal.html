@@ -135,7 +135,17 @@
                        <h2>課題の構造化</h2>
          <div class="proposal-card">
             <h3 class="h3">構造式</h3>
-            <pre class="code">予約数 ＝ 流入（セッション） × 到達率 × 決定率（CVR）</pre>
+            <div class="formula-card" aria-label="構造式">
+              <div class="formula-main">
+                <span class="formula-chip">予約数</span>
+                <span class="formula-op">＝</span>
+                <span class="formula-chip">流入（セッション）</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">到達率</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">決定率（CVR）</span>
+              </div>
+            </div>
             <p class="note">どこか一つでもロスがあれば、最終的な予約数は大きく減少します。</p>
           </div>
 
@@ -145,12 +155,34 @@
               <pre class="code">月間セッション：5,000
 到達率：30%
 CVR：1.5%</pre>
-              <pre class="code">5,000 × 0.30 × 0.015 ＝ 22.5 ≒ 25回</pre>
+              <div class="formula-card" aria-label="現状モデル計算式">
+                <div class="formula-main">
+                  <span class="formula-chip">5,000</span>
+                  <span class="formula-op">×</span>
+                  <span class="formula-chip">0.30</span>
+                  <span class="formula-op">×</span>
+                  <span class="formula-chip">0.015</span>
+                  <span class="formula-op">＝</span>
+                  <span class="formula-chip">22.5</span>
+                  <span class="formula-op">≒</span>
+                  <span class="formula-chip">25回</span>
+                </div>
+              </div>
               <p class="note">※現状値が確定したら差し替え可能（構造は不変）</p>
             </div>
             <div class="proposal-card">
               <h3 class="h3">目標（40回）逆算</h3>
-              <pre class="code">必要倍率：40 ÷ 25 ＝ ×1.6（+60%）</pre>
+              <div class="formula-card formula-card--stack" aria-label="必要倍率">
+                <div class="formula-line">
+                  <span class="formula-chip">必要倍率</span>
+                  <span class="formula-op">：</span>
+                  <span class="formula-chip">40</span>
+                  <span class="formula-op">÷</span>
+                  <span class="formula-chip">25</span>
+                  <span class="formula-op">＝</span>
+                  <span class="formula-chip">×1.6（+60%）</span>
+                </div>
+              </div>
               <p class="note">短期で「流入」だけを×1.6するより、到達率とCVRを改善する方が現実的です。</p>
             </div>
           </div>
@@ -183,19 +215,31 @@ CVR：1.5%</pre>
                 </tbody>
               </table>
             </div>
-            <pre class="code">25 × 1.17 × 1.45 ＝ 約42回（標準シナリオ）</pre>
+            <div class="formula-card" aria-label="標準シナリオ計算式">
+              <div class="formula-main">
+                <span class="formula-chip">25</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.17</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.45</span>
+                <span class="formula-op">＝</span>
+                <span class="formula-chip">約42回（標準シナリオ）</span>
+              </div>
+            </div>
             <p class="note"><strong>短期で成果を出すなら、「流入」ではなく「到達率と決定率」に集中するのが合理的です。</strong></p>
           </div>
 
           <div class="proposal-card">
             <h3 class="h3">ファネル（簡易）</h3>
-            <pre class="code">流入
-  ↓
-トップページ
-  ↓
-ワークショップページ（到達）
-  ↓
-予約完了（CVR）</pre>
+            <div class="funnel-diagram" aria-label="ファネル（簡易）">
+              <div class="funnel-step">流入</div>
+              <div class="funnel-arrow" aria-hidden="true">➜</div>
+              <div class="funnel-step">トップページ</div>
+              <div class="funnel-arrow" aria-hidden="true">➜</div>
+              <div class="funnel-step">ワークショップページ（到達）</div>
+              <div class="funnel-arrow" aria-hidden="true">➜</div>
+              <div class="funnel-step">予約完了（CVR）</div>
+            </div>
             <p class="note">ロスが発生しやすいのは「トップ→ワークショップ到達」と「ページ内→予約完了」です。</p>
           </div>        </section>
 
@@ -258,20 +302,53 @@ CVR：1.5%</pre>
 
           <div class="proposal-card">
             <h3 class="h3">2分岐での整理（視覚化）</h3>
-            <pre class="code">予約数減少
-      ↓
- ┌──────────────┬──────────────┐
- 到達率の問題         決定率の問題
-      ↓                      ↓
- 導線設計の弱さ       ベネフィット伝達不足</pre>
+            <div class="branch-diagram" aria-label="2分岐での整理（視覚化）">
+              <div class="branch-root">予約数減少</div>
+              <div class="branch-connector" aria-hidden="true">
+                <span class="branch-drop branch-drop--left"></span>
+                <span class="branch-drop branch-drop--right"></span>
+              </div>
+              <div class="branch-split">
+                <div class="branch-col">
+                  <div class="branch-step">到達率の問題</div>
+                  <div class="funnel-arrow" aria-hidden="true">↓</div>
+                  <div class="branch-step">導線設計の弱さ</div>
+                </div>
+                <div class="branch-col">
+                  <div class="branch-step">決定率の問題</div>
+                  <div class="funnel-arrow" aria-hidden="true">↓</div>
+                  <div class="branch-step">ベネフィット伝達不足</div>
+                </div>
+              </div>
+            </div>
             <p class="note">短期で成果を出すなら、流入ではなく「到達率」と「決定率」に集中するのが合理的です。</p>
           </div>
 
           <div class="proposal-card">
             <h3 class="h3">数値根拠（短期で到達し得る改善幅）</h3>
-            <pre class="code">到達率 ×1.17（例：30%→35%）
-CVR ×1.45（例：1.5%→2.2%）
-25 × 1.17 × 1.45 ＝ 約42回</pre>
+            <div class="formula-card formula-card--stack" aria-label="数値根拠">
+              <div class="formula-line">
+                <span class="formula-chip">到達率</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.17</span>
+                <span class="formula-note-inline">（例：30%→35%）</span>
+              </div>
+              <div class="formula-line">
+                <span class="formula-chip">CVR</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.45</span>
+                <span class="formula-note-inline">（例：1.5%→2.2%）</span>
+              </div>
+              <div class="formula-line">
+                <span class="formula-chip">25</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.17</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.45</span>
+                <span class="formula-op">＝</span>
+                <span class="formula-chip">約42回</span>
+              </div>
+            </div>
             <p class="note">流入を短期で×1.6するより、改善の再現性と検証性が高いアプローチです。</p>
           </div>
 
@@ -371,9 +448,9 @@ CVR ×1.45（例：1.5%→2.2%）
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Phase1（Quick Win）</td>
-                    <td>予約率の即時改善</td>
-                    <td>今回の実行対象</td>
+                    <td><strong>Phase1（Quick Win）</strong></td>
+                    <td><strong>予約率の即時改善</strong></td>
+                    <td><strong>今回の実行対象</strong></td>
                   </tr>
                   <tr>
                     <td>Phase2</td>
@@ -466,8 +543,8 @@ CVR ×1.45（例：1.5%→2.2%）
                 <tbody>
                   <tr>
                     <td><strong>Phase1（Quick Win）</strong></td>
-                    <td>今回の実行対象</td>
-                    <td>CTA再設計／FV再構成／強調表示／レビュー抜粋／記念日文言</td>
+                    <td><strong>今回の実行対象</strong></td>
+                    <td><strong>CTA再設計／FV再構成／強調表示／レビュー抜粋／記念日文言</strong></td>
                   </tr>
                   <tr>
                     <td>Phase2</td>
@@ -499,7 +576,7 @@ CVR ×1.45（例：1.5%→2.2%）
             </p>
           </header>
           <div class="grid grid--2">
-            <div class="proposal-card">
+            <div class="proposal-card scope-card scope-card--in">
               <h3 class="h3">In Scope（今回実施）</h3>
               <ul class="list">
                 <li>トップページとワークショップページの導線・訴求改善</li>
@@ -507,11 +584,11 @@ CVR ×1.45（例：1.5%→2.2%）
                 <li>KPI計測と微調整までを含む実行</li>
               </ul>
             </div>
-            <div class="proposal-card">
-              <h3 class="h3">Out of Scope（今回は対象外）</h3>
+            <div class="proposal-card scope-card scope-card--out">
+              <h3 class="h3">Out of Scope（今回は対象外） <span class="scope-badge">対象外</span></h3>
               <ul class="list">
-                <li>検索・マップ・外部集客の流入拡張施策</li>
-                <li>大規模な情報設計刷新や新規機能開発</li>
+                <li><span class="scope-prefix">除外:</span> 検索・マップ・外部集客の流入拡張施策</li>
+                <li><span class="scope-prefix">除外:</span> 大規模な情報設計刷新や新規機能開発</li>
               </ul>
             </div>
           </div>
@@ -955,7 +1032,17 @@ CVR ×1.45（例：1.5%→2.2%）
               <pre class="code">月間セッション：5,000
 到達率：30%
 CVR：1.5%</pre>
-              <pre class="code">5,000 × 0.30 × 0.015 ≒ 25回</pre>
+              <div class="formula-card" aria-label="現状再確認計算式">
+                <div class="formula-main">
+                  <span class="formula-chip">5,000</span>
+                  <span class="formula-op">×</span>
+                  <span class="formula-chip">0.30</span>
+                  <span class="formula-op">×</span>
+                  <span class="formula-chip">0.015</span>
+                  <span class="formula-op">≒</span>
+                  <span class="formula-chip">25回</span>
+                </div>
+              </div>
               <p class="note">※前提値が確定したら差し替え可能</p>
             </div>
             <div class="proposal-card">
@@ -993,7 +1080,17 @@ CVR：1.5%</pre>
                 </tbody>
               </table>
             </div>
-            <pre class="code">25 × 1.17 × 1.45 ≒ 42回（標準シナリオ）</pre>
+            <div class="formula-card" aria-label="シナリオ比較の計算式">
+              <div class="formula-main">
+                <span class="formula-chip">25</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.17</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">1.45</span>
+                <span class="formula-op">≒</span>
+                <span class="formula-chip">42回（標準シナリオ）</span>
+              </div>
+            </div>
           </div>
 
           <div class="proposal-card">
@@ -1057,7 +1154,17 @@ CVR：1.5%</pre>
 
           <div class="proposal-card">
             <h3 class="h3">KPI（倍率表現で統一）</h3>
-            <pre class="code">予約数 ＝ 流入（セッション） × 到達率 × CVR</pre>
+            <div class="formula-card" aria-label="KPI構造式">
+              <div class="formula-main">
+                <span class="formula-chip">予約数</span>
+                <span class="formula-op">＝</span>
+                <span class="formula-chip">流入（セッション）</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">到達率</span>
+                <span class="formula-op">×</span>
+                <span class="formula-chip">CVR</span>
+              </div>
+            </div>
             <div class="table-wrap">
               <table class="table">
                 <thead>
