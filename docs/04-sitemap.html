@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="doc-sitemap">
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
@@ -34,15 +34,15 @@
         <div class="external-link-box">
           <div class="external-link-box-title">
             <span class="material-symbols-outlined">link</span>
-            詳細ドキュメント（Google スプレッドシート）
+            詳細ドキュメント（References）
           </div>
           <div class="external-link-box-desc">
             このページは概要のみを記載しています。詳細なサイトマップは以下のリンクからご確認ください。
           </div>
           <div class="external-link-input">
-            <input type="text" placeholder="https://docs.google.com/spreadsheets/d/xxxxx" id="external-link-04">
+            <input type="text" placeholder="../References/04-sitemap/sitemap-inim-dx.png" id="external-link-04">
             <a href="#" class="link-btn"
-              onclick="window.open(document.getElementById('external-link-04').value || 'https://docs.google.com', '_blank'); return false;">
+              onclick="window.open(document.getElementById('external-link-04').value || '../References/04-sitemap/sitemap-inim-dx.png', '_blank'); return false;">
               <span class="material-symbols-outlined">open_in_new</span>
               開く
             </a>
@@ -76,18 +76,43 @@
           <div class="fill-block">
             <div class="fill-label">Webアプリケーション構造図 <span class="required">必須</span></div>
             <div class="fill-hint">Spring Bootアプリケーションの画面構造をツリー形式で記載</div>
-            <div class="fill-content">
-              <p>（ツリー形式のアプリ構造図を記載）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">（サービス名）の管理システム（Spring Bootアプリ）の画面構造図をツリー形式で作成してください。
+            <div class="fill-content" style="color: inherit;">
+              <pre class="code">サービス名：Workshop導線改善 管理アプリ（Spring Boot）
 
-                システムの概要：（概要を記載）
-                主な機能：CRUD、ログイン、検索、（追加機能）
+システム概要：
+Home/Workshopページの導線・訴求改善（Phase1）を、管理画面から更新・検証するための運用アプリ。
 
-                ログイン前とログイン後で分けてツリーを作成してください。</div>
+主な機能：
+ログイン、Home/Workshopコンテンツ更新、CTA配置管理、効果測定（到達率/CVR補助指標）、公開管理
+
+【Webアプリケーション構造図（Phase1スコープ準拠）】
+
+■ ログイン前
+- /app/login（ログイン画面）
+- /app/password/forgot（パスワード再設定申請）
+- /app/password/reset（パスワード再設定）
+
+■ ログイン後（管理者）
+- /app/dashboard（ダッシュボード）
+  - KPIサマリ（トップ→Workshop到達、予約導線クリック等）
+- /app/pages/home（Home管理画面）
+  - ヒーロー/主役訴求編集
+  - CTA配置設定（固定・中間）
+  - プレビュー
+- /app/pages/workshop（Workshop管理画面）
+  - FV訴求編集（写真・価格・所要時間）
+  - 不安低減情報編集（初心者歓迎・持ち物不要・FAQ）
+  - レビュー表示設定
+  - プレビュー
+- /app/publish（公開管理画面）
+  - 下書き保存
+  - 公開/差し戻し
+- /app/users/me（アカウント設定画面）
+- /app/logout（ログアウト）
+
+※予約・顧客・在庫などの本格CRUD管理はPhase1対象外（Phase2以降）</pre>
             </div>
+            <p class="note">注記: 本構造図のWebアプリ画面は将来運用を見据えた構成です。Phase1実装対象はWebサイト側（Home/Workshop）のみで、WebアプリはPhase2候補として扱います。</p>
           </div>
 
         </section>
@@ -104,71 +129,85 @@
                   <th>ページ名</th>
                   <th>ページの目的</th>
                   <th>主要コンテンツ</th>
+                  <th>Phase1スコープ</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Home（トップページ）</td>
+                <tr style="background: #fff8e1;">
+                  <td><strong>1</strong></td>
+                  <td><strong>Home（トップページ）</strong></td>
                   <td>全カテゴリへの導線起点として回遊を促す</td>
                   <td>ブランド導線、カテゴリ導線、特集訴求、CTA</td>
+                  <td><strong>対象（改修）: 主役化/CTA導線強化</strong></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>ブランド</td>
                   <td>ブランド軸で商品探索をしやすくする</td>
                   <td>ブランド一覧、ブランド別商品導線</td>
+                  <td>対象外（Phase3候補: 流入導線拡張）</td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>アイテム</td>
                   <td>用途/種別ごとに商品を絞り込めるようにする</td>
                   <td>ホームフレグランス、ボディケア、DIY、SALE など</td>
+                  <td>対象外（Phase3候補: 流入導線拡張）</td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td>香りから探す</td>
                   <td>香り軸で商品・情報へ最短到達させる</td>
                   <td>実店舗情報、プロジェクト・読み物、イベント情報</td>
+                  <td>対象外（Phase3候補: 流入導線拡張）</td>
                 </tr>
-                <tr>
-                  <td>5</td>
-                  <td>香りで泳ぐ！香海</td>
+                <tr style="background: #fff8e1;">
+                  <td><strong>5</strong></td>
+                  <td><strong>ワークショップ詳細（香りで泳ぐ！香海）</strong></td>
                   <td>体験導線と関連機能への接続を担う</td>
                   <td>マイアカウント、ショッピングガイド、法的表示、お問い合わせ</td>
+                  <td><strong>対象（改修）: 訴求順/不安低減/予約導線最適化</strong></td>
                 </tr>
                 <tr>
                   <td>6</td>
                   <td>記事</td>
                   <td>読み物による興味喚起と回遊促進</td>
                   <td>記事一覧、香り豊かなスプレー特集記事</td>
+                  <td>対象外（Phase3候補: SEO流入強化）</td>
                 </tr>
                 <tr>
                   <td>7</td>
                   <td>Sale</td>
                   <td>セール訴求で購入意欲を高める</td>
                   <td>セール対象一覧、関連商品導線</td>
+                  <td>対象外（Phase3候補: 季節/イベント施策連動）</td>
                 </tr>
                 <tr>
                   <td>8</td>
                   <td>実店舗</td>
                   <td>オフライン接点を強化し来店/イベント参加へ誘導</td>
                   <td>5周年記念イベント、上野店新規オープン 等</td>
+                  <td>対象外（Phase3候補: マップ導線最適化）</td>
                 </tr>
                 <tr>
                   <td>9</td>
                   <td>ブランド配下ページ（例：歌舞伎者）</td>
                   <td>個別ブランドの理解を深め商品選択につなげる</td>
                   <td>ブランド説明、関連商品リンク</td>
+                  <td>対象外（Phase3候補: 流入導線拡張）</td>
                 </tr>
                 <tr>
                   <td>10</td>
                   <td>アイテム配下ページ（例：ホームフレグランス）</td>
                   <td>カテゴリ内で目的の商品を見つけやすくする</td>
                   <td>カテゴリ商品一覧、絞り込み導線</td>
+                  <td>対象外（Phase3候補: 流入導線拡張）</td>
                 </tr>
               </tbody>
             </table>
+            <p class="note">凡例: 「対象（改修）」= Phase1実装対象、「対象外（Phase3候補）」= 流入拡張フェーズで再評価予定。</p>
+            <p class="note"><strong>Phase1対象ページは No.1（Home）と No.5（ワークショップ詳細（香りで泳ぐ！香海））です。Phase2/3候補は現時点想定です。</strong>
+            </p>
           </div>
 
           <div class="fill-block">
@@ -180,6 +219,7 @@
                   <th>画面名</th>
                   <th>画面の目的</th>
                   <th>主要機能</th>
+                  <th>Phase1スコープ</th>
                 </tr>
               </thead>
               <tbody>
@@ -188,21 +228,47 @@
                   <td>ログイン画面</td>
                   <td>ユーザー認証</td>
                   <td>メールアドレス/パスワード入力</td>
+                  <td>対象外（Phase2候補: 運用拡張時）</td>
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>一覧画面</td>
-                  <td>データの一覧表示</td>
-                  <td>検索・ソート・ページネーション</td>
+                  <td>ダッシュボード</td>
+                  <td>Phase1指標の確認</td>
+                  <td>到達率/CVR補助指標の表示</td>
+                  <td>対象外（Phase2候補: 検証運用拡張）</td>
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td>登録画面</td>
-                  <td>新規データ登録</td>
-                  <td>入力フォーム・バリデーション</td>
+                  <td>Home管理画面</td>
+                  <td>トップページの導線最適化</td>
+                  <td>主役訴求編集、CTA配置設定、プレビュー</td>
+                  <td>対象外（Phase2候補: 運用拡張時）</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Workshop管理画面</td>
+                  <td>ワークショップ詳細の訴求最適化</td>
+                  <td>FV訴求編集、不安低減情報編集、レビュー表示設定、プレビュー</td>
+                  <td>対象外（Phase2候補: 運用拡張時）</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>公開管理画面</td>
+                  <td>変更内容の反映統制</td>
+                  <td>下書き保存、公開/差し戻し</td>
+                  <td>対象外（Phase2候補: 運用拡張時）</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>アカウント設定画面</td>
+                  <td>利用者情報の管理</td>
+                  <td>プロフィール/パスワード変更</td>
+                  <td>対象外（Phase2候補: 運用拡張時）</td>
                 </tr>
               </tbody>
             </table>
+            <p class="note">凡例: Webアプリ画面はPhase1対象外。Phase2の運用拡張候補として識別しています。</p>
+            <p class="note"><strong>Phase1対象画面はなし（Webアプリ画面はPhase2候補）です。</strong></p>
 
           </div>
         </section>
@@ -213,184 +279,209 @@
           <div class="fill-block">
             <div class="fill-label">メインシナリオ <span class="required">必須</span></div>
             <div class="fill-hint">ペルソナがサイトに訪問してから目的を達成するまでの動線（メインの行動パターン）</div>
-<div class="fill-content" style="color: inherit;">
-  <div class="info-box info">
-    <strong>メインシナリオ（最重要）</strong>
-    「香りが作れるワークショップ」に参加したいペルソナが、サイト訪問から予約完了までを最短・最小ストレスで達成する動線。
-  </div>
+            <div class="fill-content" style="color: inherit;">
+              <div class="info-box info">
+                <strong>メインシナリオ（最重要）</strong>
+                「香りが作れるワークショップ」に参加したいペルソナが、サイト訪問から予約完了までを最短・最小ストレスで達成する動線。
+              </div>
 
-  <!-- シンプルフロー（会議で一瞬で伝える用） -->
-  <div class="subsection">
-    <div class="subsection-title">メイン動線（概要）</div>
-    <div class="flow-chart" aria-label="メイン動線（概要）">
-      <div class="flow-step">検索 / SNS</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">トップ</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">ワークショップ詳細</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">予約（外部フォーム）</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">予約完了</div>
-    </div>
-  </div>
+              <!-- シンプルフロー（会議で一瞬で伝える用） -->
+              <div class="subsection">
+                <div class="subsection-title">メイン動線（概要）</div>
+                <div class="flow-chart" aria-label="メイン動線（概要）">
+                  <div class="flow-step">検索 / SNS（前提接点・改善対象外）</div>
+                  <div class="flow-arrow">➜</div>
+                  <div class="flow-step">トップ</div>
+                  <div class="flow-arrow">➜</div>
+                  <div class="flow-step">ワークショップ詳細</div>
+                  <div class="flow-arrow">➜</div>
+                  <div class="flow-step">予約（外部フォーム）</div>
+                  <div class="flow-arrow">➜</div>
+                  <div class="flow-step">予約完了</div>
+                </div>
+              </div>
 
-  <!-- ステップ詳細（設計・レビューで突っ込まれても耐える用） -->
-  <div class="subsection">
-    <div class="subsection-title">ステップ詳細（行動 × 表示ページ × 次アクション）</div>
+              <!-- ステップ詳細（設計・レビューで突っ込まれても耐える用） -->
+              <div class="subsection">
+                <div class="subsection-title">ステップ詳細（行動 × 表示ページ × 次アクション）</div>
 
-    <table class="doc-table">
-      <thead>
-        <tr>
-          <th>No.</th>
-          <th>ユーザーの行動</th>
-          <th>表示ページ / 接点</th>
-          <th>次のアクション（誘導したいこと）</th>
-          <th>離脱しやすいポイント（要注意）</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>「浅草 体験」「記念日 体験」などで情報収集</td>
-          <td>検索結果 / SNS投稿 / 口コミ</td>
-          <td>トップページへ流入</td>
-          <td>検索スニペットで魅力が弱い</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>トップ到達、何ができるかを数秒で把握したい</td>
-          <td>トップページ</td>
-          <td>ワークショップ詳細へ遷移（CTAクリック）</td>
-          <td>ワークショップ導線が主役でないと見逃す</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>体験価値の理解（完成イメージ・楽しさ・特別感）</td>
-          <td>ワークショップ詳細（FV/上部）</td>
-          <td>「行ってみたい」に気持ちを動かす</td>
-          <td>文章が長い/写真が弱いと刺さらない</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>価格・所要時間・初心者可否などの不安確認</td>
-          <td>ワークショップ詳細（中盤）</td>
-          <td>不安解消 → 予約ボタンへ</td>
-          <td>「高そう」「難しそう」で停止</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>背中を押す材料（レビュー・満足度・安心要素）を確認</td>
-          <td>レビュー抜粋 / FAQ / 当日の流れ</td>
-          <td>予約意思決定</td>
-          <td>レビューが見つからないと決めきれない</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>予約を実行（入力が面倒だと離脱）</td>
-          <td>予約（外部フォーム）</td>
-          <td>予約完了</td>
-          <td>フォームが長い/導線が途切れる</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>予約後の安心（場所・持ち物・当日の流れ）を確認</td>
-          <td>予約完了後メッセージ / 追い案内</td>
-          <td>当日来店・参加</td>
-          <td>不安が残るとキャンセル/不参加</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+                <table class="doc-table">
+                  <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>ユーザーの行動</th>
+                      <th>表示ページ / 接点</th>
+                      <th>次のアクション（誘導したいこと）</th>
+                      <th>離脱しやすいポイント（要注意）</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>「浅草 体験」「記念日 体験」などで情報収集</td>
+                      <td>検索結果 / SNS投稿 / 口コミ</td>
+                      <td>トップページへ流入</td>
+                      <td>検索スニペットで魅力が弱い</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>トップ到達、何ができるかを数秒で把握したい</td>
+                      <td>トップページ</td>
+                      <td>ワークショップ詳細へ遷移（CTAクリック）</td>
+                      <td>ワークショップ導線が主役でないと見逃す</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>体験価値の理解（完成イメージ・楽しさ・特別感）</td>
+                      <td>ワークショップ詳細（FV/上部）</td>
+                      <td>「行ってみたい」に気持ちを動かす</td>
+                      <td>文章が長い/写真が弱いと刺さらない</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>価格・所要時間・初心者可否などの不安確認</td>
+                      <td>ワークショップ詳細（中盤）</td>
+                      <td>不安解消 → 予約ボタンへ</td>
+                      <td>「高そう」「難しそう」で停止</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>背中を押す材料（レビュー・満足度・安心要素）を確認</td>
+                      <td>ワークショップ詳細（同一ページ内：レビュー抜粋 / FAQ / 当日の流れ）</td>
+                      <td>予約意思決定</td>
+                      <td>レビューが見つからないと決めきれない</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>予約を実行（入力が面倒だと離脱）</td>
+                      <td>予約（外部フォーム）</td>
+                      <td>予約完了</td>
+                      <td>フォームが長い/導線が途切れる</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>予約後の安心（場所・持ち物・当日の流れ）を確認</td>
+                      <td>予約完了後メッセージ / 追い案内（前提接点・改善対象外）</td>
+                      <td>当日来店・参加</td>
+                      <td>不安が残るとキャンセル/不参加</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-  <!-- ここが「提案書とつながる」要点 -->
-  <div class="info-box success">
-    <strong>このメインシナリオで最優先で強化すべきこと</strong>
-    ①トップでワークショップを主役化し、詳細ページへ迷わず到達させる（到達率）<br>
-    ②詳細ページで体験価値・安心材料を上部から提示し、決断を後押しする（CVR）
-  </div>
-</div>            
+              <!-- ここが「提案書とつながる」要点 -->
+              <div class="info-box success">
+                <strong>このメインシナリオで最優先で強化すべきこと</strong>
+                ①トップでワークショップを主役化し、詳細ページへ迷わず到達させる（到達率）<br>
+                ②詳細ページで体験価値・安心材料を上部から提示し、決断を後押しする（CVR）<br>
+                指標対応：Step2（トップ→ワークショップ遷移）は到達率、Step3〜6（ページ内検討〜予約実行）はCVRで検証。
+              </div>
+            </div>
           </div>
           <div class="fill-block">
             <div class="fill-label">サブシナリオ <span class="optional">任意</span></div>
             <div class="fill-hint">その他の行動パターン（1〜2パターン）</div>
-<div class="fill-content" style="color: inherit;">
-  <div class="info-box info">
-    <strong>サブシナリオ（例）</strong>
-    メイン動線を崩さずに拡張できる、代表的な2パターン。
-  </div>
+            <div class="fill-content" style="color: inherit;">
+              <div class="info-box info">
+                <strong>サブシナリオ（例）</strong>
+                メイン動線を崩さずに拡張できる、代表的な2パターン。
+              </div>
 
-  <div class="card-grid">
+              <div class="card-grid card-grid--stacked">
 
-    <!-- サブシナリオ1：観光客（旅程起点） -->
-    <div class="card">
-      <div class="card-title">サブシナリオA：観光客（旅程起点）</div>
-      <div class="card-text">
-        「旅行の計画段階」で候補に入ることが重要。地図・アクセス・所要時間が意思決定に直結。
-      </div>
+                <!-- サブシナリオ1：観光客（旅程起点） -->
+                <div class="card">
+                  <div class="card-title">サブシナリオA：観光客（旅程起点）</div>
+                  <div class="card-text">
+                    「旅行の計画段階」で候補に入ることが重要。地図・アクセス・所要時間が意思決定に直結。
+                  </div>
 
-      <div class="flow-chart" aria-label="観光客シナリオ">
-        <div class="flow-step">旅行計画</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">検索</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">トップ</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">ワークショップ詳細</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">予約</div>
-      </div>
+                  <div class="flow-chart" aria-label="観光客シナリオ">
+                    <div class="flow-step">旅行計画</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">検索</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">トップ</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">ワークショップ詳細</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">予約</div>
+                  </div>
 
-      <table class="doc-table">
-        <thead>
-          <tr><th>重要情報</th><th>最低限ほしい要素</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>場所の確信</td><td>地図/最寄駅/所要時間/営業時間</td></tr>
-          <tr><td>旅程に入る納得</td><td>体験の魅力が一目で分かる写真・短文</td></tr>
-          <tr><td>言語の壁</td><td>最低限の英語補助（将来）</td></tr>
-        </tbody>
-      </table>
-    </div>
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>重要情報</th>
+                        <th>最低限ほしい要素</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>場所の確信</td>
+                        <td>地図/最寄駅/所要時間/営業時間</td>
+                      </tr>
+                      <tr>
+                        <td>旅程に入る納得</td>
+                        <td>体験の魅力が一目で分かる写真・短文</td>
+                      </tr>
+                      <tr>
+                        <td>言語の壁</td>
+                        <td>最低限の英語補助（将来）</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-    <!-- サブシナリオ2：ギフト・イベント需要 -->
-    <div class="card">
-      <div class="card-title">サブシナリオB：ギフト/イベント（記念日・プレゼント）</div>
-      <div class="card-text">
-        「失敗したくない」「喜ばれる確信がほしい」心理が強い。レビューと完成イメージが鍵。
-      </div>
+                <!-- サブシナリオ2：ギフト・イベント需要 -->
+                <div class="card">
+                  <div class="card-title">サブシナリオB：ギフト/イベント（記念日・プレゼント）</div>
+                  <div class="card-text">
+                    「失敗したくない」「喜ばれる確信がほしい」心理が強い。レビューと完成イメージが鍵。
+                  </div>
 
-      <div class="flow-chart" aria-label="ギフトシナリオ">
-        <div class="flow-step">イベント検討</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">トップ</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">ワークショップ詳細</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">レビュー確認</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">予約</div>
-      </div>
+                  <div class="flow-chart" aria-label="ギフトシナリオ">
+                    <div class="flow-step">イベント検討</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">トップ</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">ワークショップ詳細</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">レビュー確認</div>
+                    <div class="flow-arrow">➜</div>
+                    <div class="flow-step">予約</div>
+                  </div>
 
-      <table class="doc-table">
-        <thead>
-          <tr><th>重要情報</th><th>最低限ほしい要素</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>プレゼント適性</td><td>「記念日/ギフト」文言、利用シーン例</td></tr>
-          <tr><td>失敗回避</td><td>初心者歓迎、当日の流れ、所要時間</td></tr>
-          <tr><td>背中押し</td><td>高評価レビュー抜粋、完成写真の強調</td></tr>
-        </tbody>
-      </table>
-    </div>
+                  <table class="doc-table">
+                    <thead>
+                      <tr>
+                        <th>重要情報</th>
+                        <th>最低限ほしい要素</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>プレゼント適性</td>
+                        <td>「記念日/ギフト」文言、利用シーン例</td>
+                      </tr>
+                      <tr>
+                        <td>失敗回避</td>
+                        <td>初心者歓迎、当日の流れ、所要時間</td>
+                      </tr>
+                      <tr>
+                        <td>背中押し</td>
+                        <td>高評価レビュー抜粋、完成写真の強調</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-  </div>
+              </div>
 
-  <div class="info-box warning">
-    <strong>運用メモ（今後の拡張）</strong>
-    サブシナリオはPhase2/3での拡張候補。Phase1では、メインシナリオを最短・最強にすることを優先。
-  </div>
-</div>            
+              <div class="info-box warning">
+                <strong>運用メモ（今後の拡張）</strong>
+                サブシナリオはPhase2/3での拡張候補。Phase1では、メインシナリオを最短・最強にすることを優先。
+              </div>
+            </div>
         </section>
 
         <section class="section" id="sec4">
@@ -398,76 +489,128 @@
 
           <div class="fill-block">
             <div class="fill-label">URL一覧 <span class="required">必須</span></div>
-            <table class="doc-table">
-              <thead>
-                <tr>
-                  <th>URL</th>
-                  <th>HTTPメソッド</th>
-                  <th>画面/機能</th>
-                  <th>説明</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="template-row">
-                  <td>/</td>
-                  <td>GET</td>
-                  <td>トップページ</td>
-                  <td>Webサイトのトップ</td>
-                </tr>
-                <tr class="template-row">
-                  <td>/about</td>
-                  <td>GET</td>
-                  <td>概要ページ</td>
-                  <td>サービスの概要</td>
-                </tr>
-                <tr class="template-row">
-                  <td>/app/login</td>
-                  <td>GET</td>
-                  <td>ログイン画面</td>
-                  <td>ログインフォーム表示</td>
-                </tr>
-                <tr class="template-row">
-                  <td>/app/login</td>
-                  <td>POST</td>
-                  <td>ログイン処理</td>
-                  <td>認証処理</td>
-                </tr>
-                <tr class="template-row">
-                  <td>/app/items</td>
-                  <td>GET</td>
-                  <td>一覧画面</td>
-                  <td>データ一覧表示</td>
-                </tr>
-                <tr class="template-row">
-                  <td>/app/items/new</td>
-                  <td>GET</td>
-                  <td>新規登録画面</td>
-                  <td>登録フォーム表示</td>
-                </tr>
-                <tr class="template-row">
-                  <td>/app/items</td>
-                  <td>POST</td>
-                  <td>新規登録処理</td>
-                  <td>データ保存</td>
-                </tr>
-                <tr class="template-row">
-                  <td>…</td>
-                  <td>…</td>
-                  <td>…</td>
-                  <td>…</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="subsection">
+              <div class="subsection-title">4-1. Phase1対象URL一覧（詳細）</div>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>URL</th>
+                    <th>HTTPメソッド</th>
+                    <th>画面/機能</th>
+                    <th>説明</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background: #fff8e1;">
+                    <td><strong>/</strong></td>
+                    <td>GET</td>
+                    <td><strong>Home（トップページ）</strong></td>
+                    <td><strong>ワークショップ導線の主役化・CTA最適化</strong></td>
+                  </tr>
+                  <tr style="background: #fff8e1;">
+                    <td><strong>/workshop</strong></td>
+                    <td>GET</td>
+                    <td><strong>ワークショップ詳細</strong></td>
+                    <td><strong>訴求順・不安低減要素・予約導線の最適化</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="note">方針: Phase1対象は詳細記載し、実装・検証時の認識差分を防ぐ。</p>
+            </div>
 
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">（サービス名）のURL設計を行ってください。
-
-                Webサイト部分とSpring Bootアプリ部分に分けて、RESTfulなURL設計にしてください。
-                以下の形式でリストアップしてください。
-                | URL | HTTPメソッド | 画面/機能 | 説明 |
-
-                機能一覧：（企画提案書で定義した機能を記載）</div>
+            <div class="subsection">
+              <div class="subsection-title">4-2. Phase1対象外URL一覧（サマリ）</div>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>URL</th>
+                    <th>HTTPメソッド</th>
+                    <th>画面/機能</th>
+                    <th>Phase1での扱い</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>/about</td>
+                    <td>GET</td>
+                    <td>概要ページ</td>
+                    <td>対象外（現状維持）</td>
+                  </tr>
+                  <tr>
+                    <td>/brand</td>
+                    <td>GET</td>
+                    <td>ブランド</td>
+                    <td>対象外（Phase3候補: 流入導線拡張）</td>
+                  </tr>
+                  <tr>
+                    <td>/items</td>
+                    <td>GET</td>
+                    <td>アイテム</td>
+                    <td>対象外（Phase3候補: 流入導線拡張）</td>
+                  </tr>
+                  <tr>
+                    <td>/article</td>
+                    <td>GET</td>
+                    <td>記事</td>
+                    <td>対象外（Phase3候補: SEO流入強化）</td>
+                  </tr>
+                  <tr>
+                    <td>/sale</td>
+                    <td>GET</td>
+                    <td>Sale</td>
+                    <td>対象外（Phase3候補: 季節/イベント施策連動）</td>
+                  </tr>
+                  <tr>
+                    <td>/store</td>
+                    <td>GET</td>
+                    <td>実店舗</td>
+                    <td>対象外（Phase3候補: マップ導線最適化）</td>
+                  </tr>
+                  <tr>
+                    <td>/app/login</td>
+                    <td>GET/POST</td>
+                    <td>ログイン画面/ログイン処理</td>
+                    <td>対象外（Phase2候補: 運用拡張時）</td>
+                  </tr>
+                  <tr>
+                    <td>/app/dashboard</td>
+                    <td>GET</td>
+                    <td>ダッシュボード</td>
+                    <td>対象外（Phase2候補: 検証運用拡張）</td>
+                  </tr>
+                  <tr>
+                    <td>/app/pages/home</td>
+                    <td>GET/POST</td>
+                    <td>Home管理画面/更新処理</td>
+                    <td>対象外（Phase2候補: 運用拡張時）</td>
+                  </tr>
+                  <tr>
+                    <td>/app/pages/workshop</td>
+                    <td>GET/POST</td>
+                    <td>Workshop管理画面/更新処理</td>
+                    <td>対象外（Phase2候補: 運用拡張時）</td>
+                  </tr>
+                  <tr>
+                    <td>/app/publish</td>
+                    <td>GET/POST</td>
+                    <td>公開管理画面/公開処理</td>
+                    <td>対象外（Phase2候補: 運用拡張時）</td>
+                  </tr>
+                  <tr>
+                    <td>/app/users/me</td>
+                    <td>GET</td>
+                    <td>アカウント設定画面</td>
+                    <td>対象外（Phase2候補: 運用拡張時）</td>
+                  </tr>
+                  <tr>
+                    <td>/lp/*</td>
+                    <td>GET</td>
+                    <td>専用LP（新設想定）</td>
+                    <td>対象外（Phase3候補: 新規追加）</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="note">※対象外URLは代表値を記載。Phase2/3候補は現時点の想定であり、Phase1検証後に確定します。</p>
             </div>
           </div>
         </section>
