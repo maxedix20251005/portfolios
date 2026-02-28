@@ -903,6 +903,10 @@ a:hover { color: var(--black); }
   margin-bottom: 10px;
 }
 
+.proposal-v2 .doc-table {
+  margin-bottom: 10px;
+}
+
 .proposal-v2 .table th,
 .proposal-v2 .table td {
   border: 1px solid var(--border);
