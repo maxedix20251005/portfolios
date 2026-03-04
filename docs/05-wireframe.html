@@ -8,9 +8,10 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
-<body>
+<body class="doc-wireframe">
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
@@ -65,127 +66,655 @@
 
           <div class="info-box info">
             <strong>作成ツール</strong>
-            Figmaでワイヤーフレームを作成し、スクリーンショットを撮ってこのページに配置してください。<br>
-            画像は <code>../images/wireframe/</code> フォルダに保存してください。
+            <br />
+            【使用したプロンプト】<br /><br />
+            あなたは、ハイエンド体験型ブランドのUXアーキテクト兼プロダクトデザイナーです。<br />
+            以下の条件に基づき、ECサイトの「TOPページ」と「デジタル調香ページ」のWireframeを設計してください。<br />
+            出力形式は、HTMLドキュメント内にSVGとして埋め込む形にしてください。<br /><br />
+
+            ------------------------------------------------<br />
+            ■ブランド前提<br />
+            ------------------------------------------------<br />
+            ブランド名は、架空の企業「inim-dx」とする。<br />
+            本ドキュメントは外部共有前提のため、<br />
+            ・固有商品名は使わない<br />
+            ・サイトマップにあるカテゴリ名のみ使用する<br /><br />
+
+            ------------------------------------------------<br />
+            ■サイト構造<br />
+            ------------------------------------------------<br />
+            左ナビゲーション構造：<br />
+            ブランド<br />
+            アイテム<br />
+            香りから探す<br />
+            香りと遊ぶ！香游<br />
+            記事<br />
+            Sale<br />
+            実店舗<br />
+            ショッピングガイド<br />
+            ※左ナビは常に固定<br /><br />
+
+            ------------------------------------------------<br />
+            ■作成するWireframe<br />
+            ------------------------------------------------<br />
+            1. TOPページ<br />
+            2. デジタル調香ページ<br />
+            （香りと遊ぶ！香游）<br /><br />
+
+            ------------------------------------------------<br />
+            ■画面仕様<br />
+            ------------------------------------------------<br />
+            Desktop<br />
+            1440px<br /><br />
+
+            左ナビ<br />
+            200px<br /><br />
+
+            メインコンテンツ<br />
+            1240px<br /><br />
+
+            ------------------------------------------------<br />
+            ■TOPページのUX目的<br />
+            ------------------------------------------------<br />
+            ユーザーに、「自分で調香体験をする」ことに興味を持たせる。<br />
+            そのため、<br /><br />
+
+            TOP<br />
+            ↓<br />
+            デジタル調香体験<br />
+            ↓<br />
+            ワークショップ予約<br /><br />
+
+            の導線を作る。<br /><br />
+
+            ------------------------------------------------<br />
+            ■TOPページ構成<br />
+            ------------------------------------------------<br />
+            1 ヘッダー<br />
+            ・案内バー<br />
+            ・ロゴ<br />
+            ・検索<br />
+            ・カート<br /><br />
+
+            2 メインビジュアル<br /><br />
+
+            3 体験バナー<br />
+            香りと遊ぶ！香游<br />
+
+            キャッチコピー<br />
+            「色と粒子で、あなたの香りを立ち上げる。」<br />
+
+            CTA<br />
+            体験する<br /><br />
+
+            4 体験の流れ<br />
+
+            STEP1<br />
+            デジタル調香<br /><br />
+
+            STEP2<br />
+            実店舗体験<br /><br />
+
+            STEP3<br />
+            香り完成<br /><br />
+
+            5 PICK UP<br />
+
+            カードレイアウト<br /><br />
+
+            6 体験バナー再掲<br /><br />
+
+            7 新着商品<br />
+
+            3×2グリッド<br /><br />
+
+            8 フッター<br /><br />
+
+            ------------------------------------------------<br />
+            ■デジタル調香ページ<br />
+            ------------------------------------------------<br />
+
+            ページ目的<br />
+
+            ユーザーが、<br />
+            「自分の香り」を視覚的に作る体験。<br /><br />
+
+            UIは、「色」、「粒子」、「サウンド」
+            で香りを表現する。<br /><br />
+
+            ------------------------------------------------<br />
+            ■UI構造<br />
+            ------------------------------------------------<br />
+            1 ヘッダー<br />
+            Sound toggle<br /><br />
+
+            2 操作説明<br />
+            初回のみ表示<br /><br />
+
+            3 調香キャンバス<br />
+            色 × 粒子 表現<br /><br />
+
+            操作<br />
+            スクロール<br />
+            Top / Middle / Base<br />
+            ドラッグ<br />
+            粒子の広がり<br /><br />
+
+            4 コントロール<br />
+            Mood<br />
+            Color<br />
+            Spread<br /><br />
+
+            5 結果表示<br />
+            香り名<br />
+            説明<br /><br />
+
+            CTA<br /><br />
+
+            実店舗体験へ<br /><br />
+
+            ------------------------------------------------<br />
+            ■UX思想<br />
+            ------------------------------------------------<br />
+            調香は、たんなる組み合わせの「診断」ではない。<br />
+            ユーザーが、「実際に自分で香りが変わっていくことを体験」する。<br /><br />
+
+            UIは、<br />
+            ・直感的<br />
+            ・詩的<br />
+            ・科学っぽくしすぎない<br />
+            ところに留意する。<br /><br />
+
+            ------------------------------------------------<br />
+            ■出力<br />
+            ------------------------------------------------<br />
+            直接Figmaに取り込めるよう、SVGフォーマットでWireframeを作成する。
+            その際、TOPページとデジタル調香ページの2つに分けて提供する。
           </div>
-
-          <div class="prompt-box">
-            <div class="prompt-title">🤖 Figma作業前のAIプロンプト例</div>
-            <div class="prompt-text">（サービス名）のトップページのワイヤーフレームの構成を提案してください。
-
-              ページの目的：（目的を記載）
-              ターゲット：（ペルソナの情報を記載）
-              ページに含めたい要素：ヘッダー、ヒーローセクション、サービス紹介、実績、CTA、フッター
-
-              各セクションについて以下を教えてください。
-              ・配置する要素
-              ・推奨サイズ（相対的な比率）
-              ・配置の意図（なぜその位置か）</div>
-            <div class="prompt-note">💡 AIの提案を参考にFigmaで実際にワイヤーフレームを作成してください</div>
-          </div>
-        </section>
-
-        <section class="section" id="sec2">
-          <h2 class="section-title"><span class="section-icon">2</span> トップページ</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">トップページ ワイヤーフレーム（PC版） <span class="required">必須</span></div>
-            <div class="fill-hint">Figmaで作成したワイヤーフレームのスクリーンショットを配置</div>
-            <div class="fill-content">
-              <p>（ここにワイヤーフレーム画像を配置）
-                &lt;img src=&quot;../images/wireframe/top-pc.png&quot; alt=&quot;トップページ PC版 ワイヤーフレーム&quot;&gt;</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">不要（Figmaで作成したスクリーンショットを配置）</div>
-            </div>
-          </div>
-          <div class="fill-block">
-            <div class="fill-label">配置意図の説明 <span class="required">必須</span></div>
-            <div class="fill-hint">各セクションの配置理由とユーザーへの効果</div>
-            <div class="fill-content">
-              <p>（各セクションの配置意図を記載）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">以下のワイヤーフレーム構成について、各セクションの配置意図を説明してください。
-
-                （ワイヤーフレームのセクション構成を記載）
-
-                それぞれ「なぜその位置に配置したか」「ユーザーにどのような効果があるか」を説明してください。</div>
-            </div>
-          </div>
-
-        </section>
-
-        <section class="section" id="sec3">
-          <h2 class="section-title"><span class="section-icon">3</span> 下層ページ</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">下層ページ ワイヤーフレーム <span class="required">必須</span></div>
-            <div class="fill-hint">各下層ページのワイヤーフレームを順に配置</div>
-            <div class="fill-content">
-              <p>（ここに各下層ページのワイヤーフレーム画像と説明を配置）
-
-                【ページ名1】
-                &lt;img src=&quot;../images/wireframe/page1-pc.png&quot; alt=&quot;ページ名1 ワイヤーフレーム&quot;&gt;
-                配置意図：（説明）
-
-                【ページ名2】
-                &lt;img src=&quot;../images/wireframe/page2-pc.png&quot; alt=&quot;ページ名2 ワイヤーフレーム&quot;&gt;
-                配置意図：（説明）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">不要（Figmaで作成したスクリーンショットを配置）</div>
-            </div>
-          </div>
-
-        </section>
-
-        <section class="section" id="sec4">
-          <h2 class="section-title"><span class="section-icon">4</span> Webアプリケーション画面</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">Webアプリ画面 ワイヤーフレーム <span class="required">必須</span></div>
-            <div class="fill-hint">主要な画面（ログイン・一覧・登録・詳細・編集）のワイヤーフレーム</div>
-            <div class="fill-content">
-              <p>（ここにWebアプリ画面のワイヤーフレーム画像を配置）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">Spring Bootの管理画面のワイヤーフレーム構成を提案してください。
-
-                以下の画面それぞれについて、配置する要素を教えてください。
-                ・ログイン画面
-                ・一覧画面（検索・ソート・ページネーション付き）
-                ・新規登録画面（入力フォーム）
-                ・詳細画面
-                ・編集画面</div>
-            </div>
-          </div>
-
-        </section>
-
-        <section class="section" id="sec5">
-          <h2 class="section-title"><span class="section-icon">5</span> スマートフォン版</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">スマートフォン版 ワイヤーフレーム <span class="optional">任意</span></div>
-            <div class="fill-hint">主要ページのスマートフォン版ワイヤーフレーム</div>
-            <div class="fill-content">
-              <p>（ここにスマートフォン版のワイヤーフレーム画像を配置）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">不要（Figmaで作成したスクリーンショットを配置）</div>
-            </div>
-          </div>
-
-        </section>
 
       </div>
-    </main>
+      </section>
+
+      <section class="section" id="sec2">
+        <h2 class="section-title"><span class="section-icon">2</span> トップページ</h2>
+
+        <div class="fill-block">
+          <div class="fill-label">トップページ ワイヤーフレーム（PC版） <span class="required">必須</span></div>
+          <div class="fill-hint">Figmaで作成したワイヤーフレームのスクリーンショットを配置</div>
+          <div class="fill-content">
+            <p>
+            <div class="wireframe-embed">
+              <svg id="wf-top" width="1440" height="2500" viewBox="0 0 1440 2500" xmlns="http://www.w3.org/2000/svg"
+                role="img" aria-label="トップページ（左ナビ込み） ワイヤーフレーム（PC版）">
+
+                <!-- Left Navigation (same for both) -->
+                <g id="left-nav">
+                  <rect x="0" y="0" width="200" height="2500" fill="#ffffff" stroke="#e6e6e6" stroke-width="2" />
+                  <!-- Logo placeholder -->
+                  <rect x="40" y="24" width="120" height="44" fill="#f0f0f0" stroke="#999" stroke-width="2" />
+                  <line x1="40" y1="24" x2="160" y2="68" stroke="#999" stroke-width="2" />
+                  <line x1="160" y1="24" x2="40" y2="68" stroke="#999" stroke-width="2" />
+
+                  <g font-family="Arial, sans-serif" font-size="12" fill="#333">
+                    <text x="24" y="110" font-weight="700">ブランド</text>
+                    <text x="24" y="132">■■■■■■■■■■</text>
+                    <text x="24" y="150">■■■■■■■■■■</text>
+                    <text x="24" y="168">■■■■■■■■■■</text>
+
+                    <text x="24" y="200" font-weight="700">アイテム</text>
+                    <text x="24" y="222">■■■■■■■■■■</text>
+                    <text x="24" y="240">■■■■■■■■■■</text>
+                    <text x="24" y="258">DIY</text>
+                    <text x="24" y="276">■■■■■■■■■■</text>
+                    <text x="24" y="294">ギフトセット</text>
+
+                    <text x="24" y="326" font-weight="700">香りから探す</text>
+                    <text x="24" y="348">■■■■■■■■■■</text>
+
+                    <text x="24" y="380" font-weight="700">香りと遊ぶ！香游</text>
+                    <text x="24" y="402">■■■■■■■■■■</text>
+
+                    <text x="24" y="434" font-weight="700">記事</text>
+                    <text x="24" y="456">■■■■■■■■■■</text>
+                    <text x="24" y="474">Sale</text>
+
+                    <text x="24" y="506" font-weight="700">実店舗</text>
+                    <text x="24" y="528">■■■■■■イベント</text>
+                    <text x="24" y="546">■■■■■ ■■店</text>
+
+                    <text x="24" y="578" font-weight="700">ショッピングガイド</text>
+                    <text x="24" y="600">マイアカウント</text>
+                    <text x="24" y="618">会員登録</text>
+                    <text x="24" y="636">ログイン</text>
+                  </g>
+                </g>
+
+
+                <g transform="translate(220,0) scale(0.85)">
+                  <rect x="0" y="0" width="1440" height="44" class="section" />
+                  <text x="40" y="28" class="sm">案内（配送・返品・支払など）</text>
+                  <text x="1230" y="28" class="sm">ログイン</text>
+                  <text x="1320" y="28" class="sm">カート</text>
+
+                  <rect x="0" y="44" width="1440" height="88" class="nav" />
+                  <text x="40" y="100" class="text">inim-dx</text>
+                  <text x="1080" y="100" class="label">検索</text>
+                  <text x="1160" y="100" class="label">マイアカウント</text>
+                  <text x="1300" y="100" class="label">お問い合わせ</text>
+
+                  <rect x="0" y="132" width="1440" height="56" class="nav" />
+                  <text x="170" y="168" class="label">ブランド</text>
+                  <text x="310" y="168" class="label">アイテム</text>
+                  <text x="450" y="168" class="label">香りから探す</text>
+                  <text x="650" y="168" class="label">香りと遊ぶ！香游</text>
+                  <text x="860" y="168" class="label">記事</text>
+                  <text x="950" y="168" class="label">Sale</text>
+                  <text x="1040" y="168" class="label">実店舗</text>
+
+                  <rect x="0" y="188" width="1440" height="56" class="section" />
+                  <text x="40" y="222" class="label">お知らせ（最新）</text>
+
+                  <rect x="60" y="274" width="1320" height="520" class="hero" />
+                  <text x="110" y="330" class="cap">Hero / Carousel</text>
+
+                  <rect x="120" y="360" width="1200" height="240" class="banner" />
+                  <text x="720" y="430" text-anchor="middle" class="text">香りと遊ぶ！香游</text>
+                  <text x="720" y="470" text-anchor="middle" class="label">色 × 粒子 × サウンドで香りを体験（スクロール＋ドラッグ）</text>
+                  <text x="720" y="500" text-anchor="middle" class="label">SoundはトグルでON（余韻として付加）</text>
+                  <rect x="620" y="530" width="200" height="52" class="cta" />
+                  <text x="720" y="563" text-anchor="middle" class="label">体験する</text>
+
+                  <rect x="620" y="640" width="200" height="52" class="nav" />
+                  <text x="720" y="673" text-anchor="middle" class="label">体験の流れを見る</text>
+
+                  <rect x="60" y="834" width="1320" height="200" class="section" />
+                  <text x="100" y="894" class="cap">体験の流れ</text>
+
+                  <rect x="150" y="920" width="360" height="84" class="nav" />
+                  <text x="330" y="954" text-anchor="middle" class="sm">STEP1</text>
+                  <text x="330" y="978" text-anchor="middle" class="sm">香りと遊ぶ！香游</text>
+
+                  <rect x="540" y="920" width="360" height="84" class="nav" />
+                  <text x="720" y="954" text-anchor="middle" class="sm">STEP2</text>
+                  <text x="720" y="978" text-anchor="middle" class="sm">実店舗体験</text>
+
+                  <rect x="930" y="920" width="360" height="84" class="nav" />
+                  <text x="1110" y="954" text-anchor="middle" class="sm">STEP3</text>
+                  <text x="1110" y="978" text-anchor="middle" class="sm">香り完成</text>
+
+                  <rect x="60" y="1054" width="1320" height="520" class="section" />
+                  <text x="100" y="1114" class="cap">PICK UP</text>
+                  <rect x="100" y="1150" width="300" height="360" class="nav" />
+                  <rect x="430" y="1150" width="300" height="360" class="nav" />
+                  <rect x="760" y="1150" width="300" height="360" class="nav" />
+                  <rect x="1090" y="1150" width="250" height="360" class="nav" />
+
+                  <rect x="60" y="1614" width="1320" height="220" class="banner" />
+                  <text x="720" y="1690" text-anchor="middle" class="text">香りと遊ぶ！香游</text>
+                  <text x="720" y="1730" text-anchor="middle" class="label">あなたの香りを“見て・聴いて”立ち上げる（体験→実店舗体験へ）</text>
+                  <rect x="620" y="1760" width="200" height="52" class="cta" />
+                  <text x="720" y="1793" text-anchor="middle" class="label">体験する</text>
+
+                  <rect x="60" y="1874" width="1320" height="600" class="section" />
+                  <text x="100" y="1934" class="cap">新着商品</text>
+
+                  <rect x="150" y="1980" width="340" height="200" class="nav" />
+                  <rect x="550" y="1980" width="340" height="200" class="nav" />
+                  <rect x="950" y="1980" width="340" height="200" class="nav" />
+                  <rect x="150" y="2240" width="340" height="200" class="nav" />
+                  <rect x="550" y="2240" width="340" height="200" class="nav" />
+                  <rect x="950" y="2240" width="340" height="200" class="nav" />
+                </g>
+
+                <!-- Footer (wireframe) -->
+                <g>
+                  <rect x="200" y="2140" width="1240" height="340" fill="#1F1F1F" />
+                  <g font-family="Arial,sans-serif" font-size="12" fill="#EAEAEA">
+                    <text x="240" y="2200">STOREINFO</text>
+                    <text x="240" y="2222">■■■■■■■■■</text>
+
+                    <text x="520" y="2200">TOP</text>
+                    <text x="520" y="2222">配送・送料について</text>
+                    <text x="520" y="2244">返品について</text>
+                    <text x="520" y="2266">お支払い方法について</text>
+                    <text x="520" y="2288">特定商取引法に基づく表記</text>
+                    <text x="520" y="2310">プライバシーポリシー</text>
+
+                    <text x="820" y="2200">メルマガ登録・解除</text>
+                    <text x="820" y="2222">RSS / ATOM</text>
+
+                    <text x="1080" y="2200">マイアカウント</text>
+                    <text x="1080" y="2222">会員登録</text>
+                    <text x="1080" y="2244">ログイン</text>
+                    <text x="1080" y="2266">カートを見る</text>
+                    <text x="1080" y="2288">お問い合わせ</text>
+
+                    <text x="820" y="2380" text-anchor="middle" fill="#BBBBBB">inim-dx wireframe document</text>
+                  </g>
+                </g>
+
+              </svg>
+            </div>
+            </p>
+          </div>
+        </div>
+        <div class="fill-block">
+          <div class="fill-label">配置意図の説明 <span class="required">必須</span></div>
+          <div class="fill-hint">各セクションの配置理由とユーザーへの効果</div>
+          <div class="fill-content">
+
+            <h3>配置意図の説明</h3>
+            <ul>
+              <li><strong>現行TOPの役割を維持：</strong>回遊（ブランド / アイテム / 香りから探す / 記事 / Sale / 実店舗）を崩さず、上段に「体験」導線を追加。</li>
+              <li><strong>体験導線は一点集中：</strong>ファーストビューで「香りと遊ぶ！香游」を強く提示し、直帰を抑制。</li>
+              <li><strong>理解補助：</strong>「体験の流れ（3ステップ）」で、ユーザーが“何が起きるか”を即理解できるようにする。</li>
+              <li><strong>再掲で回収：</strong>スクロール後にも体験バナーを配置し、商品閲覧から体験への転換を促す。</li>
+            </ul>
+
+          </div>
+        </div>
+
+      </section>
+
+      <section class="section" id="sec3">
+        <h2 class="section-title"><span class="section-icon">3</span> 下層ページ</h2>
+
+        <div class="fill-block">
+          <div class="fill-label">下層ページ ワイヤーフレーム <span class="required">必須</span></div>
+          <div class="fill-hint">各下層ページのワイヤーフレームを順に配置</div>
+          <div class="fill-content">
+
+            <div>
+              <p><strong>【香りと遊ぶ！香游（デジタル調香ページ）】</strong></p>
+
+              <div class="wireframe-embed">
+                <svg id="wf-lower" width="1440" height="1250" viewBox="0 0 1440 1250" xmlns="http://www.w3.org/2000/svg"
+                  role="img" aria-label="香りと遊ぶ！香游（左ナビ込み） ワイヤーフレーム（PC版）">
+
+                  <!-- Left Navigation (same for both) -->
+                  <g id="left-nav">
+                    <rect x="0" y="0" width="200" height="1250" fill="#ffffff" stroke="#e6e6e6" stroke-width="2" />
+                    <!-- Logo placeholder -->
+                    <rect x="40" y="24" width="120" height="44" fill="#f0f0f0" stroke="#999" stroke-width="2" />
+                    <line x1="40" y1="24" x2="160" y2="68" stroke="#999" stroke-width="2" />
+                    <line x1="160" y1="24" x2="40" y2="68" stroke="#999" stroke-width="2" />
+
+                    <g font-family="Arial, sans-serif" font-size="12" fill="#333">
+                      <text x="24" y="110" font-weight="700">ブランド</text>
+                      <text x="24" y="132">■■■■■■■■■■</text>
+                      <text x="24" y="150">■■■■■■■■■■</text>
+                      <text x="24" y="168">■■■■■■■■■■</text>
+
+                      <text x="24" y="200" font-weight="700">アイテム</text>
+                      <text x="24" y="222">■■■■■■■■■■</text>
+                      <text x="24" y="240">■■■■■■■■■■</text>
+                      <text x="24" y="258">DIY</text>
+                      <text x="24" y="276">■■■■■■■■■■</text>
+                      <text x="24" y="294">ギフトセット</text>
+
+                      <text x="24" y="326" font-weight="700">香りから探す</text>
+                      <text x="24" y="348">■■■■■■■■■■</text>
+
+                      <text x="24" y="380" font-weight="700">香りと遊ぶ！香游</text>
+                      <text x="24" y="402">■■■■■■■■■■</text>
+
+                      <text x="24" y="434" font-weight="700">記事</text>
+                      <text x="24" y="456">■■■■■■■■■■</text>
+                      <text x="24" y="474">Sale</text>
+
+                      <text x="24" y="506" font-weight="700">実店舗</text>
+                      <text x="24" y="528">■■■■■■イベント</text>
+                      <text x="24" y="546">■■■■■ ■■店</text>
+
+                      <text x="24" y="578" font-weight="700">ショッピングガイド</text>
+                      <text x="24" y="600">マイアカウント</text>
+                      <text x="24" y="618">会員登録</text>
+                      <text x="24" y="636">ログイン</text>
+                    </g>
+                  </g>
+
+                  <g transform="translate(220,0) scale(0.85)">
+                    <rect x="0" y="0" width="1440" height="80" class="panel" />
+                    <text x="40" y="48" class="text">香りと遊ぶ！香游</text>
+                    <rect x="1110" y="22" width="140" height="36" class="ghost" rx="18" />
+                    <text x="1180" y="46" text-anchor="middle" class="small">Sound OFF/ON</text>
+                    <rect x="1270" y="22" width="120" height="36" class="ghost" rx="18" />
+                    <text x="1330" y="46" text-anchor="middle" class="small">Exit</text>
+
+                    <rect x="120" y="96" width="1200" height="86" class="card" rx="10" />
+                    <text x="160" y="130" class="cap">はじめ方（初回のみ表示）</text>
+                    <text x="160" y="156" class="small">スクロール：Top / Middle / Base
+                      のレイヤーを切替　｜　ドラッグ：粒子の広がりを調整　｜　色：ノートの方向性</text>
+
+                    <rect x="120" y="200" width="1200" height="560" class="canvas" rx="16" />
+                    <text x="720" y="470" text-anchor="middle" class="text">Color + Particle Canvas</text>
+                    <text x="720" y="505" text-anchor="middle" class="small">Scroll / Drag Interaction</text>
+
+                    <rect x="160" y="240" width="180" height="36" class="panel" rx="18" />
+                    <text x="250" y="264" text-anchor="middle" class="small">Layer: Top</text>
+                    <rect x="350" y="240" width="180" height="36" class="panel" rx="18" />
+                    <text x="440" y="264" text-anchor="middle" class="small">Middle</text>
+                    <rect x="540" y="240" width="180" height="36" class="panel" rx="18" />
+                    <text x="630" y="264" text-anchor="middle" class="small">Base</text>
+
+                    <rect x="120" y="780" width="1200" height="180" class="panel" rx="16" />
+                    <text x="160" y="828" class="cap">Controls</text>
+
+                    <text x="160" y="862" class="small">Mood（視覚）</text>
+                    <rect x="160" y="878" width="140" height="56" class="card" rx="10" />
+                    <rect x="310" y="878" width="140" height="56" class="card" rx="10" />
+                    <rect x="460" y="878" width="140" height="56" class="card" rx="10" />
+                    <rect x="610" y="878" width="140" height="56" class="card" rx="10" />
+                    <text x="230" y="912" text-anchor="middle" class="small">Mood A</text>
+                    <text x="380" y="912" text-anchor="middle" class="small">Mood B</text>
+                    <text x="530" y="912" text-anchor="middle" class="small">Mood C</text>
+                    <text x="680" y="912" text-anchor="middle" class="small">Mood D</text>
+
+                    <text x="800" y="862" class="small">Color（ノート）</text>
+                    <rect x="800" y="878" width="170" height="56" class="card" rx="10" />
+                    <text x="885" y="912" text-anchor="middle" class="small">Color Wheel</text>
+
+                    <text x="1060" y="862" class="small">Speed（広がり）</text>
+                    <rect x="1060" y="870" width="220" height="12" class="card" rx="6" />
+                    <rect x="1156" y="864" width="28" height="24" class="panel" rx="6" />
+
+                    <rect x="1095" y="898" width="195" height="52" class="cta" rx="12" />
+                    <text x="1193" y="930" text-anchor="middle" class="small">この香りを見る</text>
+
+                    <rect x="120" y="980" width="1200" height="100" class="card" rx="16" />
+                    <text x="160" y="1018" class="cap">あなたの香り（結果）</text>
+                    <text x="160" y="1046" class="small">色 × 粒子 × サウンド（任意）で表現 / 香り名（編集可）</text>
+
+                    <rect x="940" y="1002" width="140" height="52" class="ghost" rx="12" />
+                    <text x="1010" y="1034" text-anchor="middle" class="small">保存（任意）</text>
+
+                    <rect x="1095" y="1002" width="195" height="52" class="cta" rx="12" />
+                    <text x="1193" y="1034" text-anchor="middle" class="small">実店舗体験へ</text>
+                  </g>
+
+                  <!-- Footer (wireframe) -->
+                  <g>
+                    <rect x="200" y="980" width="1240" height="260" fill="#1F1F1F" />
+                    <g font-family="Arial,sans-serif" font-size="12" fill="#EAEAEA">
+                      <text x="240" y="1035">ショッピングガイド / 法的表示 / お問い合わせ</text>
+                      <text x="240" y="1060">マイアカウント / メルマガ登録・解除</text>
+                      <text x="240" y="1085">ブランド / アイテム / 香りから探す / 記事 / Sale / 実店舗</text>
+                      <text x="820" y="1165" text-anchor="middle" fill="#BBBBBB">inim-dx wireframe document</text>
+                    </g>
+                  </g>
+
+                </svg>
+              </div>
+
+              <h3>配置意図の説明</h3>
+              <ul>
+                <li><strong>単一目的の没入ページ：</strong>色×粒子×サウンド（任意）で“混ぜる”体験に集中させる。</li>
+                <li><strong>操作の即時理解：</strong>初回ヘルプで「スクロール＝レイヤー」「ドラッグ＝広がり」「色＝ノート」を最短で理解。</li>
+                <li><strong>次行動の自然さ：</strong>結果表示の直後に「実店舗体験へ」。香りが生まれた瞬間の動機で遷移させる。</li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sec4">
+        <h2 class="section-title"><span class="section-icon">4</span> Webアプリケーション画面</h2>
+
+        <div class="fill-block">
+          <div class="fill-label">Webアプリ画面 ワイヤーフレーム <span class="required">必須</span></div>
+          <div class="fill-hint">主要な画面（ログイン・一覧・登録・詳細・編集）のワイヤーフレーム</div>
+          <div class="fill-content">
+            <p>（ここにWebアプリ画面のワイヤーフレーム画像を配置）</p>
+          </div>
+          <div class="prompt-box">
+            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
+            <div class="prompt-text">Spring Bootの管理画面のワイヤーフレーム構成を提案してください。
+
+              以下の画面それぞれについて、配置する要素を教えてください。
+              ・ログイン画面
+              ・一覧画面（検索・ソート・ページネーション付き）
+              ・新規登録画面（入力フォーム）
+              ・詳細画面
+              ・編集画面</div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="section" id="sec5">
+        <h2 class="section-title"><span class="section-icon">5</span> スマートフォン版</h2>
+
+        <div class="fill-block">
+          <div class="fill-label">スマートフォン版 ワイヤーフレーム <span class="optional">任意</span></div>
+          <div class="fill-hint">主要ページのスマートフォン版ワイヤーフレーム</div>
+          <div class="fill-content">
+            <div class="wireframe-embed">
+              <svg id="wf-mobile" width="1200" height="920" viewBox="0 0 1200 920" xmlns="http://www.w3.org/2000/svg"
+                role="img" aria-label="スマートフォン版ワイヤーフレーム（TOPページとデジタル調香ページ）">
+
+                <!-- Left smartphone: TOP page -->
+                <g transform="translate(70,40)">
+                  <rect x="0" y="0" width="460" height="840" rx="42" fill="#f2f2f2" stroke="#9d9d9d" stroke-width="4" />
+                  <rect x="20" y="20" width="420" height="800" rx="32" fill="#ffffff" stroke="#d0d0d0"
+                    stroke-width="2" />
+                  <rect x="175" y="10" width="110" height="12" rx="6" fill="#b6b6b6" />
+
+                  <text x="38" y="58" font-family="Arial,sans-serif" font-size="15" font-weight="700"
+                    fill="#303030">TOPページ</text>
+                  <rect x="28" y="70" width="404" height="58" rx="10" fill="#f7f7f7" stroke="#bdbdbd"
+                    stroke-width="2" />
+                  <text x="44" y="106" font-family="Arial,sans-serif" font-size="13" fill="#636363">ロゴ / 検索 / カート</text>
+
+                  <rect x="28" y="142" width="404" height="172" rx="12" fill="#e9e9e9" stroke="#a6a6a6"
+                    stroke-width="2" />
+                  <text x="230" y="234" text-anchor="middle" font-family="Arial,sans-serif" font-size="14"
+                    fill="#555">Hero</text>
+
+                  <rect x="28" y="328" width="404" height="128" rx="12" fill="#ffd966" stroke="#8b8b8b"
+                    stroke-width="2" />
+                  <text x="230" y="375" text-anchor="middle" font-family="Arial,sans-serif" font-size="15"
+                    font-weight="700" fill="#333">香りと遊ぶ！香游</text>
+                  <rect x="142" y="393" width="176" height="40" rx="10" fill="#ffe9a6" stroke="#777" stroke-width="2" />
+                  <text x="230" y="418" text-anchor="middle" font-family="Arial,sans-serif" font-size="13"
+                    fill="#555">体験する</text>
+
+                  <rect x="28" y="470" width="404" height="92" rx="12" fill="#f5f5f5" stroke="#bdbdbd"
+                    stroke-width="2" />
+                  <text x="44" y="505" font-family="Arial,sans-serif" font-size="13" font-weight="700"
+                    fill="#464646">体験の流れ</text>
+                  <text x="44" y="532" font-family="Arial,sans-serif" font-size="12" fill="#666">STEP1 → STEP2 →
+                    STEP3</text>
+
+                  <rect x="28" y="576" width="194" height="134" rx="10" fill="#fafafa" stroke="#bfbfbf"
+                    stroke-width="2" />
+                  <rect x="238" y="576" width="194" height="134" rx="10" fill="#fafafa" stroke="#bfbfbf"
+                    stroke-width="2" />
+                  <text x="125" y="650" text-anchor="middle" font-family="Arial,sans-serif" font-size="12"
+                    fill="#666">PICK UP</text>
+                  <text x="335" y="650" text-anchor="middle" font-family="Arial,sans-serif" font-size="12"
+                    fill="#666">新着商品</text>
+
+                  <rect x="28" y="724" width="404" height="88" rx="10" fill="#1f1f1f" />
+                  <text x="46" y="774" font-family="Arial,sans-serif" font-size="12" fill="#d9d9d9">フッター / ナビリンク</text>
+                </g>
+
+                <!-- Divider -->
+                <g aria-hidden="true">
+                  <rect x="586" y="70" width="28" height="780" rx="14" fill="#8f8f8f" />
+                  <rect x="590" y="74" width="20" height="772" rx="10" fill="#bdbdbd" />
+                  <line x1="592" y1="84" x2="592" y2="836" stroke="#ededed" stroke-width="2" opacity="0.85" />
+                  <line x1="607" y1="84" x2="607" y2="836" stroke="#6d6d6d" stroke-width="2" opacity="0.7" />
+                </g>
+
+                <!-- Right smartphone: Digital perfumery page -->
+                <g transform="translate(670,40)">
+                  <rect x="0" y="0" width="460" height="840" rx="42" fill="#f2f2f2" stroke="#9d9d9d" stroke-width="4" />
+                  <rect x="20" y="20" width="420" height="800" rx="32" fill="#ffffff" stroke="#d0d0d0"
+                    stroke-width="2" />
+                  <rect x="175" y="10" width="110" height="12" rx="6" fill="#b6b6b6" />
+
+                  <text x="38" y="58" font-family="Arial,sans-serif" font-size="15" font-weight="700"
+                    fill="#303030">デジタル調香ページ</text>
+                  <rect x="28" y="70" width="404" height="54" rx="10" fill="#f8f8f8" stroke="#bdbdbd"
+                    stroke-width="2" />
+                  <text x="44" y="103" font-family="Arial,sans-serif" font-size="13" fill="#636363">香りと遊ぶ！香游 / Sound /
+                    Exit</text>
+
+                  <rect x="28" y="136" width="404" height="64" rx="10" fill="#ffffff" stroke="#bdbdbd"
+                    stroke-width="2" />
+                  <text x="44" y="174" font-family="Arial,sans-serif" font-size="12" fill="#666">操作説明（スクロール・ドラッグ）</text>
+
+                  <rect x="28" y="214" width="404" height="236" rx="14" fill="#e9e9e9" stroke="#9f9f9f"
+                    stroke-width="2" />
+                  <text x="230" y="334" text-anchor="middle" font-family="Arial,sans-serif" font-size="14"
+                    fill="#555">Color + Particle Canvas</text>
+
+                  <rect x="28" y="464" width="404" height="204" rx="12" fill="#f7f7f7" stroke="#b5b5b5"
+                    stroke-width="2" />
+                  <text x="44" y="498" font-family="Arial,sans-serif" font-size="13" font-weight="700"
+                    fill="#4a4a4a">Controls</text>
+                  <text x="44" y="526" font-family="Arial,sans-serif" font-size="11" fill="#666">Mood（視覚）</text>
+                  <text x="332" y="526" font-family="Arial,sans-serif" font-size="11" fill="#666">Color（ノート）</text>
+                  <rect x="44" y="510" width="88" height="36" rx="8" fill="#fff" stroke="#bbb" stroke-width="2" />
+                  <rect x="140" y="510" width="88" height="36" rx="8" fill="#fff" stroke="#bbb" stroke-width="2" />
+                  <rect x="236" y="510" width="88" height="36" rx="8" fill="#fff" stroke="#bbb" stroke-width="2" />
+                  <rect x="332" y="510" width="96" height="36" rx="8" fill="#fff" stroke="#bbb" stroke-width="2" />
+                  <text x="88" y="533" text-anchor="middle" font-family="Arial,sans-serif" font-size="11"
+                    fill="#666">Mood A</text>
+                  <text x="184" y="533" text-anchor="middle" font-family="Arial,sans-serif" font-size="11"
+                    fill="#666">Mood B</text>
+                  <text x="280" y="533" text-anchor="middle" font-family="Arial,sans-serif" font-size="11"
+                    fill="#666">Mood C</text>
+                  <text x="380" y="533" text-anchor="middle" font-family="Arial,sans-serif" font-size="11"
+                    fill="#666">Color Wheel</text>
+                  <text x="44" y="574" font-family="Arial,sans-serif" font-size="11" fill="#666">Speed（広がり）</text>
+                  <rect x="44" y="580" width="172" height="10" rx="5" fill="#fff" stroke="#bbb" stroke-width="2" />
+                  <rect x="120" y="574" width="24" height="22" rx="5" fill="#ececec" stroke="#aaa" stroke-width="2" />
+                  <rect x="242" y="578" width="174" height="44" rx="10" fill="#ffd966" stroke="#777" stroke-width="2" />
+                  <text x="329" y="606" text-anchor="middle" font-family="Arial,sans-serif" font-size="12"
+                    fill="#555">この香りを見る</text>
+
+                  <rect x="28" y="682" width="404" height="130" rx="12" fill="#ffffff" stroke="#bdbdbd"
+                    stroke-width="2" />
+                  <text x="44" y="718" font-family="Arial,sans-serif" font-size="13" font-weight="700"
+                    fill="#4a4a4a">あなたの香り（結果）</text>
+                  <rect x="242" y="748" width="80" height="40" rx="10" fill="#fff" stroke="#777" stroke-width="2" />
+                  <text x="282" y="773" text-anchor="middle" font-family="Arial,sans-serif" font-size="12"
+                    fill="#666">保存</text>
+                  <rect x="332" y="748" width="84" height="40" rx="10" fill="#ffd966" stroke="#777" stroke-width="2" />
+                  <text x="374" y="773" text-anchor="middle" font-family="Arial,sans-serif" font-size="12"
+                    fill="#555">実店舗体験へ</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  </div>
+  </main>
   </div>
 
   <script src="../js/main.js"></script>

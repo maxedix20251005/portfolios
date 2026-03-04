@@ -745,6 +745,138 @@ a:hover { color: var(--black); }
   overflow-x: auto;
 }
 
+/* 05-wireframe */
+.doc-wireframe .wireframe-embed {
+  margin: 12px 0;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.doc-wireframe .wireframe-embed svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.doc-wireframe .fill-content h3 {
+  margin-top: 10px;
+}
+
+.doc-wireframe .fill-content ul {
+  margin: 10px 0 0 18px;
+}
+
+.doc-wireframe .fill-content li {
+  margin: 6px 0;
+}
+
+.doc-wireframe #wf-top .hero {
+  fill: #ececec;
+  stroke: #999;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .section {
+  fill: #f7f7f7;
+  stroke: #bbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .banner {
+  fill: #ffd966;
+  stroke: #777;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .cta {
+  fill: #ffe9a6;
+  stroke: #777;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .text {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  fill: #333;
+}
+
+.doc-wireframe #wf-top .label {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  fill: #666;
+}
+
+.doc-wireframe #wf-top .nav {
+  fill: #fff;
+  stroke: #ddd;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .cap {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  fill: #333;
+  font-weight: 700;
+}
+
+.doc-wireframe #wf-top .sm {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  fill: #666;
+}
+
+.doc-wireframe #wf-lower .canvas {
+  fill: #ececec;
+  stroke: #888;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .panel {
+  fill: #f8f8f8;
+  stroke: #bbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .card {
+  fill: #fff;
+  stroke: #bbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .text {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  fill: #333;
+}
+
+.doc-wireframe #wf-lower .small {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  fill: #666;
+}
+
+.doc-wireframe #wf-lower .cta {
+  fill: #ffd966;
+  stroke: #777;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .ghost {
+  fill: #fff;
+  stroke: #777;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .cap {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  fill: #333;
+  font-weight: 700;
+}
+
 /* --- Progress --- */
 .progress-bar {
   display: flex;
