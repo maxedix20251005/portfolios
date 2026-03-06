@@ -504,6 +504,33 @@ a:hover { color: var(--black); }
   line-height: 1.6;
 }
 
+.external-link-box .external-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.external-link-box .external-link-list a {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--border-dark);
+  background: var(--gray-100);
+  color: var(--gray-700);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.external-link-box .external-link-list a:hover {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
 .external-link-box .external-link-input {
   display: inline-flex;
   align-items: stretch;

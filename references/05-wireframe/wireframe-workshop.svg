@@ -1,0 +1,296 @@
+<svg id="wf-top-workshop-lp" width="1440" height="2900" viewBox="0 0 1440 2900"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="トップページ（左ナビ込み） ワークショップLP ワイヤーフレーム（PC版）">
+<style>
+  text { font-family: "Noto Sans JP", "Inter", sans-serif; fill: #333333; letter-spacing: 0.01em; }
+  .wf-sidenav-bg { fill: #ffffff; stroke: #e6e6e6; stroke-width: 2; }
+  .wf-sidenav-text { font-size: 12px; fill: #333333; }
+  .wf-logo-box { fill: #f0f0f0; stroke: #999999; stroke-width: 2; }
+  .wf-logo-line { stroke: #999999; stroke-width: 2; }
+  .wf-footer-bg { fill: #1f1f1f; }
+  .wf-footer-text { font-size: 12px; fill: #eaeaea; }
+  .wf-footer-text text { fill: #eaeaea; }
+  .section { fill: #f7f7f7; stroke: #bbbbbb; stroke-width: 2; }
+  .nav { fill: #ffffff; stroke: #bdbdbd; stroke-width: 2; }
+  .panel { fill: #f7f7f7; stroke: #bbbbbb; stroke-width: 2; }
+  .card { fill: #ffffff; stroke: #bbbbbb; stroke-width: 2; }
+  .hero { fill: #e9e9e9; stroke: #a6a6a6; stroke-width: 2; }
+  .banner { fill: #fff6d6; stroke: #b8a86b; stroke-width: 2; }
+  .canvas { fill: #ececec; stroke: #888888; stroke-width: 2; }
+  .cta { fill: #ffd966; stroke: #7f7f7f; stroke-width: 2; }
+  .ghost { fill: #ffffff; stroke: #777777; stroke-width: 2; }
+  .chip { fill: #f5f5f5; stroke: #bdbdbd; stroke-width: 2; }
+  .text { font-size: 20px; font-weight: 700; fill: #333333; }
+  .cap { font-size: 17px; font-weight: 700; fill: #333333; }
+  .label { font-size: 13px; font-weight: 500; fill: #555555; }
+  .sm { font-size: 12px; fill: #666666; }
+  .small { font-size: 12px; fill: #666666; }
+</style>
+
+                <!-- Left Navigation (fixed) -->
+                <g>
+                  <rect x="0" y="0" width="200" height="2900" class="wf-sidenav-bg" />
+                  <!-- Logo placeholder -->
+                  <rect x="40" y="24" width="120" height="44" class="wf-logo-box" />
+                  <line x1="40" y1="24" x2="160" y2="68" class="wf-logo-line" />
+                  <line x1="160" y1="24" x2="40" y2="68" class="wf-logo-line" />
+
+                  <g class="wf-sidenav-text">
+                    <text x="24" y="110" font-weight="700">ブランド</text>
+                    <text x="24" y="132">■■■■■■■■■■</text>
+                    <text x="24" y="150">■■■■■■■■■■</text>
+                    <text x="24" y="168">■■■■■■■■■■</text>
+
+                    <text x="24" y="200" font-weight="700">アイテム</text>
+                    <text x="24" y="222">■■■■■■■■■■</text>
+                    <text x="24" y="240">■■■■■■■■■■</text>
+                    <text x="24" y="258">DIY</text>
+                    <text x="24" y="276">■■■■■■■■■■</text>
+                    <text x="24" y="294">ギフトセット</text>
+
+                    <text x="24" y="326" font-weight="700">香りから探す</text>
+                    <text x="24" y="348">■■■■■■■■■■</text>
+
+                    <text x="24" y="380" font-weight="700">香りと遊ぶ！香游</text>
+                    <text x="24" y="402">■■■■■■■■■■</text>
+
+                    <text x="24" y="434" font-weight="700">記事</text>
+                    <text x="24" y="456">■■■■■■■■■■</text>
+                    <text x="24" y="474">Sale</text>
+
+                    <text x="24" y="506" font-weight="700">実店舗</text>
+                    <text x="24" y="528">■■■■■■イベント</text>
+                    <text x="24" y="546">■■■■■ ■■店</text>
+
+                    <text x="24" y="578" font-weight="700">ショッピングガイド</text>
+                    <text x="24" y="600">マイアカウント</text>
+                    <text x="24" y="618">会員登録</text>
+                    <text x="24" y="636">ログイン</text>
+                  </g>
+                </g>
+
+                <!-- Main Content -->
+                <g id="main" transform="translate(220,0) scale(0.85)">
+
+                  <!-- Top utility bar -->
+                  <rect x="0" y="0" width="1440" height="44" class="section" />
+                  <text x="40" y="28" class="sm">案内（配送・返品・支払など）</text>
+                  <text x="1230" y="28" class="sm">ログイン</text>
+                  <text x="1320" y="28" class="sm">カート</text>
+
+                  <!-- Header -->
+                  <rect x="0" y="44" width="1440" height="88" class="nav" />
+                  <text x="40" y="100" class="text">香りと遊ぶ！香游 - ワークショップページ</text>
+                  <text x="1080" y="100" class="label">検索</text>
+                  <text x="1160" y="100" class="label">マイアカウント</text>
+                  <text x="1300" y="100" class="label">お問い合わせ</text>
+
+                  <!-- Global nav -->
+                  <rect x="0" y="132" width="1440" height="56" class="nav" />
+                  <text x="170" y="168" class="label">ブランド</text>
+                  <text x="310" y="168" class="label">アイテム</text>
+                  <text x="450" y="168" class="label">香りから探す</text>
+                  <text x="650" y="168" class="label">香りと遊ぶ！香游</text>
+                  <text x="860" y="168" class="label">記事</text>
+                  <text x="950" y="168" class="label">Sale</text>
+                  <text x="1040" y="168" class="label">実店舗</text>
+
+                  <!-- Announcement -->
+                  <rect x="0" y="188" width="1440" height="56" class="section" />
+                  <text x="40" y="222" class="label">お知らせ：今月のワークショップ枠を公開（残席わずか）</text>
+
+                  <!-- HERO: Workshop -->
+                  <rect x="60" y="274" width="1320" height="520" class="hero" rx="16" />
+                  <text x="110" y="330" class="cap">Hero（ここに没入感のある写真/動画）</text>
+                  <text x="110" y="364" class="label">Placeholder：ワークショップ風景（手元・香料・空間） / 15〜30秒短尺動画推奨</text>
+
+                  <rect x="110" y="404" width="560" height="330" class="banner" rx="16" />
+                  <text x="140" y="452" class="text">香りを、つくって、連れて帰る。</text>
+                  <text x="140" y="486" class="label">90分で「自分の香り」の輪郭が立ち上がる体験</text>
+
+                  <rect x="140" y="520" width="510" height="48" class="chip" rx="24" />
+                  <text x="175" y="550" class="label">所要時間：90分 / 予約制 / はじめてOK</text>
+
+                  <rect x="140" y="580" width="510" height="48" class="chip" rx="24" />
+                  <text x="175" y="610" class="label">場所：実店舗（アクセス） / 少人数制：最大◯名</text>
+
+                  <rect x="140" y="650" width="220" height="56" class="cta" rx="12" />
+                  <text x="250" y="685" text-anchor="middle" class="label" font-weight="700">日程を選んで予約</text>
+
+                  <rect x="370" y="650" width="220" height="56" class="ghost" rx="12" />
+                  <text x="480" y="685" text-anchor="middle" class="label">内容を見る</text>
+
+                  <!-- Quick trust badges -->
+                  <rect x="720" y="404" width="610" height="86" class="card" rx="14" />
+                  <text x="760" y="442" class="cap">参加の不安を即解消（3点）</text>
+                  <text x="760" y="468" class="sm">・香りの知識ゼロOK　・当日持ち帰り　・スタッフが伴走</text>
+
+                  <rect x="720" y="506" width="190" height="228" class="card" rx="14" />
+                  <rect x="930" y="506" width="190" height="228" class="card" rx="14" />
+                  <rect x="1140" y="506" width="190" height="228" class="card" rx="14" />
+                  <text x="815" y="552" text-anchor="middle" class="cap">満足度</text>
+                  <text x="815" y="585" text-anchor="middle" class="label">★★★★★</text>
+                  <text x="815" y="615" text-anchor="middle" class="sm">Placeholder：数値</text>
+
+                  <text x="1025" y="552" text-anchor="middle" class="cap">参加者の声</text>
+                  <text x="1025" y="585" text-anchor="middle" class="label">「自分の好みが言語化できた」</text>
+                  <text x="1025" y="615" text-anchor="middle" class="sm">Placeholder：短い引用</text>
+
+                  <text x="1235" y="552" text-anchor="middle" class="cap">残席</text>
+                  <text x="1235" y="585" text-anchor="middle" class="label">◯ / ◯</text>
+                  <text x="1235" y="615" text-anchor="middle" class="sm">Placeholder：当月枠</text>
+
+                  <!-- Section: What you will experience -->
+                  <rect x="60" y="834" width="1320" height="420" class="section" rx="16" />
+                  <text x="100" y="894" class="cap">ワークショップで起きること（3ステップ）</text>
+
+                  <rect x="110" y="930" width="400" height="280" class="nav" rx="16" />
+                  <text x="310" y="970" text-anchor="middle" class="cap">STEP1：香りを見つける</text>
+                  <text x="310" y="1002" text-anchor="middle" class="sm">質問/会話で「好き」をほどく</text>
+                  <rect x="150" y="1030" width="320" height="140" class="hero" rx="12" />
+                  <text x="310" y="1115" text-anchor="middle" class="label">写真：カウンセリング風景</text>
+
+                  <rect x="520" y="930" width="400" height="280" class="nav" rx="16" />
+                  <text x="720" y="970" text-anchor="middle" class="cap">STEP2：香りをつくる</text>
+                  <text x="720" y="1002" text-anchor="middle" class="sm">香料を試し、方向性を決める</text>
+                  <rect x="560" y="1030" width="320" height="140" class="hero" rx="12" />
+                  <text x="720" y="1115" text-anchor="middle" class="label">写真：香料・ビーカー・手元</text>
+
+                  <rect x="930" y="930" width="400" height="280" class="nav" rx="16" />
+                  <text x="1130" y="970" text-anchor="middle" class="cap">STEP3：持ち帰る</text>
+                  <text x="1130" y="1002" text-anchor="middle" class="sm">名前をつけて、余韻まで完成</text>
+                  <rect x="970" y="1030" width="320" height="140" class="hero" rx="12" />
+                  <text x="1130" y="1115" text-anchor="middle" class="label">写真：完成ボトル（手に持つ）</text>
+
+                  <!-- Section: Choose a course -->
+                  <rect x="60" y="1294" width="1320" height="460" class="section" rx="16" />
+                  <text x="100" y="1354" class="cap">コースを選ぶ（迷わない比較）</text>
+                  <text x="100" y="1382" class="sm">※価格・所要時間・持ち帰り内容などを「ひと目」で</text>
+
+                  <rect x="110" y="1420" width="400" height="300" class="card" rx="16" />
+                  <text x="150" y="1464" class="cap">はじめてコース</text>
+                  <text x="150" y="1492" class="sm">90分 / 基本の流れ</text>
+                  <text x="150" y="1528" class="label">・香りの方向性を決める</text>
+                  <text x="150" y="1552" class="label">・ボトル持ち帰り</text>
+                  <text x="150" y="1576" class="label">・名前/メモカード</text>
+                  <rect x="150" y="1620" width="320" height="52" class="cta" rx="12" />
+                  <text x="310" y="1653" text-anchor="middle" class="label" font-weight="700">このコースで予約</text>
+
+                  <rect x="520" y="1420" width="400" height="300" class="card" rx="16" />
+                  <text x="560" y="1464" class="cap">ペア/ギフトコース</text>
+                  <text x="560" y="1492" class="sm">90〜120分 / 2名向け</text>
+                  <text x="560" y="1528" class="label">・2人分の香りを作る</text>
+                  <text x="560" y="1552" class="label">・ギフト包装</text>
+                  <text x="560" y="1576" class="label">・記念撮影（任意）</text>
+                  <rect x="560" y="1620" width="320" height="52" class="cta" rx="12" />
+                  <text x="720" y="1653" text-anchor="middle" class="label" font-weight="700">ペアで予約</text>
+
+                  <rect x="930" y="1420" width="400" height="300" class="card" rx="16" />
+                  <text x="970" y="1464" class="cap">深掘りコース</text>
+                  <text x="970" y="1492" class="sm">120分 / こだわり派</text>
+                  <text x="970" y="1528" class="label">・香りの微調整（複数回）</text>
+                  <text x="970" y="1552" class="label">・記録シート</text>
+                  <text x="970" y="1576" class="label">・香りの“言語化”支援</text>
+                  <rect x="970" y="1620" width="320" height="52" class="cta" rx="12" />
+                  <text x="1130" y="1653" text-anchor="middle" class="label" font-weight="700">深掘りで予約</text>
+
+                  <!-- Section: Social proof / Gallery -->
+                  <rect x="60" y="1794" width="1320" height="520" class="section" rx="16" />
+                  <text x="100" y="1854" class="cap">ギャラリー＆参加者の声（雰囲気を伝えて不安を減らす）</text>
+
+                  <rect x="110" y="1890" width="420" height="260" class="hero" rx="16" />
+                  <text x="320" y="2020" text-anchor="middle" class="label">写真：空間（店内/席）</text>
+
+                  <rect x="550" y="1890" width="360" height="125" class="hero" rx="16" />
+                  <text x="730" y="1960" text-anchor="middle" class="label">写真：手元（香料を試す）</text>
+
+                  <rect x="550" y="2025" width="360" height="125" class="hero" rx="16" />
+                  <text x="730" y="2095" text-anchor="middle" class="label">写真：完成ボトル</text>
+
+                  <rect x="930" y="1890" width="400" height="260" class="card" rx="16" />
+                  <text x="970" y="1934" class="cap">レビュー（短文×3）</text>
+                  <text x="970" y="1964" class="sm">★★★★★「選ぶ基準がわかった」</text>
+                  <text x="970" y="1990" class="sm">★★★★★「スタッフが優しくて安心」</text>
+                  <text x="970" y="2016" class="sm">★★★★★「持ち帰ってからも余韻が続く」</text>
+                  <rect x="970" y="2050" width="320" height="52" class="ghost" rx="12" />
+                  <text x="1130" y="2083" text-anchor="middle" class="label">レビューをもっと見る</text>
+
+                  <rect x="110" y="2170" width="1220" height="110" class="banner" rx="16" />
+                  <text x="150" y="2212" class="cap">ここで「ワークショップの空気感」を文章で補足</text>
+                  <text x="150" y="2240" class="sm">例：香りに詳しくなくても、会話と試香で自然に“好き”に辿り着けます。</text>
+
+                  <!-- Section: Schedule (booking) -->
+                  <rect x="60" y="2360" width="1320" height="520" class="section" rx="16" />
+                  <text x="100" y="2420" class="cap">日程を選ぶ（予約導線を最短に）</text>
+                  <text x="100" y="2448" class="sm">※「空き状況」を見せて、迷いを止めない</text>
+
+                  <!-- Calendar / slots -->
+                  <rect x="110" y="2485" width="520" height="340" class="card" rx="16" />
+                  <text x="150" y="2530" class="cap">カレンダー（Placeholder）</text>
+                  <rect x="150" y="2560" width="440" height="235" class="hero" rx="12" />
+                  <text x="370" y="2685" text-anchor="middle" class="label">ここにカレンダーUI / 空き日表示</text>
+
+                  <rect x="650" y="2485" width="680" height="340" class="card" rx="16" />
+                  <text x="690" y="2530" class="cap">選択日の枠（Placeholder）</text>
+
+                  <rect x="690" y="2560" width="600" height="62" class="nav" rx="12" />
+                  <text x="720" y="2598" class="label">11:00（残席◯） / 90分</text>
+                  <rect x="1180" y="2570" width="100" height="42" class="cta" rx="10" />
+                  <text x="1230" y="2596" text-anchor="middle" class="sm" font-weight="700">予約</text>
+
+                  <rect x="690" y="2632" width="600" height="62" class="nav" rx="12" />
+                  <text x="720" y="2670" class="label">14:00（残席◯） / 90分</text>
+                  <rect x="1180" y="2642" width="100" height="42" class="cta" rx="10" />
+                  <text x="1230" y="2668" text-anchor="middle" class="sm" font-weight="700">予約</text>
+
+                  <rect x="690" y="2704" width="600" height="62" class="nav" rx="12" />
+                  <text x="720" y="2742" class="label">17:00（残席△） / 90分</text>
+                  <rect x="1180" y="2714" width="100" height="42" class="cta" rx="10" />
+                  <text x="1230" y="2740" text-anchor="middle" class="sm" font-weight="700">予約</text>
+
+                  <!-- Micro FAQ -->
+                  <rect x="110" y="2830" width="1220" height="0" fill="transparent" />
+
+                  <!-- Sticky CTA bar (wireframe hint) -->
+                  <rect x="0" y="2920" width="1440" height="0" fill="transparent" />
+
+                </g>
+
+                <!-- Bottom sticky CTA (outside scaled group for clarity in wireframe) -->
+                <g id="sticky-cta">
+                  <rect x="200" y="2500" width="1240" height="80" class="banner" rx="10" />
+                  <circle cx="236" cy="2540" r="8" fill="#ffd966" stroke="#7f7f7f" stroke-width="2" />
+                  <text x="258" y="2547" font-family="Arial,sans-serif" font-size="16" font-weight="700"
+                    fill="#333">右のボタンをクリック！あなただけの香りを、つくって、連れて帰りましょう</text>
+                  <rect x="1200" y="2522" width="210" height="44" rx="12" fill="#ffd966" stroke="#7f7f7f"
+                    stroke-width="2" />
+                  <text x="1305" y="2550" text-anchor="middle" font-family="Arial,sans-serif" font-size="13"
+                    font-weight="700" fill="#333">日程を選んで予約</text>
+                </g>
+
+                <!-- Footer (wireframe) -->
+                <g id="footer">
+                  <rect x="200" y="2600" width="1240" height="260" class="wf-footer-bg" />
+                  <g class="wf-footer-text">
+                    <text x="240" y="2638">STOREINFO</text>
+                    <text x="240" y="2660">■■■■■■■■■</text>
+
+                    <text x="520" y="2638">TOP</text>
+                    <text x="520" y="2660">配送・送料について</text>
+                    <text x="520" y="2680">返品について</text>
+                    <text x="520" y="2700">お支払い方法について</text>
+                    <text x="520" y="2720">特定商取引法に基づく表記</text>
+                    <text x="520" y="2740">プライバシーポリシー</text>
+
+                    <text x="820" y="2638">メルマガ登録・解除</text>
+                    <text x="820" y="2660">RSS / ATOM</text>
+
+                    <text x="1080" y="2638">マイアカウント</text>
+                    <text x="1080" y="2660">会員登録</text>
+                    <text x="1080" y="2680">ログイン</text>
+                    <text x="1080" y="2700">カートを見る</text>
+                    <text x="1080" y="2720">お問い合わせ</text>
+
+                    <text x="820" y="2760" text-anchor="middle" fill="#BBBBBB">inim-dx wireframe document</text>
+                  </g>
+                </g>
+              </svg>
