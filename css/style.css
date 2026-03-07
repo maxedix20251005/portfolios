@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
     プロジェクトアーカイブテンプレート 共通CSS
     Modern Simple Design - Black, White, Gray
    ============================================================ */
@@ -802,8 +802,8 @@ a:hover { color: var(--black); }
 
 .doc-wireframe {
   --wf-font-family: "Noto Sans JP", "Inter", sans-serif;
-  --wf-text-primary: #333333;
-  --wf-text-secondary: #555555;
+  --wf-text-primary: #1A1A1A;
+  --wf-text-secondary: #666666;
   --wf-text-tertiary: #666666;
 }
 
@@ -811,6 +811,10 @@ a:hover { color: var(--black); }
   font-family: var(--wf-font-family);
   fill: var(--wf-text-primary);
   letter-spacing: 0.01em;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp, #wf-mobile) .cta-text {
+  fill: #FFFFFF !important;
 }
 
 .doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .wf-sidenav-bg {
@@ -849,7 +853,7 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .section {
-  fill: #f7f7f7;
+  fill: #F9F8F4;
   stroke: #d9d9d9;
   stroke-width: 2;
 }
@@ -884,7 +888,7 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe #wf-top .section {
-  fill: #f7f7f7;
+  fill: #F9F8F4;
   stroke: #bbbbbb;
   stroke-width: 2;
 }
@@ -896,8 +900,8 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe #wf-top .cta {
-  fill: #ffd966;
-  stroke: #7f7f7f;
+  fill: #B24531;
+  stroke: #943222;
   stroke-width: 2;
 }
 
@@ -937,7 +941,7 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe #wf-lower .section {
-  fill: #f7f7f7;
+  fill: #F9F8F4;
   stroke: #bbbbbb;
   stroke-width: 2;
 }
@@ -949,7 +953,7 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe #wf-lower .panel {
-  fill: #f7f7f7;
+  fill: #F9F8F4;
   stroke: #bbb;
   stroke-width: 2;
 }
@@ -983,8 +987,8 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe #wf-lower .cta {
-  fill: #ffd966;
-  stroke: #777;
+  fill: #B24531;
+  stroke: #943222;
   stroke-width: 2;
 }
 
@@ -1024,7 +1028,7 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe #wf-top-workshop-lp .section {
-  fill: #f7f7f7;
+  fill: #F9F8F4;
   stroke: #bbbbbb;
   stroke-width: 2;
 }
@@ -1054,8 +1058,8 @@ a:hover { color: var(--black); }
 }
 
 .doc-wireframe #wf-top-workshop-lp .cta {
-  fill: #ffd966;
-  stroke: #7f7f7f;
+  fill: #B24531;
+  stroke: #943222;
   stroke-width: 2;
 }
 
@@ -1967,3 +1971,4 @@ a:hover { color: var(--black); }
   .fill-block { break-inside: avoid; border-style: solid; }
   .doc-header { border-bottom: 2px solid #000; }
 }
+
