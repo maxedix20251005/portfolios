@@ -295,6 +295,33 @@
       border-left-color: #b24531;
       background: #fff1ee;
     }
+
+    .palette-embed {
+      margin-top: 14px;
+      border: 1px solid #ddd6c7;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .palette-embed-title {
+      margin: 0;
+      padding: 12px 14px;
+      border-bottom: 1px solid #eee8dc;
+      border-left: 4px solid #2c2c2c;
+      background: #f9f8f4;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #2c2c2c;
+    }
+
+    .palette-embed iframe {
+      width: 100%;
+      height: 560px;
+      border: 0;
+      display: block;
+    }
   </style>
 </head>
 
@@ -424,6 +451,11 @@
                 </tr>
               </tbody>
             </table>
+
+            <div class="palette-embed">
+              <p class="palette-embed-title">カラーパレット比較</p>
+              <iframe src="../references/06-design-guide/colour-comparison-40.html" title="カラーパレット比較"></iframe>
+            </div>
           </div>
         </section>
 
