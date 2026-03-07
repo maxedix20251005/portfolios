@@ -7,7 +7,295 @@
   <title>デザインガイドライン - プロジェクトアーカイブ</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .design-swatch {
+      display: inline-block;
+      width: 44px;
+      height: 18px;
+      border: 1px solid #999;
+      border-radius: 3px;
+      vertical-align: middle;
+    }
+
+    .doc-table .template-row td,
+    .doc-table td.unverified {
+      font-style: normal;
+    }
+
+    .btn-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(44, 44, 44, 0.16);
+    }
+
+    .btn-primary {
+      background-color: #2c2c2c;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: #1a1a1a;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #2c2c2c;
+      border-color: #2c2c2c;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f3f1ec;
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+
+    .btn-danger {
+      background-color: #b24531;
+      color: #ffffff;
+    }
+
+    .btn-danger:hover {
+      background-color: #943222;
+    }
+
+    .form-demo {
+      display: grid;
+      gap: 14px;
+      max-width: 560px;
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #2c2c2c;
+    }
+
+    .form-control {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid #c9c5bb;
+      border-radius: 10px;
+      background: #fff;
+      color: #2c2c2c;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #2c2c2c;
+      box-shadow: 0 0 0 3px rgba(44, 44, 44, 0.14);
+      background: #fff;
+    }
+
+    .form-control.is-error,
+    .form-control.is-error:focus {
+      border-color: #b24531;
+      box-shadow: 0 0 0 3px rgba(178, 69, 49, 0.18);
+      background: #fff8f6;
+    }
+
+    .choice-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+    }
+
+    .choice {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #2c2c2c;
+      letter-spacing: 0.01em;
+    }
+
+    .choice input {
+      accent-color: #2c2c2c;
+      width: 16px;
+      height: 16px;
+    }
+
+    .error-text {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #b24531;
+      letter-spacing: 0.02em;
+    }
+
+    .component-stack {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .sample-card {
+      max-width: 360px;
+      border: 1px solid #e2ddd1;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(44, 44, 44, 0.08);
+    }
+
+    .sample-card-image {
+      height: 180px;
+      background: linear-gradient(135deg, #eae4d3 0%, #f9f8f4 55%, #d9d2bf 100%);
+      border-bottom: 1px solid #e2ddd1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+    }
+
+    .sample-card-body {
+      padding: 16px;
+    }
+
+    .sample-card-title {
+      margin: 0 0 8px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+      color: #2c2c2c;
+    }
+
+    .sample-card-text {
+      margin: 0 0 14px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #555;
+      letter-spacing: 0.01em;
+    }
+
+    .ui-table-wrap {
+      max-width: 760px;
+      overflow-x: auto;
+      border: 1px solid #ddd6c7;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .ui-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+      font-family: "Noto Sans JP", sans-serif;
+    }
+
+    .ui-table th,
+    .ui-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #eee8dc;
+      color: #2c2c2c;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+
+    .ui-table thead th {
+      background: #2c2c2c;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .ui-table tbody tr:nth-child(even) {
+      background: #f9f8f4;
+    }
+
+    .ui-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .alert-stack {
+      max-width: 760px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .ui-alert {
+      border-left: 4px solid #2c2c2c;
+      border-radius: 10px;
+      padding: 11px 14px;
+      background: #f4f4f4;
+      color: #2c2c2c;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+
+    .ui-alert.info {
+      border-left-color: #2c2c2c;
+      background: #f3f3f3;
+    }
+
+    .ui-alert.success {
+      border-left-color: #2f7a4a;
+      background: #edf7f0;
+    }
+
+    .ui-alert.warning {
+      border-left-color: #9a6a17;
+      background: #fff8e8;
+    }
+
+    .ui-alert.error {
+      border-left-color: #b24531;
+      background: #fff1ee;
+    }
+  </style>
 </head>
 
 <body>
@@ -67,17 +355,15 @@
             <div class="fill-label">デザインキーワード <span class="required">必須</span></div>
             <div class="fill-hint">デザインの方向性を表すキーワード3つとその説明</div>
             <div class="fill-content">
-              <p>（デザインキーワード3つとその説明を記載）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">（サービス名）のデザインコンセプトを考えてください。
-
-                サービス概要：（概要を記載）
-                ターゲット：（ペルソナ情報を記載）
-
-                デザインの方向性を表すキーワードを3つ提案し、それぞれの理由と表現方法を説明してください。
-                （例：「信頼感」「シンプル」「温かみ」）</div>
+              <p><strong>1.
+                  仕立てる特別感</strong><br>理由：「一点ものを仕上げる」体験価値を中心に据え、既製品では得られない自己表現と高揚感を明確に伝えるため。<br>表現方法：余白を活かした品のあるレイアウト、見出しの上質なタイポグラフィ、要所のアクセントカラーで「自分だけの一滴を仕立てる」緊張感と期待感を演出する。
+              </p>
+              <p><strong>2.
+                  香りのセルフケア</strong><br>理由：ターゲットの日常に寄り添い、香りを通じて心と気分を整える体験として価値を伝えることで、参加ハードルを下げつつ共感を生みやすくするため。<br>表現方法：柔らかな余白設計、穏やかな色調、短くやさしいコピーで安心感を形成し、操作導線は迷わない構造にして「整う体験」へ自然に入れる設計にする。
+              </p>
+              <p><strong>3.
+                  記憶を綴るポートレート</strong><br>理由：香りを単なる商品選択ではなく「記憶を残す行為」として位置付けることで、ワークショップ体験の意味を深め、再訪動機にもつなげるため。<br>表現方法：ストーリー性のあるセクション構成、体験ステップの可視化、言葉とビジュアルの余韻を残す表現で、香りと記憶が結びつく世界観を一貫して表す。
+              </p>
             </div>
           </div>
 
@@ -102,61 +388,42 @@
               <tbody>
                 <tr class="template-row">
                   <td>メインカラー</td>
-                  <td>#（コードを入力）</td>
-                  <td>（CSSで色見本を表示）</td>
+                  <td>#2C2C2C</td>
+                  <td><span class="design-swatch" style="background-color: #2C2C2C;"></span></td>
                   <td>ヘッダー、ボタン、見出し</td>
                 </tr>
                 <tr class="template-row">
                   <td>サブカラー</td>
-                  <td>#（コードを入力）</td>
-                  <td>（CSSで色見本を表示）</td>
+                  <td>#EAE4D3</td>
+                  <td><span class="design-swatch" style="background-color: #EAE4D3;"></span></td>
                   <td>背景、カード、セクション区切り</td>
                 </tr>
                 <tr class="template-row">
                   <td>アクセントカラー</td>
-                  <td>#（コードを入力）</td>
-                  <td>（CSSで色見本を表示）</td>
+                  <td>#B24531</td>
+                  <td><span class="design-swatch" style="background-color: #B24531;"></span></td>
                   <td>CTA、リンク、強調</td>
                 </tr>
                 <tr class="template-row">
                   <td>背景色</td>
-                  <td>#（コードを入力）</td>
-                  <td>（CSSで色見本を表示）</td>
+                  <td>#F9F8F4</td>
+                  <td><span class="design-swatch" style="background-color: #F9F8F4;"></span></td>
                   <td>ページ背景</td>
                 </tr>
                 <tr class="template-row">
                   <td>テキスト色</td>
-                  <td>#（コードを入力）</td>
-                  <td>（CSSで色見本を表示）</td>
+                  <td>#1A1A1A</td>
+                  <td><span class="design-swatch" style="background-color: #1A1A1A;"></span></td>
                   <td>本文テキスト</td>
                 </tr>
                 <tr class="template-row">
                   <td>テキスト色（薄）</td>
-                  <td>#（コードを入力）</td>
-                  <td>（CSSで色見本を表示）</td>
+                  <td>#666666</td>
+                  <td><span class="design-swatch" style="background-color: #666666;"></span></td>
                   <td>補助テキスト、注釈</td>
                 </tr>
               </tbody>
             </table>
-
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">（サービス名）のカラーパレットを提案してください。
-
-                デザインコンセプト：（キーワード3つを記載）
-                ターゲット：（ペルソナ情報を記載）
-                業種：（業種を記載）
-
-                以下の色を提案してください（HEXコード付き）。
-                ・メインカラー
-                ・サブカラー
-                ・アクセントカラー
-                ・背景色
-                ・テキスト色（メイン・サブ）
-
-                各色の選定理由も説明してください。
-                色彩心理効果も考慮してください。</div>
-            </div>
           </div>
         </section>
 
@@ -173,74 +440,67 @@
                   <th>サイズ</th>
                   <th>太さ</th>
                   <th>行間</th>
+                  <th>letter-spacing</th>
                   <th>用途</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="template-row">
                   <td>h1（大見出し）</td>
-                  <td>（フォント名）</td>
-                  <td>（px）</td>
-                  <td>（bold等）</td>
-                  <td>（倍率）</td>
+                  <td>Noto Sans JP</td>
+                  <td>40px</td>
+                  <td>700</td>
+                  <td>1.3</td>
+                  <td>0.04em</td>
                   <td>ページタイトル</td>
                 </tr>
                 <tr class="template-row">
                   <td>h2（中見出し）</td>
-                  <td>（フォント名）</td>
-                  <td>（px）</td>
-                  <td>（bold等）</td>
-                  <td>（倍率）</td>
+                  <td>Noto Sans JP</td>
+                  <td>30px</td>
+                  <td>700</td>
+                  <td>1.35</td>
+                  <td>0.03em</td>
                   <td>セクション見出し</td>
                 </tr>
                 <tr class="template-row">
                   <td>h3（小見出し）</td>
-                  <td>（フォント名）</td>
-                  <td>（px）</td>
-                  <td>（bold等）</td>
-                  <td>（倍率）</td>
+                  <td>Noto Sans JP</td>
+                  <td>24px</td>
+                  <td>600</td>
+                  <td>1.4</td>
+                  <td>0.02em</td>
                   <td>サブセクション</td>
                 </tr>
                 <tr class="template-row">
                   <td>本文</td>
-                  <td>（フォント名）</td>
-                  <td>（px）</td>
-                  <td>（regular等）</td>
-                  <td>（倍率）</td>
+                  <td>Noto Sans JP</td>
+                  <td>16px</td>
+                  <td>400</td>
+                  <td>1.8</td>
+                  <td>0.01em</td>
                   <td>通常テキスト</td>
                 </tr>
                 <tr class="template-row">
                   <td>キャプション</td>
-                  <td>（フォント名）</td>
-                  <td>（px）</td>
-                  <td>（regular等）</td>
-                  <td>（倍率）</td>
+                  <td>Noto Sans JP</td>
+                  <td>13px</td>
+                  <td>400</td>
+                  <td>1.6</td>
+                  <td>0.03em</td>
                   <td>画像の説明等</td>
                 </tr>
                 <tr class="template-row">
                   <td>ボタン</td>
-                  <td>（フォント名）</td>
-                  <td>（px）</td>
-                  <td>（bold等）</td>
-                  <td>—</td>
+                  <td>Noto Sans JP</td>
+                  <td>16px</td>
+                  <td>500</td>
+                  <td>1.4</td>
+                  <td>0.02em</td>
                   <td>ボタンテキスト</td>
                 </tr>
               </tbody>
             </table>
-
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">（サービス名）のタイポグラフィルールを提案してください。
-
-                デザインコンセプト：（キーワード3つを記載）
-                Google Fontsから使えるフォントで提案してください（日本語対応必須）。
-
-                以下を含めてください。
-                ・見出し用フォント（h1〜h3のサイズ・太さ・行間）
-                ・本文用フォント（サイズ・太さ・行間）
-                ・キャプション用の設定
-                ・letter-spacing の推奨値</div>
-            </div>
           </div>
         </section>
 
@@ -256,47 +516,279 @@
             <div class="fill-label">ボタン <span class="required">必須</span></div>
             <div class="fill-hint">プライマリ・セカンダリ・デンジャーの3種類のボタンスタイル（実物のHTMLサンプル付き）</div>
             <div class="fill-content">
-              <p>（ここにボタンの実物サンプルとCSSコードを記載）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">以下のデザインガイドラインに合うボタンのCSSを作成してください。
+              <div class="btn-demo">
+                <button type="button" class="btn btn-primary">ワークショップを予約</button>
+                <button type="button" class="btn btn-secondary">詳しく見る</button>
+                <button type="button" class="btn btn-danger">予約をキャンセル</button>
+              </div>
+              <pre><code>&lt;!-- HTML --&gt;
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;600;700&amp;display=swap"&gt;
 
-                メインカラー：（カラーコードを記載）
-                フォント：（フォント名を記載）
-                角丸：（px）
+&lt;button type="button" class="btn btn-primary"&gt;ワークショップを予約&lt;/button&gt;
+&lt;button type="button" class="btn btn-secondary"&gt;詳しく見る&lt;/button&gt;
+&lt;button type="button" class="btn btn-danger"&gt;予約をキャンセル&lt;/button&gt;
 
-                以下の3種類のボタンを作成してください。
-                ・プライマリボタン（メインの操作）
-                ・セカンダリボタン（補助の操作）
-                ・デンジャーボタン（削除等の危険な操作）
+&lt;style&gt;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 10px; /* 角丸最適値 */
+  border: 1px solid transparent;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-                ホバー時のスタイルも含めてください。
-                HTMLとCSSのコードを出力してください。</div>
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(44, 44, 44, 0.16);
+}
+
+.btn-primary {
+  background: #2c2c2c;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #1a1a1a;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #2c2c2c;
+  border-color: #2c2c2c;
+}
+.btn-secondary:hover {
+  background: #f3f1ec;
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.btn-danger {
+  background: #b24531;
+  color: #fff;
+}
+.btn-danger:hover {
+  background: #943222;
+}
+&lt;/style&gt;</code></pre>
             </div>
           </div>
           <div class="fill-block">
             <div class="fill-label">フォーム要素 <span class="required">必須</span></div>
             <div class="fill-hint">テキスト入力・セレクト・テキストエリア・チェックボックス・ラジオボタン（実物のHTMLサンプル付き）</div>
             <div class="fill-content">
-              <p>（ここにフォーム要素の実物サンプルとCSSコードを記載）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">同じデザインガイドラインに合うフォーム要素のCSSを作成してください。
-                ・テキスト入力
-                ・セレクトボックス
-                ・テキストエリア
-                ・チェックボックス
-                ・ラジオボタン
-                フォーカス時のスタイルとエラー時のスタイルも含めてください。</div>
+              <div class="form-demo">
+                <div>
+                  <label class="form-label" for="name-demo">お名前（テキスト入力）</label>
+                  <input class="form-control" id="name-demo" type="text" placeholder="例：山田 花子">
+                </div>
+
+                <div>
+                  <label class="form-label" for="plan-demo">体験プラン（セレクトボックス）</label>
+                  <select class="form-control" id="plan-demo">
+                    <option>プランを選択してください</option>
+                    <option>スタンダード調香体験</option>
+                    <option>プレミアム調香体験</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="form-label" for="memo-demo">ご要望（テキストエリア）</label>
+                  <textarea class="form-control" id="memo-demo" placeholder="当日楽しみにしていることをご記入ください"></textarea>
+                </div>
+
+                <div>
+                  <span class="form-label">興味のある香り（チェックボックス）</span>
+                  <div class="choice-group">
+                    <label class="choice"><input type="checkbox" checked>フローラル</label>
+                    <label class="choice"><input type="checkbox">シトラス</label>
+                    <label class="choice"><input type="checkbox">ウッディ</label>
+                  </div>
+                </div>
+
+                <div>
+                  <span class="form-label">参加形態（ラジオボタン）</span>
+                  <div class="choice-group">
+                    <label class="choice"><input name="join-demo" type="radio" checked>1名参加</label>
+                    <label class="choice"><input name="join-demo" type="radio">ペア参加</label>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="form-label" for="mail-demo">メールアドレス（エラー例）</label>
+                  <input class="form-control is-error" id="mail-demo" type="email" value="sample@">
+                  <p class="error-text">メールアドレスの形式が正しくありません。</p>
+                </div>
+              </div>
+              <pre><code>&lt;!-- HTML --&gt;
+&lt;div class="form-demo"&gt;
+  &lt;label class="form-label" for="name"&gt;お名前（テキスト入力）&lt;/label&gt;
+  &lt;input class="form-control" id="name" type="text" placeholder="例：山田 花子"&gt;
+
+  &lt;label class="form-label" for="plan"&gt;体験プラン（セレクトボックス）&lt;/label&gt;
+  &lt;select class="form-control" id="plan"&gt;
+    &lt;option&gt;プランを選択してください&lt;/option&gt;
+    &lt;option&gt;スタンダード調香体験&lt;/option&gt;
+    &lt;option&gt;プレミアム調香体験&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;label class="form-label" for="memo"&gt;ご要望（テキストエリア）&lt;/label&gt;
+  &lt;textarea class="form-control" id="memo"&gt;&lt;/textarea&gt;
+
+  &lt;span class="form-label"&gt;興味のある香り（チェックボックス）&lt;/span&gt;
+  &lt;label class="choice"&gt;&lt;input type="checkbox"&gt;フローラル&lt;/label&gt;
+
+  &lt;span class="form-label"&gt;参加形態（ラジオボタン）&lt;/span&gt;
+  &lt;label class="choice"&gt;&lt;input name="join" type="radio"&gt;1名参加&lt;/label&gt;
+
+  &lt;input class="form-control is-error" type="email" value="sample@"&gt;
+  &lt;p class="error-text"&gt;メールアドレスの形式が正しくありません。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.form-control {
+  min-height: 44px;
+  border: 1px solid #c9c5bb;
+  border-radius: 10px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2c2c2c;
+  box-shadow: 0 0 0 3px rgba(44, 44, 44, 0.14);
+}
+
+.form-control.is-error,
+.form-control.is-error:focus {
+  border-color: #b24531;
+  box-shadow: 0 0 0 3px rgba(178, 69, 49, 0.18);
+  background: #fff8f6;
+}
+
+.choice input {
+  accent-color: #2c2c2c;
+}
+&lt;/style&gt;</code></pre>
             </div>
           </div>
           <div class="fill-block">
             <div class="fill-label">カード・テーブル・その他 <span class="required">必須</span></div>
             <div class="fill-hint">カードコンポーネント・テーブルスタイル・アラート等（実物のHTMLサンプル付き）</div>
             <div class="fill-content">
-              <p>（ここにコンポーネントの実物サンプルとCSSコードを記載）</p>
+              <div class="component-stack">
+                <div class="sample-card">
+                  <div class="sample-card-image">Image Placeholder</div>
+                  <div class="sample-card-body">
+                    <h3 class="sample-card-title">香りのポートレート作成体験</h3>
+                    <p class="sample-card-text">香りの印象を重ねながら、いまの気分と記憶を一点ものとして仕立てるワークショップ。</p>
+                    <button type="button" class="btn btn-primary">詳細を見る</button>
+                  </div>
+                </div>
+
+                <div class="ui-table-wrap">
+                  <table class="ui-table">
+                    <thead>
+                      <tr>
+                        <th>プラン</th>
+                        <th>所要時間</th>
+                        <th>料金</th>
+                        <th>予約状況</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>スタンダード</td>
+                        <td>60分</td>
+                        <td>¥6,500</td>
+                        <td>受付中</td>
+                      </tr>
+                      <tr>
+                        <td>プレミアム</td>
+                        <td>90分</td>
+                        <td>¥9,800</td>
+                        <td>残りわずか</td>
+                      </tr>
+                      <tr>
+                        <td>ペア体験</td>
+                        <td>90分</td>
+                        <td>¥16,000</td>
+                        <td>受付中</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="alert-stack">
+                  <div class="ui-alert info">情報: 3月の体験枠を公開しました。</div>
+                  <div class="ui-alert success">成功: 予約が完了しました。</div>
+                  <div class="ui-alert warning">警告: 選択された日時は残席わずかです。</div>
+                  <div class="ui-alert error">エラー: 決済処理に失敗しました。再度お試しください。</div>
+                </div>
+              </div>
+              <pre><code>&lt;!-- HTML --&gt;
+&lt;div class="sample-card"&gt;
+  &lt;div class="sample-card-image"&gt;Image Placeholder&lt;/div&gt;
+  &lt;div class="sample-card-body"&gt;
+    &lt;h3 class="sample-card-title"&gt;香りのポートレート作成体験&lt;/h3&gt;
+    &lt;p class="sample-card-text"&gt;香りの印象を重ねながら、いまの気分と記憶を一点ものとして仕立てるワークショップ。&lt;/p&gt;
+    &lt;button type="button" class="btn btn-primary"&gt;詳細を見る&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="ui-table-wrap"&gt;
+  &lt;table class="ui-table"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;プラン&lt;/th&gt;&lt;th&gt;所要時間&lt;/th&gt;&lt;th&gt;料金&lt;/th&gt;&lt;th&gt;予約状況&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;スタンダード&lt;/td&gt;&lt;td&gt;60分&lt;/td&gt;&lt;td&gt;¥6,500&lt;/td&gt;&lt;td&gt;受付中&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;プレミアム&lt;/td&gt;&lt;td&gt;90分&lt;/td&gt;&lt;td&gt;¥9,800&lt;/td&gt;&lt;td&gt;残りわずか&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div class="alert-stack"&gt;
+  &lt;div class="ui-alert info"&gt;情報: 3月の体験枠を公開しました。&lt;/div&gt;
+  &lt;div class="ui-alert success"&gt;成功: 予約が完了しました。&lt;/div&gt;
+  &lt;div class="ui-alert warning"&gt;警告: 選択された日時は残席わずかです。&lt;/div&gt;
+  &lt;div class="ui-alert error"&gt;エラー: 決済処理に失敗しました。再度お試しください。&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.sample-card {
+  border: 1px solid #e2ddd1;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(44, 44, 44, 0.08);
+}
+
+.sample-card-image {
+  height: 180px;
+  background: linear-gradient(135deg, #eae4d3 0%, #f9f8f4 55%, #d9d2bf 100%);
+}
+
+.ui-table thead th {
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.ui-table tbody tr:nth-child(even) {
+  background: #f9f8f4;
+}
+
+.ui-alert.info { border-left: 4px solid #2c2c2c; background: #f3f3f3; }
+.ui-alert.success { border-left: 4px solid #2f7a4a; background: #edf7f0; }
+.ui-alert.warning { border-left: 4px solid #9a6a17; background: #fff8e8; }
+.ui-alert.error { border-left: 4px solid #b24531; background: #fff1ee; }
+&lt;/style&gt;</code></pre>
             </div>
             <div class="prompt-box">
               <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
@@ -345,3 +837,4 @@
 </body>
 
 </html>
+

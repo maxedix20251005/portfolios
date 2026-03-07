@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Component Color Tester - 40 Palettes</title>
+    <style>
+        /* デフォルト変数（JSで上書き） */
+        :root {
+            --bg: #ffffff;
+            --panel: #f8f9fa;
+            --line: #e0e0e0;
+            --text: #333333;
+            --muted: #666666;
+            --accent: #3498db;
+            --button: #2ecc71;
+        }
+
+        * { box-sizing: border-box; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+        /* 固定セレクター */
+        .selector-bar {
+            position: fixed; top: 0; left: 0; right: 0; height: 70px;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+            border-bottom: 1px solid #ddd; display: flex; align-items: center;
+            padding: 0 20px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .selector-bar select { padding: 10px 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; width: 300px; }
+        .selector-info { margin-left: 20px; font-size: 13px; color: #666; }
+
+        /* コンテンツ配置 */
+        .main-content { margin-top: 70px; }
+
+        /* 1. Header & Nav */
+        header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
+        nav a { margin-left: 20px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; }
+        nav a:hover { color: var(--accent); }
+
+        /* 2. Hero Section */
+        .hero { padding: 80px 5%; text-align: center; background-color: var(--panel); border-bottom: 1px solid var(--line); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { max-width: 600px; margin: 0 auto 30px; color: var(--muted); }
+
+        /* 3. Grid / Cards */
+        .section { padding: 60px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { padding: 30px; border-radius: 12px; border: 1px solid var(--line); background-color: var(--bg); }
+        .card h3 { margin-top: 0; color: var(--accent); }
+        .card-meta { font-size: 12px; color: var(--muted); margin-bottom: 15px; text-transform: uppercase; }
+
+        /* 4. Buttons */
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; font-size: 14px; }
+        .btn-primary { background-color: var(--button); color: #fff; }
+        .btn-outline { border: 2px solid var(--accent); color: var(--accent); background: transparent; margin-left: 10px; }
+
+        /* 5. Form elements */
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; }
+        input[type="text"] { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--text); }
+
+        /* 6. Footer */
+        footer { padding: 60px 5%; border-top: 1px solid var(--line); background-color: var(--panel); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        footer .col h4 { margin-top: 0; font-size: 14px; color: var(--muted); }
+        footer ul { list-style: none; padding: 0; }
+        footer li { margin-bottom: 8px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="selector-bar">
+    <select id="paletteSelect"></select>
+    <div class="selector-info" id="paletteDesc">パレットを選択してデザインの変化を確認してください。</div>
+</div>
+
+<div class="main-content">
+    <header>
+        <div style="font-weight: 900; font-size: 20px; letter-spacing: -1px;">LOGO DESIGN</div>
+        <nav>
+            <a href="#">Products</a>
+            <a href="#">Our Story</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>心地よい香りを、<br>あなたの日常に。</h1>
+        <p>厳選された天然香料を使用し、独自のアルゴリズムであなたにぴったりの調合を見つけ出す次世代のフレグランスサービス。</p>
+        <div>
+            <a href="#" class="btn btn-primary">今すぐ始める</a>
+            <a href="#" class="btn btn-outline">詳しく知る</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="grid">
+            <div class="card">
+                <div class="card-meta">Ingredient</div>
+                <h3>Sandals Wood</h3>
+                <p>深い森の静寂を感じさせる、落ち着きのあるベースノート。知的な印象を演出します。</p>
+            </div>
+            <div class="card" style="background-color: var(--panel);">
+                <div class="card-meta">Best Seller</div>
+                <h3>Citrus Morning</h3>
+                <p>朝の陽光を浴びた果実のような、フレッシュで活力に満ちたトップノート。</p>
+            </div>
+            <div class="card">
+                <div class="card-meta">Seasonal</div>
+                <h3>Velvet Night</h3>
+                <p>官能的で重厚感のある香り。特別な夜を彩る、深く甘い余韻をお楽しみください。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--panel); border-top: 1px solid var(--line);">
+        <div style="max-width: 500px; margin: 0 auto; background: var(--bg); padding: 40px; border-radius: 12px; border: 1px solid var(--line);">
+            <h2 style="margin-top:0">お問い合わせ</h2>
+            <div class="form-group">
+                <label>お名前</label>
+                <input type="text" placeholder="香り 太郎">
+            </div>
+            <div class="form-group">
+                <label>メッセージ</label>
+                <input type="text" placeholder="ご質問があれば入力してください">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">送信する</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="col">
+            <div style="font-weight: bold; margin-bottom: 20px;">SCENT BRAND</div>
+            <p style="font-size: 14px; color: var(--muted);">私たちは香りの力で、人々の感性を豊かにし、新しい体験を提供することを目指しています。</p>
+        </div>
+        <div class="col">
+            <h4>Support</h4>
+            <ul>
+                <li>FAQ</li>
+                <li>配送について</li>
+                <li>返品ポリシー</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Legal</h4>
+            <ul>
+                <li>利用規約</li>
+                <li>プライバシーポリシー</li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // 40パレットの定義（ご提供いただいたリストに基づく）
+    const palettes = {
+        "p01": { name: "ジャパニーズ・モダン", desc: "和の静寂と現代の洗練。落ち着いた深み。", colors: { bg: "#F9F8F4", panel: "#EAE4D3", line: "#2C2C2C", text: "#1A1A1A", accent: "#B24531", button: "#B24531", muted: "#666666" } },
+        "p02": { name: "エクリュ・ミニマリズム", desc: "生成り色とベージュ。清潔感と優しさ。", colors: { bg: "#FAF9F7", panel: "#F2EBE1", line: "#D9CDBF", text: "#4A4540", accent: "#8C8479", button: "#8C8479", muted: "#9E978E" } },
+        "p03": { name: "ミッドナイト・ラグジュアリー", desc: "深い夜の色とゴールド。高級感のある重厚さ。", colors: { bg: "#0B0F1A", panel: "#121A2E", line: "#D4AF37", text: "#E0E0E0", accent: "#D4AF37", button: "#800020", muted: "#8A8A8A" } },
+        "p04": { name: "ボタニカル・フレッシュ", desc: "ハーブと植物の息吹。自然体でいられる色。", colors: { bg: "#FFFFFF", panel: "#E8F0E9", line: "#87A98D", text: "#2D362E", accent: "#87A98D", button: "#F2D06B", muted: "#708072" } },
+        "p05": { name: "パウダリー・ロマンス", desc: "優しく甘い、粉雪のようなピンクベージュ。", colors: { bg: "#FDFBFB", panel: "#F5EBEB", line: "#D4A5A5", text: "#5C4B4B", accent: "#D4A5A5", button: "#B88F8F", muted: "#998A8A" } },
+        "p06": { name: "ウッディ・エッジ", desc: "切り出したばかりの木材と鉄の質感。", colors: { bg: "#F2F1EF", panel: "#A3927D", line: "#3D3D3D", text: "#2B2B2B", accent: "#3D3D3D", button: "#6B5E4F", muted: "#7D7D7D" } },
+        "p07": { name: "アクア・ライト", desc: "透き通る水面のような、軽やかで涼しい配色。", colors: { bg: "#FFFFFF", panel: "#E1F0F4", line: "#A8D0DA", text: "#334143", accent: "#2C5D63", button: "#A8D0DA", muted: "#7F9094" } },
+        "p08": { name: "ヴィンテージ・スパイス", desc: "使い込まれたレザーとスパイスの暖かみ。", colors: { bg: "#F7F3EE", panel: "#E9DCC9", line: "#BF7342", text: "#3B2316", accent: "#BF7342", button: "#59321E", muted: "#8C776D" } },
+        "p09": { name: "ラベンダー・ミスト", desc: "夕暮れ時の霧がかったラベンダー畑の幻想。", colors: { bg: "#FAF9FC", panel: "#EBE8F2", line: "#9A8CB9", text: "#3A3545", accent: "#9A8CB9", button: "#6A5D8A", muted: "#817D8A" } },
+        "p10": { name: "アーバン・クリーン", desc: "無機質で都会的。完璧な清潔感とプロ意識。", colors: { bg: "#FFFFFF", panel: "#E0E0E0", line: "#555555", text: "#121212", accent: "#000000", button: "#555555", muted: "#888888" } },
+        "p11": { name: "朝霧のハーブガーデン", desc: "露に濡れた葉とハーブの瑞々しい朝。", colors: { bg: "#F4F7F6", panel: "#C2D3CD", line: "#5E726A", text: "#2F3E38", accent: "#5E726A", button: "#E8BEAC", muted: "#7B8F87" } },
+        "p12": { name: "図書館の記憶", desc: "古い紙と革装丁の本。知的な静寂を纏う。", colors: { bg: "#F5F5F0", panel: "#D7CCC8", line: "#6D4C41", text: "#3E2723", accent: "#6D4C41", button: "#A1887F", muted: "#8D6E63" } },
+        "p13": { name: "真夏のナイトプール", desc: "ネオンが反射する水面と賑やかな夜。", colors: { bg: "#E0F7FA", panel: "#00BCD4", line: "#1A237E", text: "#0D1240", accent: "#1A237E", button: "#FF4081", muted: "#546E7A" } },
+        "p14": { name: "禅・静寂の竹林", desc: "緑深い竹林に差し込む光。精神を研ぎ澄ます。", colors: { bg: "#FCFDFB", panel: "#A4AC86", line: "#333D29", text: "#1A1F16", accent: "#333D29", button: "#656D4A", muted: "#6B705C" } },
+        "p15": { name: "都会のコンクリート", desc: "洗練されたグレーの階調。無駄を削ぎ落とした美。", colors: { bg: "#FFFFFF", panel: "#90A4AE", line: "#263238", text: "#1A252B", accent: "#263238", button: "#CFD8DC", muted: "#546E7A" } },
+        "p16": { name: "陽だまりのコットン", desc: "天日干ししたシーツの白と温かい光。", colors: { bg: "#FBFBFF", panel: "#E8EAF6", line: "#7986CB", text: "#303F9F", accent: "#7986CB", button: "#FFCCBC", muted: "#5C6BC0" } },
+        "p17": { name: "禁じられた果実", desc: "妖艶なベリーとダークチョコレート。強い誘惑。", colors: { bg: "#FCE4EC", panel: "#AD1457", line: "#4A148C", text: "#1A0033", accent: "#4A148C", button: "#000000", muted: "#880E4F" } },
+        "p18": { name: "夕暮れのサハラ砂漠", desc: "地平線に沈む太陽。灼熱の記憶と静寂。", colors: { bg: "#FFF9F0", panel: "#F39C12", line: "#E67E22", text: "#3E2723", accent: "#E67E22", button: "#2C3E50", muted: "#8D6E63" } },
+        "p19": { name: "シャンパン・バブル", desc: "煌めく泡と祝祭。華やかで上品なゴールド。", colors: { bg: "#FFFFFF", panel: "#F4F1DE", line: "#C5B358", text: "#3D405B", accent: "#C5B358", button: "#E07A5F", muted: "#818181" } },
+        "p20": { name: "北極のオーロラ", desc: "氷のような冷たさと幻想的な光のカーテン。", colors: { bg: "#001F1F", panel: "#004D40", line: "#80CBC4", text: "#E0F2F1", accent: "#B2EBF2", button: "#80CBC4", muted: "#4DB6AC" } },
+        // ... パレットデータは続く（p21〜p40）
+        "p21": { name: "フローズン・サファイア", desc: "凍てつく空気に煌めく青。知的でクール。", colors: { bg: "#F5F7FA", panel: "#A1C4FD", line: "#0F4C81", text: "#1B262C", accent: "#0F4C81", button: "#E0EAFC", muted: "#5A717D" } },
+        "p22": { name: "ミッドナイト・フォグ", desc: "霧がかった真夜中の静寂。深い思索を促す。", colors: { bg: "#ECF0F1", panel: "#BDC3C7", line: "#2C3E50", text: "#1A1A1B", accent: "#2C3E50", button: "#34495E", muted: "#7F8C8D" } },
+        "p23": { name: "深海のアブサン", desc: "光の届かない海底に揺れる妖艶な緑。", colors: { bg: "#F2F4F3", panel: "#3D5A53", line: "#162623", text: "#0D1412", accent: "#162623", button: "#82A098", muted: "#6B7C77" } },
+        "p24": { name: "ムーンライト・メタル", desc: "月光に照らされた金属の冷たい輝き。", colors: { bg: "#0A0A0A", panel: "#4B4B4B", line: "#D1D1D1", text: "#E0E0E0", accent: "#F5F5F5", button: "#D1D1D1", muted: "#777777" } },
+        "p25": { name: "静寂のアイリス", desc: "雨に濡れたアイリスの花びら。気品と憂い。", colors: { bg: "#F8F8FC", panel: "#9B95D1", line: "#5D54A4", text: "#1E1A3D", accent: "#5D54A4", button: "#423A7E", muted: "#746F9E" } },
+        "p26": { name: "アークティック・スカイ", desc: "どこまでも澄み切った極北の空のパノラマ。", colors: { bg: "#FFFFFF", panel: "#D8DEE9", line: "#81A1C1", text: "#2E3440", accent: "#5E81AC", button: "#81A1C1", muted: "#4C566A" } },
+        "p27": { name: "モノリス・ブラック", desc: "圧倒的な黒の静謐。強さと揺るぎない自信。", colors: { bg: "#010101", panel: "#333333", line: "#121212", text: "#FFFFFF", accent: "#AAAAAA", button: "#333333", muted: "#888888" } },
+        "p28": { name: "ウィンター・フォレスト", desc: "雪に閉ざされた森の奥深く。厳格で純粋。", colors: { bg: "#F0F2F0", panel: "#A3B18A", line: "#344E41", text: "#1B201D", accent: "#344E41", button: "#DAD7CD", muted: "#588157" } },
+        "p29": { name: "クール・インク", desc: "万年筆のインクが染み込む瞬間の美学。", colors: { bg: "#F8FAFC", panel: "#334155", line: "#0F172A", text: "#1E293B", accent: "#0F172A", button: "#64748B", muted: "#94A3B8" } },
+        "p30": { name: "シャドウ・ラベンダー", desc: "影の中に浮かび上がる大人のラベンダー。", colors: { bg: "#F2E9E4", panel: "#9A8C98", line: "#4A4E69", text: "#22223B", accent: "#4A4E69", button: "#C9ADA7", muted: "#30334D" } },
+        "p31": { name: "ネオン・ベリー", desc: "鮮やかに弾けるベリーと夜のネオンサイン。", colors: { bg: "#FFF0F6", panel: "#FF80BF", line: "#FF007F", text: "#33001A", accent: "#FF007F", button: "#400080", muted: "#99004C" } },
+        "p32": { name: "エレクトリック・シトラス", desc: "痺れるような刺激とエネルギーに満ちた橙。", colors: { bg: "#FFF9E6", panel: "#FFD700", line: "#FF8C00", text: "#4D2A00", accent: "#FF8C00", button: "#FF0000", muted: "#CC7000" } },
+        "p33": { name: "トロピカル・パラダイス", desc: "色彩豊かな極彩色の楽園。自由と遊び心。", colors: { bg: "#E0F2F1", panel: "#FF6D00", line: "#00BFA5", text: "#004D40", accent: "#00BFA5", button: "#AA00FF", muted: "#00796B" } },
+        "p34": { name: "ロイヤル・ベルベット", desc: "気高く燃える赤と、格式高い伝統。", colors: { bg: "#FFF5F5", panel: "#FFC107", line: "#D32F2F", text: "#4B0000", accent: "#D32F2F", button: "#1A1A1A", muted: "#B71C1C" } },
+        "p35": { name: "ライム・ブラスト", desc: "瞬時に目を引く、鮮烈なライムグリーンの衝撃。", colors: { bg: "#F7FFF7", panel: "#ADFF2F", line: "#32CD32", text: "#003300", accent: "#32CD32", button: "#0000FF", muted: "#008000" } },
+        "p36": { name: "コズミック・バイオレット", desc: "宇宙の深淵に煌めく星雲のパープル。", colors: { bg: "#0A001F", panel: "#B388FF", line: "#6200EA", text: "#E0E0E0", accent: "#6200EA", button: "#00E5FF", muted: "#9575CD" } },
+        "p37": { name: "サンセット・グロウ", desc: "燃えるような夕焼け。ドラマチックな一瞬。", colors: { bg: "#FFF5E6", panel: "#FC913A", line: "#FF4E50", text: "#3B0B0B", accent: "#FF4E50", button: "#F9D423", muted: "#D63E40" } },
+        "p38": { name: "オーシャン・サイダー", desc: "弾ける泡と澄み渡るブルー。開放感。", colors: { bg: "#E6F3FF", panel: "#00D2FF", line: "#007BFF", text: "#002144", accent: "#007BFF", button: "#F0F8FF", muted: "#0056B3" } },
+        "p39": { name: "ワイルド・オーキッド", desc: "野生の蘭のように力強く、美しい生命力。", colors: { bg: "#F3E5F5", panel: "#E1BEE7", line: "#9C27B0", text: "#311B92", accent: "#9C27B0", button: "#FFEB3B", muted: "#7B1FA2" } },
+        "p40": { name: "マグマ・フロー", desc: "圧倒的な熱量と情熱。力強さを極める。", colors: { bg: "#1A0000", panel: "#EF5350", line: "#B71C1C", text: "#FFFFFF", accent: "#B71C1C", button: "#FFCA28", muted: "#E57373" } }
+    };
+
+    // セレクトボックスの生成
+    const select = document.getElementById('paletteSelect');
+    const desc = document.getElementById('paletteDesc');
+
+    Object.keys(palettes).forEach(id => {
+        const opt = document.createElement('option');
+        opt.value = id;
+        opt.textContent = `${id.replace('p', '')}: ${palettes[id].name}`;
+        select.appendChild(opt);
+    });
+
+    // 切り替えイベント
+    select.addEventListener('change', (e) => {
+        const id = e.target.value;
+        const palette = palettes[id];
+        const root = document.documentElement;
+
+        // CSS変数の更新
+        Object.keys(palette.colors).forEach(key => {
+            root.style.setProperty(`--${key}`, palette.colors[key]);
+        });
+
+        // 説明文の更新
+        desc.innerHTML = `<strong>${palette.name}</strong>：${palette.desc}`;
+    });
+
+    // 初期化（パレット01を適用）
+    select.dispatchEvent(new Event('change'));
+</script>
+
+</body>
+</html>
