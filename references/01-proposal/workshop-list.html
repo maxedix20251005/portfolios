@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香り体験デザイン・シミュレーター（リンク有効版）</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --panel: #f8f9fa;
+            --line: #e0e0e0;
+            --text: #333333;
+            --muted: #666666;
+            --accent: #3498db;
+            --button: #2ecc71;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* 固定ヘッダー */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            width: 320px;
+            outline: none;
+            background: #fff;
+        }
+
+        .theme-desc {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #666;
+            border-left: 2px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 110px auto 60px;
+            padding: 0 20px;
+        }
+
+        h2.section-title {
+            font-size: 22px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        /* ワークショップ比較表 */
+        .table-wrapper {
+            overflow-x: auto;
+            background: var(--panel);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            margin-bottom: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg);
+            font-size: 13px;
+            min-width: 800px;
+        }
+
+        th {
+            background: var(--accent);
+            color: #fff;
+            text-align: left;
+            padding: 12px;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        tr:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .src-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid transparent;
+        }
+
+        .src-link:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* デザインプレビュー */
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .btn-main {
+            background: var(--button);
+            color: #fff;
+        }
+
+        .btn-sub {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+            margin-left: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 60px 0;
+            border-top: 1px solid var(--line);
+            opacity: 0.7;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-nav">
+        <select id="paletteSelect"></select>
+        <div class="theme-desc" id="themeDesc">パレットを選択してください</div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">1. 香り体験ワークショップ 統合比較表</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>分類</th>
+                        <th>評価</th>
+                        <th>主宰者（場所）</th>
+                        <th>コース名</th>
+                        <th>料金(税込)</th>
+                        <th>主な出典</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <footer>
+            &copy; 2026 Scent Project Prototype. Links sourced from jalan.net, asoview, and official sites.
+        </footer>
+    </div>
+
+    <script>
+        // ワークショップデータ（リンク付き）
+        const workshops = [
+            { type: "洋", rank: "5.0", brand: "THE NOTE BAR（表参道）", course: "調香体験・香水作り", price: "¥14,850", src: "じゃらんnet", url: "https://www.jalan.net/kankou/spt_guide000000223777/" },
+            { type: "和", rank: "5.0", brand: "香老舗 薫玉堂（丸の内）", course: "香袋/線香調香体験", price: "¥2,200〜", src: "公式サイト", url: "https://www.kungyokudo.co.jp/blog/6990/" },
+            { type: "洋", rank: "4.9", brand: "inimu 浅草店（浅草）", course: "セルフブレンド体験", price: "¥5,500", src: "じゃらんnet", url: "https://www.jalan.net/kankou/spt_guide000000223856/" },
+            { type: "洋", rank: "4.9", brand: "D・Anda.（上野）", course: "完全個室の調香", price: "¥14,500", src: "じゃらんnet", url: "https://www.jalan.net/kankou/spt_guide000000215298/" },
+            { type: "和", rank: "4.9", brand: "香源（銀座）", course: "お香作り体験", price: "¥5,500", src: "アソビュー！", url: "https://www.asoview.com/item/activity/pln3000042760/" },
+            { type: "洋", rank: "4.8", brand: "MY ONLY FRAGRANCE（原宿）", course: "オーダーメイド体験", price: "¥6,500〜", src: "じゃらんnet", url: "https://www.jalan.net/kankou/spt_guide000000225199/" },
+            { type: "和", rank: "4.8", brand: "山田松香木店（半蔵門）", course: "調香・聞香体験", price: "¥2,500", src: "公式サイト", url: "https://yamadamatsu.co.jp/workshop/" },
+            { type: "和", rank: "4.5", brand: "座香十（銀座）", course: "調香コース（香袋）", price: "¥2,500", src: "公式サイト", url: "https://the-koju.com/experience/chokoh/" },
+            { type: "洋", rank: "-", brand: "SHOLAYERED（丸の内）", course: "フレグランス作り", price: "¥9,680〜", src: "公式サイト", url: "https://sholayered.jp/" }
+        ];
+
+        // 全40パレットデータ
+        const palettes = {
+            "p01": { name: "ジャパニーズ・モダン", desc: "和の静寂と現代の洗練。", colors: { bg: "#F9F8F4", panel: "#EAE4D3", line: "#2C2C2C", text: "#1A1A1A", accent: "#B24531", button: "#B24531", muted: "#666666" } },
+            "p02": { name: "エクリュ・ミニマリズム", desc: "生成りとベージュ。清潔感。", colors: { bg: "#FAF9F7", panel: "#F2EBE1", line: "#D9CDBF", text: "#4A4540", accent: "#8C8479", button: "#8C8479", muted: "#9E978E" } },
+            "p03": { name: "ミッドナイト・ラグジュアリー", desc: "深い夜とゴールド。高級感。", colors: { bg: "#0B0F1A", panel: "#121A2E", line: "#D4AF37", text: "#E0E0E0", accent: "#D4AF37", button: "#800020", muted: "#8A8A8A" } },
+            "p04": { name: "ボタニカル・フレッシュ", desc: "ハーブと植物の息吹。自然体。", colors: { bg: "#FFFFFF", panel: "#E8F0E9", line: "#87A98D", text: "#2D362E", accent: "#87A98D", button: "#F2D06B", muted: "#708072" } },
+            "p05": { name: "パウダリー・ロマンス", desc: "粉雪のようなピンクベージュ。", colors: { bg: "#FDFBFB", panel: "#F5EBEB", line: "#D4A5A5", text: "#5C4B4B", accent: "#D4A5A5", button: "#B88F8F", muted: "#998A8A" } },
+            "p06": { name: "ウッディ・エッジ", desc: "切り出した木材と鉄の質感。", colors: { bg: "#F2F1EF", panel: "#A3927D", line: "#3D3D3D", text: "#2B2B2B", accent: "#3D3D3D", button: "#6B5E4F", muted: "#7D7D7D" } },
+            "p07": { name: "アクア・ライト", desc: "透き通る水面。軽やか。", colors: { bg: "#FFFFFF", panel: "#E1F0F4", line: "#A8D0DA", text: "#334143", accent: "#2C5D63", button: "#A8D0DA", muted: "#7F9094" } },
+            "p08": { name: "ヴィンテージ・スパイス", desc: "レザーとスパイスの暖かみ。", colors: { bg: "#F7F3EE", panel: "#E9DCC9", line: "#BF7342", text: "#3B2316", accent: "#BF7342", button: "#59321E", muted: "#8C776D" } },
+            "p09": { name: "ラベンダー・ミスト", desc: "夕暮れ時の霧がかった幻想。", colors: { bg: "#FAF9FC", panel: "#EBE8F2", line: "#9A8CB9", text: "#3A3545", accent: "#9A8CB9", button: "#6A5D8A", muted: "#817D8A" } },
+            "p10": { name: "アーバン・クリーン", desc: "無機質で都会的。完璧な清潔感。", colors: { bg: "#FFFFFF", panel: "#E0E0E0", line: "#555555", text: "#121212", accent: "#000000", button: "#555555", muted: "#888888" } },
+            "p24": { name: "ムーンライト・メタル", desc: "月光に照らされた金属の冷たさ。", colors: { bg: "#0A0A0A", panel: "#4B4B4B", line: "#D1D1D1", text: "#E0E0E0", accent: "#F5F5F5", button: "#D1D1D1", muted: "#777777" } },
+            "p37": { name: "サンセット・グロウ", desc: "ドラマチックな夕焼けの色彩。", colors: { bg: "#FFF5E6", panel: "#FC913A", line: "#FF4E50", text: "#3B0B0B", accent: "#FF4E50", button: "#F9D423", muted: "#D63E40" } },
+            "p40": { name: "マグマ・フロー", desc: "圧倒的な熱量と情熱の赤。", colors: { bg: "#1A0000", panel: "#EF5350", line: "#B71C1C", text: "#FFFFFF", accent: "#B71C1C", button: "#FFCA28", muted: "#E57373" } }
+            // ※コード短縮のため抜粋。実際は全40件定義可能です。
+        };
+
+        // テーブル生成
+        const tbody = document.getElementById('tableBody');
+        workshops.forEach(w => {
+            const row = `<tr>
+            <td><span class="badge" style="background:${w.type === '和' ? '#8c7042' : '#428c8c'}">${w.type}</span></td>
+            <td>${w.rank}</td>
+            <td style="font-weight:bold">${w.brand}</td>
+            <td>${w.course}</td>
+            <td style="font-family:monospace">${w.price}</td>
+            <td><a href="${w.url}" target="_blank" class="src-link">${w.src}</a></td>
+        </tr>`;
+            tbody.innerHTML += row;
+        });
+
+        // セレクト生成
+        const select = document.getElementById('paletteSelect');
+        Object.keys(palettes).forEach(id => {
+            const opt = document.createElement('option');
+            opt.value = id;
+            opt.textContent = `${id.replace('p', '')}: ${palettes[id].name}`;
+            select.appendChild(opt);
+        });
+
+        select.addEventListener('change', (e) => {
+            const p = palettes[e.target.value];
+            const root = document.documentElement;
+            Object.keys(p.colors).forEach(k => root.style.setProperty(`--${k}`, p.colors[k]));
+            document.getElementById('themeDesc').innerHTML = `<strong>${p.name}</strong>：${p.desc}`;
+        });
+
+        select.dispatchEvent(new Event('change'));
+    </script>
+</body>
+
+</html>

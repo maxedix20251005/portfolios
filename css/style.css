@@ -1797,6 +1797,22 @@ a:hover { color: var(--black); }
   color: var(--black);
 }
 
+.proposal-v2 .appendix-workshop-table th:nth-child(1),
+.proposal-v2 .appendix-workshop-table th:nth-child(2),
+.proposal-v2 .appendix-workshop-table td:nth-child(1),
+.proposal-v2 .appendix-workshop-table td:nth-child(2) {
+  text-align: center;
+}
+
+.proposal-v2 .appendix-workshop-table td:nth-child(6) a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.proposal-v2 .appendix-workshop-table td:nth-child(6) a:visited {
+  color: #551a8b;
+}
+
 .proposal-v2 .formula-card {
   border: 1px solid var(--border);
   background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
