@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>振り返り・技術記事 -  プロジェクトアーカイブ</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <title>振り返り・技術記事 - プロジェクトアーカイブ</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
 
   <div class="page-wrapper">
-  <aside class="sidebar" data-nav-level="docs"></aside>
+    <aside class="sidebar" data-nav-level="docs"></aside>
 
     <main class="main-content">
       <header class="doc-header">
@@ -38,7 +41,8 @@
           </div>
           <div class="external-link-input">
             <input type="text" placeholder="https://docs.google.com/spreadsheets/d/xxxxx" id="external-link-10">
-            <a href="#" class="link-btn" onclick="window.open(document.getElementById('external-link-10').value || 'https://docs.google.com', '_blank'); return false;">
+            <a href="#" class="link-btn"
+              onclick="window.open(document.getElementById('external-link-10').value || 'https://docs.google.com', '_blank'); return false;">
               <span class="material-symbols-outlined">open_in_new</span>
               開く
             </a>
@@ -58,76 +62,78 @@
         <section class="section" id="sec1">
           <h2 class="section-title"><span class="section-icon">1</span> プロジェクト振り返り</h2>
 
-        <div class="fill-block">
-          <div class="fill-label">企画・設計段階の振り返り <span class="required">必須</span></div>
-          <div class="fill-hint">マーケットリサーチ、ペルソナ設計、情報設計について</div>
-          <div class="fill-content">
-            <p>（企画・設計段階の振り返りを記載）</p>
+          <div class="fill-block">
+            <div class="fill-label">企画・設計段階の振り返り <span class="required">必須</span></div>
+            <div class="fill-hint">マーケットリサーチ、ペルソナ設計、情報設計について</div>
+            <div class="fill-content">
+              <p>
+                企画・設計段階では、生成AIに着手する前に企画提案書の精度向上へ十分な工数を投下したことが、後続工程の安定化に大きく寄与した。<br>
+                初期段階で目的、構成、期待成果を整理できていたため、仕様策定や設計判断の迷いが減り、全体として手戻りの少ない進行を実現できた。<br>
+                また、サイトマップやデザインガイドラインはAIを活用して整合性を確認しながら作成したことで、情報構造と表現方針の両面で一貫性の高い設計にまとめられた。<br>
+                一方で、曖昧なPromptによる指示は成果物の品質を不安定にし、途中での修正・巻き戻し対応に工数を要した。<br>
+                次回は、AI活用時の指示テンプレートと中間レビューの運用を事前に組み込み、品質と進行管理の両立をさらに強化したい。
+              </p>
+            </div>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">以下のプロジェクト情報をもとに、企画・設計段階の振り返りを作成してください。
-
-【うまくいったこと】
-（自分が感じたことを箇条書きで記載）
-
-【苦労したこと】
-（自分が感じたことを箇条書きで記載）
-
-上記をもとに、振り返り文章を200〜300字で作成してください。
-次回への改善点も含めてください。</div>
-          <div class="prompt-note">💡 自分自身の経験を元に書いてください。AIは文章の構成や表現の改善に活用しましょう。</div>
+          <div class="fill-block">
+            <div class="fill-label">デザイン段階の振り返り <span class="required">必須</span></div>
+            <div class="fill-hint">デザインガイドライン、ワイヤーフレーム、Figma作業について</div>
+            <div class="fill-content">
+              <p>
+                デザイン段階では、AIを活用することで配色、余白、情報配置など複数の案を短時間で比較でき、初期検討のスピードを大きく高めることができた。<br>
+                特に、サイト全体のトンマナや画面間の整合性を早い段階で確認できたことは、後続の実装負荷軽減にもつながった。<br>
+                一方で、AIが生成する案は一見完成度が高く見えても、目的や利用者像に十分即していない場合があり、そのまま採用すると表層的なデザインに偏るリスクがあることも認識できた。<br>
+                次回は、評価基準を先に定義したうえでAIを発想支援と整理支援に位置づけ、人の判断による選定と改善をより明確に分離して進めたい。
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">デザイン段階の振り返り <span class="required">必須</span></div>
-          <div class="fill-hint">デザインガイドライン、ワイヤーフレーム、Figma作業について</div>
-          <div class="fill-content">
-            <p>（デザイン段階の振り返りを記載）</p>
+          <div class="fill-block">
+            <div class="fill-label">フロントエンド実装の振り返り <span class="required">必須</span></div>
+            <div class="fill-hint">HTML/CSS/JavaScript の実装について</div>
+            <div class="fill-content">
+              <p>
+                フロントエンド実装段階では、HTML/CSS/JavaScriptを役割ごとに整理しながら進めたことで、画面構造、見た目、挙動の責務を切り分けて実装できた。<br>
+                また、AIを活用して実装方針や記述案を早い段階で比較できたことで、初動の迷いを減らし、コーディングの効率向上につなげることができた。<br>
+                特に、設計段階で整理した情報構造やデザイン方針が明確だったため、AIの提案内容も取捨選択しやすく、全体として一貫性のある実装を進めやすかった。<br>
+                一方で、見た目や動作を優先して細部を都度調整する場面では、CSSやJavaScriptの記述が局所最適になりやすく、保守性を意識した構成の重要性を再認識した。<br>
+                次回は、AIを補助的なレビューと発想支援に位置づけつつ、命名規則やスタイル設計の方針を早い段階で固め、修正に強いフロントエンド実装を目指したい。
+              </p>
+            </div>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（同様の形式で振り返りを作成）</div>
+          <div class="fill-block">
+            <div class="fill-label">バックエンド実装の振り返り <span class="required">必須</span></div>
+            <div class="fill-hint">Java/Spring Boot の実装について</div>
+            <div class="fill-content">
+              <p>
+                バックエンド実装段階では、Supabaseと連携しつつ、最終的にGitHub
+                Pagesで公開できる構成を成立させる必要があり、一般的なサーバーサイド開発とは異なる制約を強く意識して進める必要があった。<br>
+                その中で、認証やデータ連携の実現方法、公開環境に適した構成案の整理にAIを活用したことで、複数の選択肢を比較しながら現実的な実装方針を早期に固めることができた。<br>
+                特に、利用環境の制約を前提として役割分担を整理できたことで、Supabaseを活用した機能実装と静的公開の両立に見通しを持って進められた点は大きな成果だった。<br>
+                一方で、構成が複雑になるほど実装上の前提条件や依存関係の確認が重要となり、AIの提案もそのまま採用するのではなく、技術的妥当性を都度検証する必要があると感じた。<br>
+                次回は、公開環境の制約とバックエンド要件をより早い段階で整理したうえで、AIを設計レビューと代替案検討に活用し、より安定した構成で開発を進めたい。
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">フロントエンド実装の振り返り <span class="required">必須</span></div>
-          <div class="fill-hint">HTML/CSS/JavaScript の実装について</div>
-          <div class="fill-content">
-            <p>（フロントエンド実装の振り返りを記載）</p>
+          <div class="fill-block">
+            <div class="fill-label">全体を通しての学び <span class="required">必須</span></div>
+            <div class="fill-hint">32日間のプロジェクト全体を通して学んだこと</div>
+            <div class="fill-content">
+              <p>
+                【一番成長したスキル】<br>
+                本プロジェクトを通じて最も成長を実感したのは、AIを前提にした企画・設計力である。<br>
+                要件や目的を曖昧なまま進めるのではなく、事前に情報を整理してからAIに指示することで、成果物の質と作業効率が大きく変わることを実感した。<br>
+                【一番苦労したこと】<br>
+                最も苦労したのは、曖昧なPromptによって想定と異なる成果物が生成され、途中で修正や手戻りが発生したことである。<br>
+                特に、制約条件の整理が不十分な段階では、確認と再調整に想定以上の工数を要した。<br>
+                【プロンプトプログラミングの感想】<br>
+                Promptの質がそのまま成果物の質に直結する点が非常に印象的であり、AI活用では指示内容そのものが設計行為の一部だと感じた。<br>
+                適切に使えば、AIは比較検討や構造化、レビュー補助まで担える有効な支援役になると分かった。<br>
+                【チュートリアルで特に役立ったもの】<br>
+                特に役立ったのは、AIへの指示方法や段階的な確認手順を学べるチュートリアルである。<br>
+                これにより、Supabase連携やGitHub Pages公開のような制約下でも、AIを活用しながら現実的な実装方針を組み立てやすくなった。
+              </p>
+            </div>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（同様の形式で振り返りを作成）</div>
-          </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">バックエンド実装の振り返り <span class="required">必須</span></div>
-          <div class="fill-hint">Java/Spring Boot の実装について</div>
-          <div class="fill-content">
-            <p>（バックエンド実装の振り返りを記載）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（同様の形式で振り返りを作成）</div>
-          </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">全体を通しての学び <span class="required">必須</span></div>
-          <div class="fill-hint">32日間のプロジェクト全体を通して学んだこと</div>
-          <div class="fill-content">
-            <p>（全体の振り返りを記載）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">以下のプロジェクト全体の経験をもとに、総合的な振り返りを300〜400字で作成してください。
-
-【一番成長したスキル】（記載）
-【一番苦労したこと】（記載）
-【プロンプトプログラミングの感想】（記載）
-【チュートリアルで特に役立ったもの】（記載）</div>
-          </div>
-        </div>
 
         </section>
 
@@ -142,45 +148,108 @@
 
           <div class="fill-block">
             <div class="fill-label">技術記事タイトル <span class="required">必須</span></div>
-            <div class="fill-content"><p>（記事タイトルを入力。例：「Spring SecurityでログインEを実装する手順」）</p></div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">以下の技術トピックについてブログ記事を書きたいです。記事の構成を考えてください。
-
-テーマ：（技術トピックを記載）
-読者：プログラミング初学者・就職活動中の専門学校生
-文量：1500〜2000字
-
-以下の構成で書いてください。
-1. はじめに（何をしたかったか）
-2. 課題（何が難しかったか）
-3. 調査（どのように調べたか）
-4. 実装（コード付きで解説）
-5. 結果（どう解決したか）
-6. 学び（何を得たか）</div>
-              <div class="prompt-note">💡 AIで構成を作り、自分の経験に基づいて内容を修正・肉付けしてください</div>
+            <div class="fill-content">
+              <p>AIの活用によって根底から変わるシステム開発のあり方</p>
             </div>
           </div>
 
-        <div class="fill-block">
-          <div class="fill-label">記事本文 <span class="required">必須</span></div>
-          <div class="fill-hint">上記の構成に沿って記事本文を記載。コードブロックを含めてください。</div>
-          <div class="fill-content">
-            <p>（記事本文をここに記載）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">上記の構成で、以下の技術トピックについて記事本文を書いてください。
+          <div class="fill-block">
+            <div class="fill-label">記事本文 <span class="required">必須</span></div>
+            <div class="fill-hint">上記の構成に沿って記事本文を記載。コードブロックを含めてください。</div>
+		            <div class="fill-content">
+		              <h3>1. はじめに（何をしたかったか）</h3>
+		              <p>
+		                本記事では、AIの活用によってシステム開発の進め方がどのように変わるのかを、初学者向けに整理する。従来の開発では、人が要件整理、設計、実装、テストを順に積み上げていく形が一般的だった。<br>しかし現在は、AIを活用することで、調査、たたき台作成、コード例の生成、レビュー補助までを高速に進められるようになった。<br>私はこの変化を、開発現場における一種のBig
+		                Bangだと感じている。<br>重要なのは、AIが人の仕事をそのまま奪うという見方ではなく、人とAIの役割分担が変わり、それぞれの得意分野で共存する時代になったと理解することである。</p>
 
-テーマ：（技術トピック）
-実際に書いたコード：（コードを貼り付け）
-苦労した点：（自分の経験を記載）
-解決方法：（どう解決したか記載）
+		              <h3>2. 課題（何が難しかったか）</h3>
+		              <p>
+		                実際にAIを使ってみると、単に質問すれば正しい答えが返るわけではなかった。<br>指示が曖昧だと、もっともらしく見えても目的に合わない提案が返ることがある。<br>また、環境制約や仕様条件を十分に伝えないと、実際には採用できないコードが出力されることもあった。<br>つまり難しかったのは、AIを使うこと自体ではなく、AIに何を、どこまで、どの粒度で伝えるかを人間側が設計することだった。
+		              </p>
 
-コードブロックには説明コメントを付けてください。
-専門用語は初学者にもわかるよう簡潔に説明してください。</div>
+		              <h3>3. 調査（どのように調べたか）</h3>
+		              <p>私はまず、AIにいきなり実装させるのではなく、要件、制約、目的を箇条書きで整理してから質問するようにした。<br>たとえば「GitHub
+		                Pagesで公開する」「Supabaseと連携する」「初学者でも理解できる構成にする」といった前提条件を先に明示した。<br>そのうえで、1回で完成を目指すのではなく、「構成案を出す」「候補を比較する」「不明点を絞る」「最後に実装する」という流れで段階的に調査した。<br>この方法により、AIを検索代替ではなく、整理・比較・発想支援の相手として使えることが分かった。
+		              </p>
+
+		              <h3>4. 実装（コード付きで解説）</h3>
+		              <p>
+		                たとえば、フロントエンドからSupabaseへデータを登録する処理を考えるときも、AIに完成品を丸投げするのではなく、必要な処理単位で相談すると理解しやすい。<br>以下は、入力値を取得して登録するシンプルな例である。
+		              </p>
+		              <pre><code class="language-javascript">async function saveMessage() {
+  const name = document.getElementById('name').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !message) {
+    alert('入力内容を確認してください。');
+    return;
+  }
+
+  const { error } = await supabase
+    .from('messages')
+    .insert([{ name, message }]);
+
+  if (error) {
+    console.error(error);
+    alert('保存に失敗しました。');
+    return;
+  }
+
+  alert('保存しました。');
+}</code></pre>
+		              <p>
+		                ここで大切なのは、AIに「このコードを書いて」で終わるのではなく、「なぜ入力チェックが必要か」「なぜエラー処理が必要か」まで説明させることだ。<br>AIはたたき台の生成が得意であり、人はそのコードが本当に要件に合っているかを判断する役割を持つ。<br>この分担によって、学習速度も実装速度も高めやすくなる。
+		              </p>
+
+		              <h3>5. 結果（どう解決したか）</h3>
+		              <p>
+		                最終的に、AIをうまく活用するには、全部を任せるのではなく、役割を分けることが重要だと分かった。<br>AIは、案出し、調査の整理、コードのひな形作成、レビュー補助に強い。<br>一方、人は目的設定、優先順位付け、正誤判断、最終意思決定に強い。<br>この分担を意識したことで、手戻りを減らしながら、限られた時間でも開発を前に進めやすくなった。<br>AIによるBig
+		                Bangとは、開発者が不要になることではなく、開発者の役割が「書く人」から「考え、選び、統合する人」へ広がることだと捉えている。</p>
+
+		              <h3>6. 学び（何を得たか）</h3>
+		              <p>
+		                この経験から得た最大の学びは、これからのシステム開発では、コードを書く力だけでなく、AIを適切に使いこなす力が重要になるということである。<br>初学者にとっても悲観する必要はなく、むしろ基礎を学びながらAIを補助役として使うことで、理解を深めやすくなる。<br>AIは人の職を奪う存在というより、人の役割を再定義する存在である。<br>だからこそ、AIに任せる部分と自分が責任を持つ部分を切り分け、共存の前提で活用する姿勢が今後ますます重要になる。
+		              </p>
+		            </div>
           </div>
-        </div>
+
+          <div class="fill-block">
+            <div class="fill-label">記事作成用の追加指示 <span class="required">任意</span></div>
+            <div class="fill-hint">技術トピックごとに差し替えて使う指示テンプレート</div>
+	            <div class="fill-content">
+	              <h3>1. はじめに（何をしたかったか）</h3>
+	              <p>本記事では、AIと一緒に考えながら実装したデジタル調香アプリについて紹介する。<br>このアプリのコンセプトは、利用者がディスプレイ上で香りのNotesと配合を調整し、その結果を色とサウンドで表現することで、香りを視覚と聴覚でも体験できるようにすることである。<br>本来、香りは実際に嗅がなければ分かりにくいが、このアプリでは操作と演出を組み合わせることで、香りの印象をデジタル上でも感じ取れる体験を目指した。<br>私が実現したかったのは、単なる情報表示のアプリではなく、利用者が自分で組み合わせを試しながら、感覚的に楽しめるインタラクティブな仕組みである。<br>その実装を進める中で、AIはコードを作る道具というより、体験設計や処理の整理を一緒に考える相手として大きな役割を果たした。</p>
+
+	              <h3>2. 課題（何が難しかったか）</h3>
+	              <p>最も難しかったのは、香りという目に見えないものを、画面上の操作だけでどう伝えるかを考えることだった。<br>Notesや配合比率の変更によって印象が変わることを、利用者に分かりやすく伝える必要があったため、単に数値を表示するだけでは不十分だった。<br>そこで、香りのイメージを色の変化やサウンド表現に置き換える必要があったが、どの要素をどう結び付ければ自然に感じられるかを整理するのに苦労した。<br>また、実装面でも画面上の操作、表示の変化、データ管理をどう組み合わせるかを考える必要があり、見た目の面白さと処理の分かりやすさの両立が課題だった。<br>一部では外部サービスとの連携や公開環境も考慮したが、それ以上に難しかったのは、香りの体験そのものをどうデジタルに翻訳するかだった。</p>
+
+	              <h3>3. 調査（どのように調べたか）</h3>
+	              <p>調査では、まず「香りをどうすれば画面上で体験として伝えられるか」を軸に考えた。<br>そのために、Notesごとの印象を言葉で整理し、それぞれに対応しそうな色や音のイメージを洗い出した。<br>さらに、AIに対して「この香りの印象を色で表すならどうなるか」「この配合変化を体験として見せるには何が自然か」といった形で問いかけ、発想の候補を広げた。<br>ここで重要だったのは、AIに完成形を求めるのではなく、アイデアの比較相手として使うことだった。<br>その結果、人だけでは思いつきにくい表現案も得られ、体験設計の方向性を整理しやすくなった。</p>
+
+	              <h3>4. 実装（コード付きで解説）</h3>
+	              <p>実装では、利用者が選んだNotesや配合に応じて、画面上の色や音の印象が変わる流れを意識した。<br>以下は、選択された配合情報をもとに画面表示を更新するイメージを簡略化した例である。<br>コメントを入れることで、初学者でも処理の役割を追いやすくしている。</p>
+	              <pre><code class="language-javascript">function updateBlendExperience(noteName, ratio, color, soundLabel) {
+  // 選択中のNotes名を画面に表示する
+  document.getElementById('selected-note').textContent = noteName;
+
+  // 配合比率を利用者に分かりやすく表示する
+  document.getElementById('selected-ratio').textContent = ratio + '%';
+
+  // 香りの印象を色として背景に反映する
+  document.getElementById('experience-panel').style.backgroundColor = color;
+
+  // サウンドのイメージをテキストで伝える
+  document.getElementById('sound-description').textContent = soundLabel;
+}</code></pre>
+	              <p>この処理自体は難しい構文を多く使っているわけではないが、「どの情報を変えると利用者が体験の変化を感じられるか」を考えることが重要だった。<br>たとえば、Notes名だけを表示しても体験としては弱いため、色や音の説明も合わせて変化させることで、香りのイメージが伝わりやすくなる。<br>AIは、このような処理のたたき台や整理案を出すのに役立ったが、最終的に何を採用するかは、自分でアプリの目的に照らして判断した。<br>必要に応じてデータ保存や公開構成も調整したが、実装の中心はあくまで「香りの体験をどう成立させるか」にあった。</p>
+
+	              <h3>5. 結果（どう解決したか）</h3>
+	              <p>最終的には、利用者がNotesと配合を操作すると、その変化が色とサウンドのイメージとして返ってくる流れを形にすることで、デジタル調香というコンセプトを画面上で表現できた。<br>これにより、香りそのものを直接届けられなくても、香りの印象や変化を感覚的に楽しめる体験に近づけることができた。<br>また、AIと対話しながら考えたことで、発想を広げる段階と、実現可能な形に絞り込む段階を分けて進めやすくなった。<br>その結果、AIは人の代わりに完成品を作る存在というより、人の考えを整理し、表現の選択肢を広げる存在だと実感した。<br>この点は、これからの開発において非常に大きな変化だと感じている。</p>
+
+	              <h3>6. 学び（何を得たか）</h3>
+	              <p>この経験を通じて学んだのは、これからのシステム開発では、機能を作る力だけでなく、体験をどう設計するかを考える力がより重要になるということである。<br>特にAIを活用すると、実装案を早く出したり、発想を広げたりすることはできるが、何を良い体験とするかを決めるのは人の役割である。<br>AIは人の職を奪うものというより、人が担うべき役割を変える存在だと感じた。<br>人は目的を定め、利用者体験を考え、最終判断を行う。<br>AIは整理、比較、たたき台作成を支える。<br>この役割分担を理解して活用することが、今後の開発ではますます重要になると考えている。</p>
+	            </div>
+          </div>
 
         </section>
 
@@ -190,21 +259,67 @@
           <div class="fill-block">
             <div class="fill-label">スキル自己評価 <span class="required">必須</span></div>
             <div class="fill-hint">各スキルを5段階（★）で自己評価し、コメントを記載してください</div>
-        <table class="doc-table">
-          <thead><tr><th>スキル領域</th><th>自己評価</th><th>コメント</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>HTML/CSS</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>JavaScript</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>Java</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>Spring Boot</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>データベース</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>UI/UXデザイン</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>Figma</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>Git/GitHub</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>AI活用（プロンプト）</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          <tr class="template-row"><td>マーケティング</td><td>（★★★☆☆ 等）</td><td>（できること・課題を簡潔に）</td></tr>
-          </tbody>
-        </table>
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>スキル領域</th>
+                  <th>自己評価</th>
+                  <th>コメント</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="template-row">
+                  <td>HTML/CSS</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>JavaScript</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>Java</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>Spring Boot</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>データベース</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>UI/UXデザイン</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>Figma</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>Git/GitHub</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>AI活用（プロンプト）</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+                <tr class="template-row">
+                  <td>マーケティング</td>
+                  <td>（★★★☆☆ 等）</td>
+                  <td>（できること・課題を簡潔に）</td>
+                </tr>
+              </tbody>
+            </table>
 
           </div>
         </section>
@@ -212,26 +327,26 @@
         <section class="section" id="sec4">
           <h2 class="section-title"><span class="section-icon">4</span> 今後の学習計画</h2>
 
-        <div class="fill-block">
-          <div class="fill-label">今後学びたい技術・分野 <span class="required">必須</span></div>
-          <div class="fill-hint">今後のキャリアに向けて学習したい技術やスキル</div>
-          <div class="fill-content">
-            <p>（今後の学習計画を記載）</p>
+          <div class="fill-block">
+            <div class="fill-label">今後学びたい技術・分野 <span class="required">必須</span></div>
+            <div class="fill-hint">今後のキャリアに向けて学習したい技術やスキル</div>
+            <div class="fill-content">
+              <p>（今後の学習計画を記載）</p>
+            </div>
+            <div class="prompt-box">
+              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
+              <div class="prompt-text">以下の自己評価をもとに、今後の学習計画を提案してください。
+
+                （自己評価の内容を貼り付け）
+
+                希望する職種：（希望職種を記載）
+
+                以下を含めてください。
+                ・短期的に学ぶべきこと（3ヶ月以内）
+                ・中期的に学ぶべきこと（半年〜1年）
+                ・推奨する学習リソース</div>
+            </div>
           </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">以下の自己評価をもとに、今後の学習計画を提案してください。
-
-（自己評価の内容を貼り付け）
-
-希望する職種：（希望職種を記載）
-
-以下を含めてください。
-・短期的に学ぶべきこと（3ヶ月以内）
-・中期的に学ぶべきこと（半年〜1年）
-・推奨する学習リソース</div>
-          </div>
-        </div>
 
         </section>
 
@@ -241,4 +356,5 @@
 
   <script src="../js/main.js"></script>
 </body>
+
 </html>
