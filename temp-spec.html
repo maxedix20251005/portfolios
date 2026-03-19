@@ -144,75 +144,75 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr class="template-row">
                   <td>F-001</td>
-                  <td>ログイン・権限管理</td>
-                  <td>管理者/一般ユーザーの認証、パスワードリセット、権限別メニュー制御、入力バリデーション。</td>
-                  <td>ログイン、ダッシュボード</td>
+                  <td>（ログイン）</td>
+                  <td>（メール/パスワードで認証）</td>
+                  <td>（ログイン画面）</td>
                   <td><span class="badge badge-must">Must</span></td>
                 </tr>
-                <tr>
+                <tr class="template-row">
                   <td>F-002</td>
-                  <td>トップヒーロー/スライダー管理</td>
-                  <td>ヒーロー画像・キャッチコピー・ボタンリンクを CRUD し、公開/非公開を制御。</td>
-                  <td>トップ編集</td>
+                  <td>（一覧表示）</td>
+                  <td>（データの一覧表示・ページネーション）</td>
+                  <td>（一覧画面）</td>
                   <td><span class="badge badge-must">Must</span></td>
                 </tr>
-                <tr>
+                <tr class="template-row">
                   <td>F-003</td>
-                  <td>体験導線設定（デジタル調香・ワークショップ）</td>
-                  <td>CTA リンクや体験ステップ文言/順序を管理し、誘導先 URL を更新。</td>
-                  <td>導線設定</td>
+                  <td>（新規登録）</td>
+                  <td>（フォームから新規データ登録）</td>
+                  <td>（登録画面）</td>
                   <td><span class="badge badge-must">Must</span></td>
                 </tr>
-                <tr>
+                <tr class="template-row">
                   <td>F-004</td>
-                  <td>ピックアップ/体験カード管理</td>
-                  <td>注目体験・プロダクトカードのタイトル/説明/画像を CRUD し、並び替え・絞り込み・ソート。</td>
-                  <td>カード管理</td>
-                  <td><span class="badge badge-should">Should</span></td>
-                </tr>
-                <tr>
-                  <td>F-005</td>
-                  <td>商品カタログ管理（新着含む）</td>
-                  <td>商品名・カテゴリ・画像・公開フラグを登録/更新。検索・ソート・ページネーション対応。</td>
-                  <td>商品管理</td>
-                  <td><span class="badge badge-should">Should</span></td>
-                </tr>
-                <tr>
-                  <td>F-006</td>
-                  <td>店舗情報・開催スケジュール管理</td>
-                  <td>店舗名/所在地/開催日を CRUD し、公開日を制御。CSV 出力で共有。</td>
-                  <td>店舗管理</td>
-                  <td><span class="badge badge-could">Could</span></td>
-                </tr>
-                <tr>
-                  <td>F-007</td>
-                  <td>ジャーナル/お知らせ管理</td>
-                  <td>記事タイトル・本文・タグを CRUD し、公開予約。一覧で検索・ソート。</td>
-                  <td>記事管理</td>
-                  <td><span class="badge badge-should">Should</span></td>
-                </tr>
-                <tr>
-                  <td>F-008</td>
-                  <td>ユーザー管理</td>
-                  <td>一般ユーザーの登録情報参照・停止・ロール変更。CSV 出力・メール通知。</td>
-                  <td>ユーザー管理</td>
+                  <td>（詳細表示）</td>
+                  <td>（データの詳細情報表示）</td>
+                  <td>（詳細画面）</td>
                   <td><span class="badge badge-must">Must</span></td>
                 </tr>
-                <tr>
+                <tr class="template-row">
+                  <td>F-005</td>
+                  <td>（編集）</td>
+                  <td>（既存データの更新）</td>
+                  <td>（編集画面）</td>
+                  <td><span class="badge badge-must">Must</span></td>
+                </tr>
+                <tr class="template-row">
+                  <td>F-006</td>
+                  <td>（削除）</td>
+                  <td>（データの削除・確認ダイアログ）</td>
+                  <td>（一覧画面）</td>
+                  <td><span class="badge badge-must">Must</span></td>
+                </tr>
+                <tr class="template-row">
+                  <td>F-007</td>
+                  <td>（検索）</td>
+                  <td>（キーワード・条件検索）</td>
+                  <td>（一覧画面）</td>
+                  <td><span class="badge badge-should">Should</span></td>
+                </tr>
+                <tr class="template-row">
+                  <td>F-008</td>
+                  <td>（ソート）</td>
+                  <td>（カラムクリックでの並び替え）</td>
+                  <td>（一覧画面）</td>
+                  <td><span class="badge badge-should">Should</span></td>
+                </tr>
+                <tr class="template-row">
                   <td>F-009</td>
-                  <td>予約/問い合わせログ管理</td>
-                  <td>問い合わせ・ワークショップ予約の一覧確認、ステータス更新、CSV 出力。</td>
-                  <td>予約・問い合わせ管理</td>
+                  <td>（CSV出力）</td>
+                  <td>（データのCSVエクスポート）</td>
+                  <td>（一覧画面）</td>
                   <td><span class="badge badge-could">Could</span></td>
                 </tr>
-                <tr>
-                  <td>F-010</td>
-                  <td>メディアアセット管理</td>
-                  <td>画像/音源ファイルのアップロードとバージョン管理、alt テキスト設定。</td>
-                  <td>アセット管理</td>
-                  <td><span class="badge badge-could">Could</span></td>
+                <tr class="template-row">
+                  <td>…</td>
+                  <td>…</td>
+                  <td>…</td>
+                  <td>…</td>
+                  <td>…</td>
                 </tr>
               </tbody>
             </table>
@@ -245,7 +245,7 @@
             </div>
             <div class="prompt-box">
               <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">inim-dxの管理システムの画面遷移図をテキストベースで作成してください。
+              <div class="prompt-text">（サービス名）の管理システムの画面遷移図をテキストベースで作成してください。
 
                 画面一覧：
                 （上記の機能一覧で定義した画面を列挙）
