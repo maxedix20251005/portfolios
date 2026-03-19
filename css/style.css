@@ -1813,6 +1813,48 @@ a:hover { color: var(--black); }
   color: #551a8b;
 }
 
+/* 07-specification: システム目的テーブルのカラム幅調整 */
+.spec-purpose-table col:first-child {
+  width: 25%;
+  white-space: nowrap;
+}
+.spec-purpose-table col:last-child {
+  width: 75%;
+}
+
+.spec-purpose-table {
+  margin-top: 16px;
+}
+
+/* 07-specification: purpose block styling to match proposal tables */
+.spec-summary {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.spec-purpose-table th {
+  background: var(--gray-100);
+  font-weight: 700;
+}
+.spec-purpose-table td {
+  background: var(--white);
+}
+
+.spec-purpose-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.spec-summary {
+  background: var(--bg-gray);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
 .proposal-v2 .formula-card {
   border: 1px solid var(--border);
   background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
