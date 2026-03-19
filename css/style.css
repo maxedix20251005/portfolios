@@ -31,9 +31,18 @@
 }
 
 /* --- Reset & Base --- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-ja);
@@ -43,9 +52,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; height: auto; }
-a { color: var(--gray-700); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--black); }
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--black);
+}
 
 /* --- Layout --- */
 .page-wrapper {
@@ -413,9 +433,20 @@ a:hover { color: var(--black); }
   font-weight: 700;
 }
 
-.badge-must { background: var(--black); color: var(--white); }
-.badge-should { background: var(--gray-600); color: var(--white); }
-.badge-could { background: var(--gray-300); color: var(--gray-700); }
+.badge-must {
+  background: var(--black);
+  color: var(--white);
+}
+
+.badge-should {
+  background: var(--gray-600);
+  color: var(--white);
+}
+
+.badge-could {
+  background: var(--gray-300);
+  color: var(--gray-700);
+}
 
 /* --- Card Grid --- */
 .card-grid {
@@ -459,10 +490,24 @@ a:hover { color: var(--black); }
   background: var(--gray-100);
 }
 
-.info-box.info { border-left-color: var(--gray-700); }
-.info-box.success { border-left-color: var(--gray-500); background: var(--gray-100); }
-.info-box.warning { border-left-color: var(--gray-400); background: var(--gray-100); }
-.info-box.danger { border-left-color: var(--black); background: var(--gray-100); }
+.info-box.info {
+  border-left-color: var(--gray-700);
+}
+
+.info-box.success {
+  border-left-color: var(--gray-500);
+  background: var(--gray-100);
+}
+
+.info-box.warning {
+  border-left-color: var(--gray-400);
+  background: var(--gray-100);
+}
+
+.info-box.danger {
+  border-left-color: var(--black);
+  background: var(--gray-100);
+}
 
 .info-box strong {
   display: block;
@@ -682,7 +727,7 @@ a:hover { color: var(--black); }
   gap: 18px;
 }
 
-.card-grid--stacked > .card {
+.card-grid--stacked>.card {
   min-width: 0;
 }
 
@@ -1817,13 +1862,23 @@ a:hover { color: var(--black); }
 .spec-purpose-table col:first-child {
   width: 25%;
   white-space: nowrap;
+  border: 1px solid var(--border);
 }
+
 .spec-purpose-table col:last-child {
   width: 75%;
 }
 
 .spec-purpose-table {
+  width: 100%;
+  border-collapse: collapse;
   margin-top: 16px;
+}
+
+.spec-purpose-table th,
+.spec-purpose-table td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
 }
 
 /* 07-specification: purpose block styling to match proposal tables */
@@ -1833,10 +1888,12 @@ a:hover { color: var(--black); }
   border-radius: 12px;
   padding: 16px;
 }
+
 .spec-purpose-table th {
   background: var(--gray-100);
   font-weight: 700;
 }
+
 .spec-purpose-table td {
   background: var(--white);
 }
@@ -2141,11 +2198,25 @@ a:hover { color: var(--black); }
   color: var(--white);
 }
 
-.proposal-v2 .bar--design { background: #555; }
-.proposal-v2 .bar--dev { background: #222; }
-.proposal-v2 .bar--verify { background: #777; }
-.proposal-v2 .bar--phase2 { background: #333; }
-.proposal-v2 .bar--phase3 { background: #111; }
+.proposal-v2 .bar--design {
+  background: #555;
+}
+
+.proposal-v2 .bar--dev {
+  background: #222;
+}
+
+.proposal-v2 .bar--verify {
+  background: #777;
+}
+
+.proposal-v2 .bar--phase2 {
+  background: #333;
+}
+
+.proposal-v2 .bar--phase3 {
+  background: #111;
+}
 
 .proposal-v2 .gantt__bartext {
   padding: 0 6px;
@@ -2194,7 +2265,9 @@ a:hover { color: var(--black); }
   :root {
     --sidebar-width: 260px;
   }
-  .doc-header, .doc-body {
+
+  .doc-header,
+  .doc-body {
     padding-left: 36px;
     padding-right: 36px;
   }
@@ -2283,7 +2356,9 @@ a:hover { color: var(--black); }
     grid-template-columns: 1fr;
   }
 
-  .proposal-v2 .funnel-step { min-width: 140px; }
+  .proposal-v2 .funnel-step {
+    min-width: 140px;
+  }
 
   .proposal-v2 .formula-card {
     padding: 10px 10px;
@@ -2358,10 +2433,26 @@ a:hover { color: var(--black); }
 
 /* --- Print --- */
 @media print {
-  .sidebar, .hamburger { display: none !important; }
-  .main-content { margin-left: 0 !important; }
-  .prompt-box { break-inside: avoid; }
-  .fill-block { break-inside: avoid; border-style: solid; }
-  .doc-header { border-bottom: 2px solid #000; }
-}
 
+  .sidebar,
+  .hamburger {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .prompt-box {
+    break-inside: avoid;
+  }
+
+  .fill-block {
+    break-inside: avoid;
+    border-style: solid;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid #000;
+  }
+}
