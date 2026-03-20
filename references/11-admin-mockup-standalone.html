@@ -1,0 +1,3953 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inim-dx Admin Mockup Bundle</title>
+  <style>
+/* ============================================================
+    プロジェクトアーカイブテンプレート 共通CSS
+    Modern Simple Design - Black, White, Gray
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+  --black: #000000;
+  --gray-900: #111111;
+  --gray-800: #1a1a1a;
+  --gray-700: #333333;
+  --gray-600: #555555;
+  --gray-500: #777777;
+  --gray-400: #999999;
+  --gray-300: #cccccc;
+  --gray-200: #e5e5e5;
+  --gray-100: #f5f5f5;
+  --white: #ffffff;
+  --text: var(--gray-900);
+  --text-light: var(--gray-600);
+  --text-muted: var(--gray-400);
+  --bg: var(--white);
+  --bg-gray: var(--gray-100);
+  --border: var(--gray-200);
+  --border-dark: var(--gray-300);
+  --font-ja: 'Noto Sans JP', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --sidebar-width: 280px;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-ja);
+  color: var(--text);
+  background: var(--bg-gray);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--black);
+}
+
+/* --- Layout --- */
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--black);
+  color: var(--white);
+  overflow-y: auto;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 32px 24px;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.sidebar-header .logo {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+
+.sidebar-header .project-name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 24px 0;
+}
+
+.sidebar-nav .nav-group {
+  margin-bottom: 16px;
+}
+
+.sidebar-nav .nav-group-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  padding: 8px 24px 8px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  color: var(--gray-400);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+  border-left: 2px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  color: var(--white);
+  background: var(--gray-900);
+}
+
+.sidebar-nav a.active {
+  color: var(--white);
+  background: var(--gray-900);
+  border-left-color: var(--white);
+}
+
+.sidebar-nav .nav-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--gray-800);
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sidebar-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--gray-800);
+  font-size: 11px;
+  color: var(--gray-600);
+}
+
+/* --- Main Content --- */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  min-width: 0;
+}
+
+/* --- Document Header --- */
+.doc-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 56px;
+}
+
+.doc-header .doc-category {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+}
+
+.doc-header .doc-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--black);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.doc-header .doc-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.doc-header .doc-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Document Body --- */
+.doc-body {
+  padding: 48px 56px 96px;
+  max-width: 960px;
+}
+
+/* --- Section --- */
+.section {
+  margin-bottom: 56px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--black);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--black);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.3px;
+}
+
+.section-title .section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.subsection {
+  margin-bottom: 36px;
+}
+
+.subsection-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 3px solid var(--black);
+}
+
+/* --- Fill Block (Template Input Area) --- */
+.fill-block {
+  background: var(--white);
+  border: 1px dashed var(--gray-300);
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: border-color 0.2s;
+  overflow-x: auto;
+}
+
+.fill-block:hover {
+  border-color: var(--gray-500);
+}
+
+.fill-block.completed {
+  border-style: solid;
+  border-color: var(--gray-700);
+  background: var(--gray-100);
+}
+
+.fill-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fill-label .required {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--black);
+  padding: 2px 8px;
+}
+
+.fill-label .optional {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--gray-500);
+  padding: 2px 8px;
+}
+
+.fill-hint {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.fill-content {
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  padding: 16px 20px;
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.fill-content p {
+  margin-bottom: 8px;
+}
+
+.fill-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Prompt Box (Gemini Style) --- */
+.prompt-box {
+  background: linear-gradient(135deg, #4285F4 0%, #9B72CB 50%, #D96570 100%);
+  border: none;
+  padding: 24px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: white;
+}
+
+.prompt-box .prompt-title {
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.prompt-box .prompt-text {
+  background: rgba(0, 0, 0, 0.35);
+  border: none;
+  padding: 18px 20px;
+  font-size: 13px;
+  color: white;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.prompt-box .prompt-text:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.prompt-box .prompt-note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 12px;
+}
+
+/* --- Table --- */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+.doc-table thead th {
+  background: var(--black);
+  color: var(--white);
+  font-weight: 700;
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.doc-table tbody td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.doc-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.doc-table tbody tr:hover {
+  background: var(--gray-100);
+}
+
+/* template row */
+.doc-table .template-row td {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.doc-table td.unverified {
+  font-style: italic;
+}
+
+/* --- Status Badge --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.badge-must {
+  background: var(--black);
+  color: var(--white);
+}
+
+.badge-should {
+  background: var(--gray-600);
+  color: var(--white);
+}
+
+.badge-could {
+  background: var(--gray-300);
+  color: var(--gray-700);
+}
+
+/* --- Card Grid --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 28px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--gray-500);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* --- Info Box --- */
+.info-box {
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  border-left: 3px solid var(--black);
+  background: var(--gray-100);
+}
+
+.info-box.info {
+  border-left-color: var(--gray-700);
+}
+
+.info-box.success {
+  border-left-color: var(--gray-500);
+  background: var(--gray-100);
+}
+
+.info-box.warning {
+  border-left-color: var(--gray-400);
+  background: var(--gray-100);
+}
+
+.info-box.danger {
+  border-left-color: var(--black);
+  background: var(--gray-100);
+}
+
+.info-box strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* --- External Link Box (fill-block style) --- */
+.external-link-box {
+  background: var(--white);
+  border: 1px dashed var(--gray-300);
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: border-color 0.2s;
+}
+
+.external-link-box:hover {
+  border-color: var(--gray-500);
+}
+
+.external-link-box .external-link-box-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.external-link-box .external-link-box-title .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--gray-500);
+}
+
+.external-link-box .external-link-box-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.external-link-box .external-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.external-link-box .external-link-list a {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--border-dark);
+  background: var(--gray-100);
+  color: var(--gray-700);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.external-link-box .external-link-list a:hover {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+.external-link-box .external-link-input {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.external-link-box .external-link-input input {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--font-en);
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  padding: 0 14px;
+  height: 40px;
+  min-width: 280px;
+  outline: none;
+}
+
+.external-link-box .external-link-input input:focus {
+  border-color: var(--gray-400);
+}
+
+.external-link-box .link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--black);
+  color: var(--white);
+  padding: 0 16px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+  margin-left: -1px;
+}
+
+.external-link-box .link-btn:hover {
+  background: var(--gray-700);
+  color: var(--white);
+}
+
+.external-link-box .link-btn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* --- Sitemap image embed --- */
+.sitemap-image-wrap {
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.sitemap-image-btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.sitemap-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.sitemap-image-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.image-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.image-lightbox__inner {
+  position: relative;
+  z-index: 1;
+  width: min(96vw, 1700px);
+  max-height: 92vh;
+  margin: 4vh auto;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 14px;
+}
+
+.image-lightbox__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-dark);
+  background: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox__image {
+  display: block;
+  width: 100%;
+  max-height: calc(92vh - 28px);
+  object-fit: contain;
+}
+
+/* --- Flow Chart --- */
+.flow-chart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.flow-step {
+  background: var(--black);
+  color: var(--white);
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.flow-arrow {
+  color: var(--gray-400);
+  font-size: 18px;
+}
+
+/* 04-sitemap: user-flow readability */
+.card-grid--stacked {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.card-grid--stacked>.card {
+  min-width: 0;
+}
+
+#sec3 .flow-chart {
+  margin-top: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 8px;
+  width: 100%;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+#sec3 .flow-step {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 124px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+  border: 1px solid #d8d8d8;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2f2f2f;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+#sec3 .flow-arrow {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 22px;
+  padding: 0 4px;
+  font-size: 18px;
+  line-height: 1;
+  color: #6d6d6d;
+  font-weight: 900;
+  text-shadow: 0 1px 0 #f9f9f9, 0 -1px 0 rgba(0, 0, 0, 0.18), 0 1.5px 2px rgba(0, 0, 0, 0.18);
+}
+
+/* 04-sitemap typography normalization */
+.doc-sitemap .doc-body {
+  font-size: 14px;
+}
+
+.doc-sitemap .fill-hint,
+.doc-sitemap .fill-content,
+.doc-sitemap .prompt-text,
+.doc-sitemap .card-text,
+.doc-sitemap .info-box,
+.doc-sitemap .note,
+.doc-sitemap .doc-table {
+  font-size: 13px;
+}
+
+.doc-sitemap .doc-table th,
+.doc-sitemap .doc-table td {
+  font-size: 13px;
+}
+
+.doc-sitemap #sec3 .subsection-title,
+.doc-sitemap #sec3 .info-box strong {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.doc-sitemap #sec3 .info-box {
+  padding-left: 16px;
+}
+
+.doc-sitemap #sec3 .card-title {
+  font-size: 15px;
+}
+
+.doc-sitemap .code {
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* 05-wireframe */
+.doc-wireframe .wireframe-embed {
+  margin: 12px 0;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.doc-wireframe .wireframe-embed svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.doc-wireframe .fill-content h3 {
+  margin-top: 10px;
+}
+
+.doc-wireframe .fill-content ul {
+  margin: 10px 0 0 18px;
+}
+
+.doc-wireframe .fill-content li {
+  margin: 6px 0;
+}
+
+.doc-wireframe {
+  --wf-font-family: "Noto Sans JP", "Inter", sans-serif;
+  --wf-text-primary: #1A1A1A;
+  --wf-text-secondary: #666666;
+  --wf-text-tertiary: #666666;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp, #wf-mobile) text {
+  font-family: var(--wf-font-family);
+  fill: var(--wf-text-primary);
+  letter-spacing: 0.01em;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp, #wf-mobile) .cta-text {
+  fill: #FFFFFF !important;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .wf-sidenav-bg {
+  fill: #fff;
+  stroke: #e6e6e6;
+  stroke-width: 2;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .wf-sidenav-text {
+  font-size: 12px;
+  fill: var(--wf-text-primary);
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .wf-logo-box {
+  fill: #f0f0f0;
+  stroke: #999;
+  stroke-width: 2;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .wf-logo-line {
+  stroke: #999;
+  stroke-width: 2;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp, #wf-mobile) .wf-footer-bg {
+  fill: #1f1f1f;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp, #wf-mobile) .wf-footer-text {
+  font-size: 12px;
+  fill: #eaeaea;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp, #wf-mobile) .wf-footer-text text {
+  fill: #eaeaea;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .section {
+  fill: #F9F8F4;
+  stroke: #d9d9d9;
+  stroke-width: 2;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .nav {
+  fill: #fff;
+  stroke: #cfcfcf;
+  stroke-width: 2;
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .label {
+  font-size: 13px;
+  font-weight: 500;
+  fill: var(--wf-text-secondary);
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .sm {
+  font-size: 12px;
+  fill: var(--wf-text-tertiary);
+}
+
+.doc-wireframe :is(#wf-top, #wf-lower, #wf-top-workshop-lp, #wf-webapp) .text {
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--wf-text-primary);
+}
+
+/* admin mockup */
+.doc-admin-mockup {
+  --admin-bg: #f7f3ec;
+  --admin-panel: #fffdf8;
+  --admin-line: #ddd4c8;
+  --admin-ink: #211d18;
+  --admin-sub: #71675c;
+  --admin-accent: #b24531;
+  --admin-accent-soft: #f2d8d2;
+  --admin-warm: #ece3d4;
+}
+
+.doc-admin-mockup .doc-body {
+  max-width: 1180px;
+}
+
+.admin-quick-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.admin-quick-map .admin-node {
+  background: var(--white);
+  border: 1px solid var(--admin-line);
+  padding: 14px 16px;
+}
+
+.admin-quick-map .admin-node strong {
+  display: block;
+  font-size: 14px;
+  color: var(--admin-ink);
+  margin-bottom: 4px;
+}
+
+.admin-quick-map .admin-node span {
+  font-size: 12px;
+  color: var(--admin-sub);
+  line-height: 1.6;
+}
+
+.admin-flow-code {
+  margin-top: 14px;
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--gray-700);
+  white-space: pre-wrap;
+}
+
+.admin-screen-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.admin-screen-card {
+  grid-column: span 6;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 18px;
+}
+
+.admin-screen-card.is-wide {
+  grid-column: span 12;
+}
+
+.admin-screen-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--admin-ink);
+  margin-bottom: 6px;
+}
+
+.admin-screen-card p {
+  color: var(--admin-sub);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.admin-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.admin-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: var(--admin-warm);
+  border: 1px solid var(--admin-line);
+  color: var(--admin-ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  min-height: 360px;
+  border: 1px solid var(--admin-line);
+  background: var(--admin-panel);
+  overflow: hidden;
+}
+
+.admin-shell__nav {
+  background: linear-gradient(180deg, #171513 0%, #26211c 100%);
+  color: #f3ece2;
+  padding: 18px 14px;
+}
+
+.admin-brand {
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 14px;
+}
+
+.admin-brand__eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+
+.admin-brand__title {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.admin-nav-list {
+  list-style: none;
+}
+
+.admin-nav-list li {
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.74);
+  border-left: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin-nav-list li.is-active {
+  color: #ffffff;
+  border-left-color: var(--admin-accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-shell__main {
+  background: var(--admin-bg);
+}
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: rgba(255, 253, 248, 0.96);
+  border-bottom: 1px solid var(--admin-line);
+}
+
+.admin-topbar__title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--admin-ink);
+}
+
+.admin-topbar__meta {
+  font-size: 12px;
+  color: var(--admin-sub);
+}
+
+.admin-view {
+  padding: 18px;
+}
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.admin-pill,
+.admin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--admin-line);
+  background: var(--white);
+  color: var(--admin-sub);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.admin-button {
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+  color: #ffffff;
+}
+
+.admin-button.is-secondary {
+  background: var(--white);
+  color: var(--admin-ink);
+  border-color: #b9aea2;
+}
+
+.admin-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.admin-metric {
+  background: var(--white);
+  border: 1px solid var(--admin-line);
+  padding: 14px;
+}
+
+.admin-metric strong {
+  display: block;
+  font-size: 11px;
+  color: var(--admin-sub);
+  margin-bottom: 8px;
+}
+
+.admin-metric span {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--admin-ink);
+  line-height: 1.1;
+}
+
+.admin-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-panel {
+  background: var(--white);
+  border: 1px solid var(--admin-line);
+  padding: 14px;
+}
+
+.admin-panel h4 {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--admin-ink);
+  margin-bottom: 10px;
+}
+
+.admin-panel ul {
+  list-style: none;
+}
+
+.admin-panel li {
+  font-size: 12px;
+  color: var(--admin-sub);
+  padding: 7px 0;
+  border-bottom: 1px solid #eee5d8;
+}
+
+.admin-panel li:last-child {
+  border-bottom: none;
+}
+
+.admin-form {
+  background: var(--white);
+  border: 1px solid var(--admin-line);
+  padding: 14px;
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-field.is-full {
+  grid-column: 1 / -1;
+}
+
+.admin-field label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--admin-sub);
+  letter-spacing: 0.04em;
+}
+
+.admin-input,
+.admin-textarea,
+.admin-table__cell {
+  background: #fffdfa;
+  border: 1px solid #cabfaf;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--admin-ink);
+}
+
+.admin-textarea {
+  min-height: 88px;
+}
+
+.admin-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.admin-table {
+  background: var(--white);
+  border: 1px solid var(--admin-line);
+}
+
+.admin-table__row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 0.8fr;
+  border-bottom: 1px solid #eee5d8;
+}
+
+.admin-table__row:last-child {
+  border-bottom: none;
+}
+
+.admin-table__row.is-head {
+  background: #f4ede3;
+  font-weight: 800;
+}
+
+.admin-table__cell {
+  border: none;
+  border-right: 1px solid #eee5d8;
+  background: transparent;
+}
+
+.admin-table__cell:last-child {
+  border-right: none;
+}
+
+.admin-split {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 12px;
+}
+
+.admin-preview {
+  background: linear-gradient(180deg, #f7f0e7 0%, #f1e6d9 100%);
+  border: 1px solid var(--admin-line);
+  padding: 14px;
+}
+
+.admin-preview__hero {
+  height: 90px;
+  background: linear-gradient(135deg, #d8c2af 0%, #f3e5d6 100%);
+  border: 1px solid #c4b39e;
+  margin-bottom: 10px;
+}
+
+.admin-preview__line {
+  height: 10px;
+  background: rgba(85, 67, 45, 0.15);
+  margin-bottom: 8px;
+}
+
+.admin-preview__line.is-short {
+  width: 62%;
+}
+
+.admin-preview__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.admin-preview__card {
+  height: 60px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #cfc1b0;
+}
+
+.admin-notes {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--admin-sub);
+  line-height: 1.7;
+}
+
+.admin-usage {
+  margin-top: 14px;
+  background: #fcf8f1;
+  border: 1px solid var(--admin-line);
+  padding: 14px;
+}
+
+.admin-usage__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-usage__block {
+  background: var(--white);
+  border: 1px solid #e7dccf;
+  padding: 12px 14px;
+}
+
+.admin-usage__block strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--admin-ink);
+  margin-bottom: 6px;
+}
+
+.admin-usage__block p,
+.admin-usage__block li {
+  font-size: 12px;
+  color: var(--admin-sub);
+  line-height: 1.7;
+}
+
+.admin-usage__block ul,
+.admin-usage__block ol {
+  margin-left: 18px;
+}
+
+.admin-usage__block li + li {
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .admin-screen-card,
+  .admin-screen-card.is-wide {
+    grid-column: span 12;
+  }
+
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-shell__nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-metric-grid,
+  .admin-panel-grid,
+  .admin-form-grid,
+  .admin-split,
+  .admin-usage__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-table__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.doc-wireframe #wf-top .hero {
+  fill: #e9e9e9;
+  stroke: #a6a6a6;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .section {
+  fill: #F9F8F4;
+  stroke: #bbbbbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .banner {
+  fill: #fff6d6;
+  stroke: #b8a86b;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .cta {
+  fill: #B24531;
+  stroke: #943222;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .text {
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--wf-text-primary);
+}
+
+.doc-wireframe #wf-top .label {
+  font-size: 13px;
+  font-weight: 500;
+  fill: var(--wf-text-secondary);
+}
+
+.doc-wireframe #wf-top .nav {
+  fill: #fff;
+  stroke: #bdbdbd;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top .cap {
+  font-size: 17px;
+  fill: var(--wf-text-primary);
+  font-weight: 700;
+}
+
+.doc-wireframe #wf-top .sm {
+  font-size: 12px;
+  fill: var(--wf-text-tertiary);
+}
+
+.doc-wireframe #wf-lower .canvas {
+  fill: #ececec;
+  stroke: #888;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .section {
+  fill: #F9F8F4;
+  stroke: #bbbbbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .nav {
+  fill: #fff;
+  stroke: #bdbdbd;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .panel {
+  fill: #F9F8F4;
+  stroke: #bbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .card {
+  fill: #fff;
+  stroke: #bbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .text {
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--wf-text-primary);
+}
+
+.doc-wireframe #wf-lower .small {
+  font-size: 12px;
+  fill: var(--wf-text-tertiary);
+}
+
+.doc-wireframe #wf-lower .label {
+  font-size: 13px;
+  font-weight: 500;
+  fill: var(--wf-text-secondary);
+}
+
+.doc-wireframe #wf-lower .sm {
+  font-size: 12px;
+  fill: var(--wf-text-tertiary);
+}
+
+.doc-wireframe #wf-lower .cta {
+  fill: #B24531;
+  stroke: #943222;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .ghost {
+  fill: #fff;
+  stroke: #777;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-lower .cap {
+  font-size: 17px;
+  fill: var(--wf-text-primary);
+  font-weight: 700;
+}
+
+.doc-wireframe #wf-top-workshop-lp .text {
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--wf-text-primary);
+}
+
+.doc-wireframe #wf-top-workshop-lp .cap {
+  font-size: 17px;
+  font-weight: 700;
+  fill: var(--wf-text-primary);
+}
+
+.doc-wireframe #wf-top-workshop-lp .label {
+  font-size: 13px;
+  font-weight: 500;
+  fill: var(--wf-text-secondary);
+}
+
+.doc-wireframe #wf-top-workshop-lp .sm {
+  font-size: 12px;
+  fill: var(--wf-text-tertiary);
+}
+
+.doc-wireframe #wf-top-workshop-lp .section {
+  fill: #F9F8F4;
+  stroke: #bbbbbb;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top-workshop-lp .nav {
+  fill: #fff;
+  stroke: #bdbdbd;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top-workshop-lp .hero {
+  fill: #e9e9e9;
+  stroke: #a6a6a6;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top-workshop-lp .banner {
+  fill: #fff6d6;
+  stroke: #b8a86b;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top-workshop-lp .card {
+  fill: #fff;
+  stroke: #bdbdbd;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top-workshop-lp .cta {
+  fill: #B24531;
+  stroke: #943222;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top-workshop-lp .ghost {
+  fill: #fff;
+  stroke: #8a8a8a;
+  stroke-width: 2;
+}
+
+.doc-wireframe #wf-top-workshop-lp .chip {
+  fill: #f5f5f5;
+  stroke: #bdbdbd;
+  stroke-width: 2;
+}
+
+/* 06-design-guide */
+.doc-design-guide .design-swatch {
+  display: inline-block;
+  width: 44px;
+  height: 18px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.doc-design-guide .doc-table .template-row td,
+.doc-design-guide .doc-table td.unverified {
+  font-style: normal;
+}
+
+.doc-design-guide .btn-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.doc-design-guide .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.doc-design-guide .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(44, 44, 44, 0.16);
+}
+
+.doc-design-guide .btn-primary {
+  background-color: #2C2C2C;
+  color: #FFFFFF;
+}
+
+.doc-design-guide .btn-primary:hover {
+  background-color: #1A1A1A;
+}
+
+.doc-design-guide .btn-secondary {
+  background-color: #FFFFFF;
+  color: #2C2C2C;
+  border-color: #2C2C2C;
+}
+
+.doc-design-guide .btn-secondary:hover {
+  background-color: #F3F1EC;
+  color: #1A1A1A;
+  border-color: #1A1A1A;
+}
+
+.doc-design-guide .btn-danger {
+  background-color: #B24531;
+  color: #FFFFFF;
+}
+
+.doc-design-guide .btn-danger:hover {
+  background-color: #943222;
+}
+
+.doc-design-guide .form-demo {
+  display: grid;
+  gap: 14px;
+  max-width: 560px;
+  margin-bottom: 16px;
+}
+
+.doc-design-guide .form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #2C2C2C;
+}
+
+.doc-design-guide .form-control {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #C9C5BB;
+  border-radius: 10px;
+  background: #FFF;
+  color: #2C2C2C;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.doc-design-guide textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.doc-design-guide .form-control:focus {
+  outline: none;
+  border-color: #2C2C2C;
+  box-shadow: 0 0 0 3px rgba(44, 44, 44, 0.14);
+  background: #FFF;
+}
+
+.doc-design-guide .form-control.is-error,
+.doc-design-guide .form-control.is-error:focus {
+  border-color: #B24531;
+  box-shadow: 0 0 0 3px rgba(178, 69, 49, 0.18);
+  background: #FFF8F6;
+}
+
+.doc-design-guide .choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.doc-design-guide .choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2C2C2C;
+  letter-spacing: 0.01em;
+}
+
+.doc-design-guide .choice input {
+  accent-color: #2C2C2C;
+  width: 16px;
+  height: 16px;
+}
+
+.doc-design-guide .error-text {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #B24531;
+  letter-spacing: 0.02em;
+}
+
+.doc-design-guide .component-stack {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.doc-design-guide .workshop-steps {
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.doc-design-guide .workshop-step {
+  border: 1px solid #CFC9BC;
+  border-radius: 12px;
+  background: #FFF;
+  padding: 18px;
+}
+
+.doc-design-guide .workshop-step h3 {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: #111;
+  white-space: nowrap;
+}
+
+.doc-design-guide .step-meta {
+  margin: 8px 0 10px;
+  font-size: 13px;
+  color: #666;
+  letter-spacing: 0.01em;
+}
+
+.doc-design-guide .workshop-step ul {
+  margin: 0 0 16px;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: #2C2C2C;
+  line-height: 1.6;
+}
+
+.doc-design-guide .step-cta {
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  border-radius: 10px;
+  background: #B24531;
+  color: #FFF;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.doc-design-guide .step-cta:hover {
+  background: #943222;
+}
+
+@media (max-width: 980px) {
+  .doc-design-guide .workshop-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-design-guide .ui-table-wrap {
+  max-width: 760px;
+  overflow-x: auto;
+  border: 1px solid #DDD6C7;
+  border-radius: 12px;
+  background: #FFF;
+}
+
+.doc-design-guide .ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.doc-design-guide .ui-table th,
+.doc-design-guide .ui-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #EEE8DC;
+  color: #2C2C2C;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+.doc-design-guide .ui-table thead th {
+  background: #2C2C2C;
+  color: #FFF;
+  font-weight: 600;
+}
+
+.doc-design-guide .ui-table tbody tr:nth-child(even) {
+  background: #F9F8F4;
+}
+
+.doc-design-guide .ui-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.doc-design-guide .alert-stack {
+  max-width: 760px;
+  display: grid;
+  gap: 10px;
+}
+
+.doc-design-guide .ui-alert {
+  border-left: 4px solid #2C2C2C;
+  border-radius: 10px;
+  padding: 11px 14px;
+  background: #F4F4F4;
+  color: #2C2C2C;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.doc-design-guide .ui-alert.info {
+  border-left-color: #2C2C2C;
+  background: #F3F3F3;
+}
+
+.doc-design-guide .ui-alert.success {
+  border-left-color: #2F7A4A;
+  background: #EDF7F0;
+}
+
+.doc-design-guide .ui-alert.warning {
+  border-left-color: #9A6A17;
+  background: #FFF8E8;
+}
+
+.doc-design-guide .ui-alert.error {
+  border-left-color: #B24531;
+  background: #FFF1EE;
+}
+
+.doc-design-guide .palette-embed {
+  margin-top: 14px;
+  border: 1px solid #DDD6C7;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #FFF;
+}
+
+.doc-design-guide .palette-embed-title {
+  margin: 0;
+  padding: 12px 14px;
+  border-bottom: 1px solid #EEE8DC;
+  border-left: 4px solid #2C2C2C;
+  background: #F9F8F4;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #2C2C2C;
+}
+
+.doc-design-guide .palette-embed iframe {
+  width: 100%;
+  height: clamp(620px, 82vh, 920px);
+  border: 0;
+  display: block;
+}
+
+/* --- Progress --- */
+.progress-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+
+.progress-step {
+  flex: 1;
+  height: 4px;
+  background: var(--gray-200);
+}
+
+.progress-step.done {
+  background: var(--black);
+}
+
+.progress-step.current {
+  background: var(--gray-500);
+}
+
+/* --- TOC (Table of Contents) --- */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 20px 0 8px;
+  margin-bottom: 40px;
+}
+
+.toc-title {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--black);
+  margin: 0 24px 18px;
+  letter-spacing: -0.02em;
+}
+
+.toc-list {
+  list-style: none;
+  counter-reset: toc-counter;
+  margin: 0;
+}
+
+.toc-list li {
+  counter-increment: toc-counter;
+  border-top: 1px solid var(--gray-200);
+}
+
+.toc-list li:last-child {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.toc-list li a {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 24px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.toc-list li a:hover {
+  background: var(--gray-100);
+  color: var(--black);
+}
+
+.toc-list li a::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-family: var(--font-en);
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--gray-500);
+  width: 42px;
+  flex-shrink: 0;
+}
+
+/* --- Proposal v2 content blocks (scoped to 01-proposal) --- */
+.proposal-v2 .proposal-section {
+  margin-bottom: 44px;
+}
+
+.proposal-v2 .section__head {
+  margin-bottom: 14px;
+}
+
+.proposal-v2 .section__title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1.3;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.proposal-v2 .section__title--bar {
+  display: inline-flex;
+  align-items: center;
+  border-left: 6px solid #8f8f8f;
+  padding-left: 13px;
+  min-height: 38px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  box-shadow: -1px 0 0 #ececec, -2px 0 0 rgba(0, 0, 0, 0.08);
+}
+
+.proposal-v2 .section__lead {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.85;
+}
+
+.proposal-v2 .note.section__tail {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.85;
+}
+
+.proposal-v2 .note.section__catch {
+  font-size: 16px;
+  color: var(--gray-800);
+  line-height: 1.85;
+  margin-top: 8px;
+}
+
+.proposal-v2 .grid {
+  display: grid;
+  gap: 16px;
+}
+
+.proposal-v2 .grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.proposal-v2 .proposal-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.proposal-v2 .scope-card--in {
+  border-left: 4px solid var(--gray-700);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+}
+
+.proposal-v2 .scope-card--in .h3 {
+  color: var(--black);
+}
+
+.proposal-v2 .scope-card--out .h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proposal-v2 .scope-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--gray-300);
+  background: var(--gray-100);
+  color: var(--gray-700);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.proposal-v2 .scope-prefix {
+  font-weight: 700;
+  color: var(--gray-600);
+}
+
+.proposal-v2 .observation-list {
+  display: grid;
+  gap: 12px;
+}
+
+.proposal-v2 .observation-item {
+  border: 1px solid var(--border);
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 12px 12px 10px;
+}
+
+.proposal-v2 .observation-title {
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.proposal-v2 .observation-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.proposal-v2 .observation-key {
+  color: var(--gray-600);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.proposal-v2 .observation-val {
+  font-size: 14px;
+}
+
+.proposal-v2 .h3 {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.proposal-v2 .list {
+  font-size: 16px;
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.proposal-v2 .list li {
+  margin-bottom: 8px;
+}
+
+.proposal-v2 .note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.proposal-v2 .flow-map-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+}
+
+.proposal-v2 .flow-map-title {
+  margin-bottom: 8px;
+}
+
+.proposal-v2 .flow-map {
+  gap: 4px;
+  padding-top: 0;
+}
+
+.proposal-v2 .block-title {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding-left: 12px;
+  margin: 2px 0 10px;
+}
+
+.proposal-v2 .block-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 4px;
+  background: var(--gray-500);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.proposal-v2 .block-bridge {
+  margin: 0 0 10px;
+}
+
+.proposal-v2 .block-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid #6f6f6f;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.proposal-v2 .flow-map-step {
+  min-width: 170px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.proposal-v2 .block-chip--analysis,
+.proposal-v2 .flow-map-step--analysis {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f1f1 100%);
+  color: #1f1f1f;
+  border-color: #9a9a9a;
+}
+
+.proposal-v2 .flow-map .funnel-step.flow-map-step--analysis {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f1f1 100%);
+  color: #1f1f1f;
+  border-color: #9a9a9a;
+}
+
+.proposal-v2 .block-chip--strategy,
+.proposal-v2 .flow-map-step--strategy {
+  background: linear-gradient(180deg, #dddddd 0%, #b4b4b4 100%);
+  color: #171717;
+  border-color: #6e6e6e;
+}
+
+.proposal-v2 .flow-map .funnel-step.flow-map-step--strategy {
+  background: linear-gradient(180deg, #dddddd 0%, #b4b4b4 100%);
+  color: #171717;
+  border-color: #6e6e6e;
+}
+
+.proposal-v2 .block-chip--execution,
+.proposal-v2 .flow-map-step--execution {
+  background: linear-gradient(180deg, #a7a7a7 0%, #6f6f6f 100%);
+  color: #ffffff;
+  border-color: #4f4f4f;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.proposal-v2 .flow-map .funnel-step.flow-map-step--execution {
+  background: linear-gradient(180deg, #a7a7a7 0%, #6f6f6f 100%);
+  color: #ffffff;
+  border-color: #4f4f4f;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.proposal-v2 .lead {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.85;
+}
+
+.proposal-v2 .code {
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.proposal-v2 .table-wrap {
+  overflow-x: auto;
+}
+
+.proposal-v2 .table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.proposal-v2 .doc-table {
+  margin-bottom: 10px;
+}
+
+.proposal-v2 .table th,
+.proposal-v2 .table td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+.proposal-v2 .table .phase1-row td {
+  font-weight: 700;
+}
+
+.proposal-v2 .table th {
+  background: var(--gray-100);
+  font-weight: 700;
+  color: var(--black);
+}
+
+.proposal-v2 .appendix-workshop-table th:nth-child(1),
+.proposal-v2 .appendix-workshop-table th:nth-child(2),
+.proposal-v2 .appendix-workshop-table td:nth-child(1),
+.proposal-v2 .appendix-workshop-table td:nth-child(2) {
+  text-align: center;
+}
+
+.proposal-v2 .appendix-workshop-table td:nth-child(6) a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.proposal-v2 .appendix-workshop-table td:nth-child(6) a:visited {
+  color: #551a8b;
+}
+
+/* 07-specification: システム目的テーブルのカラム幅調整 */
+.spec-purpose-table col:first-child {
+  width: 25%;
+  white-space: nowrap;
+  border: 1px solid var(--border);
+}
+
+.spec-purpose-table col:last-child {
+  width: 75%;
+}
+
+.spec-purpose-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.spec-purpose-table th,
+.spec-purpose-table td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+}
+
+/* 07-specification: purpose block styling to match proposal tables */
+.spec-summary {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.spec-purpose-table th {
+  background: var(--gray-100);
+  font-weight: 700;
+}
+
+.spec-purpose-table td {
+  background: var(--white);
+}
+
+.spec-purpose-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.spec-summary {
+  background: var(--bg-gray);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.doc-spec .spec-architecture {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 16px;
+}
+
+.doc-spec .spec-architecture__lane {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.doc-spec .spec-architecture__lane--future {
+  background: linear-gradient(180deg, #f6f6f6 0%, #ffffff 100%);
+}
+
+.doc-spec .spec-architecture__title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--gray-700);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.doc-spec .spec-node {
+  background: var(--bg-gray);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.doc-spec .spec-node:last-child {
+  margin-bottom: 0;
+}
+
+.doc-spec .spec-node strong {
+  display: block;
+  font-size: 14px;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.doc-spec .spec-node span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+
+.doc-spec .spec-node--accent {
+  background: #fff6f0;
+  border-color: #ddc0b8;
+}
+
+.doc-spec .spec-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  margin: 6px 0 10px;
+  border: 1px dashed var(--border-dark);
+  border-radius: 999px;
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gray-600);
+  background: var(--white);
+}
+
+.doc-spec .spec-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.doc-spec .spec-flow-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.doc-spec .spec-flow-card h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.doc-spec .spec-flow-card ol,
+.doc-spec .spec-flow-card ul {
+  margin-left: 18px;
+}
+
+.doc-spec .spec-flow-card li {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.doc-db .code {
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.75;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+@media (max-width: 1024px) {
+  .doc-spec .spec-architecture {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .doc-spec .spec-architecture,
+  .doc-spec .spec-flow-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.proposal-v2 .formula-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+  border-radius: 12px;
+  padding: 12px 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow-x: hidden;
+}
+
+.proposal-v2 .formula-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 5px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.proposal-v2 .formula-card--stack .formula-main {
+  justify-content: flex-start;
+}
+
+.proposal-v2 .formula-line {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 5px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.proposal-v2 .formula-card--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proposal-v2 .formula-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d2d2d2;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.proposal-v2 .formula-op {
+  font-size: 16px;
+  font-weight: 900;
+  color: #666666;
+  line-height: 1;
+  text-shadow: 0 1px 0 #f9f9f9, 0 -1px 0 rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.proposal-v2 .formula-note-inline {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.proposal-v2 .formula-inline {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.proposal-v2 .funnel-diagram {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 4px 0 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.proposal-v2 .funnel-step {
+  width: auto;
+  min-width: 150px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.proposal-v2 .funnel-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 22px;
+  padding: 0 4px;
+  font-size: 18px;
+  line-height: 1;
+  color: #6d6d6d;
+  font-weight: 900;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: 0 1px 0 #f9f9f9, 0 -1px 0 rgba(0, 0, 0, 0.18), 0 1.5px 2px rgba(0, 0, 0, 0.18);
+}
+
+.proposal-v2 .branch-diagram {
+  --branch-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0 0;
+}
+
+.proposal-v2 .branch-root {
+  min-width: 180px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.proposal-v2 .branch-connector {
+  width: min(100%, 560px);
+  height: 34px;
+  position: relative;
+}
+
+.proposal-v2 .branch-connector::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 12px;
+  background: #717171;
+  box-shadow: 1px 0 0 #d8d8d8;
+}
+
+.proposal-v2 .branch-connector::after {
+  content: "";
+  position: absolute;
+  left: calc((100% - var(--branch-gap)) / 4);
+  right: calc((100% - var(--branch-gap)) / 4);
+  top: 12px;
+  border-top: 2px solid #717171;
+  box-shadow: 0 1px 0 #d8d8d8;
+}
+
+.proposal-v2 .branch-drop {
+  position: absolute;
+  top: 12px;
+  width: 2px;
+  height: 16px;
+  background: #717171;
+  box-shadow: 1px 0 0 #d8d8d8;
+}
+
+.proposal-v2 .branch-drop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #717171;
+}
+
+.proposal-v2 .branch-drop--left {
+  left: calc((100% - var(--branch-gap)) / 4);
+  transform: translateX(-50%);
+}
+
+.proposal-v2 .branch-drop--right {
+  left: calc((100% - var(--branch-gap)) * 3 / 4 + var(--branch-gap));
+  transform: translateX(-50%);
+}
+
+.proposal-v2 .branch-split {
+  width: min(100%, 560px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--branch-gap);
+  position: relative;
+  padding-top: 0;
+}
+
+.proposal-v2 .branch-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.proposal-v2 .branch-step {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.proposal-v2 .gantt-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.proposal-v2 .gantt {
+  min-width: 1400px;
+  background: var(--white);
+}
+
+.proposal-v2 .gantt__row {
+  display: grid;
+  grid-template-columns: 240px repeat(93, minmax(26px, 1fr));
+  align-items: center;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.proposal-v2 .gantt__label {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--white);
+  padding: 10px 12px;
+  font-size: 12px;
+  border-right: 1px solid var(--border);
+}
+
+.proposal-v2 .gantt__label--head {
+  font-weight: 700;
+  background: var(--gray-100);
+}
+
+.proposal-v2 .gantt__month,
+.proposal-v2 .gantt__day {
+  text-align: center;
+  font-size: 11px;
+  padding: 8px 0;
+  border-left: 1px solid var(--gray-100);
+}
+
+.proposal-v2 .gantt__month {
+  font-weight: 700;
+  background: var(--gray-100);
+}
+
+.proposal-v2 .gantt__bar {
+  height: 24px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.proposal-v2 .bar--design {
+  background: #555;
+}
+
+.proposal-v2 .bar--dev {
+  background: #222;
+}
+
+.proposal-v2 .bar--verify {
+  background: #777;
+}
+
+.proposal-v2 .bar--phase2 {
+  background: #333;
+}
+
+.proposal-v2 .bar--phase3 {
+  background: #111;
+}
+
+.proposal-v2 .gantt__bartext {
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.proposal-v2 .proposal-footer {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* --- Hamburger (mobile) --- */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 200;
+  width: 48px;
+  height: 48px;
+  background: var(--black);
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+/* --- Icon --- */
+.icon-sm {
+  font-size: 18px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 260px;
+  }
+
+  .doc-header,
+  .doc-body {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .doc-header {
+    padding: 28px 24px;
+    padding-top: 80px;
+  }
+
+  .doc-header .doc-title {
+    font-size: 28px;
+  }
+
+  .doc-body {
+    padding: 28px 24px 72px;
+  }
+
+  .sitemap-image-wrap {
+    padding: 14px;
+  }
+
+  .sitemap-image {
+    max-height: 340px;
+  }
+
+  .image-lightbox__inner {
+    width: 96vw;
+    margin: 2vh auto;
+    max-height: 96vh;
+    padding: 10px;
+  }
+
+  .image-lightbox__image {
+    max-height: calc(96vh - 20px);
+  }
+
+  .toc {
+    padding: 16px 0 6px;
+  }
+
+  .toc-title {
+    margin: 0 18px 14px;
+    font-size: 16px;
+  }
+
+  .toc-list li a {
+    padding: 14px 18px;
+    font-size: 14px;
+    gap: 14px;
+  }
+
+  .toc-list li a::before {
+    font-size: 1em;
+    width: 34px;
+  }
+
+  .proposal-v2 .section__title {
+    font-size: 24px;
+  }
+
+  .proposal-v2 .section__title--bar {
+    min-height: 34px;
+    padding-left: 11px;
+  }
+
+  .proposal-v2 .grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-v2 .funnel-step {
+    min-width: 140px;
+  }
+
+  .proposal-v2 .formula-card {
+    padding: 10px 10px;
+  }
+
+  .proposal-v2 .formula-main {
+    gap: 6px;
+  }
+
+  .proposal-v2 .formula-line {
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .proposal-v2 .formula-chip {
+    font-size: 11px;
+    padding: 3px 7px;
+  }
+
+  .proposal-v2 .formula-op {
+    font-size: 14px;
+  }
+
+  .proposal-v2 .formula-note-inline {
+    font-size: 12px;
+  }
+
+  .proposal-v2 .branch-diagram {
+    --branch-gap: 10px;
+  }
+
+  .proposal-v2 .branch-connector {
+    width: 100%;
+  }
+
+  .proposal-v2 .gantt {
+    min-width: 1100px;
+  }
+
+  .proposal-v2 .gantt__row {
+    grid-template-columns: 180px repeat(93, minmax(22px, 1fr));
+  }
+
+  .doc-header .doc-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-chart {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+
+  .doc-sitemap #sec3 .flow-chart {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .doc-sitemap #sec3 .flow-arrow {
+    transform: none;
+  }
+}
+
+/* --- Print --- */
+@media print {
+
+  .sidebar,
+  .hamburger {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .prompt-box {
+    break-inside: avoid;
+  }
+
+  .fill-block {
+    break-inside: avoid;
+    border-style: solid;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid #000;
+  }
+}
+
+  .sidebar,
+  .hamburger { display: none !important; }
+  .main-content { margin-left: 0 !important; width: 100%; }
+  .page-wrapper { display: block; }
+  .doc-body { max-width: 1180px; margin: 0 auto; }
+  body { padding: 24px; }
+  </style>
+</head>
+<body class="doc-admin-mockup">
+  <div class="page-wrapper">
+    <main class="main-content">
+      <header class="doc-header">
+        <div class="doc-category">DOCUMENT 11</div>
+        <h1 class="doc-title">管理画面モックアップ</h1>
+        <div class="doc-meta">
+          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-03-20</span>
+          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：Codex</span>
+          <span><span class="material-symbols-outlined icon-sm">push_pin</span> sec2 / sec3 ベース</span>
+        </div>
+      </header>
+
+      <div class="doc-body">
+
+        <div class="external-link-box">
+          <div class="external-link-box-title">
+            <span class="material-symbols-outlined">link</span>
+            参照ドキュメント
+          </div>
+          <div class="external-link-box-desc">
+            このモックアップは `07-specification.html` の機能一覧と画面遷移図を視覚化した補助資料です。
+          </div>
+          <div class="external-link-list">
+            <a href="./07-specification.html" target="_blank" rel="noopener">07 Specification</a>
+            <a href="./05-wireframe.html" target="_blank" rel="noopener">05 Wireframe</a>
+            <a href="./06-design-guide.html" target="_blank" rel="noopener">06 Design Guide</a>
+          </div>
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol class="toc-list">
+            <li><a href="#sec1">モックの前提</a></li>
+            <li><a href="#sec2">全体導線</a></li>
+            <li><a href="#sec3">主要画面モック</a></li>
+            <li><a href="#sec4">補助系画面モック</a></li>
+          </ol>
+        </div>
+
+        <section class="section" id="sec1">
+          <h2 class="section-title"><span class="section-icon">1</span> モックの前提</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">位置づけ <span class="required">必須</span></div>
+            <div class="fill-hint">`05-wireframe` の汎用 CRUD 画面を、`07-specification` の業務画面へ具体化した試作です。</div>
+            <div class="fill-content">
+              <p>このページでは、「ログイン」「ダッシュボード」に加えて、`トップ編集 / 導線設定 / カード管理 / 商品管理 / 店舗管理 / 記事管理 / ユーザー管理 / 予約・問い合わせ管理 / アセット管理` の各画面を個別UIとして可視化しています。</p>
+              <p>実装前提を固めることが目的のため、見た目は本番デザインではなく、情報構造と操作導線の確認を優先したモックアップです。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="sec2">
+          <h2 class="section-title"><span class="section-icon">2</span> 全体導線</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">画面グルーピング <span class="required">必須</span></div>
+            <div class="fill-hint">どの画面がコンテンツ管理、業務管理、共通支援に属するかを整理しています。</div>
+            <div class="fill-content">
+              <div class="admin-quick-map">
+                <div class="admin-node"><strong>認証</strong><span>ログイン<br>ダッシュボード</span></div>
+                <div class="admin-node"><strong>体験導線</strong><span>トップ編集<br>導線設定</span></div>
+                <div class="admin-node"><strong>掲載素材</strong><span>カード管理<br>記事管理<br>アセット管理</span></div>
+                <div class="admin-node"><strong>商品・店舗</strong><span>商品管理<br>店舗管理</span></div>
+                <div class="admin-node"><strong>顧客対応</strong><span>ユーザー管理<br>予約・問い合わせ管理</span></div>
+              </div>
+              <div class="admin-flow-code">ログイン → ダッシュボード
+ダッシュボード → 各管理画面
+トップ編集 / カード管理 / 商品管理 / 記事管理 → アセット管理
+商品管理 ↔ 店舗管理
+店舗管理 ↔ 予約・問い合わせ管理
+予約・問い合わせ管理 ↔ ユーザー管理</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="sec3">
+          <h2 class="section-title"><span class="section-icon">3</span> 主要画面モック</h2>
+
+          <div class="admin-screen-grid">
+
+            <article class="admin-screen-card">
+              <h3>ログイン</h3>
+              <p>管理者・一般ユーザーの認証起点。パスワード再設定導線をここに集約します。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-001</span>
+                <span class="admin-tag">認証</span>
+                <span class="admin-tag">最初の入口</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">inim-dx</span>
+                    <span class="admin-brand__title">Admin Portal</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">ログイン</li>
+                    <li>パスワード再設定</li>
+                    <li>ヘルプ</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">ログイン</div>
+                    <div class="admin-topbar__meta">role check / session start</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-form">
+                      <div class="admin-form-grid">
+                        <div class="admin-field is-full">
+                          <label>メールアドレス</label>
+                          <div class="admin-input">admin@inim-dx.jp</div>
+                        </div>
+                        <div class="admin-field is-full">
+                          <label>パスワード</label>
+                          <div class="admin-input">••••••••••••</div>
+                        </div>
+                      </div>
+                      <div class="admin-form-actions">
+                        <div class="admin-button">ログイン</div>
+                        <div class="admin-button is-secondary">パスワード再設定</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>店舗管理者または運用担当者が、管理画面へ安全に入るために利用します。権限に応じた操作範囲を判定する起点です。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>メールアドレスとパスワードを入力して `ログイン` を押す。</li>
+                      <li>認証が成功するとダッシュボードへ遷移し、利用可能なメニューだけが表示される。</li>
+                      <li>認証に失敗した場合はエラーが表示され、不正ログインや入力ミスを早期に検知できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>ダッシュボード</h3>
+              <p>KPI、要対応タスク、最近の更新を集約し、各管理画面へ遷移するハブとして使います。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-001</span>
+                <span class="admin-tag">KPI確認</span>
+                <span class="admin-tag">ハブ画面</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">operation</span>
+                    <span class="admin-brand__title">Management Menu</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">ダッシュボード</li>
+                    <li>トップ編集</li>
+                    <li>導線設定</li>
+                    <li>商品管理</li>
+                    <li>記事管理</li>
+                    <li>予約・問い合わせ</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">ダッシュボード</div>
+                    <div class="admin-topbar__meta">更新 2026-03-20 10:30</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-metric-grid">
+                      <div class="admin-metric"><strong>予約数</strong><span>42</span></div>
+                      <div class="admin-metric"><strong>CTAクリック率</strong><span>6.8%</span></div>
+                      <div class="admin-metric"><strong>未対応問い合わせ</strong><span>5</span></div>
+                    </div>
+                    <div class="admin-panel-grid">
+                      <div class="admin-panel">
+                        <h4>本日の優先タスク</h4>
+                        <ul>
+                          <li>トップヒーロー差し替え確認</li>
+                          <li>予約ステータス更新 3件</li>
+                          <li>新着記事の公開予約</li>
+                        </ul>
+                      </div>
+                      <div class="admin-panel">
+                        <h4>主要導線ショートカット</h4>
+                        <ul>
+                          <li>トップ編集へ</li>
+                          <li>導線設定へ</li>
+                          <li>商品管理へ</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>管理者やWeb担当者が、今日対応すべき更新や数値を俯瞰し、次に触る管理画面を判断するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>KPIカードで予約数、CTAクリック率、未対応問い合わせ数を確認する。</li>
+                      <li>優先タスクを見て、`トップ編集` や `予約・問い合わせ管理` へ移動する。</li>
+                      <li>結果として、状況把握にかかる時間が減り、対応の優先順位を即決できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card is-wide">
+              <h3>トップ編集</h3>
+              <p>ヒーロー、訴求文言、CTA、公開状態を編集しながら右側でトップページの見え方を確認する画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-002</span>
+                <span class="admin-tag">ヒーロー管理</span>
+                <span class="admin-tag">プレビュー付き</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">content</span>
+                    <span class="admin-brand__title">Page Editing</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>ダッシュボード</li>
+                    <li class="is-active">トップ編集</li>
+                    <li>導線設定</li>
+                    <li>カード管理</li>
+                    <li>アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">トップ編集</div>
+                    <div class="admin-topbar__meta">下書き保存 / プレビュー / 公開</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-split">
+                      <div class="admin-form">
+                        <div class="admin-toolbar">
+                          <div class="admin-pill">ヒーロー</div>
+                          <div class="admin-pill">コピー</div>
+                          <div class="admin-pill">CTA</div>
+                          <div class="admin-button">保存</div>
+                        </div>
+                        <div class="admin-form-grid">
+                          <div class="admin-field">
+                            <label>見出し</label>
+                            <div class="admin-input">香りを、体験で選ぶ。</div>
+                          </div>
+                          <div class="admin-field">
+                            <label>ボタン文言</label>
+                            <div class="admin-input">ワークショップを見る</div>
+                          </div>
+                          <div class="admin-field is-full">
+                            <label>リード文</label>
+                            <div class="admin-textarea">初心者でも迷わず参加できる体験導線を、トップから最短距離で届ける。</div>
+                          </div>
+                          <div class="admin-field">
+                            <label>ヒーロー画像</label>
+                            <div class="admin-input">asset_hero_202603.jpg</div>
+                          </div>
+                          <div class="admin-field">
+                            <label>公開状態</label>
+                            <div class="admin-input">下書き</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="admin-preview">
+                        <div class="admin-preview__hero"></div>
+                        <div class="admin-preview__line"></div>
+                        <div class="admin-preview__line is-short"></div>
+                        <div class="admin-preview__cards">
+                          <div class="admin-preview__card"></div>
+                          <div class="admin-preview__card"></div>
+                          <div class="admin-preview__card"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>Web担当者や店舗責任者が、トップページの第一印象と主要CTAを改善し、ワークショップ導線を強めるために利用します。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>見出し、リード文、ボタン文言、ヒーロー画像を編集する。</li>
+                      <li>右側プレビューで見え方を確認し、問題がなければ `保存` して公開フローへ回す。</li>
+                      <li>結果として、トップから体験ページへの遷移率改善や訴求の一貫性向上が期待できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>導線設定</h3>
+              <p>体験導線のステップ、CTAリンク先、表示順を管理する画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-003</span>
+                <span class="admin-tag">CTA管理</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">flow</span>
+                    <span class="admin-brand__title">Journey Setting</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>ダッシュボード</li>
+                    <li>トップ編集</li>
+                    <li class="is-active">導線設定</li>
+                    <li>カード管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">導線設定</div>
+                    <div class="admin-topbar__meta">体験導線 / CTA / 並び順</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">ステップ</div>
+                        <div class="admin-table__cell">表示名</div>
+                        <div class="admin-table__cell">リンク先</div>
+                        <div class="admin-table__cell">状態</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">01</div>
+                        <div class="admin-table__cell">体験を知る</div>
+                        <div class="admin-table__cell">/workshop</div>
+                        <div class="admin-table__cell">公開</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">02</div>
+                        <div class="admin-table__cell">香りを選ぶ</div>
+                        <div class="admin-table__cell">/digital-blend</div>
+                        <div class="admin-table__cell">公開</div>
+                      </div>
+                    </div>
+                    <div class="admin-notes">右上に「保存」、行ごとに「順序変更」「無効化」を持つ想定です。</div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>Web担当者が、CTAの並び順やリンク先を調整し、利用者を迷わせず予約導線へ送るために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>各ステップの表示名、リンク先、公開状態を確認する。</li>
+                      <li>必要に応じて順序変更や無効化を行い、最後に `保存` する。</li>
+                      <li>結果として、導線の分岐や重複を整理でき、到達率とCTRの改善につながる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>カード管理</h3>
+              <p>トップや特集で使うカード群を一覧管理し、画像・文言・リンク先を編集します。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-004</span>
+                <span class="admin-tag">一覧 + 編集</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">content</span>
+                    <span class="admin-brand__title">Card Management</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>トップ編集</li>
+                    <li class="is-active">カード管理</li>
+                    <li>記事管理</li>
+                    <li>アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">カード管理</div>
+                    <div class="admin-topbar__meta">検索 / ソート / CRUD</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-toolbar">
+                      <div class="admin-pill">キーワード検索</div>
+                      <div class="admin-pill">並び順</div>
+                      <div class="admin-button">新規登録</div>
+                    </div>
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">カード名</div>
+                        <div class="admin-table__cell">表示位置</div>
+                        <div class="admin-table__cell">状態</div>
+                        <div class="admin-table__cell">操作</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">香りと遊ぶ！香游</div>
+                        <div class="admin-table__cell">TOP</div>
+                        <div class="admin-table__cell">公開</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">Workshop Pickup</div>
+                        <div class="admin-table__cell">特集</div>
+                        <div class="admin-table__cell">下書き</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>コンテンツ担当者が、トップや特集で使うカード情報を保守し、掲載内容を最新状態に保つために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>一覧から対象カードを検索し、`詳細` または `編集` を開く。</li>
+                      <li>タイトル、画像、リンク先、表示位置を調整し、必要なら新規登録する。</li>
+                      <li>結果として、特集訴求の差し替えが迅速になり、季節施策やキャンペーン反映が早くなる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>商品管理</h3>
+              <p>商品一覧、カテゴリ、公開状態、画像を管理する商品カタログ画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-005</span>
+                <span class="admin-tag">商品CRUD</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">catalog</span>
+                    <span class="admin-brand__title">Product Control</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">商品管理</li>
+                    <li>店舗管理</li>
+                    <li>アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">商品管理</div>
+                    <div class="admin-topbar__meta">新着 / カテゴリ / 画像</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-toolbar">
+                      <div class="admin-pill">カテゴリ</div>
+                      <div class="admin-pill">公開状態</div>
+                      <div class="admin-button">新規商品登録</div>
+                    </div>
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">商品名</div>
+                        <div class="admin-table__cell">カテゴリ</div>
+                        <div class="admin-table__cell">公開</div>
+                        <div class="admin-table__cell">操作</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">Aroma Oil Set</div>
+                        <div class="admin-table__cell">DIY</div>
+                        <div class="admin-table__cell">公開</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">Gift Selection</div>
+                        <div class="admin-table__cell">Gift</div>
+                        <div class="admin-table__cell">非公開</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>商品担当者が、販売商品や新着商品の公開状態を管理し、店舗・導線側と情報を揃えるために利用します。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>カテゴリや公開状態で絞り込み、対象商品を特定する。</li>
+                      <li>`詳細 / 編集` で商品情報や画像を更新し、必要に応じて新規登録する。</li>
+                      <li>結果として、商品情報の更新漏れが減り、店舗在庫や掲載導線との整合が取りやすくなる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>店舗管理</h3>
+              <p>店舗情報、開催スケジュール、対応商品、予約枠の確認を行う画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-006</span>
+                <span class="admin-tag">店舗 / 開催日</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">store</span>
+                    <span class="admin-brand__title">Store Schedule</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>商品管理</li>
+                    <li class="is-active">店舗管理</li>
+                    <li>予約・問い合わせ</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">店舗管理</div>
+                    <div class="admin-topbar__meta">開催日 / 在庫 / 店舗情報</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-panel-grid">
+                      <div class="admin-panel">
+                        <h4>店舗情報</h4>
+                        <ul>
+                          <li>表参道店 / 11:00-19:00</li>
+                          <li>渋谷店 / 12:00-20:00</li>
+                          <li>京都店 / 10:00-18:00</li>
+                        </ul>
+                      </div>
+                      <div class="admin-panel">
+                        <h4>今週の開催</h4>
+                        <ul>
+                          <li>3/22 調香Workshop 6席</li>
+                          <li>3/23 Aroma体験 4席</li>
+                          <li>3/24 貸切イベント 1件</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>店舗運営担当者が、店舗基本情報と開催スケジュールを整理し、予約対応や商品提供体制を整えるために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>対象店舗の営業時間、開催日、予約枠状況を確認する。</li>
+                      <li>開催日追加や店舗情報更新を行い、必要時は予約画面や商品画面と突き合わせる。</li>
+                      <li>結果として、現場の受け入れ可能数を正しく反映でき、ダブルブッキングや案内ミスを減らせる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="section" id="sec4">
+          <h2 class="section-title"><span class="section-icon">4</span> 補助系画面モック</h2>
+
+          <div class="admin-screen-grid">
+
+            <article class="admin-screen-card">
+              <h3>記事管理</h3>
+              <p>お知らせやジャーナルを管理する編集画面。公開予約とタグ整理を想定しています。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-007</span>
+                <span class="admin-tag">記事CRUD</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">journal</span>
+                    <span class="admin-brand__title">Article Desk</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">記事管理</li>
+                    <li>アセット管理</li>
+                    <li>ダッシュボード</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">記事管理</div>
+                    <div class="admin-topbar__meta">タグ / 公開予約 / アイキャッチ</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-form">
+                      <div class="admin-form-grid">
+                        <div class="admin-field is-full">
+                          <label>記事タイトル</label>
+                          <div class="admin-input">春のWorkshop予約開始のお知らせ</div>
+                        </div>
+                        <div class="admin-field">
+                          <label>タグ</label>
+                          <div class="admin-input">news, workshop</div>
+                        </div>
+                        <div class="admin-field">
+                          <label>公開日時</label>
+                          <div class="admin-input">2026-03-25 10:00</div>
+                        </div>
+                        <div class="admin-field is-full">
+                          <label>本文</label>
+                          <div class="admin-textarea">体験内容、予約方法、開催店舗の概要をここで編集する想定です。</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>広報担当者やWeb担当者が、お知らせやジャーナルを更新し、最新情報をタイミング良く配信するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>記事タイトル、タグ、公開日時、本文を入力または修正する。</li>
+                      <li>必要なアイキャッチを設定し、公開予約または即時公開を行う。</li>
+                      <li>結果として、告知作業が定型化され、キャンペーンや予約開始情報を漏れなく発信できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>ユーザー管理</h3>
+              <p>会員の基本情報、ロール、利用停止、予約履歴の参照を行う画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-008</span>
+                <span class="admin-tag">会員情報</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">member</span>
+                    <span class="admin-brand__title">User Directory</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">ユーザー管理</li>
+                    <li>予約・問い合わせ</li>
+                    <li>ダッシュボード</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">ユーザー管理</div>
+                    <div class="admin-topbar__meta">会員情報 / ロール / 停止</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">氏名</div>
+                        <div class="admin-table__cell">会員種別</div>
+                        <div class="admin-table__cell">状態</div>
+                        <div class="admin-table__cell">操作</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">山田 花子</div>
+                        <div class="admin-table__cell">一般</div>
+                        <div class="admin-table__cell">有効</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">鈴木 一郎</div>
+                        <div class="admin-table__cell">管理者</div>
+                        <div class="admin-table__cell">有効</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>管理者や顧客対応担当者が、会員情報や権限状態を確認し、問い合わせ・予約対応と合わせて顧客把握を行うために利用します。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>一覧から対象ユーザーを探し、`詳細 / 編集` を開く。</li>
+                      <li>ロール変更、利用停止、予約履歴確認など必要な処理を行う。</li>
+                      <li>結果として、対応履歴の抜け漏れが減り、権限管理や問い合わせ対応の精度が上がる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>予約・問い合わせ管理</h3>
+              <p>予約ステータス、問い合わせ対応状況、関連ユーザー・店舗への参照をまとめます。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-009</span>
+                <span class="admin-tag">顧客対応</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">support</span>
+                    <span class="admin-brand__title">Booking Inbox</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>ユーザー管理</li>
+                    <li class="is-active">予約・問い合わせ</li>
+                    <li>店舗管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">予約・問い合わせ管理</div>
+                    <div class="admin-topbar__meta">予約 / 問い合わせ / ステータス</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-panel">
+                      <h4>未対応案件</h4>
+                      <ul>
+                        <li>3/22 Workshop予約変更依頼</li>
+                        <li>アレルギー配慮に関する問い合わせ</li>
+                        <li>キャンセル返金確認依頼</li>
+                      </ul>
+                    </div>
+                    <div class="admin-notes">案件ごとに「詳細」「ステータス更新」「顧客情報を見る」「対象店舗を見る」を配置する想定です。</div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>顧客対応担当者や店舗責任者が、予約・問い合わせ案件を一元管理し、対応状況を更新するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>未対応案件を確認し、対象案件の `詳細` を開く。</li>
+                      <li>内容確認後に `ステータス更新` を行い、必要に応じて顧客情報や店舗情報を参照する。</li>
+                      <li>結果として、問い合わせ滞留の可視化と解消が進み、対応スピードと品質が安定する。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>アセット管理</h3>
+              <p>画像・音源を一元管理し、各編集画面から選択して差し込むメディアライブラリです。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-010</span>
+                <span class="admin-tag">メディア管理</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">asset</span>
+                    <span class="admin-brand__title">Media Library</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>トップ編集</li>
+                    <li>商品管理</li>
+                    <li>記事管理</li>
+                    <li class="is-active">アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">アセット管理</div>
+                    <div class="admin-topbar__meta">画像 / 音源 / alt / 選択</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-toolbar">
+                      <div class="admin-pill">ファイル種別</div>
+                      <div class="admin-pill">タグ検索</div>
+                      <div class="admin-button">アップロード</div>
+                    </div>
+                    <div class="admin-panel-grid">
+                      <div class="admin-panel">
+                        <h4>asset_hero_202603.jpg</h4>
+                        <ul>
+                          <li>種別: image</li>
+                          <li>alt: 調香体験メインビジュアル</li>
+                          <li>使用先: トップ編集</li>
+                        </ul>
+                      </div>
+                      <div class="admin-panel">
+                        <h4>sound_intro_01.mp3</h4>
+                        <ul>
+                          <li>種別: audio</li>
+                          <li>用途: 体験ページ演出</li>
+                          <li>使用先: 未設定</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>Web担当者、商品担当者、広報担当者が、画像や音源を共通管理し、各編集画面へ正しい素材を供給するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>種別やタグで対象素材を絞り込み、必要なら新規アップロードする。</li>
+                      <li>alt テキストや用途を確認し、呼び出し元画面へ `選択` して戻る。</li>
+                      <li>結果として、素材の重複管理を防ぎ、各画面の更新作業を短時間で安全に行える。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
