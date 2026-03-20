@@ -3,8 +3,8 @@
 -- - Create these users first in Supabase Authentication > Users:
 --   - member01@inim-dx.example
 --   - member02@inim-dx.example
--- - Run sql/00_create_app_schema.sql first.
--- - Run sql/00_promote_existing_user_to_admin.sql first.
+-- - Run sql/00-1_create_app_schema.sql first.
+-- - Run sql/00-2_promote_existing_user_to_admin.sql first.
 
 BEGIN;
 

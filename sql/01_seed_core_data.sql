@@ -1,7 +1,7 @@
 -- inim-dx / application seed data
 -- Prerequisite:
--- - Run sql/00_create_app_schema.sql first.
--- - Run sql/00_promote_existing_user_to_admin.sql first.
+-- - Run sql/00-1_create_app_schema.sql first.
+-- - Run sql/00-2_promote_existing_user_to_admin.sql first.
 -- - Optional: Run sql/01a_register_sample_members.sql after creating sample auth users.
 -- - Sample user data is inserted only when the corresponding auth.users records exist.
 

@@ -92,8 +92,8 @@
 2. 左メニューから `Authentication`
 3. `Users` を開く
 4. 管理者にしたいメールアドレスを確認する
-5. 先に [sql/00_create_app_schema.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00_create_app_schema.sql) を `SQL Editor` で実行する
-6. 次に [sql/00_promote_existing_user_to_admin.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00_promote_existing_user_to_admin.sql) を開く
+5. 先に [sql/00-1_create_app_schema.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00-1_create_app_schema.sql) を `SQL Editor` で実行する
+6. 次に [sql/00-2_promote_existing_user_to_admin.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00-2_promote_existing_user_to_admin.sql) を開く
 7. 先頭付近の `target_email` を、自分の実在メールアドレスに書き換える
 8. Supabase の `SQL Editor` を開く
 9. SQL を貼り付けて実行する
@@ -117,8 +117,8 @@
 4. 右上の `Add user` を押す
 5. 管理者用のメールアドレスとパスワードを入力する
 6. メール確認が必要な設定なら、確認フローも完了する
-7. 先に [sql/00_create_app_schema.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00_create_app_schema.sql) を実行する
-8. 作成したメールアドレスを [sql/00_promote_existing_user_to_admin.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00_promote_existing_user_to_admin.sql) の `target_email` に設定する
+7. 先に [sql/00-1_create_app_schema.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00-1_create_app_schema.sql) を実行する
+8. 作成したメールアドレスを [sql/00-2_promote_existing_user_to_admin.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00-2_promote_existing_user_to_admin.sql) の `target_email` に設定する
 9. `SQL Editor` でその SQL を実行する
 
 #### 補足
@@ -130,8 +130,8 @@
 
 SQL は次の順で実行してください。
 
-1. [sql/00_create_app_schema.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00_create_app_schema.sql)
-2. [sql/00_promote_existing_user_to_admin.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00_promote_existing_user_to_admin.sql)
+1. [sql/00-1_create_app_schema.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00-1_create_app_schema.sql)
+2. [sql/00-2_promote_existing_user_to_admin.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\00-2_promote_existing_user_to_admin.sql)
 3. 必要なら `Authentication > Users > Add user` で `member01@inim-dx.example` と `member02@inim-dx.example` を作る
 4. 必要なら [sql/01a_register_sample_members.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\01a_register_sample_members.sql) を実行する
 5. [sql/01_seed_core_data.sql](c:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\sql\01_seed_core_data.sql) を実行する
@@ -212,8 +212,8 @@ Source: https://supabase.com/docs/reference/javascript/auth-admin-createuser
 迷ったら、次の順で進めてください。
 
 1. `Authentication > Users` にある自分のユーザーを確認する
-2. `sql/00_create_app_schema.sql` を実行する
-3. `sql/00_promote_existing_user_to_admin.sql` のメールアドレスを自分のものに変える
+2. `sql/00-1_create_app_schema.sql` を実行する
+3. `sql/00-2_promote_existing_user_to_admin.sql` のメールアドレスを自分のものに変える
 4. SQL Editor で実行する
 5. 必要なら `member01` / `member02` を Dashboard で作る
 6. 必要なら `sql/01a_register_sample_members.sql` を実行する

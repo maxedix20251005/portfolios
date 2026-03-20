@@ -1,6 +1,6 @@
 -- inim-dx / existing auth user promotion to application admin
 -- Usage:
--- 0. Run sql/00_create_app_schema.sql first.
+-- 0. Run sql/00-1_create_app_schema.sql first.
 -- 1. Replace the target email in the params CTE.
 -- 2. Run this SQL in Supabase SQL Editor after the target user exists in Authentication > Users.
 -- 3. This script creates/updates:

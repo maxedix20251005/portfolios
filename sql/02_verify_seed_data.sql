@@ -1,7 +1,7 @@
 -- inim-dx / seed data verification
 -- Run after:
--- 1. sql/00_create_app_schema.sql
--- 2. sql/00_promote_existing_user_to_admin.sql
+-- 1. sql/00-1_create_app_schema.sql
+-- 2. sql/00-2_promote_existing_user_to_admin.sql
 -- 3. sql/01_seed_core_data.sql
 
 -- ---------------------------------------------------------
