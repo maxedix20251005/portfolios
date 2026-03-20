@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="doc-spec">
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
@@ -67,7 +67,10 @@
             <div class="fill-label">システムの目的 <span class="required">必須</span></div>
             <div class="fill-hint">このシステムが解決する課題と提供する価値</div>
             <div class="fill-content proposal-card">
-              <p>店舗管理者・スタッフが、ワークショップ予約、商品在庫、顧客データを一元管理し、サイト更新と効果測定を迅速化するための管理システム。手作業を減らし、体験価値を正しく届けて予約と売上の回復を支える。</p>
+              <p>本システムは、`GitHub Pages + HTML/CSS/JavaScript + Supabase`
+                を採用し、店舗管理者・スタッフがワークショップ予約、掲載コンテンツ、商品・店舗情報、顧客対応を一元管理できるようにする運用管理システムである。</p>
+              <p>公開サイトは静的HTMLとして低コストで配信しつつ、管理画面から Supabase
+                の認証・データベース・ストレージを通じて内容を更新することで、サイト更新と効果測定を迅速化する。これにより、手作業を減らし、体験価値を正しく届け、予約と売上の回復を支える。</p>
             </div>
             <div class="table-wrap ">
               <table class="table spec-purpose-table">
@@ -84,19 +87,29 @@
                 <tbody>
                   <tr>
                     <td>誰が使うか</td>
-                    <td>店舗管理者・スタッフ（Web担当者を含む）が日常業務で利用</td>
+                    <td>店舗管理者・スタッフ・Web担当者が、日常運用と掲載更新、問い合わせ対応のために利用</td>
                   </tr>
                   <tr>
                     <td>解決する課題</td>
-                    <td>予約・在庫・顧客情報が分散し、在庫確保漏れ・ダブルブッキング・問い合わせ遅延・効果検証の遅れが発生している</td>
+                    <td>予約・店舗・商品・顧客・掲載素材の情報が分散し、更新反映の遅れ、ダブルブッキング、問い合わせ対応漏れ、効果検証の遅れが発生している</td>
                   </tr>
                   <tr>
                     <td>できること</td>
-                    <td>予約・在庫・顧客データの一元管理／在庫連動の予約枠制御／決済・キャンセル管理／コンテンツ更新とABテスト設定／ダッシュボードで到達率・CVR・予約数を即時確認</td>
+                    <td>ログイン認証／ダッシュボードでの状況把握／トップ編集・導線設定・カード管理・記事管理／商品・店舗・予約・問い合わせの管理／画像・音源のアセット管理／KPI確認</td>
                   </tr>
                   <tr>
                     <td>提供価値</td>
-                    <td>業務フロー統合で手作業とエラーを削減し、施策効果の検証を高速化。伝わり方の改善サイクルを短縮し、予約・売上回復と運用コスト削減を同時に実現</td>
+                    <td>静的サイトの軽さとBaaSの更新性を両立し、低コストで運用開始できる。業務フロー統合で手作業とエラーを減らし、改善サイクルを短縮して予約・売上回復と運用コスト抑制を両立する</td>
+                  </tr>
+                  <tr>
+                    <td>採用構成</td>
+                    <td>公開サイト・管理画面は GitHub Pages で静的配信し、Supabase の Auth / Database / Storage を JavaScript
+                      から利用する。将来的に必要となれば Spring Boot / Java に段階的に移行可能</td>
+                  </tr>
+                  <tr>
+                    <td>コスト観点</td>
+                    <td>初期は GitHub Pages と Supabase の無料枠中心で小さく開始し、利用量や業務要件の増加に合わせて Edge Functions や Spring Boot の導入を検討する
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -106,23 +119,102 @@
             <div class="fill-label">システム構成図 <span class="required">必須</span></div>
             <div class="fill-hint">フロントエンド ↔ バックエンド ↔ データベースの関係を図示</div>
             <div class="fill-content proposal-card">
-              <p>現状は静的フロントエンド（GitHub Pages）からSupabaseへ直接アクセスする構成です。将来はSpring Bootを挟み、認証・業務ロジックをサーバー側で担う想定です。</p>
-              <pre class="code">
-[Browser]
+              <p>採用案は「GitHub Pages で静的HTMLを公開し、JavaScript から Supabase
+                を利用して動的データを扱う」構成とする。静的配信の軽さと低コストを維持しつつ、ログイン、CRUD、アセット管理、ダッシュボード表示を実現する。</p>
+
+              <div class="spec-architecture">
+                <div class="spec-architecture__lane">
+                  <div class="spec-architecture__title">利用者</div>
+                  <div class="spec-node">
+                    <strong>管理者 / スタッフ</strong>
+                    <span>PC・タブレットから管理画面を利用</span>
+                  </div>
+                  <div class="spec-arrow">HTTPS</div>
+                  <div class="spec-node">
+                    <strong>一般ユーザー</strong>
+                    <span>公開サイトを閲覧し予約導線へ進む</span>
+                  </div>
+                </div>
+
+                <div class="spec-architecture__lane">
+                  <div class="spec-architecture__title">フロントエンド</div>
+                  <div class="spec-node spec-node--accent">
+                    <strong>GitHub Pages</strong>
+                    <span>静的HTML / CSS / JavaScript を公開</span>
+                  </div>
+                  <div class="spec-node">
+                    <strong>公開サイト</strong>
+                    <span>トップ / 下層ページ / 予約導線</span>
+                  </div>
+                  <div class="spec-node">
+                    <strong>管理画面</strong>
+                    <span>ログイン / ダッシュボード / 各管理画面</span>
+                  </div>
+                </div>
+
+                <div class="spec-architecture__lane">
+                  <div class="spec-architecture__title">BaaS / データ層</div>
+                  <div class="spec-node">
+                    <strong>Supabase Auth</strong>
+                    <span>ログイン認証 / セッション管理 / 権限制御</span>
+                  </div>
+                  <div class="spec-node">
+                    <strong>Supabase Database</strong>
+                    <span>コンテンツ / 商品 / 店舗 / 予約 / 顧客 / KPI 用データ</span>
+                  </div>
+                  <div class="spec-node">
+                    <strong>Supabase Storage</strong>
+                    <span>画像 / 音源 / メディアアセット</span>
+                  </div>
+                </div>
+
+                <div class="spec-architecture__lane spec-architecture__lane--future">
+                  <div class="spec-architecture__title">将来拡張</div>
+                  <div class="spec-node">
+                    <strong>Supabase Edge Functions</strong>
+                    <span>通知、権限昇格、重い処理を追加可能</span>
+                  </div>
+                  <div class="spec-node">
+                    <strong>Spring Boot / Java</strong>
+                    <span>複雑な業務ロジックや外部連携が増えた場合に API 層として追加可能</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="spec-flow-grid">
+                <div class="spec-flow-card">
+                  <h3>運用フロー</h3>
+                  <ol>
+                    <li>管理者が GitHub Pages 上の管理画面にアクセスし、Supabase Auth でログインする。</li>
+                    <li>各管理画面で文言・画像・商品・店舗・予約情報を更新する。</li>
+                    <li>更新データは Supabase Database / Storage に保存される。</li>
+                    <li>公開サイト側の JavaScript がデータを読み込み、表示内容へ反映する。</li>
+                  </ol>
+                </div>
+                <div class="spec-flow-card">
+                  <h3>コストと拡張性</h3>
+                  <ul>
+                    <li>初期は GitHub Pages と Supabase の無料枠中心で開始しやすい。</li>
+                    <li>静的配信のため、公開サイト側のホスティングコストを抑えやすい。</li>
+                    <li>将来、承認フローや外部連携が必要になれば Spring Boot / Java を後付けできる。</li>
+                  </ul>
+                </div>
+              </div>
+
+              <pre class="code">[Browser]
   ↓ HTTPS
-[Frontend: HTML/CSS/JavaScript (GitHub Pages)]
-  ↓ REST/GraphQL over HTTPS
-[Supabase: Auth + DB(PostgreSQL互換)]
+[GitHub Pages: HTML / CSS / JavaScript]
+  ↓ Supabase JS Client
+[Supabase Auth / Database / Storage]
 
 （将来拡張）
 [Browser]
   ↓ HTTPS
-[Frontend: HTML/CSS/JavaScript (GitHub Pages)]
-  ↓ API (REST)
-[Backend: Spring Boot (Controller → Service → Repository)]
-  ↓ JDBC/ORM
-[Supabase/PostgreSQL]
-            </pre>
+[GitHub Pages Frontend]
+  ↓ API / Functions
+[Edge Functions or Spring Boot]
+  ↓ SQL / Storage access
+[Supabase / PostgreSQL]</pre>
             </div>
           </div>
 
@@ -154,7 +246,7 @@
                 <tr>
                   <td>F-002</td>
                   <td>トップヒーロー/スライダー管理</td>
-                  <td>ヒーロー画像・キャッチコピー・ボタンリンクを CRUD し、公開/非公開を制御。</td>
+                  <td>ヒーロー画像・キャッチコピー・ボタンリンクを CRUD し、保存内容を公開サイトへ即時反映する。</td>
                   <td>トップ編集</td>
                   <td><span class="badge badge-must">Must</span></td>
                 </tr>
@@ -189,14 +281,14 @@
                 <tr>
                   <td>F-007</td>
                   <td>ジャーナル/お知らせ管理</td>
-                  <td>記事タイトル・本文・タグを CRUD し、公開予約。一覧で検索・ソート。</td>
+                  <td>記事タイトル・本文・タグを CRUD し、公開対象データを即時更新する。一覧で検索・ソート。</td>
                   <td>記事管理</td>
                   <td><span class="badge badge-should">Should</span></td>
                 </tr>
                 <tr>
                   <td>F-008</td>
                   <td>ユーザー管理</td>
-                  <td>一般ユーザーの登録情報参照・停止・ロール変更。CSV 出力・メール通知。</td>
+                  <td>一般ユーザーの登録情報参照・停止・ロール確認を行う。強権限変更や通知処理は Supabase の権限制御/拡張機能を前提に段階導入する。</td>
                   <td>ユーザー管理</td>
                   <td><span class="badge badge-must">Must</span></td>
                 </tr>
@@ -205,7 +297,7 @@
                   <td>予約/問い合わせログ管理</td>
                   <td>問い合わせ・ワークショップ予約の一覧確認、ステータス更新、CSV 出力。</td>
                   <td>予約・問い合わせ管理</td>
-                  <td><span class="badge badge-could">Could</span></td>
+                  <td><span class="badge badge-must">Must</span></td>
                 </tr>
                 <tr>
                   <td>F-010</td>
@@ -216,21 +308,6 @@
                 </tr>
               </tbody>
             </table>
-
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">（サービス名）の管理システムの機能一覧を作成してください。
-
-                システム概要：（概要を記載）
-                ユーザー種別：管理者、一般ユーザー
-
-                以下の形式で、MoSCoW法で優先度をつけてリストアップしてください。
-                | No. | 機能名 | 概要 | 対応画面 | 優先度(Must/Should/Could) |
-
-                Must: CRUD基本操作、ログイン、バリデーション
-                Should: 検索、ソート、ページネーション
-                Could: CSV出力、ファイルアップロード、メール通知</div>
-            </div>
           </div>
         </section>
 
@@ -241,16 +318,96 @@
             <div class="fill-label">画面遷移図 <span class="required">必須</span></div>
             <div class="fill-hint">各画面間の遷移関係を図示</div>
             <div class="fill-content">
-              <p>（画面遷移図を記載）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">inim-dxの管理システムの画面遷移図をテキストベースで作成してください。
+              <div class="proposal-card">
+                <p>画面一覧：ログイン、ダッシュボード、トップ編集、導線設定、カード管理、商品管理、店舗管理、記事管理、ユーザー管理、予約・問い合わせ管理、アセット管理</p>
+                <pre class="code">[ログイン]
+  ├─「ログイン」→ [ダッシュボード]
+  └─「パスワードを忘れた場合」→ （パスワード再設定フロー）
 
-                画面一覧：
-                （上記の機能一覧で定義した画面を列挙）
+[ダッシュボード]
+  ├─サイドメニュー「トップ編集」→ [トップ編集]
+  ├─サイドメニュー「導線設定」→ [導線設定]
+  ├─サイドメニュー「カード管理」→ [カード管理]
+  ├─サイドメニュー「商品管理」→ [商品管理]
+  ├─サイドメニュー「店舗管理」→ [店舗管理]
+  ├─サイドメニュー「記事管理」→ [記事管理]
+  ├─サイドメニュー「ユーザー管理」→ [ユーザー管理]
+  ├─サイドメニュー「予約・問い合わせ管理」→ [予約・問い合わせ管理]
+  ├─サイドメニュー「アセット管理」→ [アセット管理]
+  └─ヘッダー「ログアウト」→ [ログイン]
 
-                各画面間の遷移を矢印で表現し、遷移のトリガー（ボタン名やアクション）も記載してください。</div>
+[トップ編集]
+  ├─「画像を選択」「アセットを挿入」→ [アセット管理]
+  ├─「プレビュー」→ [トップ編集] 内プレビュー表示
+  ├─「保存」→ [トップ編集]（保存完了メッセージ表示 / 公開サイトへ即時反映）
+  ├─パンくず/サイドメニュー「ダッシュボード」→ [ダッシュボード]
+  └─サイドメニュー各項目 → 各管理画面へ遷移
+
+[導線設定]
+  ├─「CTA編集」「順序変更」→ [導線設定] 内で編集
+  ├─「保存」→ [導線設定]（保存完了メッセージ表示 / 公開サイトへ即時反映）
+  ├─「関連カードを確認」→ [カード管理]
+  ├─「関連商品を確認」→ [商品管理]
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]
+
+[カード管理]
+  ├─「新規登録」→ [カード管理] 内の登録フォーム表示
+  ├─一覧行「詳細」→ [カード管理] 内の詳細表示
+  ├─一覧行「編集」→ [カード管理] 内の編集フォーム表示
+  ├─一覧行「削除」→ [カード管理]（確認ダイアログ後に一覧再表示）
+  ├─「画像を選択」→ [アセット管理]
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]
+
+[商品管理]
+  ├─「新規商品登録」→ [商品管理] 内の登録フォーム表示
+  ├─一覧行「詳細」→ [商品管理] 内の詳細表示
+  ├─一覧行「編集」→ [商品管理] 内の編集フォーム表示
+  ├─一覧行「削除」→ [商品管理]（確認ダイアログ後に一覧再表示）
+  ├─「商品画像を選択」→ [アセット管理]
+  ├─「店舗在庫を確認」→ [店舗管理]
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]
+
+[店舗管理]
+  ├─「新規店舗登録」「開催日追加」→ [店舗管理] 内の登録フォーム表示
+  ├─一覧行「詳細」→ [店舗管理] 内の詳細表示
+  ├─一覧行「編集」→ [店舗管理] 内の編集フォーム表示
+  ├─一覧行「削除」→ [店舗管理]（確認ダイアログ後に一覧再表示）
+  ├─「関連商品を確認」→ [商品管理]
+  ├─「予約状況を確認」→ [予約・問い合わせ管理]
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]
+
+[記事管理]
+  ├─「新規記事作成」→ [記事管理] 内の登録フォーム表示
+  ├─一覧行「詳細」→ [記事管理] 内の詳細表示
+  ├─一覧行「編集」→ [記事管理] 内の編集フォーム表示
+  ├─一覧行「削除」→ [記事管理]（確認ダイアログ後に一覧再表示）
+  ├─「保存」→ [記事管理]（保存完了メッセージ表示 / 公開対象へ即時反映）
+  ├─「アイキャッチ画像を選択」→ [アセット管理]
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]
+
+[ユーザー管理]
+  ├─一覧行「詳細」→ [ユーザー管理] 内の詳細表示
+  ├─一覧行「編集」「権限確認」→ [ユーザー管理] 内の編集フォーム表示
+  ├─一覧行「利用停止」→ [ユーザー管理]（確認ダイアログ後に一覧再表示）
+  ├─「予約履歴を確認」→ [予約・問い合わせ管理]
+  ├─「強権限変更」→ （Edge Functions / 将来拡張機能）
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]
+
+[予約・問い合わせ管理]
+  ├─一覧行「詳細」→ [予約・問い合わせ管理] 内の詳細表示
+  ├─一覧行「ステータス更新」→ [予約・問い合わせ管理] 内で更新
+  ├─一覧行「顧客情報を見る」→ [ユーザー管理]
+  ├─一覧行「対象店舗を見る」→ [店舗管理]
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]
+
+[アセット管理]
+  ├─「アップロード」→ [アセット管理]（一覧再表示）
+  ├─一覧行「選択」→ 呼び出し元画面へ戻る
+  │   （トップ編集 / カード管理 / 商品管理 / 記事管理）
+  ├─一覧行「詳細」→ [アセット管理] 内の詳細表示
+  ├─一覧行「削除」→ [アセット管理]（確認ダイアログ後に一覧再表示）
+  └─サイドメニュー「ダッシュボード」→ [ダッシュボード]</pre>
+              </div>
             </div>
           </div>
 
@@ -260,32 +417,22 @@
           <h2 class="section-title"><span class="section-icon">4</span> 機能詳細仕様</h2>
 
           <div class="info-box warning">
-            <strong>機能ごとに詳細仕様を記載してください</strong>
-            以下のテンプレートを機能の数だけコピーして使用してください。<br>
-            最低でもCRUD（登録・一覧・更新・削除）とログイン機能の仕様は記載してください。
+            <strong>Must機能を優先して詳細仕様化する</strong>
+            本節では `F-001 / F-002 / F-003 / F-008 / F-009` を対象に、画面レイアウト・入力項目・処理フロー・正常時/異常時・遷移先を整理する。Should / Could は後続で追加する。
           </div>
 
           <div class="subsection">
-            <h3 class="subsection-title">機能仕様テンプレート（コピーして使用）</h3>
+            <h3 class="subsection-title">F-001 ログイン・権限管理</h3>
 
             <div class="fill-block">
-              <div class="fill-label">機能名：（機能名を入力） <span class="required">必須</span></div>
-              <div class="fill-hint">機能ID：F-XXX</div>
+              <div class="fill-label">機能名：ログイン・権限管理 <span class="required">必須</span></div>
+              <div class="fill-hint">機能ID：F-001</div>
               <div class="fill-content">
-                <p>（機能の詳細仕様を記載）</p>
-              </div>
-              <div class="prompt-box">
-                <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例
-                </div>
-                <div class="prompt-text">（サービス名）の（機能名）機能の詳細仕様を作成してください。
-
-                  以下の項目を含めてください。
-                  1. 画面レイアウト（どの要素がどこに配置されるか）
-                  2. 入力項目一覧（項目名・データ型・必須/任意・バリデーションルール）
-                  3. 処理フロー（ユーザー操作 → システム処理 → 結果表示）
-                  4. 正常時の動作
-                  5. エラー時の動作（バリデーションエラー、システムエラー）
-                  6. 画面遷移先</div>
+                <p><strong>1. 画面レイアウト</strong><br>ログイン画面は中央にフォームを配置し、上から「メールアドレス」「パスワード」「ログイン状態を保持」「ログイン」ボタンを縦並びで配置する。フォーム下部に「パスワード再設定」リンクとエラーメッセージ領域を置き、ヘッダーやサイドメニューは表示しない。ログイン成功後のダッシュボードは、上部にユーザー情報とログアウト、左側にメニュー、中央に KPIカード・優先タスク・主要導線ショートカットを配置する。</p>
+                <p><strong>3. 処理フロー</strong><br>ユーザーがメールアドレスとパスワードを入力して `ログイン` を押下 → フロントエンドが入力値を検証 → Supabase Auth へ認証要求 → 認証成功時にセッションを取得しロール情報を読込 → 権限に応じたメニューを生成 → ダッシュボードで予約数、CTAクリック率、未対応問い合わせ数を取得して表示する。</p>
+                <p><strong>4. 正常時の動作</strong><br>認証成功後、ダッシュボードに遷移し、ログインユーザーの権限に応じて利用可能なメニューのみ表示する。KPIカードと優先タスクが最新状態で表示され、各管理画面への移動起点として機能する。ログイン状態保持が有効な場合はブラウザセッションを継続する。</p>
+                <p><strong>5. エラー時の動作</strong><br>必須未入力や形式不正は項目下に即時表示する。認証失敗時はフォーム上部に「メールアドレスまたはパスワードが正しくありません」を表示する。Supabase 接続失敗時は「現在ログインできません。時間をおいて再試行してください」を表示し、再送ボタンを有効のまま維持する。</p>
+                <p><strong>6. 画面遷移先</strong><br>成功時：ダッシュボード<br>失敗時：ログイン画面に留まる<br>補助遷移：パスワード再設定フロー</p>
               </div>
             </div>
 
@@ -302,23 +449,308 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="template-row">
-                    <td>（項目名）</td>
-                    <td>（String / Integer / Date 等）</td>
-                    <td>（○ / —）</td>
-                    <td>（必須チェック / 文字数制限 等）</td>
-                    <td>（備考）</td>
+                  <tr>
+                    <td>メールアドレス</td>
+                    <td>String</td>
+                    <td>○</td>
+                    <td>必須 / メール形式 / 255文字以内</td>
+                    <td>Supabase Auth のログインID</td>
                   </tr>
-                  <tr class="template-row">
-                    <td>…</td>
-                    <td>…</td>
-                    <td>…</td>
-                    <td>…</td>
-                    <td>…</td>
+                  <tr>
+                    <td>パスワード</td>
+                    <td>Password String</td>
+                    <td>○</td>
+                    <td>必須 / 8〜72文字 / 前後空白除去</td>
+                    <td>入力値は画面上マスク表示</td>
+                  </tr>
+                  <tr>
+                    <td>ログイン状態を保持</td>
+                    <td>Boolean</td>
+                    <td>—</td>
+                    <td>任意</td>
+                    <td>セッション保持可否を指定</td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
 
+          <div class="subsection">
+            <h3 class="subsection-title">F-002 トップヒーロー/スライダー管理</h3>
+
+            <div class="fill-block">
+              <div class="fill-label">機能名：トップヒーロー/スライダー管理 <span class="required">必須</span></div>
+              <div class="fill-hint">機能ID：F-002</div>
+              <div class="fill-content">
+                <p><strong>1. 画面レイアウト</strong><br>左側にサイドメニュー、上部にパンくずと保存状態を表示する。メインエリア左カラムに編集フォーム、右カラムに公開サイトプレビューを配置する。フォームには「見出し」「リード文」「ボタン文言」「リンク先」「ヒーロー画像」「表示順」を並べる。</p>
+                <p><strong>3. 処理フロー</strong><br>担当者がトップ編集画面を開く → 現在公開中のヒーロー設定を Supabase Database / Storage から取得 → 項目を編集し `保存` を押下 → バリデーション後にレコード更新 → 公開サイト側の取得データが更新され、即時反映される。</p>
+                <p><strong>4. 正常時の動作</strong><br>保存後に成功メッセージを表示し、更新時刻・更新者を画面上部へ反映する。プレビューも最新内容に更新され、公開サイト側でも同内容が取得される。</p>
+                <p><strong>5. エラー時の動作</strong><br>未入力や文字数超過は項目単位で表示する。画像未選択で保存した場合は既存画像を維持する。Storage アップロード失敗時はレコード更新を中断し、「画像の保存に失敗しました」と表示する。DB更新失敗時はフォーム値を保持したまま再試行可能とする。</p>
+                <p><strong>6. 画面遷移先</strong><br>保存後：トップ編集画面に留まる<br>補助遷移：アセット管理、ダッシュボード</p>
+              </div>
+            </div>
+
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>データ型</th>
+                    <th>必須</th>
+                    <th>バリデーション</th>
+                    <th>備考</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>見出し</td>
+                    <td>String</td>
+                    <td>○</td>
+                    <td>必須 / 60文字以内</td>
+                    <td>トップFVの主コピー</td>
+                  </tr>
+                  <tr>
+                    <td>リード文</td>
+                    <td>Text</td>
+                    <td>○</td>
+                    <td>必須 / 160文字以内</td>
+                    <td>補足説明文</td>
+                  </tr>
+                  <tr>
+                    <td>ボタン文言</td>
+                    <td>String</td>
+                    <td>○</td>
+                    <td>必須 / 20文字以内</td>
+                    <td>CTAラベル</td>
+                  </tr>
+                  <tr>
+                    <td>リンク先URL</td>
+                    <td>String</td>
+                    <td>○</td>
+                    <td>必須 / 相対URLまたはHTTPS URL形式</td>
+                    <td>公開サイト内導線を想定</td>
+                  </tr>
+                  <tr>
+                    <td>ヒーロー画像</td>
+                    <td>File / String</td>
+                    <td>—</td>
+                    <td>jpg/png/webp / 5MB以内</td>
+                    <td>未変更時は既存画像を継続利用</td>
+                  </tr>
+                  <tr>
+                    <td>表示順</td>
+                    <td>Integer</td>
+                    <td>○</td>
+                    <td>必須 / 1以上 / 重複時は保存不可</td>
+                    <td>スライダー時の順序管理</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-003 体験導線設定</h3>
+
+            <div class="fill-block">
+              <div class="fill-label">機能名：体験導線設定（デジタル調香・ワークショップ） <span class="required">必須</span></div>
+              <div class="fill-hint">機能ID：F-003</div>
+              <div class="fill-content">
+                <p><strong>1. 画面レイアウト</strong><br>上部に画面タイトルと保存ボタンを配置する。中央に導線一覧テーブルを置き、各行に「ステップ番号」「表示名」「リンク先」「表示状態」「並び替え操作」を表示する。下部に簡易プレビューと更新履歴を配置する。</p>
+                <p><strong>3. 処理フロー</strong><br>担当者が対象ステップを選択 → 表示名やリンク先、順序を編集 → `保存` を押下 → 順序重複やURL形式を検証 → Supabase Database を更新 → 公開サイトが新導線設定を取得し即時反映する。</p>
+                <p><strong>4. 正常時の動作</strong><br>保存完了メッセージを表示し、導線一覧とプレビューを最新内容へ更新する。公開サイト上のCTA文言、リンク先、表示順が更新される。</p>
+                <p><strong>5. エラー時の動作</strong><br>URL形式不正、表示名未入力、順序重複は行単位でエラー表示する。更新処理失敗時は保存前のサーバーデータを保持しつつ、編集内容を画面に残す。接続エラー時は「反映に失敗しました」を表示し再試行を促す。</p>
+                <p><strong>6. 画面遷移先</strong><br>保存後：導線設定画面に留まる<br>補助遷移：ダッシュボード、カード管理、商品管理</p>
+              </div>
+            </div>
+
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>データ型</th>
+                    <th>必須</th>
+                    <th>バリデーション</th>
+                    <th>備考</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ステップ番号</td>
+                    <td>Integer</td>
+                    <td>○</td>
+                    <td>必須 / 1以上 / 重複不可</td>
+                    <td>表示順制御に使用</td>
+                  </tr>
+                  <tr>
+                    <td>表示名</td>
+                    <td>String</td>
+                    <td>○</td>
+                    <td>必須 / 30文字以内</td>
+                    <td>CTAや導線ラベル</td>
+                  </tr>
+                  <tr>
+                    <td>リンク先URL</td>
+                    <td>String</td>
+                    <td>○</td>
+                    <td>必須 / 相対URLまたはHTTPS URL形式</td>
+                    <td>予約ページ・体験ページ等</td>
+                  </tr>
+                  <tr>
+                    <td>補足文言</td>
+                    <td>String</td>
+                    <td>—</td>
+                    <td>80文字以内</td>
+                    <td>任意の説明テキスト</td>
+                  </tr>
+                  <tr>
+                    <td>表示状態</td>
+                    <td>Boolean / Enum</td>
+                    <td>○</td>
+                    <td>公開 / 非表示</td>
+                    <td>非表示時は公開サイトへ出さない</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-008 ユーザー管理</h3>
+
+            <div class="fill-block">
+              <div class="fill-label">機能名：ユーザー管理 <span class="required">必須</span></div>
+              <div class="fill-hint">機能ID：F-008</div>
+              <div class="fill-content">
+                <p><strong>1. 画面レイアウト</strong><br>上部に検索バー、会員種別フィルタ、状態フィルタを配置する。中央にユーザー一覧テーブルを置き、列は「氏名」「メールアドレス」「会員種別」「状態」「最終利用日」「操作」とする。右側またはモーダルで詳細/編集パネルを表示する。</p>
+                <p><strong>3. 処理フロー</strong><br>管理者がユーザー管理画面を開く → 一覧を取得 → 検索または絞り込みで対象ユーザーを選択 → `詳細` または `編集` を開く → 利用停止やメモ更新を実行 → Supabase Database を更新し一覧へ反映する。強権限変更が必要な場合は拡張機能へ委譲する。</p>
+                <p><strong>4. 正常時の動作</strong><br>詳細情報が表示され、停止状態や内部メモが更新される。更新後は一覧の状態表示と更新日時が最新化される。予約履歴リンクから予約・問い合わせ管理へ遷移できる。</p>
+                <p><strong>5. エラー時の動作</strong><br>検索条件不備は即時補正し、0件時は「該当ユーザーなし」を表示する。更新権限不足時は「この操作は許可されていません」を表示する。強権限変更が必要な操作は実行せず、将来拡張対象として案内する。</p>
+                <p><strong>6. 画面遷移先</strong><br>詳細/編集後：ユーザー管理画面に留まる<br>補助遷移：予約・問い合わせ管理、ダッシュボード</p>
+              </div>
+            </div>
+
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>データ型</th>
+                    <th>必須</th>
+                    <th>バリデーション</th>
+                    <th>備考</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>検索キーワード</td>
+                    <td>String</td>
+                    <td>—</td>
+                    <td>100文字以内</td>
+                    <td>氏名/メールアドレスを対象</td>
+                  </tr>
+                  <tr>
+                    <td>会員種別</td>
+                    <td>Enum</td>
+                    <td>—</td>
+                    <td>一般 / 管理者 / スタッフ</td>
+                    <td>フィルタ用</td>
+                  </tr>
+                  <tr>
+                    <td>状態</td>
+                    <td>Enum</td>
+                    <td>—</td>
+                    <td>有効 / 停止</td>
+                    <td>フィルタ兼更新対象</td>
+                  </tr>
+                  <tr>
+                    <td>内部メモ</td>
+                    <td>Text</td>
+                    <td>—</td>
+                    <td>300文字以内</td>
+                    <td>管理者向けメモ</td>
+                  </tr>
+                  <tr>
+                    <td>停止理由</td>
+                    <td>String</td>
+                    <td>条件付き</td>
+                    <td>停止時必須 / 120文字以内</td>
+                    <td>利用停止時のみ入力</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">F-009 予約/問い合わせログ管理</h3>
+
+            <div class="fill-block">
+              <div class="fill-label">機能名：予約/問い合わせログ管理 <span class="required">必須</span></div>
+              <div class="fill-hint">機能ID：F-009</div>
+              <div class="fill-content">
+                <p><strong>1. 画面レイアウト</strong><br>上部に「予約 / 問い合わせ」タブ、検索条件、ステータスフィルタ、CSV出力ボタンを配置する。中央に案件一覧を表示し、選択した行の詳細情報を下部または右側パネルに表示する。詳細には顧客情報、対象店舗、希望日時、問い合わせ本文、対応履歴を含める。</p>
+                <p><strong>3. 処理フロー</strong><br>担当者が一覧を開く → 未対応案件や日時条件で絞り込む → 対象案件の `詳細` を開く → `ステータス更新` で対応中・完了・キャンセル等に変更 → 更新結果を Supabase Database に保存 → 一覧・ダッシュボードの件数を更新する。</p>
+                <p><strong>4. 正常時の動作</strong><br>更新後、一覧のステータスと更新日時が即時反映される。必要に応じて対象ユーザーや店舗詳細へ遷移し、関連情報を連続確認できる。CSV出力時は現在の検索条件に一致するデータをダウンロードする。</p>
+                <p><strong>5. エラー時の動作</strong><br>検索条件不正は入力欄にエラー表示する。ステータス更新失敗時は行の変更をロールバックし、「保存に失敗しました」を表示する。CSV生成失敗時は画面遷移せず再試行を案内する。</p>
+                <p><strong>6. 画面遷移先</strong><br>詳細/更新後：予約・問い合わせ管理画面に留まる<br>補助遷移：ユーザー管理、店舗管理、ダッシュボード</p>
+              </div>
+            </div>
+
+            <div class="fill-block">
+              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>データ型</th>
+                    <th>必須</th>
+                    <th>バリデーション</th>
+                    <th>備考</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>案件種別</td>
+                    <td>Enum</td>
+                    <td>○</td>
+                    <td>予約 / 問い合わせ</td>
+                    <td>タブ切替または検索条件</td>
+                  </tr>
+                  <tr>
+                    <td>検索キーワード</td>
+                    <td>String</td>
+                    <td>—</td>
+                    <td>100文字以内</td>
+                    <td>氏名、メール、件名等を対象</td>
+                  </tr>
+                  <tr>
+                    <td>ステータス</td>
+                    <td>Enum</td>
+                    <td>○</td>
+                    <td>未対応 / 対応中 / 完了 / キャンセル</td>
+                    <td>更新対象</td>
+                  </tr>
+                  <tr>
+                    <td>対応メモ</td>
+                    <td>Text</td>
+                    <td>—</td>
+                    <td>500文字以内</td>
+                    <td>対応履歴として保存</td>
+                  </tr>
+                  <tr>
+                    <td>対象店舗</td>
+                    <td>UUID / String</td>
+                    <td>条件付き</td>
+                    <td>予約案件時必須</td>
+                    <td>店舗管理データと関連付け</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -326,36 +758,406 @@
         <section class="section" id="sec5">
           <h2 class="section-title"><span class="section-icon">5</span> 非機能要件</h2>
 
+          <div class="info-box warning">
+            <strong>`GitHub Pages + HTML/CSS/JavaScript + Supabase` 前提で非機能要件を定義する</strong>
+            低コスト運用を前提とするため、セキュリティ・可用性・障害時の案内を Must とし、Should / Good to have は優先度順で整理する。
+          </div>
+
           <div class="fill-block">
             <div class="fill-label">セキュリティ要件 <span class="required">必須</span></div>
             <div class="fill-hint">認証・認可・データ保護に関する要件</div>
             <div class="fill-content">
-              <p>（セキュリティ要件を記載）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">Spring Bootアプリケーションのセキュリティ要件を一覧にしてください。
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>優先度</th>
+                    <th>要件</th>
+                    <th>内容</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Must</td>
+                    <td>認証</td>
+                    <td>管理画面は Supabase Auth によるログイン認証を必須とし、未認証状態では管理画面へアクセスできないこと。</td>
+                    <td>メールアドレス + パスワード認証を基本とする。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>認可</td>
+                    <td>Supabase の RLS を利用し、ロールごとに参照・更新可能なデータ範囲を制御すること。</td>
+                    <td>一般ユーザー向けデータと管理画面向けデータを分離する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>鍵管理</td>
+                    <td>クライアント側では `anon key` のみ利用し、`service_role` や秘密情報を静的HTML/JSへ含めないこと。</td>
+                    <td>強権限操作は将来 Edge Functions 等へ分離する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>通信保護</td>
+                    <td>公開サイト・管理画面・Supabase 間の通信は HTTPS を前提とすること。</td>
+                    <td>外部リンクや画像URLも HTTPS を優先する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>入力値検証</td>
+                    <td>フォーム入力値はフロント側で形式検証し、保存前に必須・型・長さ・URL形式・ファイル形式を確認すること。</td>
+                    <td>XSS を防ぐため、HTMLとして解釈しない文字列保存を基本とする。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-1</td>
+                    <td>アクセス制御強化</td>
+                    <td>一定回数以上のログイン失敗時に再試行間隔を空ける、または案内を強化すること。</td>
+                    <td>不正試行の抑制策。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-2</td>
+                    <td>監査証跡</td>
+                    <td>ログイン、保存、ステータス更新、利用停止操作を記録すること。</td>
+                    <td>最低限は日時・操作者・対象IDを残す。</td>
+                  </tr>
+                  <tr>
+                    <td>Good</td>
+                    <td>二段階認証</td>
+                    <td>将来的に管理者アカウントへ多要素認証を導入できる設計とする。</td>
+                    <td>運用負荷と導入タイミングを見て判断する。</td>
+                  </tr>
+                </tbody>
+              </table>
 
-                以下を含めてください。
-                ・認証方式（Spring Security）
-                ・パスワードの暗号化方式
-                ・CSRF対策
-                ・XSS対策
-                ・SQLインジェクション対策
-                ・セッション管理</div>
+              <p class="fill-hint" style="margin-top: 16px;">将来、Spring Boot / Java を導入して API 層を追加する場合の補足セキュリティ要件</p>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>項目</th>
+                    <th>要件</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>認証方式（Spring Security）</td>
+                    <td>Spring Security を利用し、管理画面/API へのアクセスを認証必須とする。</td>
+                    <td>セッション認証または JWT ベース認証を採用し、管理者向けAPIを保護する。</td>
+                  </tr>
+                  <tr>
+                    <td>パスワードの暗号化方式</td>
+                    <td>パスワードは平文保存を禁止し、`BCrypt` 等の一方向ハッシュで保存する。</td>
+                    <td>強度変更に対応しやすい PasswordEncoder を使用する。</td>
+                  </tr>
+                  <tr>
+                    <td>CSRF対策</td>
+                    <td>フォームベース認証を採用する場合は CSRF トークンを有効化する。</td>
+                    <td>API をステートレス運用する場合も、方式に応じた保護方針を明確にする。</td>
+                  </tr>
+                  <tr>
+                    <td>XSS対策</td>
+                    <td>入力値のサニタイズと出力時エスケープを徹底し、HTMLをそのまま描画しない。</td>
+                    <td>テンプレート描画・JSON応答の双方で対策を行う。</td>
+                  </tr>
+                  <tr>
+                    <td>SQLインジェクション対策</td>
+                    <td>プレースホルダ付きクエリ、ORM、Repository 層を利用し、文字列連結SQLを禁止する。</td>
+                    <td>動的検索条件もバインド変数で処理する。</td>
+                  </tr>
+                  <tr>
+                    <td>セッション管理</td>
+                    <td>セッションタイムアウト、同時ログイン方針、ログアウト時の無効化を定義する。</td>
+                    <td>管理画面では一定時間無操作時に再認証を求めることを推奨する。</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+
+          <div class="fill-block">
+            <div class="fill-label">性能要件 <span class="required">必須</span></div>
+            <div class="fill-hint">初期表示・一覧表示・保存処理の目安</div>
+            <div class="fill-content">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>優先度</th>
+                    <th>要件</th>
+                    <th>内容</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Must</td>
+                    <td>初期表示</td>
+                    <td>主要管理画面の初期表示は、通常時 3秒以内を目標とする。</td>
+                    <td>Supabase pause 復帰時の遅延は別途案内する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>一覧取得</td>
+                    <td>一覧検索やフィルタ結果は 2秒以内の応答を目標とする。</td>
+                    <td>件数が増えた場合はページネーションを用いる。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>保存処理</td>
+                    <td>テキスト中心の保存は 3秒以内、画像アップロードを含む保存は 10秒以内を目安とする。</td>
+                    <td>保存中はローディング表示を出す。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-1</td>
+                    <td>画像最適化</td>
+                    <td>アップロード前にファイルサイズ・形式を制限し、表示側では適切なサイズを使用する。</td>
+                    <td>不要に重い画像を避ける。</td>
+                  </tr>
+                  <tr>
+                    <td>Good</td>
+                    <td>キャッシュ最適化</td>
+                    <td>公開サイトの読込速度向上のため、静的アセットキャッシュと段階読込を検討する。</td>
+                    <td>実データ量増加後に優先度を再評価する。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">可用性・障害対応 <span class="required">必須</span></div>
+            <div class="fill-hint">低コスト運用を前提とした案内・復旧・Workaround</div>
+            <div class="fill-content">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>優先度</th>
+                    <th>要件</th>
+                    <th>内容</th>
+                    <th>Workaround / 備考</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Must</td>
+                    <td>障害案内</td>
+                    <td>Supabase 接続失敗、認証失敗、保存失敗、データ取得失敗時は、利用者に原因区分と次の行動を明示すること。</td>
+                    <td>「時間をおいて再試行」「一覧を再読込」「管理者へ連絡」等を表示する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>無料枠制約への対応</td>
+                    <td>低コスト運用に伴う一時停止や応答遅延が発生しうることを前提に、初回アクセス遅延時の案内を行うこと。</td>
+                    <td>Supabase Free の pause 復帰待ちや再試行を案内する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>再試行性</td>
+                    <td>保存やステータス更新に失敗しても、入力内容を失わず再試行できること。</td>
+                    <td>フォーム値保持、再送ボタン維持。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>運用継続性</td>
+                    <td>障害時でも、最低限の運用継続手段を案内できること。</td>
+                    <td>Workaround: 公開サイト文言は前回保存内容を維持、予約/問い合わせは CSV または Supabase 管理画面で確認する運用手順を用意する。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-1</td>
+                    <td>死活確認</td>
+                    <td>管理画面・公開サイト・Supabase の簡易ヘルスチェック方法を用意すること。</td>
+                    <td>手動確認でも可。運用メモ化を推奨。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-2</td>
+                    <td>障害時案内テンプレート</td>
+                    <td>利用者向けエラーメッセージと運用担当者向け確認手順を定型化すること。</td>
+                    <td>問い合わせ対応を平準化する。</td>
+                  </tr>
+                  <tr>
+                    <td>Good</td>
+                    <td>外部監視</td>
+                    <td>定期アクセスや監視サービスにより停止状態を早期検知する。</td>
+                    <td>費用対効果を見て導入判断する。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">データ保全・バックアップ <span class="required">必須</span></div>
+            <div class="fill-hint">データ整合性・バックアップ・復旧の方針</div>
+            <div class="fill-content">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>優先度</th>
+                    <th>要件</th>
+                    <th>内容</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Must</td>
+                    <td>整合性</td>
+                    <td>必須項目、型、URL形式、表示順重複、関連IDの存在を保存前に検証する。</td>
+                    <td>不正データの保存を防ぐ。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>バックアップ前提</td>
+                    <td>DBおよびStorageは Supabase の提供機能を前提に保全する。</td>
+                    <td>無料枠での保持条件は運用時に確認する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>復旧手順</td>
+                    <td>誤更新や削除に備え、復旧手順と問い合わせ先を管理者向けに明文化する。</td>
+                    <td>手順書化を別途行う。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-1</td>
+                    <td>CSV退避</td>
+                    <td>予約/問い合わせ等の重要データは定期的にCSV出力できること。</td>
+                    <td>簡易バックアップとして利用可能。</td>
+                  </tr>
+                  <tr>
+                    <td>Good</td>
+                    <td>変更差分保存</td>
+                    <td>主要設定の変更前後を保持できるようにする。</td>
+                    <td>誤更新時の復元を容易にする。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">ログ・監査 <span class="required">必須</span></div>
+            <div class="fill-hint">運用上追跡すべき操作ログ</div>
+            <div class="fill-content">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>優先度</th>
+                    <th>要件</th>
+                    <th>内容</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Must</td>
+                    <td>操作記録</td>
+                    <td>ログイン、保存、ステータス更新、利用停止操作について、日時・操作者・対象IDを記録する。</td>
+                    <td>最低限の運用追跡を確保する。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-1</td>
+                    <td>閲覧ログ</td>
+                    <td>重要画面の参照履歴を残すことを検討する。</td>
+                    <td>個人情報閲覧の追跡に有効。</td>
+                  </tr>
+                  <tr>
+                    <td>Good</td>
+                    <td>差分監査</td>
+                    <td>変更前後の内容まで記録できるようにする。</td>
+                    <td>監査要件強化時に有効。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div class="fill-block">
             <div class="fill-label">対応環境 <span class="required">必須</span></div>
             <div class="fill-hint">対応ブラウザ・デバイス</div>
             <div class="fill-content">
-              <p>・対応ブラウザ：Chrome（最新版）/ Firefox（最新版）/ Edge（最新版）
-                ・対応デバイス：PC / タブレット / スマートフォン
-                （自分の実際の対応範囲に合わせて編集してください）</p>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>優先度</th>
+                    <th>要件</th>
+                    <th>内容</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Must</td>
+                    <td>対応ブラウザ</td>
+                    <td>Chrome / Edge / Firefox の各最新版を対象とする。</td>
+                    <td>管理画面は PC 利用を主対象とする。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>対応デバイス</td>
+                    <td>公開サイトは PC / タブレット / スマートフォン、管理画面は PC / タブレットを対象とする。</td>
+                    <td>スマートフォンでの管理操作は閲覧補助レベルとする。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-1</td>
+                    <td>アクセシビリティ</td>
+                    <td>フォームラベル、キーボード操作、色依存しない状態表示を考慮する。</td>
+                    <td>管理画面の操作性向上に寄与する。</td>
+                  </tr>
+                  <tr>
+                    <td>Good</td>
+                    <td>多言語余地</td>
+                    <td>将来的な英語表記追加を阻害しない構造とする。</td>
+                    <td>現時点では日本語優先。</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">不要（以下を参考に自分で記載してください）</div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">保守性・拡張性 <span class="required">必須</span></div>
+            <div class="fill-hint">責務分離と将来拡張の方針</div>
+            <div class="fill-content">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>優先度</th>
+                    <th>要件</th>
+                    <th>内容</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Must</td>
+                    <td>責務分離</td>
+                    <td>GitHub Pages は表示層、Supabase は認証・データ・ストレージ層として役割を明確に分離する。</td>
+                    <td>設定値は環境ごとに管理する。</td>
+                  </tr>
+                  <tr>
+                    <td>Must</td>
+                    <td>段階拡張</td>
+                    <td>現時点で不足する強権限処理や通知処理は、Edge Functions で追加可能な構成とする。</td>
+                    <td>初期から Spring Boot 必須にしない。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-1</td>
+                    <td>実装規約</td>
+                    <td>データ取得・保存・エラー表示の実装パターンを統一する。</td>
+                    <td>後続の Should/Could 実装を容易にする。</td>
+                  </tr>
+                  <tr>
+                    <td>Should-2</td>
+                    <td>運用手順書</td>
+                    <td>障害対応、pause復帰確認、CSV退避、権限運用の手順を別紙化する。</td>
+                    <td>低コスト運用時の安定性向上に有効。</td>
+                  </tr>
+                  <tr>
+                    <td>Good</td>
+                    <td>Spring Boot移行余地</td>
+                    <td>複雑な業務ロジックや外部連携が必要になった場合、Spring Boot / Java を API 層として追加可能なデータ構造とする。</td>
+                    <td>DBスキーマ互換を意識する。</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 

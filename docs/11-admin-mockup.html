@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理画面モックアップ - プロジェクトアーカイブ</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="doc-admin-mockup">
+  <button class="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="page-wrapper">
+    <aside class="sidebar" data-nav-level="docs"></aside>
+
+    <main class="main-content">
+      <header class="doc-header">
+        <div class="doc-category">DOCUMENT 11</div>
+        <h1 class="doc-title">管理画面モックアップ</h1>
+        <div class="doc-meta">
+          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-03-20</span>
+          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：Codex</span>
+          <span><span class="material-symbols-outlined icon-sm">push_pin</span> sec2 / sec3 ベース</span>
+        </div>
+      </header>
+
+      <div class="doc-body">
+
+        <div class="external-link-box">
+          <div class="external-link-box-title">
+            <span class="material-symbols-outlined">link</span>
+            参照ドキュメント
+          </div>
+          <div class="external-link-box-desc">
+            このモックアップは `07-specification.html` の機能一覧と画面遷移図を視覚化した補助資料です。
+          </div>
+          <div class="external-link-list">
+            <a href="./07-specification.html" target="_blank" rel="noopener">07 Specification</a>
+            <a href="./05-wireframe.html" target="_blank" rel="noopener">05 Wireframe</a>
+            <a href="./06-design-guide.html" target="_blank" rel="noopener">06 Design Guide</a>
+          </div>
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">目次</div>
+          <ol class="toc-list">
+            <li><a href="#sec1">モックの前提</a></li>
+            <li><a href="#sec2">全体導線</a></li>
+            <li><a href="#sec3">主要画面モック</a></li>
+            <li><a href="#sec4">補助系画面モック</a></li>
+          </ol>
+        </div>
+
+        <section class="section" id="sec1">
+          <h2 class="section-title"><span class="section-icon">1</span> モックの前提</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">位置づけ <span class="required">必須</span></div>
+            <div class="fill-hint">`05-wireframe` の汎用 CRUD 画面を、`07-specification` の業務画面へ具体化した試作です。</div>
+            <div class="fill-content">
+              <p>このページでは、「ログイン」「ダッシュボード」に加えて、`トップ編集 / 導線設定 / カード管理 / 商品管理 / 店舗管理 / 記事管理 / ユーザー管理 / 予約・問い合わせ管理 / アセット管理` の各画面を個別UIとして可視化しています。</p>
+              <p>実装前提を固めることが目的のため、見た目は本番デザインではなく、情報構造と操作導線の確認を優先したモックアップです。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="sec2">
+          <h2 class="section-title"><span class="section-icon">2</span> 全体導線</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">画面グルーピング <span class="required">必須</span></div>
+            <div class="fill-hint">どの画面がコンテンツ管理、業務管理、共通支援に属するかを整理しています。</div>
+            <div class="fill-content">
+              <div class="admin-quick-map">
+                <div class="admin-node"><strong>認証</strong><span>ログイン<br>ダッシュボード</span></div>
+                <div class="admin-node"><strong>体験導線</strong><span>トップ編集<br>導線設定</span></div>
+                <div class="admin-node"><strong>掲載素材</strong><span>カード管理<br>記事管理<br>アセット管理</span></div>
+                <div class="admin-node"><strong>商品・店舗</strong><span>商品管理<br>店舗管理</span></div>
+                <div class="admin-node"><strong>顧客対応</strong><span>ユーザー管理<br>予約・問い合わせ管理</span></div>
+              </div>
+              <div class="admin-flow-code">ログイン → ダッシュボード
+ダッシュボード → 各管理画面
+トップ編集 / カード管理 / 商品管理 / 記事管理 → アセット管理
+商品管理 ↔ 店舗管理
+店舗管理 ↔ 予約・問い合わせ管理
+予約・問い合わせ管理 ↔ ユーザー管理</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="sec3">
+          <h2 class="section-title"><span class="section-icon">3</span> 主要画面モック</h2>
+
+          <div class="admin-screen-grid">
+
+            <article class="admin-screen-card">
+              <h3>ログイン</h3>
+              <p>管理者・一般ユーザーの認証起点。パスワード再設定導線をここに集約します。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-001</span>
+                <span class="admin-tag">認証</span>
+                <span class="admin-tag">最初の入口</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">inim-dx</span>
+                    <span class="admin-brand__title">Admin Portal</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">ログイン</li>
+                    <li>パスワード再設定</li>
+                    <li>ヘルプ</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">ログイン</div>
+                    <div class="admin-topbar__meta">role check / session start</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-form">
+                      <div class="admin-form-grid">
+                        <div class="admin-field is-full">
+                          <label>メールアドレス</label>
+                          <div class="admin-input">admin@inim-dx.jp</div>
+                        </div>
+                        <div class="admin-field is-full">
+                          <label>パスワード</label>
+                          <div class="admin-input">••••••••••••</div>
+                        </div>
+                      </div>
+                      <div class="admin-form-actions">
+                        <div class="admin-button">ログイン</div>
+                        <div class="admin-button is-secondary">パスワード再設定</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>店舗管理者または運用担当者が、管理画面へ安全に入るために利用します。権限に応じた操作範囲を判定する起点です。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>メールアドレスとパスワードを入力して `ログイン` を押す。</li>
+                      <li>認証が成功するとダッシュボードへ遷移し、利用可能なメニューだけが表示される。</li>
+                      <li>認証に失敗した場合はエラーが表示され、不正ログインや入力ミスを早期に検知できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>ダッシュボード</h3>
+              <p>KPI、要対応タスク、最近の更新を集約し、各管理画面へ遷移するハブとして使います。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-001</span>
+                <span class="admin-tag">KPI確認</span>
+                <span class="admin-tag">ハブ画面</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">operation</span>
+                    <span class="admin-brand__title">Management Menu</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">ダッシュボード</li>
+                    <li>トップ編集</li>
+                    <li>導線設定</li>
+                    <li>商品管理</li>
+                    <li>記事管理</li>
+                    <li>予約・問い合わせ</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">ダッシュボード</div>
+                    <div class="admin-topbar__meta">更新 2026-03-20 10:30</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-metric-grid">
+                      <div class="admin-metric"><strong>予約数</strong><span>42</span></div>
+                      <div class="admin-metric"><strong>CTAクリック率</strong><span>6.8%</span></div>
+                      <div class="admin-metric"><strong>未対応問い合わせ</strong><span>5</span></div>
+                    </div>
+                    <div class="admin-panel-grid">
+                      <div class="admin-panel">
+                        <h4>本日の優先タスク</h4>
+                        <ul>
+                          <li>トップヒーロー差し替え確認</li>
+                          <li>予約ステータス更新 3件</li>
+                          <li>新着記事の公開予約</li>
+                        </ul>
+                      </div>
+                      <div class="admin-panel">
+                        <h4>主要導線ショートカット</h4>
+                        <ul>
+                          <li>トップ編集へ</li>
+                          <li>導線設定へ</li>
+                          <li>商品管理へ</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>管理者やWeb担当者が、今日対応すべき更新や数値を俯瞰し、次に触る管理画面を判断するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>KPIカードで予約数、CTAクリック率、未対応問い合わせ数を確認する。</li>
+                      <li>優先タスクを見て、`トップ編集` や `予約・問い合わせ管理` へ移動する。</li>
+                      <li>結果として、状況把握にかかる時間が減り、対応の優先順位を即決できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card is-wide">
+              <h3>トップ編集</h3>
+              <p>ヒーロー、訴求文言、CTA、公開状態を編集しながら右側でトップページの見え方を確認する画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-002</span>
+                <span class="admin-tag">ヒーロー管理</span>
+                <span class="admin-tag">プレビュー付き</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">content</span>
+                    <span class="admin-brand__title">Page Editing</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>ダッシュボード</li>
+                    <li class="is-active">トップ編集</li>
+                    <li>導線設定</li>
+                    <li>カード管理</li>
+                    <li>アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">トップ編集</div>
+                    <div class="admin-topbar__meta">下書き保存 / プレビュー / 公開</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-split">
+                      <div class="admin-form">
+                        <div class="admin-toolbar">
+                          <div class="admin-pill">ヒーロー</div>
+                          <div class="admin-pill">コピー</div>
+                          <div class="admin-pill">CTA</div>
+                          <div class="admin-button">保存</div>
+                        </div>
+                        <div class="admin-form-grid">
+                          <div class="admin-field">
+                            <label>見出し</label>
+                            <div class="admin-input">香りを、体験で選ぶ。</div>
+                          </div>
+                          <div class="admin-field">
+                            <label>ボタン文言</label>
+                            <div class="admin-input">ワークショップを見る</div>
+                          </div>
+                          <div class="admin-field is-full">
+                            <label>リード文</label>
+                            <div class="admin-textarea">初心者でも迷わず参加できる体験導線を、トップから最短距離で届ける。</div>
+                          </div>
+                          <div class="admin-field">
+                            <label>ヒーロー画像</label>
+                            <div class="admin-input">asset_hero_202603.jpg</div>
+                          </div>
+                          <div class="admin-field">
+                            <label>公開状態</label>
+                            <div class="admin-input">下書き</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="admin-preview">
+                        <div class="admin-preview__hero"></div>
+                        <div class="admin-preview__line"></div>
+                        <div class="admin-preview__line is-short"></div>
+                        <div class="admin-preview__cards">
+                          <div class="admin-preview__card"></div>
+                          <div class="admin-preview__card"></div>
+                          <div class="admin-preview__card"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>Web担当者や店舗責任者が、トップページの第一印象と主要CTAを改善し、ワークショップ導線を強めるために利用します。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>見出し、リード文、ボタン文言、ヒーロー画像を編集する。</li>
+                      <li>右側プレビューで見え方を確認し、問題がなければ `保存` して公開フローへ回す。</li>
+                      <li>結果として、トップから体験ページへの遷移率改善や訴求の一貫性向上が期待できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>導線設定</h3>
+              <p>体験導線のステップ、CTAリンク先、表示順を管理する画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-003</span>
+                <span class="admin-tag">CTA管理</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">flow</span>
+                    <span class="admin-brand__title">Journey Setting</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>ダッシュボード</li>
+                    <li>トップ編集</li>
+                    <li class="is-active">導線設定</li>
+                    <li>カード管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">導線設定</div>
+                    <div class="admin-topbar__meta">体験導線 / CTA / 並び順</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">ステップ</div>
+                        <div class="admin-table__cell">表示名</div>
+                        <div class="admin-table__cell">リンク先</div>
+                        <div class="admin-table__cell">状態</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">01</div>
+                        <div class="admin-table__cell">体験を知る</div>
+                        <div class="admin-table__cell">/workshop</div>
+                        <div class="admin-table__cell">公開</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">02</div>
+                        <div class="admin-table__cell">香りを選ぶ</div>
+                        <div class="admin-table__cell">/digital-blend</div>
+                        <div class="admin-table__cell">公開</div>
+                      </div>
+                    </div>
+                    <div class="admin-notes">右上に「保存」、行ごとに「順序変更」「無効化」を持つ想定です。</div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>Web担当者が、CTAの並び順やリンク先を調整し、利用者を迷わせず予約導線へ送るために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>各ステップの表示名、リンク先、公開状態を確認する。</li>
+                      <li>必要に応じて順序変更や無効化を行い、最後に `保存` する。</li>
+                      <li>結果として、導線の分岐や重複を整理でき、到達率とCTRの改善につながる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>カード管理</h3>
+              <p>トップや特集で使うカード群を一覧管理し、画像・文言・リンク先を編集します。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-004</span>
+                <span class="admin-tag">一覧 + 編集</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">content</span>
+                    <span class="admin-brand__title">Card Management</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>トップ編集</li>
+                    <li class="is-active">カード管理</li>
+                    <li>記事管理</li>
+                    <li>アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">カード管理</div>
+                    <div class="admin-topbar__meta">検索 / ソート / CRUD</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-toolbar">
+                      <div class="admin-pill">キーワード検索</div>
+                      <div class="admin-pill">並び順</div>
+                      <div class="admin-button">新規登録</div>
+                    </div>
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">カード名</div>
+                        <div class="admin-table__cell">表示位置</div>
+                        <div class="admin-table__cell">状態</div>
+                        <div class="admin-table__cell">操作</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">香りと遊ぶ！香游</div>
+                        <div class="admin-table__cell">TOP</div>
+                        <div class="admin-table__cell">公開</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">Workshop Pickup</div>
+                        <div class="admin-table__cell">特集</div>
+                        <div class="admin-table__cell">下書き</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>コンテンツ担当者が、トップや特集で使うカード情報を保守し、掲載内容を最新状態に保つために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>一覧から対象カードを検索し、`詳細` または `編集` を開く。</li>
+                      <li>タイトル、画像、リンク先、表示位置を調整し、必要なら新規登録する。</li>
+                      <li>結果として、特集訴求の差し替えが迅速になり、季節施策やキャンペーン反映が早くなる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>商品管理</h3>
+              <p>商品一覧、カテゴリ、公開状態、画像を管理する商品カタログ画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-005</span>
+                <span class="admin-tag">商品CRUD</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">catalog</span>
+                    <span class="admin-brand__title">Product Control</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">商品管理</li>
+                    <li>店舗管理</li>
+                    <li>アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">商品管理</div>
+                    <div class="admin-topbar__meta">新着 / カテゴリ / 画像</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-toolbar">
+                      <div class="admin-pill">カテゴリ</div>
+                      <div class="admin-pill">公開状態</div>
+                      <div class="admin-button">新規商品登録</div>
+                    </div>
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">商品名</div>
+                        <div class="admin-table__cell">カテゴリ</div>
+                        <div class="admin-table__cell">公開</div>
+                        <div class="admin-table__cell">操作</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">Aroma Oil Set</div>
+                        <div class="admin-table__cell">DIY</div>
+                        <div class="admin-table__cell">公開</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">Gift Selection</div>
+                        <div class="admin-table__cell">Gift</div>
+                        <div class="admin-table__cell">非公開</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>商品担当者が、販売商品や新着商品の公開状態を管理し、店舗・導線側と情報を揃えるために利用します。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>カテゴリや公開状態で絞り込み、対象商品を特定する。</li>
+                      <li>`詳細 / 編集` で商品情報や画像を更新し、必要に応じて新規登録する。</li>
+                      <li>結果として、商品情報の更新漏れが減り、店舗在庫や掲載導線との整合が取りやすくなる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>店舗管理</h3>
+              <p>店舗情報、開催スケジュール、対応商品、予約枠の確認を行う画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-006</span>
+                <span class="admin-tag">店舗 / 開催日</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">store</span>
+                    <span class="admin-brand__title">Store Schedule</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>商品管理</li>
+                    <li class="is-active">店舗管理</li>
+                    <li>予約・問い合わせ</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">店舗管理</div>
+                    <div class="admin-topbar__meta">開催日 / 在庫 / 店舗情報</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-panel-grid">
+                      <div class="admin-panel">
+                        <h4>店舗情報</h4>
+                        <ul>
+                          <li>表参道店 / 11:00-19:00</li>
+                          <li>渋谷店 / 12:00-20:00</li>
+                          <li>京都店 / 10:00-18:00</li>
+                        </ul>
+                      </div>
+                      <div class="admin-panel">
+                        <h4>今週の開催</h4>
+                        <ul>
+                          <li>3/22 調香Workshop 6席</li>
+                          <li>3/23 Aroma体験 4席</li>
+                          <li>3/24 貸切イベント 1件</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>店舗運営担当者が、店舗基本情報と開催スケジュールを整理し、予約対応や商品提供体制を整えるために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>対象店舗の営業時間、開催日、予約枠状況を確認する。</li>
+                      <li>開催日追加や店舗情報更新を行い、必要時は予約画面や商品画面と突き合わせる。</li>
+                      <li>結果として、現場の受け入れ可能数を正しく反映でき、ダブルブッキングや案内ミスを減らせる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="section" id="sec4">
+          <h2 class="section-title"><span class="section-icon">4</span> 補助系画面モック</h2>
+
+          <div class="admin-screen-grid">
+
+            <article class="admin-screen-card">
+              <h3>記事管理</h3>
+              <p>お知らせやジャーナルを管理する編集画面。公開予約とタグ整理を想定しています。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-007</span>
+                <span class="admin-tag">記事CRUD</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">journal</span>
+                    <span class="admin-brand__title">Article Desk</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">記事管理</li>
+                    <li>アセット管理</li>
+                    <li>ダッシュボード</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">記事管理</div>
+                    <div class="admin-topbar__meta">タグ / 公開予約 / アイキャッチ</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-form">
+                      <div class="admin-form-grid">
+                        <div class="admin-field is-full">
+                          <label>記事タイトル</label>
+                          <div class="admin-input">春のWorkshop予約開始のお知らせ</div>
+                        </div>
+                        <div class="admin-field">
+                          <label>タグ</label>
+                          <div class="admin-input">news, workshop</div>
+                        </div>
+                        <div class="admin-field">
+                          <label>公開日時</label>
+                          <div class="admin-input">2026-03-25 10:00</div>
+                        </div>
+                        <div class="admin-field is-full">
+                          <label>本文</label>
+                          <div class="admin-textarea">体験内容、予約方法、開催店舗の概要をここで編集する想定です。</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>広報担当者やWeb担当者が、お知らせやジャーナルを更新し、最新情報をタイミング良く配信するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>記事タイトル、タグ、公開日時、本文を入力または修正する。</li>
+                      <li>必要なアイキャッチを設定し、公開予約または即時公開を行う。</li>
+                      <li>結果として、告知作業が定型化され、キャンペーンや予約開始情報を漏れなく発信できる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>ユーザー管理</h3>
+              <p>会員の基本情報、ロール、利用停止、予約履歴の参照を行う画面です。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-008</span>
+                <span class="admin-tag">会員情報</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">member</span>
+                    <span class="admin-brand__title">User Directory</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li class="is-active">ユーザー管理</li>
+                    <li>予約・問い合わせ</li>
+                    <li>ダッシュボード</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">ユーザー管理</div>
+                    <div class="admin-topbar__meta">会員情報 / ロール / 停止</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-table">
+                      <div class="admin-table__row is-head">
+                        <div class="admin-table__cell">氏名</div>
+                        <div class="admin-table__cell">会員種別</div>
+                        <div class="admin-table__cell">状態</div>
+                        <div class="admin-table__cell">操作</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">山田 花子</div>
+                        <div class="admin-table__cell">一般</div>
+                        <div class="admin-table__cell">有効</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                      <div class="admin-table__row">
+                        <div class="admin-table__cell">鈴木 一郎</div>
+                        <div class="admin-table__cell">管理者</div>
+                        <div class="admin-table__cell">有効</div>
+                        <div class="admin-table__cell">詳細 / 編集</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>管理者や顧客対応担当者が、会員情報や権限状態を確認し、問い合わせ・予約対応と合わせて顧客把握を行うために利用します。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>一覧から対象ユーザーを探し、`詳細 / 編集` を開く。</li>
+                      <li>ロール変更、利用停止、予約履歴確認など必要な処理を行う。</li>
+                      <li>結果として、対応履歴の抜け漏れが減り、権限管理や問い合わせ対応の精度が上がる。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>予約・問い合わせ管理</h3>
+              <p>予約ステータス、問い合わせ対応状況、関連ユーザー・店舗への参照をまとめます。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-009</span>
+                <span class="admin-tag">顧客対応</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">support</span>
+                    <span class="admin-brand__title">Booking Inbox</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>ユーザー管理</li>
+                    <li class="is-active">予約・問い合わせ</li>
+                    <li>店舗管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">予約・問い合わせ管理</div>
+                    <div class="admin-topbar__meta">予約 / 問い合わせ / ステータス</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-panel">
+                      <h4>未対応案件</h4>
+                      <ul>
+                        <li>3/22 Workshop予約変更依頼</li>
+                        <li>アレルギー配慮に関する問い合わせ</li>
+                        <li>キャンセル返金確認依頼</li>
+                      </ul>
+                    </div>
+                    <div class="admin-notes">案件ごとに「詳細」「ステータス更新」「顧客情報を見る」「対象店舗を見る」を配置する想定です。</div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>顧客対応担当者や店舗責任者が、予約・問い合わせ案件を一元管理し、対応状況を更新するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>未対応案件を確認し、対象案件の `詳細` を開く。</li>
+                      <li>内容確認後に `ステータス更新` を行い、必要に応じて顧客情報や店舗情報を参照する。</li>
+                      <li>結果として、問い合わせ滞留の可視化と解消が進み、対応スピードと品質が安定する。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="admin-screen-card">
+              <h3>アセット管理</h3>
+              <p>画像・音源を一元管理し、各編集画面から選択して差し込むメディアライブラリです。</p>
+              <div class="admin-tag-row">
+                <span class="admin-tag">F-010</span>
+                <span class="admin-tag">メディア管理</span>
+              </div>
+              <div class="admin-shell">
+                <div class="admin-shell__nav">
+                  <div class="admin-brand">
+                    <span class="admin-brand__eyebrow">asset</span>
+                    <span class="admin-brand__title">Media Library</span>
+                  </div>
+                  <ul class="admin-nav-list">
+                    <li>トップ編集</li>
+                    <li>商品管理</li>
+                    <li>記事管理</li>
+                    <li class="is-active">アセット管理</li>
+                  </ul>
+                </div>
+                <div class="admin-shell__main">
+                  <div class="admin-topbar">
+                    <div class="admin-topbar__title">アセット管理</div>
+                    <div class="admin-topbar__meta">画像 / 音源 / alt / 選択</div>
+                  </div>
+                  <div class="admin-view">
+                    <div class="admin-toolbar">
+                      <div class="admin-pill">ファイル種別</div>
+                      <div class="admin-pill">タグ検索</div>
+                      <div class="admin-button">アップロード</div>
+                    </div>
+                    <div class="admin-panel-grid">
+                      <div class="admin-panel">
+                        <h4>asset_hero_202603.jpg</h4>
+                        <ul>
+                          <li>種別: image</li>
+                          <li>alt: 調香体験メインビジュアル</li>
+                          <li>使用先: トップ編集</li>
+                        </ul>
+                      </div>
+                      <div class="admin-panel">
+                        <h4>sound_intro_01.mp3</h4>
+                        <ul>
+                          <li>種別: audio</li>
+                          <li>用途: 体験ページ演出</li>
+                          <li>使用先: 未設定</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-usage">
+                <div class="admin-usage__grid">
+                  <div class="admin-usage__block">
+                    <strong>誰が / 何のために使うか</strong>
+                    <p>Web担当者、商品担当者、広報担当者が、画像や音源を共通管理し、各編集画面へ正しい素材を供給するために使います。</p>
+                  </div>
+                  <div class="admin-usage__block">
+                    <strong>操作手順と期待される効果</strong>
+                    <ol>
+                      <li>種別やタグで対象素材を絞り込み、必要なら新規アップロードする。</li>
+                      <li>alt テキストや用途を確認し、呼び出し元画面へ `選択` して戻る。</li>
+                      <li>結果として、素材の重複管理を防ぎ、各画面の更新作業を短時間で安全に行える。</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

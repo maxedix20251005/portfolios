@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="doc-db">
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
@@ -62,7 +62,136 @@
           <div class="fill-label">ER図 <span class="required">必須</span></div>
           <div class="fill-hint">テーブル間のリレーション図（テキストベースまたは画像で記載）</div>
           <div class="fill-content">
-            <p>（ER図を記載）</p>
+            <p>採用構成は `GitHub Pages + JavaScript + Supabase` を前提とするため、認証は Supabase Auth の `auth.users` を利用し、業務データはアプリ側テーブルで管理する。以下は Must 機能を中心に、将来拡張で参照される主要テーブルも含めた ER 図である。</p>
+
+            <div class="spec-summary">
+              <pre class="code">[auth.users] 1 ──── 1 [user_profiles]
+  id (PK)               id (PK)
+  email                 auth_user_id (FK, UNIQUE)
+  encrypted_password    display_name
+  last_sign_in_at       account_status
+                         last_login_at
+                         created_at / updated_at
+
+[roles] 1 ──── * [user_role_assignments] * ──── 1 [user_profiles]
+  id (PK)                id (PK)                    id (PK)
+  role_code              user_profile_id (FK)       auth_user_id (FK)
+  role_name              role_id (FK)               display_name
+  description            assigned_at                account_status
+
+[content_assets] 1 ──── * [top_hero_items]
+  id (PK)                 id (PK)
+  file_path               title
+  file_type               lead_text
+  alt_text                cta_label
+  bucket_name             cta_url
+  uploaded_by (FK)        asset_id (FK)
+  created_at / updated_at display_order
+                          is_active
+                          updated_by (FK)
+
+[user_profiles] 1 ──── * [top_hero_items]
+  id (PK)                 updated_by (FK)
+  display_name            ...
+
+[user_profiles] 1 ──── * [journey_steps]
+  id (PK)                 id (PK)
+  display_name            step_no
+                          step_name
+                          link_url
+                          helper_text
+                          is_visible
+                          updated_by (FK)
+                          created_at / updated_at
+
+[user_profiles] 1 ──── * [reservations] * ──── 1 [stores]
+  id (PK)                 id (PK)                   id (PK)
+  display_name            customer_profile_id (FK) store_name
+                          store_id (FK)            prefecture
+                          reservation_type         address
+                          reserved_at              is_active
+                          participant_count        created_at / updated_at
+                          status
+                          note
+                          created_at / updated_at
+
+[user_profiles] 1 ──── * [inquiries]
+  id (PK)                 id (PK)
+  display_name            customer_profile_id (FK)
+                          category
+                          subject
+                          body
+                          status
+                          assigned_to (FK)
+                          created_at / updated_at
+
+[reservations] 1 ──── * [reservation_status_logs]
+  id (PK)                   id (PK)
+  status                    reservation_id (FK)
+                            previous_status
+                            next_status
+                            changed_by (FK)
+                            change_note
+                            created_at
+
+[inquiries] 1 ──── * [inquiry_status_logs]
+  id (PK)                id (PK)
+  status                 inquiry_id (FK)
+                         previous_status
+                         next_status
+                         changed_by (FK)
+                         change_note
+                         created_at</pre>
+            </div>
+
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>リレーション</th>
+                  <th>種類</th>
+                  <th>意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>`auth.users` → `user_profiles`</td>
+                  <td>1対1</td>
+                  <td>Supabase Auth の認証主体に対して、アプリ側プロフィールを1件対応させる。</td>
+                </tr>
+                <tr>
+                  <td>`roles` ↔ `user_profiles`</td>
+                  <td>多対多</td>
+                  <td>`user_role_assignments` を介して、将来の複数権限付与に対応する。</td>
+                </tr>
+                <tr>
+                  <td>`content_assets` → `top_hero_items`</td>
+                  <td>1対多</td>
+                  <td>1つのアセットを複数のヒーロー/掲載要素から再利用できる。</td>
+                </tr>
+                <tr>
+                  <td>`user_profiles` → `top_hero_items` / `journey_steps`</td>
+                  <td>1対多</td>
+                  <td>誰が更新したかを保持し、運用履歴を追跡できる。</td>
+                </tr>
+                <tr>
+                  <td>`user_profiles` → `reservations` / `inquiries`</td>
+                  <td>1対多</td>
+                  <td>1人の顧客が複数の予約・問い合わせを持てる。</td>
+                </tr>
+                <tr>
+                  <td>`stores` → `reservations`</td>
+                  <td>1対多</td>
+                  <td>1店舗に複数予約が紐づく。店舗管理機能拡張時も整合する。</td>
+                </tr>
+                <tr>
+                  <td>`reservations` / `inquiries` → 各ステータス履歴</td>
+                  <td>1対多</td>
+                  <td>対応状況の変更履歴を監査目的で残す。</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="note">補足: `auth.users` は Supabase 管理テーブルであり、通常の業務カラム追加は `user_profiles` 側で行う。`stores` は現時点では Could 機能だが、予約ログの参照整合性を保つため ER 図に含めている。</p>
           </div>
           <div class="prompt-box">
             <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
