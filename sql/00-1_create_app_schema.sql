@@ -88,12 +88,12 @@ CREATE TABLE IF NOT EXISTS public.stores (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS public.reservations (
+CREATE TABLE IF NOT EXISTS public.bookings (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   customer_profile_id UUID NOT NULL REFERENCES public.user_profiles(id),
   store_id UUID NOT NULL REFERENCES public.stores(id),
-  reservation_type VARCHAR(40) NOT NULL DEFAULT 'workshop',
-  reserved_at TIMESTAMPTZ NOT NULL,
+  booking_type VARCHAR(40) NOT NULL DEFAULT 'workshop',
+  booked_at TIMESTAMPTZ NOT NULL,
   participant_count INTEGER NOT NULL DEFAULT 1 CHECK (participant_count >= 1),
   status VARCHAR(20) NOT NULL DEFAULT 'pending'
     CHECK (status IN ('pending', 'confirmed', 'in_progress', 'completed', 'cancelled')),
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS public.reservations (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS public.inquiries (
+CREATE TABLE IF NOT EXISTS public.enquiries (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   customer_profile_id UUID NULL REFERENCES public.user_profiles(id),
   category VARCHAR(40) NOT NULL DEFAULT 'general',
@@ -117,9 +117,9 @@ CREATE TABLE IF NOT EXISTS public.inquiries (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS public.reservation_status_logs (
+CREATE TABLE IF NOT EXISTS public.booking_status_logs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  reservation_id UUID NOT NULL REFERENCES public.reservations(id),
+  booking_id UUID NOT NULL REFERENCES public.bookings(id),
   previous_status VARCHAR(20) NULL,
   next_status VARCHAR(20) NOT NULL,
   changed_by UUID NULL REFERENCES public.user_profiles(id),
@@ -128,9 +128,9 @@ CREATE TABLE IF NOT EXISTS public.reservation_status_logs (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS public.inquiry_status_logs (
+CREATE TABLE IF NOT EXISTS public.enquiry_status_logs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  inquiry_id UUID NOT NULL REFERENCES public.inquiries(id),
+  enquiry_id UUID NOT NULL REFERENCES public.enquiries(id),
   previous_status VARCHAR(20) NULL,
   next_status VARCHAR(20) NOT NULL,
   changed_by UUID NULL REFERENCES public.user_profiles(id),
@@ -176,43 +176,43 @@ CREATE INDEX IF NOT EXISTS idx_stores_is_active
 CREATE INDEX IF NOT EXISTS idx_stores_store_name
   ON public.stores (store_name);
 
-CREATE INDEX IF NOT EXISTS idx_reservations_customer_profile_id
-  ON public.reservations (customer_profile_id);
+CREATE INDEX IF NOT EXISTS idx_bookings_customer_profile_id
+  ON public.bookings (customer_profile_id);
 
-CREATE INDEX IF NOT EXISTS idx_reservations_store_id
-  ON public.reservations (store_id);
+CREATE INDEX IF NOT EXISTS idx_bookings_store_id
+  ON public.bookings (store_id);
 
-CREATE INDEX IF NOT EXISTS idx_reservations_status_reserved_at
-  ON public.reservations (status, reserved_at);
+CREATE INDEX IF NOT EXISTS idx_bookings_status_booked_at
+  ON public.bookings (status, booked_at);
 
-CREATE INDEX IF NOT EXISTS idx_reservations_reserved_at
-  ON public.reservations (reserved_at);
+CREATE INDEX IF NOT EXISTS idx_bookings_booked_at
+  ON public.bookings (booked_at);
 
-CREATE INDEX IF NOT EXISTS idx_inquiries_customer_profile_id
-  ON public.inquiries (customer_profile_id);
+CREATE INDEX IF NOT EXISTS idx_enquiries_customer_profile_id
+  ON public.enquiries (customer_profile_id);
 
-CREATE INDEX IF NOT EXISTS idx_inquiries_assigned_to
-  ON public.inquiries (assigned_to);
+CREATE INDEX IF NOT EXISTS idx_enquiries_assigned_to
+  ON public.enquiries (assigned_to);
 
-CREATE INDEX IF NOT EXISTS idx_inquiries_status_created_at
-  ON public.inquiries (status, created_at);
+CREATE INDEX IF NOT EXISTS idx_enquiries_status_created_at
+  ON public.enquiries (status, created_at);
 
-CREATE INDEX IF NOT EXISTS idx_reservation_status_logs_reservation_id
-  ON public.reservation_status_logs (reservation_id);
+CREATE INDEX IF NOT EXISTS idx_booking_status_logs_booking_id
+  ON public.booking_status_logs (booking_id);
 
-CREATE INDEX IF NOT EXISTS idx_reservation_status_logs_changed_by
-  ON public.reservation_status_logs (changed_by);
+CREATE INDEX IF NOT EXISTS idx_booking_status_logs_changed_by
+  ON public.booking_status_logs (changed_by);
 
-CREATE INDEX IF NOT EXISTS idx_reservation_status_logs_created_at
-  ON public.reservation_status_logs (created_at);
+CREATE INDEX IF NOT EXISTS idx_booking_status_logs_created_at
+  ON public.booking_status_logs (created_at);
 
-CREATE INDEX IF NOT EXISTS idx_inquiry_status_logs_inquiry_id
-  ON public.inquiry_status_logs (inquiry_id);
+CREATE INDEX IF NOT EXISTS idx_enquiry_status_logs_enquiry_id
+  ON public.enquiry_status_logs (enquiry_id);
 
-CREATE INDEX IF NOT EXISTS idx_inquiry_status_logs_changed_by
-  ON public.inquiry_status_logs (changed_by);
+CREATE INDEX IF NOT EXISTS idx_enquiry_status_logs_changed_by
+  ON public.enquiry_status_logs (changed_by);
 
-CREATE INDEX IF NOT EXISTS idx_inquiry_status_logs_created_at
-  ON public.inquiry_status_logs (created_at);
+CREATE INDEX IF NOT EXISTS idx_enquiry_status_logs_created_at
+  ON public.enquiry_status_logs (created_at);
 
 COMMIT;

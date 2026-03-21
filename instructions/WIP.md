@@ -73,4 +73,4 @@
 ## 再開時の一言メモ
 - 次は SQL ではなく管理画面実装に進む
 - 既存モック `docs/11-admin-mockup.html` を UI 参考にする
-- DB 実体は `top_hero_items` / `journey_steps` / `reservations` / `inquiries` を使う
+- DB 実体は `top_hero_items` / `journey_steps` / `bookings` / `enquiries` を使う

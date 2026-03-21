@@ -42,10 +42,10 @@
   - `top_hero_items`
   - `journey_steps`
   - `stores`
-  - `reservations`
-  - `inquiries`
-  - `reservation_status_logs`
-  - `inquiry_status_logs`
+  - `bookings`
+  - `enquiries`
+  - `booking_status_logs`
+  - `enquiry_status_logs`
 - 主要インデックスも同ファイルで作成済み。
 
 ### 2. 管理者昇格
@@ -70,10 +70,10 @@
   - `content_assets`
   - `top_hero_items`
   - `journey_steps`
-  - `reservations`
-  - `inquiries`
-  - `reservation_status_logs`
-  - `inquiry_status_logs`
+  - `bookings`
+  - `enquiries`
+  - `booking_status_logs`
+  - `enquiry_status_logs`
 - サンプルユーザー未存在時でも落ちないように、親データ存在チェックを入れて修正済み。
 
 ### 5. seed 検証
@@ -86,10 +86,10 @@
   - `content_assets = 5`
   - `top_hero_items = 3`
   - `journey_steps = 5`
-  - `reservations = 5`
-  - `inquiries = 5`
-  - `reservation_status_logs = 4`
-  - `inquiry_status_logs = 3`
+  - `bookings = 5`
+  - `enquiries = 5`
+  - `booking_status_logs = 4`
+  - `enquiry_status_logs = 3`
 - この件数は期待どおりで、DB 初期化は完了と判断してよい。
 
 ### 6. RLS / 権限制御
@@ -104,8 +104,8 @@
   - `top_hero_items_public_read`
   - `journey_steps_public_read`
   - `stores_public_read`
-  - `reservations_select_own_or_management`
-  - `inquiries_insert_anon_or_own`
+  - `bookings_select_own_or_management`
+  - `enquiries_insert_anon_or_own`
   - `user_profiles_select_own_or_admin`
 
 ## 運用方針として確定していること

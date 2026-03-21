@@ -9,9 +9,9 @@
 -- - Management roles are controlled by public.roles / public.user_role_assignments.
 -- - admin: full management access
 -- - editor: content editing access
--- - operator: reservation/inquiry operations access
--- - customer/authenticated user: own reservations / own inquiries only
--- - anonymous user: inquiry insert only (customer_profile_id must be NULL)
+-- - operator: booking/enquiry operations access
+-- - customer/authenticated user: own bookings / own enquiries only
+-- - anonymous user: enquiry insert only (customer_profile_id must be NULL)
 
 BEGIN;
 
@@ -86,10 +86,10 @@ ALTER TABLE public.content_assets ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.top_hero_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.journey_steps ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.stores ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.reservations ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.inquiries ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.reservation_status_logs ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.inquiry_status_logs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.bookings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.enquiries ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.booking_status_logs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.enquiry_status_logs ENABLE ROW LEVEL SECURITY;
 
 -- =========================================================
 -- 3) Drop old policies if rerun
@@ -119,19 +119,19 @@ DROP POLICY IF EXISTS stores_public_read ON public.stores;
 DROP POLICY IF EXISTS stores_select_management ON public.stores;
 DROP POLICY IF EXISTS stores_write_admin_operator ON public.stores;
 
-DROP POLICY IF EXISTS reservations_select_own_or_management ON public.reservations;
-DROP POLICY IF EXISTS reservations_insert_own_or_management ON public.reservations;
-DROP POLICY IF EXISTS reservations_update_own_or_management ON public.reservations;
+DROP POLICY IF EXISTS bookings_select_own_or_management ON public.bookings;
+DROP POLICY IF EXISTS bookings_insert_own_or_management ON public.bookings;
+DROP POLICY IF EXISTS bookings_update_own_or_management ON public.bookings;
 
-DROP POLICY IF EXISTS inquiries_select_own_or_management ON public.inquiries;
-DROP POLICY IF EXISTS inquiries_insert_anon_or_own ON public.inquiries;
-DROP POLICY IF EXISTS inquiries_update_management ON public.inquiries;
+DROP POLICY IF EXISTS enquiries_select_own_or_management ON public.enquiries;
+DROP POLICY IF EXISTS enquiries_insert_anon_or_own ON public.enquiries;
+DROP POLICY IF EXISTS enquiries_update_management ON public.enquiries;
 
-DROP POLICY IF EXISTS reservation_status_logs_select_management ON public.reservation_status_logs;
-DROP POLICY IF EXISTS reservation_status_logs_insert_management ON public.reservation_status_logs;
+DROP POLICY IF EXISTS booking_status_logs_select_management ON public.booking_status_logs;
+DROP POLICY IF EXISTS booking_status_logs_insert_management ON public.booking_status_logs;
 
-DROP POLICY IF EXISTS inquiry_status_logs_select_management ON public.inquiry_status_logs;
-DROP POLICY IF EXISTS inquiry_status_logs_insert_management ON public.inquiry_status_logs;
+DROP POLICY IF EXISTS enquiry_status_logs_select_management ON public.enquiry_status_logs;
+DROP POLICY IF EXISTS enquiry_status_logs_insert_management ON public.enquiry_status_logs;
 
 -- =========================================================
 -- 4) Policies
@@ -262,9 +262,9 @@ TO authenticated
 USING (public.has_any_role(ARRAY['admin', 'operator']))
 WITH CHECK (public.has_any_role(ARRAY['admin', 'operator']));
 
--- reservations
-CREATE POLICY reservations_select_own_or_management
-ON public.reservations
+-- bookings
+CREATE POLICY bookings_select_own_or_management
+ON public.bookings
 FOR SELECT
 TO authenticated
 USING (
@@ -272,8 +272,8 @@ USING (
   OR public.has_any_role(ARRAY['admin', 'operator'])
 );
 
-CREATE POLICY reservations_insert_own_or_management
-ON public.reservations
+CREATE POLICY bookings_insert_own_or_management
+ON public.bookings
 FOR INSERT
 TO authenticated
 WITH CHECK (
@@ -281,8 +281,8 @@ WITH CHECK (
   OR public.has_any_role(ARRAY['admin', 'operator'])
 );
 
-CREATE POLICY reservations_update_own_or_management
-ON public.reservations
+CREATE POLICY bookings_update_own_or_management
+ON public.bookings
 FOR UPDATE
 TO authenticated
 USING (
@@ -294,9 +294,9 @@ WITH CHECK (
   OR public.has_any_role(ARRAY['admin', 'operator'])
 );
 
--- inquiries
-CREATE POLICY inquiries_select_own_or_management
-ON public.inquiries
+-- enquiries
+CREATE POLICY enquiries_select_own_or_management
+ON public.enquiries
 FOR SELECT
 TO authenticated
 USING (
@@ -304,8 +304,8 @@ USING (
   OR public.has_any_role(ARRAY['admin', 'operator'])
 );
 
-CREATE POLICY inquiries_insert_anon_or_own
-ON public.inquiries
+CREATE POLICY enquiries_insert_anon_or_own
+ON public.enquiries
 FOR INSERT
 TO anon, authenticated
 WITH CHECK (
@@ -324,35 +324,35 @@ WITH CHECK (
   )
 );
 
-CREATE POLICY inquiries_update_management
-ON public.inquiries
+CREATE POLICY enquiries_update_management
+ON public.enquiries
 FOR UPDATE
 TO authenticated
 USING (public.has_any_role(ARRAY['admin', 'operator']))
 WITH CHECK (public.has_any_role(ARRAY['admin', 'operator']));
 
--- reservation_status_logs
-CREATE POLICY reservation_status_logs_select_management
-ON public.reservation_status_logs
+-- booking_status_logs
+CREATE POLICY booking_status_logs_select_management
+ON public.booking_status_logs
 FOR SELECT
 TO authenticated
 USING (public.has_any_role(ARRAY['admin', 'operator']));
 
-CREATE POLICY reservation_status_logs_insert_management
-ON public.reservation_status_logs
+CREATE POLICY booking_status_logs_insert_management
+ON public.booking_status_logs
 FOR INSERT
 TO authenticated
 WITH CHECK (public.has_any_role(ARRAY['admin', 'operator']));
 
--- inquiry_status_logs
-CREATE POLICY inquiry_status_logs_select_management
-ON public.inquiry_status_logs
+-- enquiry_status_logs
+CREATE POLICY enquiry_status_logs_select_management
+ON public.enquiry_status_logs
 FOR SELECT
 TO authenticated
 USING (public.has_any_role(ARRAY['admin', 'operator']));
 
-CREATE POLICY inquiry_status_logs_insert_management
-ON public.inquiry_status_logs
+CREATE POLICY enquiry_status_logs_insert_management
+ON public.enquiry_status_logs
 FOR INSERT
 TO authenticated
 WITH CHECK (public.has_any_role(ARRAY['admin', 'operator']));

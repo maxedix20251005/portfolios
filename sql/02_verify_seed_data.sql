@@ -21,13 +21,13 @@ select 'top_hero_items', count(*) from public.top_hero_items
 union all
 select 'journey_steps', count(*) from public.journey_steps
 union all
-select 'reservations', count(*) from public.reservations
+select 'bookings', count(*) from public.bookings
 union all
-select 'inquiries', count(*) from public.inquiries
+select 'enquiries', count(*) from public.enquiries
 union all
-select 'reservation_status_logs', count(*) from public.reservation_status_logs
+select 'booking_status_logs', count(*) from public.booking_status_logs
 union all
-select 'inquiry_status_logs', count(*) from public.inquiry_status_logs;
+select 'enquiry_status_logs', count(*) from public.enquiry_status_logs;
 
 -- ---------------------------------------------------------
 -- B. admin role assignment check
@@ -76,15 +76,15 @@ select
   r.id,
   up.display_name as customer_name,
   s.store_name,
-  r.reservation_type,
+  r.booking_type,
   r.status,
-  r.reserved_at
-from public.reservations r
+  r.booked_at
+from public.bookings r
 join public.user_profiles up
   on up.id = r.customer_profile_id
 join public.stores s
   on s.id = r.store_id
-order by r.reserved_at;
+order by r.booked_at;
 
 select
   i.id,
@@ -93,7 +93,7 @@ select
   i.subject,
   i.status,
   i.created_at
-from public.inquiries i
+from public.enquiries i
 left join public.user_profiles up
   on up.id = i.customer_profile_id
 order by i.created_at desc;
@@ -101,7 +101,7 @@ order by i.created_at desc;
 -- ---------------------------------------------------------
 -- E. interpretation notes
 -- ---------------------------------------------------------
--- reservations = 0 is acceptable when sample auth users do not exist.
--- inquiries may be > 0 even without sample auth users because anonymous records are included.
--- reservation_status_logs depends on reservations.
--- inquiry_status_logs depends on both inquiries and available changed_by users.
+-- bookings = 0 is acceptable when sample auth users do not exist.
+-- enquiries may be > 0 even without sample auth users because anonymous records are included.
+-- booking_status_logs depends on bookings.
+-- enquiry_status_logs depends on both enquiries and available changed_by users.

@@ -90,10 +90,10 @@ RLS 適用用 SQL は次です。
 - `top_hero_items`
 - `journey_steps`
 - `stores`
-- `reservations`
-- `inquiries`
-- `reservation_status_logs`
-- `inquiry_status_logs`
+- `bookings`
+- `enquiries`
+- `booking_status_logs`
+- `enquiry_status_logs`
 
 ### 3. ポリシーを付ける
 
@@ -113,10 +113,10 @@ RLS 適用用 SQL は次です。
 | `top_hero_items` | 公開分読取 | 公開分読取 | 全件読取・更新 | 全件読取 | 全件読取・更新 |
 | `journey_steps` | 公開分読取 | 公開分読取 | 全件読取・更新 | 全件読取 | 全件読取・更新 |
 | `stores` | 公開分読取 | 公開分読取 | 全件読取 | 全件読取・更新 | 全件読取・更新 |
-| `reservations` | 不可 | 自分のみ | 不可 | 全件読取・更新 | 全件読取・更新 |
-| `inquiries` | 登録のみ | 自分のみ読取・登録 | 不可 | 全件読取・更新 | 全件読取・更新 |
-| `reservation_status_logs` | 不可 | 不可 | 不可 | 読取・登録 | 読取・登録 |
-| `inquiry_status_logs` | 不可 | 不可 | 不可 | 読取・登録 | 読取・登録 |
+| `bookings` | 不可 | 自分のみ | 不可 | 全件読取・更新 | 全件読取・更新 |
+| `enquiries` | 登録のみ | 自分のみ読取・登録 | 不可 | 全件読取・更新 | 全件読取・更新 |
+| `booking_status_logs` | 不可 | 不可 | 不可 | 読取・登録 | 読取・登録 |
+| `enquiry_status_logs` | 不可 | 不可 | 不可 | 読取・登録 | 読取・登録 |
 | `user_profiles` | 不可 | 自分のみ読取 | 自分のみ読取 | 自分のみ読取 | 全件読取・更新 |
 | `roles` / `user_role_assignments` | 不可 | 不可 | 読取 | 読取 | 読取・更新 |
 
@@ -130,14 +130,14 @@ RLS 適用用 SQL は次です。
 ### 2. 一般ユーザーでログイン
 
 - `top_hero_items` の公開分は読める
-- `reservations` は自分のものだけ見える
-- 他人の `reservations` は見えない
+- `bookings` は自分のものだけ見える
+- 他人の `bookings` は見えない
 
 ### 3. 未ログイン状態
 
 - `top_hero_items` / `journey_steps` / `stores` は公開分のみ読める
-- `inquiries` の `INSERT` はできる
-- `reservations` は読めない
+- `enquiries` の `INSERT` はできる
+- `bookings` は読めない
 
 ## 注意点
 
@@ -163,4 +163,4 @@ RLS 適用後は、管理画面の HTML / JS 実装で次を行います。
 1. Supabase Auth でログイン
 2. ログイン後に `user_profiles` とロールを取得
 3. ロールごとにメニュー表示を切り替える
-4. `top_hero_items` / `journey_steps` / `reservations` / `inquiries` を API 経由で操作する
+4. `top_hero_items` / `journey_steps` / `bookings` / `enquiries` を API 経由で操作する

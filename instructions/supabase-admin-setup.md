@@ -62,7 +62,7 @@
   - 管理者、編集者、受付担当、会員ユーザー、将来の Workshop 参加者を含む
 - `public.roles` / `public.user_role_assignments`
   - そのユーザーがアプリ内で何をできるかを決める
-- `public.inquiries.customer_profile_id`
+- `public.enquiries.customer_profile_id`
   - `NULL` を許容しているため、問い合わせだけの外部ユーザーは未ログインのまま扱える
 
 つまり、**認証の母集団は `auth.users` に集約し、権限の棲み分けはアプリ側ロールで行う**、という理解で問題ありません。  

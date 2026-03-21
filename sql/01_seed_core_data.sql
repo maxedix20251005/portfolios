@@ -440,7 +440,7 @@ DO UPDATE SET
   updated_at = CURRENT_TIMESTAMP;
 
 -- =========================================================
--- 7) reservations / inquiries / logs
+-- 7) bookings / enquiries / logs
 --    Runs only when sample users exist.
 -- =========================================================
 WITH sample_profiles AS (
@@ -455,12 +455,12 @@ member01 AS (
 member02 AS (
   SELECT id FROM sample_profiles WHERE email = 'member02@inim-dx.example' LIMIT 1
 )
-INSERT INTO public.reservations (
+INSERT INTO public.bookings (
   id,
   customer_profile_id,
   store_id,
-  reservation_type,
-  reserved_at,
+  booking_type,
+  booked_at,
   participant_count,
   status,
   note,
@@ -473,8 +473,8 @@ FROM (
     'aaaa0001-0000-4000-8000-000000000001'::uuid AS id,
     (SELECT id FROM member01) AS customer_profile_id,
     '66666661-6666-4666-8666-666666666661'::uuid AS store_id,
-    'workshop'::varchar(40) AS reservation_type,
-    '2026-04-05 11:00:00+09'::timestamptz AS reserved_at,
+    'workshop'::varchar(40) AS booking_type,
+    '2026-04-05 11:00:00+09'::timestamptz AS booked_at,
     2::integer AS participant_count,
     'confirmed'::varchar(20) AS status,
     '初回来店のため香り診断を希望'::text AS note,
@@ -534,8 +534,8 @@ ON CONFLICT (id)
 DO UPDATE SET
   customer_profile_id = EXCLUDED.customer_profile_id,
   store_id = EXCLUDED.store_id,
-  reservation_type = EXCLUDED.reservation_type,
-  reserved_at = EXCLUDED.reserved_at,
+  booking_type = EXCLUDED.booking_type,
+  booked_at = EXCLUDED.booked_at,
   participant_count = EXCLUDED.participant_count,
   status = EXCLUDED.status,
   note = EXCLUDED.note,
@@ -564,7 +564,7 @@ member01 AS (
   WHERE au.email = 'member01@inim-dx.example'
   LIMIT 1
 )
-INSERT INTO public.inquiries (
+INSERT INTO public.enquiries (
   id,
   customer_profile_id,
   category,
@@ -658,9 +658,9 @@ operator_profile AS (
   WHERE au.email = 'member02@inim-dx.example'
   LIMIT 1
 ),
-existing_reservations AS (
+existing_bookings AS (
   SELECT id
-  FROM public.reservations
+  FROM public.bookings
   WHERE id IN (
     'aaaa0001-0000-4000-8000-000000000001'::uuid,
     'aaaa0003-0000-4000-8000-000000000003'::uuid,
@@ -668,9 +668,9 @@ existing_reservations AS (
     'aaaa0005-0000-4000-8000-000000000005'::uuid
   )
 )
-INSERT INTO public.reservation_status_logs (
+INSERT INTO public.booking_status_logs (
   id,
-  reservation_id,
+  booking_id,
   previous_status,
   next_status,
   changed_by,
@@ -680,7 +680,7 @@ INSERT INTO public.reservation_status_logs (
 )
 SELECT
   s.id,
-  s.reservation_id,
+  s.booking_id,
   s.previous_status,
   s.next_status,
   s.changed_by,
@@ -690,7 +690,7 @@ SELECT
 FROM (
   SELECT
     'cccc0001-0000-4000-8000-000000000001'::uuid AS id,
-    'aaaa0001-0000-4000-8000-000000000001'::uuid AS reservation_id,
+    'aaaa0001-0000-4000-8000-000000000001'::uuid AS booking_id,
     'pending'::varchar(20) AS previous_status,
     'confirmed'::varchar(20) AS next_status,
     (SELECT id FROM operator_profile) AS changed_by,
@@ -728,11 +728,11 @@ FROM (
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP
 ) s
-JOIN existing_reservations er ON er.id = s.reservation_id
+JOIN existing_bookings er ON er.id = s.booking_id
 WHERE s.changed_by IS NOT NULL
 ON CONFLICT (id)
 DO UPDATE SET
-  reservation_id = EXCLUDED.reservation_id,
+  booking_id = EXCLUDED.booking_id,
   previous_status = EXCLUDED.previous_status,
   next_status = EXCLUDED.next_status,
   changed_by = EXCLUDED.changed_by,
@@ -755,18 +755,18 @@ operator_profile AS (
   WHERE au.email = 'member02@inim-dx.example'
   LIMIT 1
 ),
-existing_inquiries AS (
+existing_enquiries AS (
   SELECT id
-  FROM public.inquiries
+  FROM public.enquiries
   WHERE id IN (
     'bbbb0001-0000-4000-8000-000000000001'::uuid,
     'bbbb0003-0000-4000-8000-000000000003'::uuid,
     'bbbb0005-0000-4000-8000-000000000005'::uuid
   )
 )
-INSERT INTO public.inquiry_status_logs (
+INSERT INTO public.enquiry_status_logs (
   id,
-  inquiry_id,
+  enquiry_id,
   previous_status,
   next_status,
   changed_by,
@@ -776,7 +776,7 @@ INSERT INTO public.inquiry_status_logs (
 )
 SELECT
   s.id,
-  s.inquiry_id,
+  s.enquiry_id,
   s.previous_status,
   s.next_status,
   s.changed_by,
@@ -786,7 +786,7 @@ SELECT
 FROM (
   SELECT
     'dddd0001-0000-4000-8000-000000000001'::uuid AS id,
-    'bbbb0001-0000-4000-8000-000000000001'::uuid AS inquiry_id,
+    'bbbb0001-0000-4000-8000-000000000001'::uuid AS enquiry_id,
     'pending'::varchar(20) AS previous_status,
     'completed'::varchar(20) AS next_status,
     (SELECT id FROM operator_profile) AS changed_by,
@@ -814,11 +814,11 @@ FROM (
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP
 ) s
-JOIN existing_inquiries ei ON ei.id = s.inquiry_id
+JOIN existing_enquiries ei ON ei.id = s.enquiry_id
 WHERE s.changed_by IS NOT NULL
 ON CONFLICT (id)
 DO UPDATE SET
-  inquiry_id = EXCLUDED.inquiry_id,
+  enquiry_id = EXCLUDED.enquiry_id,
   previous_status = EXCLUDED.previous_status,
   next_status = EXCLUDED.next_status,
   changed_by = EXCLUDED.changed_by,

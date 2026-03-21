@@ -62,10 +62,10 @@
 - `content_assets = 5`
 - `top_hero_items = 3`
 - `journey_steps = 5`
-- `reservations = 5`
-- `inquiries = 5`
-- `reservation_status_logs = 4`
-- `inquiry_status_logs = 3`
+- `bookings = 5`
+- `enquiries = 5`
+- `booking_status_logs = 4`
+- `enquiry_status_logs = 3`
 
 ### 6. RLS 状態
 
@@ -74,8 +74,8 @@
   - `top_hero_items_public_read`
   - `journey_steps_public_read`
   - `stores_public_read`
-  - `reservations_select_own_or_management`
-  - `inquiries_insert_anon_or_own`
+  - `bookings_select_own_or_management`
+  - `enquiries_insert_anon_or_own`
   - `user_profiles_select_own_or_admin`
 
 ## ユーザー / 権限の考え方
@@ -104,7 +104,7 @@
 4. ロール別メニュー表示
 5. `top_hero_items` CRUD
 6. `journey_steps` CRUD
-7. `reservations` / `inquiries` 一覧と更新
+7. `bookings` / `enquiries` 一覧と更新
 
 ### 最初の実装対象
 

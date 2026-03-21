@@ -109,18 +109,18 @@
                           updated_by (FK)
                           created_at / updated_at
 
-[user_profiles] 1 ──── * [bookings] * ──── 1 [stores]
+[user_profiles] 1 ──── * [reservations] * ──── 1 [stores]
   id (PK)                 id (PK)                   id (PK)
   display_name            customer_profile_id (FK) store_name
                           store_id (FK)            prefecture
-                          booking_type             address
-                          booked_at                is_active
+                          reservation_type         address
+                          reserved_at              is_active
                           participant_count        created_at / updated_at
                           status
                           note
                           created_at / updated_at
 
-[user_profiles] 1 ──── * [enquiries]
+[user_profiles] 1 ──── * [inquiries]
   id (PK)                 id (PK)
   display_name            customer_profile_id (FK)
                           category
@@ -130,18 +130,18 @@
                           assigned_to (FK)
                           created_at / updated_at
 
-[bookings] 1 ──── * [booking_status_logs]
+[reservations] 1 ──── * [reservation_status_logs]
   id (PK)                   id (PK)
-  status                    booking_id (FK)
+  status                    reservation_id (FK)
                             previous_status
                             next_status
                             changed_by (FK)
                             change_note
                             created_at
 
-[enquiries] 1 ──── * [enquiry_status_logs]
+[inquiries] 1 ──── * [inquiry_status_logs]
   id (PK)                id (PK)
-  status                 enquiry_id (FK)
+  status                 inquiry_id (FK)
                          previous_status
                          next_status
                          changed_by (FK)
@@ -179,17 +179,17 @@
                     <td>誰が更新したかを保持し、運用履歴を追跡できる。</td>
                   </tr>
                   <tr>
-                    <td>`user_profiles` → `bookings` / `enquiries`</td>
+                    <td>`user_profiles` → `reservations` / `inquiries`</td>
                     <td>1対多</td>
                     <td>1人の顧客が複数の予約・問い合わせを持てる。</td>
                   </tr>
                   <tr>
-                    <td>`stores` → `bookings`</td>
+                    <td>`stores` → `reservations`</td>
                     <td>1対多</td>
                     <td>1店舗に複数予約が紐づく。店舗管理機能拡張時も整合する。</td>
                   </tr>
                   <tr>
-                    <td>`bookings` / `enquiries` → 各ステータス履歴</td>
+                    <td>`reservations` / `inquiries` → 各ステータス履歴</td>
                     <td>1対多</td>
                     <td>対応状況の変更履歴を監査目的で残す。</td>
                   </tr>
@@ -901,7 +901,7 @@
           </div>
 
           <div class="fill-block">
-            <div class="fill-label">テーブル名：bookings <span class="required">必須</span></div>
+            <div class="fill-label">テーブル名：reservations <span class="required">必須</span></div>
             <div class="fill-hint">テーブルの目的：ワークショップ予約情報を保持する</div>
             <table class="doc-table">
               <thead>
@@ -940,7 +940,7 @@
                   <td>対象店舗</td>
                 </tr>
                 <tr>
-                  <td>booking_type</td>
+                  <td>reservation_type</td>
                   <td>VARCHAR(40)</td>
                   <td>NO</td>
                   <td>'workshop'</td>
@@ -948,7 +948,7 @@
                   <td>予約種別</td>
                 </tr>
                 <tr>
-                  <td>booked_at</td>
+                  <td>reserved_at</td>
                   <td>TIMESTAMPTZ</td>
                   <td>NO</td>
                   <td>—</td>
@@ -1008,7 +1008,7 @@
           </div>
 
           <div class="fill-block">
-            <div class="fill-label">テーブル名：enquiries <span class="required">必須</span></div>
+            <div class="fill-label">テーブル名：inquiries <span class="required">必須</span></div>
             <div class="fill-hint">テーブルの目的：問い合わせ内容と対応状況を保持する</div>
             <table class="doc-table">
               <thead>
@@ -1107,7 +1107,7 @@
           </div>
 
           <div class="fill-block">
-            <div class="fill-label">テーブル名：booking_status_logs <span class="required">必須</span></div>
+            <div class="fill-label">テーブル名：reservation_status_logs <span class="required">必須</span></div>
             <div class="fill-hint">テーブルの目的：予約ステータス変更履歴を監査用に保持する</div>
             <table class="doc-table">
               <thead>
@@ -1130,11 +1130,11 @@
                   <td>主キー</td>
                 </tr>
                 <tr>
-                  <td>booking_id</td>
+                  <td>reservation_id</td>
                   <td>UUID</td>
                   <td>NO</td>
                   <td>—</td>
-                  <td>FK → bookings.id, NOT NULL</td>
+                  <td>FK → reservations.id, NOT NULL</td>
                   <td>対象予約</td>
                 </tr>
                 <tr>
@@ -1190,7 +1190,7 @@
           </div>
 
           <div class="fill-block">
-            <div class="fill-label">テーブル名：enquiry_status_logs <span class="required">必須</span></div>
+            <div class="fill-label">テーブル名：inquiry_status_logs <span class="required">必須</span></div>
             <div class="fill-hint">テーブルの目的：問い合わせステータス変更履歴を監査用に保持する</div>
             <table class="doc-table">
               <thead>
@@ -1213,11 +1213,11 @@
                   <td>主キー</td>
                 </tr>
                 <tr>
-                  <td>enquiry_id</td>
+                  <td>inquiry_id</td>
                   <td>UUID</td>
                   <td>NO</td>
                   <td>—</td>
-                  <td>FK → enquiries.id, NOT NULL</td>
+                  <td>FK → inquiries.id, NOT NULL</td>
                   <td>対象問い合わせ</td>
                 </tr>
                 <tr>
@@ -1416,92 +1416,92 @@
                   <td>店舗名検索に使用するため</td>
                 </tr>
                 <tr>
-                  <td>bookings</td>
-                  <td>idx_bookings_customer_profile_id</td>
+                  <td>reservations</td>
+                  <td>idx_reservations_customer_profile_id</td>
                   <td>customer_profile_id</td>
                   <td>INDEX</td>
                   <td>ユーザー別予約履歴の取得に使用するため</td>
                 </tr>
                 <tr>
-                  <td>bookings</td>
-                  <td>idx_bookings_store_id</td>
+                  <td>reservations</td>
+                  <td>idx_reservations_store_id</td>
                   <td>store_id</td>
                   <td>INDEX</td>
                   <td>店舗別予約一覧の取得に使用するため</td>
                 </tr>
                 <tr>
-                  <td>bookings</td>
-                  <td>idx_bookings_status_booked_at</td>
-                  <td>status, booked_at</td>
+                  <td>reservations</td>
+                  <td>idx_reservations_status_reserved_at</td>
+                  <td>status, reserved_at</td>
                   <td>INDEX</td>
                   <td>未対応案件の絞り込みと日時順ソートに使用するため</td>
                 </tr>
                 <tr>
-                  <td>bookings</td>
-                  <td>idx_bookings_booked_at</td>
-                  <td>booked_at</td>
+                  <td>reservations</td>
+                  <td>idx_reservations_reserved_at</td>
+                  <td>reserved_at</td>
                   <td>INDEX</td>
                   <td>予約日時での並び替えに使用するため</td>
                 </tr>
                 <tr>
-                  <td>enquiries</td>
-                  <td>idx_enquiries_customer_profile_id</td>
+                  <td>inquiries</td>
+                  <td>idx_inquiries_customer_profile_id</td>
                   <td>customer_profile_id</td>
                   <td>INDEX</td>
                   <td>ユーザー別問い合わせ履歴の取得に使用するため</td>
                 </tr>
                 <tr>
-                  <td>enquiries</td>
-                  <td>idx_enquiries_assigned_to</td>
+                  <td>inquiries</td>
+                  <td>idx_inquiries_assigned_to</td>
                   <td>assigned_to</td>
                   <td>INDEX</td>
                   <td>担当者別の案件抽出に使用するため</td>
                 </tr>
                 <tr>
-                  <td>enquiries</td>
-                  <td>idx_enquiries_status_created_at</td>
+                  <td>inquiries</td>
+                  <td>idx_inquiries_status_created_at</td>
                   <td>status, created_at</td>
                   <td>INDEX</td>
                   <td>未対応案件の絞り込みと新着順表示に使用するため</td>
                 </tr>
                 <tr>
-                  <td>booking_status_logs</td>
-                  <td>idx_booking_status_logs_booking_id</td>
-                  <td>booking_id</td>
+                  <td>reservation_status_logs</td>
+                  <td>idx_reservation_status_logs_reservation_id</td>
+                  <td>reservation_id</td>
                   <td>INDEX</td>
                   <td>予約ごとの履歴取得に使用するため</td>
                 </tr>
                 <tr>
-                  <td>booking_status_logs</td>
-                  <td>idx_booking_status_logs_changed_by</td>
+                  <td>reservation_status_logs</td>
+                  <td>idx_reservation_status_logs_changed_by</td>
                   <td>changed_by</td>
                   <td>INDEX</td>
                   <td>変更者単位の追跡に使用するため</td>
                 </tr>
                 <tr>
-                  <td>booking_status_logs</td>
-                  <td>idx_booking_status_logs_created_at</td>
+                  <td>reservation_status_logs</td>
+                  <td>idx_reservation_status_logs_created_at</td>
                   <td>created_at</td>
                   <td>INDEX</td>
                   <td>履歴の時系列ソートに使用するため</td>
                 </tr>
                 <tr>
-                  <td>enquiry_status_logs</td>
-                  <td>idx_enquiry_status_logs_enquiry_id</td>
-                  <td>enquiry_id</td>
+                  <td>inquiry_status_logs</td>
+                  <td>idx_inquiry_status_logs_inquiry_id</td>
+                  <td>inquiry_id</td>
                   <td>INDEX</td>
                   <td>問い合わせごとの履歴取得に使用するため</td>
                 </tr>
                 <tr>
-                  <td>enquiry_status_logs</td>
-                  <td>idx_enquiry_status_logs_changed_by</td>
+                  <td>inquiry_status_logs</td>
+                  <td>idx_inquiry_status_logs_changed_by</td>
                   <td>changed_by</td>
                   <td>INDEX</td>
                   <td>変更者単位の追跡に使用するため</td>
                 </tr>
                 <tr>
-                  <td>enquiry_status_logs</td>
-                  <td>idx_enquiry_status_logs_created_at</td>
+                  <td>inquiry_status_logs</td>
+                  <td>idx_inquiry_status_logs_created_at</td>
                   <td>created_at</td>
                   <td>INDEX</td>
                   <td>履歴の時系列ソートに使用するため</td>
@@ -1516,8 +1516,7 @@
 
           <div class="fill-block">
             <div class="fill-label">マスタデータ・テストデータ <span class="required">必須</span></div>
-            <div class="fill-hint">実運用上の正本は `sql/` 配下の実行用 SQL とし、本節では投入順・対象データ・確認方法を整理する。`auth.users` は Supabase
-              管理テーブルのため、ユーザー作成は Dashboard または Admin API を推奨する。</div>
+            <div class="fill-hint">実運用上の正本は `sql/` 配下の実行用 SQL とし、本節では投入順・対象データ・確認方法を整理する。`auth.users` は Supabase 管理テーブルのため、ユーザー作成は Dashboard または Admin API を推奨する。</div>
             <div class="spec-summary">
               <pre class="code">-- inim-dx / initial data execution order
 -- 実運用では以下の順に sql/ 配下を実行する
@@ -1547,17 +1546,17 @@
 --   - content_assets
 --   - top_hero_items
 --   - journey_steps
---   - bookings
---   - enquiries
---   - booking_status_logs
---   - enquiry_status_logs
+--   - reservations
+--   - inquiries
+--   - reservation_status_logs
+--   - inquiry_status_logs
 
 -- 5. 検証
 -- sql/02_verify_seed_data.sql
 --   - 件数確認
 --   - admin ロール割当確認
 --   - hero / journey 表示データ確認
---   - bookings / enquiries 一覧確認
+--   - reservations / inquiries 一覧確認
 
 -- 6. RLS / 権限制御
 -- sql/03_rls_policies.sql
@@ -1578,10 +1577,10 @@
 -- content_assets          = 5
 -- top_hero_items          = 3
 -- journey_steps           = 5
--- bookings                = 5
--- enquiries               = 5
--- booking_status_logs     = 4
--- enquiry_status_logs     = 3</pre>
+-- reservations            = 5
+-- inquiries               = 5
+-- reservation_status_logs = 4
+-- inquiry_status_logs     = 3</pre>
             </div>
 
             <table class="doc-table">
@@ -1598,8 +1597,7 @@
                   <td>1</td>
                   <td>`sql/00-1_create_app_schema.sql`</td>
                   <td>アプリ側スキーマの作成</td>
-                  <td>`user_profiles` `roles` `user_role_assignments` `content_assets` `top_hero_items` `journey_steps`
-                    `stores` `bookings` `enquiries` `booking_status_logs` `enquiry_status_logs` と主要インデックス</td>
+                  <td>`user_profiles` `roles` `user_role_assignments` `content_assets` `top_hero_items` `journey_steps` `stores` `reservations` `inquiries` `reservation_status_logs` `inquiry_status_logs` と主要インデックス</td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -1617,8 +1615,7 @@
                   <td>4</td>
                   <td>`sql/01_seed_core_data.sql`</td>
                   <td>マスタ・サンプルデータ投入</td>
-                  <td>`roles` `stores` `content_assets` `top_hero_items` `journey_steps` `bookings` `enquiries`
-                    `booking_status_logs` `enquiry_status_logs`</td>
+                  <td>`roles` `stores` `content_assets` `top_hero_items` `journey_steps` `reservations` `inquiries` `reservation_status_logs` `inquiry_status_logs`</td>
                 </tr>
                 <tr>
                   <td>5</td>
@@ -1635,15 +1632,14 @@
               </tbody>
             </table>
 
-            <p class="note">補足: 本節の旧来の `auth.users` 直接 INSERT 草案は、Supabase 実運用方針と乖離するため廃止した。ユーザー作成は `Authentication &gt;
-              Users` または Admin API を用い、SQL 側ではアプリテーブルの関連付けと初期データ投入を行う。</p>
+            <p class="note">補足: 本節の旧来の `auth.users` 直接 INSERT 草案は、Supabase 実運用方針と乖離するため廃止した。ユーザー作成は `Authentication &gt; Users` または Admin API を用い、SQL 側ではアプリテーブルの関連付けと初期データ投入を行う。</p>
+            </div>
           </div>
+
+        </section>
+
       </div>
-
-      </section>
-
-  </div>
-  </main>
+    </main>
   </div>
 
   <script src="../js/main.js"></script>
