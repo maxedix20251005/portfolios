@@ -337,6 +337,40 @@ a:hover {
   margin-bottom: 0;
 }
 
+.screenshot-accordion {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.screenshot-accordion summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+}
+
+.screenshot-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.screenshot-accordion summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.screenshot-accordion[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.screenshot-accordion-body {
+  padding: 0 14px 14px;
+}
+
 /* --- Prompt Box (Gemini Style) --- */
 .prompt-box {
   background: linear-gradient(135deg, #4285F4 0%, #9B72CB 50%, #D96570 100%);

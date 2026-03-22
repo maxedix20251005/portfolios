@@ -43,7 +43,7 @@
           <div class="fill-block">
             <div class="fill-label">作品名 <span class="required">必須</span></div>
             <div class="fill-content">
-              <p>（作品名を入力）</p>
+              <p>香り体験サイト改善プロジェクト</p>
             </div>
           </div>
 
@@ -51,16 +51,9 @@
             <div class="fill-label">作品概要 <span class="required">必須</span></div>
             <div class="fill-hint">どんなサービス・サイトか、ターゲットユーザーは誰か</div>
             <div class="fill-content">
-              <p>（作品概要を入力）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">以下の情報をもとに、プロジェクトアーカイブ用の作品紹介文（100〜150字）を作成してください。
-                ・作品名：（作品名）
-                ・種類：（Webサイト/Webアプリ）
-                ・ターゲット：（想定ユーザー）
-                ・主な機能：（機能を箇条書き）
-                ・制作期間：（期間）</div>
+              <p>
+                香りづくりワークショップの予約減少を改善するため、導線設計と訴求順を見直したサイトリニューアル。トップ〜詳細〜予約までの到達率とCVRを高めるUI設計に加え、管理画面でコンテンツ更新・効果検証まで行える構成を実装。
+              </p>
             </div>
           </div>
 
@@ -69,7 +62,7 @@
             <div class="fill-content">
               <p><strong>フロントエンド：</strong>HTML / CSS / JavaScript</p>
               <p><strong>バックエンド：</strong>Java / Spring Boot / MyBatis</p>
-              <p><strong>データベース：</strong>MySQL</p>
+              <p><strong>データベース：</strong>supabase / MySQL</p>
               <p><strong>その他：</strong>Git / Figma</p>
             </div>
           </div>
@@ -78,23 +71,23 @@
             <div class="fill-label">担当範囲 <span class="required">必須</span></div>
             <div class="fill-hint">企画・デザイン・フロントエンド・バックエンドなど</div>
             <div class="fill-content">
-              <p>（担当範囲を入力）</p>
+              <p>企画・デザイン・フロントエンド・バックエンド・プロジェクト管理・検証・パッケージング/デプロイ</p>
             </div>
           </div>
 
           <div class="fill-block">
             <div class="fill-label">工夫した点・アピールポイント <span class="required">必須</span></div>
             <div class="fill-content">
-              <p>（工夫した点を入力）</p>
-            </div>
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">私が制作したWebアプリで工夫した点を、面接で話せるようにまとめてください。
-                ・工夫した点1：（内容）
-                ・工夫した点2：（内容）
-                ・苦労した点：（内容）
-                ・どう解決したか：（内容）
-                採用担当者に技術力と問題解決能力が伝わるようにしてください。</div>
+              <p>
+                <strong>工夫した点1：</strong>AIで市場調査・競合比較・仮説整理の初稿を高速化し、「予約数＝流入×到達率×CVR」で課題を分解。改善対象を導線と訴求に絞り、短期間でも検証可能な設計にしました。
+              </p>
+              <p>
+                <strong>工夫した点2：</strong>AIを使ってワイヤーフレーム案・文言案・UI部品案を複数生成し、要件に沿って取捨選択。トップ→ワークショップ→予約の導線を最短化し、管理画面から更新と効果確認ができる運用性も担保しました。
+              </p>
+              <p><strong>苦労した点：</strong>AIの出力は速い一方で、抽象的な提案やブランド文脈とずれる案も多く、そのままでは実装品質と一貫性がぶれやすい点に苦労しました。</p>
+              <p>
+                <strong>どう解決したか：</strong>目的・制約・評価指標を明示したプロンプトに統一し、案を「採用/保留/却下」でレビューする運用を実施。最終判断はKPI改善見込みと実装工数で行い、AI活用と品質担保を両立しました。
+              </p>
             </div>
           </div>
 
@@ -102,16 +95,20 @@
             <div class="fill-label">スクリーンショット <span class="required">必須</span></div>
             <div class="fill-hint">作品のスクリーンショットを貼り付け</div>
             <div class="fill-content">
-              <p>（スクリーンショットを挿入）</p>
-              <p class="text-muted">※ 画像は images/ フォルダに保存し、&lt;img&gt;タグで挿入してください</p>
+              <details class="screenshot-accordion">
+                <summary>スクリーンショットを表示する</summary>
+                <div class="screenshot-accordion-body">
+                  <img src="images/inim-dx_top.png" alt="香り体験サイト改善プロジェクトのトップページスクリーンショット">
+                </div>
+              </details>
             </div>
           </div>
 
           <div class="fill-block">
             <div class="fill-label">リンク <span class="optional">任意</span></div>
             <div class="fill-content">
-              <p><strong>デモサイト：</strong>（URLを入力）</p>
-              <p><strong>GitHubリポジトリ：</strong>https://github.com/（ユーザー名）/（リポジトリ名）</p>
+              <p><strong>デモサイト：</strong>https://maxedix20251005.github.io/inim-dx/</p>
+              <!-- <p><strong>GitHubリポジトリ：</strong>https://github.com/maxedix20251005/inim-dx</p> -->
             </div>
           </div>
         </section>
@@ -124,27 +121,27 @@
             <div class="card">
               <div class="card-title">制作物2</div>
               <div class="card-text">
-                <p>（作品名・概要を入力）</p>
-                <p><strong>使用技術：</strong>HTML / CSS / JavaScript</p>
-                <p><a href="#">→ 詳細を見る</a></p>
+                <p>Project Tasklist</p>
+                <p><strong>使用技術：</strong>HTML / CSS / JavaScript / IndexedDB</p>
+                <p><a href="#">→ 詳細を見る（Render Demo）</a></p>
               </div>
             </div>
             <div class="card">
               <div class="card-title">制作物3</div>
               <div class="card-text">
-                <p>（作品名・概要を入力）</p>
+                <p>佐藤医院(仮)サイトリニューアル</p>
                 <p><strong>使用技術：</strong>HTML / CSS</p>
-                <p><a href="#">→ 詳細を見る</a></p>
+                <p><a href="https://maxedix20251005.github.io/sato_clinic/">→ 詳細を見る</a></p>
               </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
               <div class="card-title">制作物4</div>
               <div class="card-text">
                 <p>（作品名・概要を入力）</p>
                 <p><strong>使用技術：</strong>（技術を入力）</p>
                 <p><a href="#">→ 詳細を見る</a></p>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="info-box tip">
@@ -161,9 +158,9 @@
             <div class="fill-label">課題・練習作品リスト <span class="optional">任意</span></div>
             <div class="fill-hint">授業で制作した課題や個人での練習作品</div>
             <div class="fill-content">
-              <p>・（課題名1）：（簡単な説明）</p>
-              <p>・（課題名2）：（簡単な説明）</p>
-              <p>・（課題名3）：（簡単な説明）</p>
+              <p>・Project Tasklist：タスクの追加・編集・完了管理を実装し、日々の作業を見える化したToDo管理アプリです。</p>
+              <p>・佐藤医院(仮)サイトリニューアル：診療案内・アクセス情報を再設計し、予約導線とスマホでの見やすさを改善した医療サイトです。</p>
+              <p>・香り体験サイト改善プロジェクト：ワークショップ予約数の回復を目的に、導線最適化と訴求改善、管理画面での運用・検証まで設計した改善案件です。</p>
             </div>
           </div>
         </section>
