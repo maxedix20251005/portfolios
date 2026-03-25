@@ -1,44 +1,47 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>テスト報告書 -  プロジェクトアーカイブ</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <title>テスト報告書 - プロジェクトアーカイブ</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
 
   <div class="page-wrapper">
-  <aside class="sidebar" data-nav-level="docs"></aside>
+    <aside class="sidebar" data-nav-level="docs"></aside>
 
     <main class="main-content">
       <header class="doc-header">
         <div class="doc-category">DOCUMENT 09</div>
         <h1 class="doc-title">テスト報告書</h1>
         <div class="doc-meta">
-          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-XX-XX</span>
-          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：（氏名を入力）</span>
+          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-03-19</span>
+          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：南波 海</span>
           <span><span class="material-symbols-outlined icon-sm">push_pin</span> Ver 1.0</span>
         </div>
       </header>
 
       <div class="doc-body">
-
         <div class="external-link-box">
           <div class="external-link-box-title">
             <span class="material-symbols-outlined">link</span>
-            詳細ドキュメント（Google スプレッドシート）
+            詳細ドキュメント（References）
           </div>
           <div class="external-link-box-desc">
-            このページは概要のみを記載しています。詳細なテスト報告書は以下のリンクからご確認ください。
+            このページは概要のみを記載しています。詳細なテスト計画書は以下のリンクからご確認ください。
           </div>
           <div class="external-link-input">
-            <input type="text" placeholder="https://docs.google.com/spreadsheets/d/xxxxx" id="external-link-09">
-            <a href="#" class="link-btn" onclick="window.open(document.getElementById('external-link-09').value || 'https://docs.google.com', '_blank'); return false;">
+            <input type="text" placeholder="../project-docs/60_TEST/inim-dx_test_plan.xlsx" id="external-link-04">
+            <a href="#" class="link-btn"
+              onclick="window.open(document.getElementById('external-link-04').value || '../project-docs/60_TEST/inim-dx_test_plan.xlsx', '_blank'); return false;">
               <span class="material-symbols-outlined">open_in_new</span>
               開く
             </a>
@@ -58,128 +61,762 @@
 
         <section class="section" id="sec1">
           <h2 class="section-title"><span class="section-icon">1</span> テスト計画</h2>
-
-        <div class="fill-block">
-          <div class="fill-label">テスト対象・範囲 <span class="required">必須</span></div>
-          <div class="fill-hint">テストの対象となる機能・画面と、テストの種類</div>
-          <div class="fill-content">
-            <p>（テスト計画を記載）</p>
-          </div>
-          <div class="prompt-box">
-            <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-            <div class="prompt-text">（サービス名）のテスト計画を作成してください。
-
-機能一覧：（仕様書で定義した機能を列挙）
-
-以下を含めてください。
-・テスト対象の範囲
-・テスト種別（機能テスト、画面テスト、セキュリティテスト）
-・テスト環境（ブラウザ、OS）
-・テスト期間</div>
-          </div>
-        </div>
-
-        </section>
-
-        <section class="section" id="sec2">
-          <h2 class="section-title"><span class="section-icon">2</span> テストケース一覧</h2>
-
-          <div class="info-box info">
-            <strong>機能ごとにテストケースを作成してください</strong>
-            正常系・異常系・境界値テストを含めてください。結果は実施後に記入してください。
-          </div>
-
           <div class="fill-block">
-            <div class="fill-label">テストケース一覧 <span class="required">必須</span></div>
-        <table class="doc-table">
-          <thead><tr><th>ID</th><th>対象機能</th><th>テスト種別</th><th>テスト内容</th><th>期待結果</th><th>結果</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>TC-001</td><td>（ログイン）</td><td>正常系</td><td>（正しいメール/パスワードでログイン）</td><td>（ダッシュボードに遷移）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-002</td><td>（ログイン）</td><td>異常系</td><td>（パスワード未入力でログイン）</td><td>（エラーメッセージ表示）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-003</td><td>（ログイン）</td><td>異常系</td><td>（存在しないメールでログイン）</td><td>（エラーメッセージ表示）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-004</td><td>（新規登録）</td><td>正常系</td><td>（全項目入力して登録）</td><td>（一覧に追加、成功メッセージ）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-005</td><td>（新規登録）</td><td>異常系</td><td>（必須項目未入力で登録）</td><td>（バリデーションエラー表示）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>TC-006</td><td>（新規登録）</td><td>境界値</td><td>（最大文字数で入力して登録）</td><td>（正常に登録される）</td><td>（OK/NG）</td></tr>
-          <tr class="template-row"><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
-          </tbody>
-        </table>
-
-            <div class="prompt-box">
-              <div class="prompt-title"><span class="material-symbols-outlined icon-sm">smart_toy</span> AIプロンプト例</div>
-              <div class="prompt-text">以下の機能仕様をもとにテストケースを作成してください。
-
-（仕様書の機能詳細を貼り付け）
-
-以下の種別を含めてください。
-・正常系（期待通りの入力で正しく動作する）
-・異常系（不正な入力やエラーケース）
-・境界値（最大文字数、最小値、0件データ等）
-
-テストケースは表形式で出力してください。
-| ID | 対象機能 | テスト種別 | テスト内容 | 期待結果 |</div>
+            <div class="fill-label">テスト計画の概要 <span class="required">必須</span></div>
+            <div class="fill-hint">テストの対象範囲、入口条件、完了条件、成果物を明確に記載します。</div>
+            <div class="fill-content">
+              <p><strong>概要:</strong> 本計画は、inim-dx の公開サイトと管理機能に対し、経験の浅いテスターでも同一品質で実行できるテスト運用を定義する。</p>
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>項目</th>
+                    <th>内容</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>対象範囲</td>
+                    <td>・公開サイト：Home、Workshop、Booking、商品、記事、検索、問い合わせ、法務ページ<br>・会員機能：登録、ログイン、アカウント管理<br>・予約導線：選択 -&gt; 入力
+                      -&gt; 確認 -&gt;
+                      完了<br>・管理機能：F-001〜F-010（ログイン、導線設定、商品、記事、検索、アセット、ユーザー、予約/問い合わせ、運用設定・監査）<br>・外部連携：Supabase Auth / DB
+                      / Storage</td>
+                  </tr>
+                  <tr>
+                    <td>入口条件</td>
+                    <td>・テスト環境URL、テストユーザー、検証データが準備済み<br>・最新のテストケースと実行手順書が共有済み<br>・対象ビルドがデプロイ済みで動作確認可能</td>
+                  </tr>
+                  <tr>
+                    <td>完了条件</td>
+                    <td>・重大欠陥（S1）0件<br>・主要シナリオ成功率95%以上<br>・認証/認可/データ保護の必須項目100%実施<br>・NGケースは欠陥管理に登録され再試験結果まで記録済み</td>
+                  </tr>
+                  <tr>
+                    <td>テスト方針</td>
+                    <td>・正常系 -&gt; 異常系 -&gt; 境界値の順で実施する<br>・機能単位に加えて業務シナリオ単位で結合確認する<br>・証跡（画面キャプチャ/ログ）はNGだけでなく代表OKケースも残す
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>成果物</td>
+                    <td>・03_テストケース：結果記録（OK/NG/保留/未実施）<br>・04_欠陥管理：不具合票（再現手順、期待/実際、重大度、状態）<br>・05_実行サマリ：件数、OK率、公開判定情報
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
+        <section class="section" id="sec2">
+          <h2 class="section-title"><span class="section-icon">2</span> テストケース一覧</h2>
+          <details class="test-case-accordion">
+            <summary class="test-case-accordion__summary">クリックしてテストケース一覧を表示 / Click to expand</summary>
+            <div class="test-case-accordion__body">
+              <div class="info-box info">
+                <strong>機能ごとにテストケースを作成してください</strong>
+                正常系・異常系・境界値テストを含めてください。`project-docs/60_TEST/inim-dx_test_plan_refined.xlsx` を正とし、TC-001〜TC-072
+                を実施対象としてください。
+              </div>
+              <div class="fill-block">
+                <div class="fill-label">テストケース一覧 <span class="required">必須</span></div>
+                <table class="doc-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>対象機能</th>
+                      <th>テスト種別</th>
+                      <th>テスト内容（前提/操作）</th>
+                      <th>期待結果（判定基準）</th>
+                      <th>結果（OK/NG/保留/未実施）</th>
+                      <th>不具合ID</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>TC-001</td>
+                      <td>F-001 ログイン・権限管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】有効なメールアドレス（255文字以内）と有効なパスワード（8〜72文字）でログインする。</td>
+                      <td>【判定】認証成功しダッシュボードへ遷移、権限に応じたメニューのみ表示される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-002</td>
+                      <td>F-001 ログイン・権限管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】「ログイン状態を保持」をONにしてログイン後、ブラウザ再起動相当の再アクセスを行う。</td>
+                      <td>【判定】セッションが継続し再ログイン不要でダッシュボード表示される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-003</td>
+                      <td>F-001 ログイン・権限管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】メールアドレス未入力でログインを押下する。</td>
+                      <td>【判定】必須エラーが項目下に表示され、ログイン処理は実行されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-004</td>
+                      <td>F-001 ログイン・権限管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】パスワード誤りでログインする。</td>
+                      <td>【判定】「メールアドレスまたはパスワードが正しくありません」を表示し、画面遷移しない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-005</td>
+                      <td>F-001 ログイン・権限管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】Supabase接続失敗状態でログインを実行する。</td>
+                      <td>【判定】接続失敗メッセージを表示し、再送可能な状態を維持する。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-006</td>
+                      <td>F-001 ログイン・権限管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】メールアドレス255文字でログインする。</td>
+                      <td>【判定】形式が正しければ入力受理される（256文字はバリデーションエラー）。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-007</td>
+                      <td>F-001 ログイン・権限管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】パスワード長8文字/72文字/73文字でログインを試行する。</td>
+                      <td>【判定】8・72文字は入力受理、73文字はバリデーションエラーになる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-008</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】見出し・リード文・ボタン文言・リンク先・表示順を有効値で更新して保存する。</td>
+                      <td>【判定】保存成功メッセージ表示、更新時刻/更新者が反映され、プレビューが最新化される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-009</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】画像を変更せず他項目のみ更新して保存する。</td>
+                      <td>【判定】既存画像を維持したままレコード更新される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-010</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】必須項目（見出し）未入力で保存する。</td>
+                      <td>【判定】項目単位の必須エラーを表示し、保存されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-011</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】リンク先URLに不正形式（例: ftp://...）を入力して保存する。</td>
+                      <td>【判定】URL形式エラーを表示し保存不可となる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-012</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】画像アップロード時にStorageエラーを発生させ保存する。</td>
+                      <td>【判定】「画像の保存に失敗しました」を表示し、DB更新は中断される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-013</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】見出し60文字/61文字で保存する。</td>
+                      <td>【判定】60文字は保存可能、61文字は文字数超過エラーになる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-014</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】表示順に1、重複値、0を入力して保存する。</td>
+                      <td>【判定】1は保存可能、重複値は保存不可、0は下限エラーになる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-015</td>
+                      <td>F-002 トップヒーロー/スライダー管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】5MBちょうど/5MB超の画像ファイルをアップロードする。</td>
+                      <td>【判定】5MB以内は受理、5MB超はサイズ超過エラーで保存不可。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-016</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】ステップ番号・表示名・URL・表示状態を有効値で更新し保存する。</td>
+                      <td>【判定】保存成功後、導線一覧とプレビューが更新され、公開サイトCTAに反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-017</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】表示状態を「非表示」に変更して保存する。</td>
+                      <td>【判定】対象導線が公開サイトで非表示になる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-018</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】表示名を未入力で保存する。</td>
+                      <td>【判定】該当行に必須エラーを表示し保存されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-019</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】同一のステップ番号を複数行に設定して保存する。</td>
+                      <td>【判定】重複エラーを行単位表示し保存不可。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-020</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】更新時にDB接続エラーを発生させる。</td>
+                      <td>【判定】「反映に失敗しました」を表示し、編集内容を保持したまま再試行可能。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-021</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】表示名30文字/31文字で保存する。</td>
+                      <td>【判定】30文字は保存可能、31文字は文字数超過エラーになる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-022</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】補足文言80文字/81文字で保存する。</td>
+                      <td>【判定】80文字は保存可能、81文字は文字数超過エラーになる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-023</td>
+                      <td>F-003 体験導線設定</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】ステップ番号に1、0、負数を入力して保存する。</td>
+                      <td>【判定】1は保存可能、0/負数は下限エラーとなる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-024</td>
+                      <td>F-008 ユーザー管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】検索キーワードで対象ユーザーを検索し、詳細を表示する。</td>
+                      <td>【判定】一致ユーザーが一覧表示され、詳細パネルに正しい情報が表示される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-025</td>
+                      <td>F-008 ユーザー管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】ユーザー状態を「有効→停止」に変更し停止理由を入力して保存する。</td>
+                      <td>【判定】状態・停止理由・更新日時が反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-026</td>
+                      <td>F-008 ユーザー管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】停止理由未入力のまま停止保存する。</td>
+                      <td>【判定】停止理由必須エラーを表示し更新されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-027</td>
+                      <td>F-008 ユーザー管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】権限不足ユーザーで状態変更を実行する。</td>
+                      <td>【判定】「この操作は許可されていません」を表示し更新されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-028</td>
+                      <td>F-008 ユーザー管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】検索キーワード100文字/101文字で検索する。</td>
+                      <td>【判定】100文字は検索実行可能、101文字は入力制限またはエラー表示。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-029</td>
+                      <td>F-008 ユーザー管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】内部メモ300文字/301文字で保存する。</td>
+                      <td>【判定】300文字は保存可能、301文字は文字数超過エラー。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-030</td>
+                      <td>F-008 ユーザー管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】該当なし条件で検索する（0件）。</td>
+                      <td>【判定】「該当ユーザーなし」を表示し、画面異常なく操作継続できる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-031</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】案件種別「予約」で絞り込み、対象案件を「未対応→対応中」に更新する。</td>
+                      <td>【判定】ステータスと更新日時が即時反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-032</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>正常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】検索条件を指定してCSV出力する。</td>
+                      <td>【判定】指定条件に一致するデータのみCSVダウンロードされる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-033</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】不正な検索条件（日時形式不正）で検索する。</td>
+                      <td>【判定】入力欄に形式エラーが表示され、検索は実行されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-034</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】ステータス更新時にDB更新失敗を発生させる。</td>
+                      <td>【判定】変更をロールバックし「保存に失敗しました」を表示する。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-035</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>異常系</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】CSV生成処理で失敗を発生させる。</td>
+                      <td>【判定】画面遷移せず失敗メッセージを表示し再試行可能。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-036</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】検索キーワード100文字/101文字で検索する。</td>
+                      <td>【判定】100文字は受理、101文字は入力制限またはエラー表示。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-037</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】対応メモ500文字/501文字でステータス更新する。</td>
+                      <td>【判定】500文字は保存可能、501文字は文字数超過エラー。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-038</td>
+                      <td>F-009 予約/問い合わせログ管理</td>
+                      <td>境界値</td>
+                      <td>【前提】対象画面に遷移し、必要データを準備済み。<br>【操作】絞り込み条件に一致する案件0件で一覧表示する。</td>
+                      <td>【判定】0件表示メッセージを表示し、画面レイアウト崩れやエラーが発生しない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-039</td>
+                      <td>F-004 商品管理</td>
+                      <td>正常系</td>
+                      <td>【前提】商品管理画面に遷移し、商品マスタを新規作成できる状態。<br>【操作】商品名、カテゴリ、価格、公開状態、説明文を入力して保存する。</td>
+                      <td>【判定】保存成功メッセージが表示され、一覧に追加される。公開状態が公開なら公開側商品詳細にも反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-040</td>
+                      <td>F-004 商品管理</td>
+                      <td>正常系</td>
+                      <td>【前提】既存の商品編集画面を開いている。<br>【操作】下書きとして保存した後、公開状態へ切り替えて再保存する。</td>
+                      <td>【判定】下書き時は公開側に表示されず、公開切替後に公開サイトへ反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-041</td>
+                      <td>F-004 商品管理</td>
+                      <td>異常系</td>
+                      <td>【前提】商品管理画面に遷移し、入力欄が表示されている。<br>【操作】商品名または価格を未入力のまま保存する。</td>
+                      <td>【判定】未入力項目に必須エラーが表示され、保存されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-042</td>
+                      <td>F-004 商品管理</td>
+                      <td>異常系</td>
+                      <td>【前提】商品管理画面に遷移し、入力欄が表示されている。<br>【操作】価格に0、負数、数値以外の値を入力して保存する。</td>
+                      <td>【判定】価格の範囲または形式エラーが表示され、保存できない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-043</td>
+                      <td>F-004 商品管理</td>
+                      <td>異常系</td>
+                      <td>【前提】商品編集画面を開き、保存処理を実行できる状態。<br>【操作】保存時にDB更新失敗を発生させる。</td>
+                      <td>【判定】失敗メッセージが表示され、編集内容は保持されたまま再試行できる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-044</td>
+                      <td>F-004 商品管理</td>
+                      <td>境界値</td>
+                      <td>【前提】商品管理画面に遷移し、入力欄が表示されている。<br>【操作】商品名を100文字/101文字で入力して保存する。</td>
+                      <td>【判定】100文字は受理され、101文字は文字数超過エラーになる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-045</td>
+                      <td>F-005 記事管理</td>
+                      <td>正常系</td>
+                      <td>【前提】記事管理画面に遷移し、新規記事を作成できる状態。<br>【操作】タイトル、本文、タグ、公開状態を入力して下書き保存する。</td>
+                      <td>【判定】下書きとして保存され、一覧に反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-046</td>
+                      <td>F-005 記事管理</td>
+                      <td>正常系</td>
+                      <td>【前提】下書き記事を編集できる状態。<br>【操作】公開状態に切り替えて保存し、公開サイトから表示を確認する。</td>
+                      <td>【判定】公開状態に切り替わり、公開側の一覧と詳細に反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-047</td>
+                      <td>F-005 記事管理</td>
+                      <td>正常系</td>
+                      <td>【前提】記事一覧に複数タグの記事が登録されている。<br>【操作】タグ検索を実行して対象記事を抽出する。</td>
+                      <td>【判定】指定タグに一致する記事のみが一覧表示される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-048</td>
+                      <td>F-005 記事管理</td>
+                      <td>異常系</td>
+                      <td>【前提】記事作成画面に遷移し、入力欄が表示されている。<br>【操作】タイトルまたは本文を未入力で保存する。</td>
+                      <td>【判定】必須エラーが表示され、保存されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-049</td>
+                      <td>F-005 記事管理</td>
+                      <td>境界値</td>
+                      <td>【前提】記事作成画面に遷移し、入力欄が表示されている。<br>【操作】記事タイトルを60文字/61文字で入力して保存する。</td>
+                      <td>【判定】60文字は受理され、61文字は文字数超過エラーになる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-050</td>
+                      <td>F-005 記事管理</td>
+                      <td>正常系</td>
+                      <td>【前提】公開済み記事の編集画面を開いている。<br>【操作】本文の一部を修正して再保存する。</td>
+                      <td>【判定】更新日時が更新され、公開側の内容も最新版に置き換わる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-051</td>
+                      <td>F-006 検索機能</td>
+                      <td>正常系</td>
+                      <td>【前提】公開サイトまたは管理側検索画面に遷移し、検索対象データがある。<br>【操作】キーワードを入力して検索する。</td>
+                      <td>【判定】キーワードに一致する結果だけが一覧表示される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-052</td>
+                      <td>F-006 検索機能</td>
+                      <td>正常系</td>
+                      <td>【前提】検索画面に遷移し、複数の絞り込み条件を使える状態。<br>【操作】カテゴリ、価格帯、表示状態などの条件を組み合わせて検索する。</td>
+                      <td>【判定】全条件に一致するデータのみが抽出される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-053</td>
+                      <td>F-006 検索機能</td>
+                      <td>正常系</td>
+                      <td>【前提】検索条件が入力されている。<br>【操作】条件をクリアして再検索する。</td>
+                      <td>【判定】検索条件が初期化され、一覧が全件表示に戻る。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-054</td>
+                      <td>F-006 検索機能</td>
+                      <td>異常系</td>
+                      <td>【前提】検索画面に遷移し、検索対象データがある。<br>【操作】存在しないキーワードで検索する。</td>
+                      <td>【判定】0件メッセージが表示され、画面崩れやエラーが発生しない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-055</td>
+                      <td>F-006 検索機能</td>
+                      <td>境界値</td>
+                      <td>【前提】検索画面に遷移し、入力欄が表示されている。<br>【操作】検索キーワードを100文字/101文字で入力する。</td>
+                      <td>【判定】100文字は受理され、101文字は入力制限またはエラー表示になる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-056</td>
+                      <td>F-006 検索機能</td>
+                      <td>異常系</td>
+                      <td>【前提】検索画面に遷移し、検索を実行できる状態。<br>【操作】検索実行時に通信失敗を発生させる。</td>
+                      <td>【判定】失敗メッセージが表示され、再試行できる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-057</td>
+                      <td>F-007 アセット管理</td>
+                      <td>正常系</td>
+                      <td>【前提】アセット管理画面に遷移し、アップロード権限がある。<br>【操作】PNGまたはJPGファイルを登録する。</td>
+                      <td>【判定】Storageに保存され、参照URLが一覧に反映される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-058</td>
+                      <td>F-007 アセット管理</td>
+                      <td>正常系</td>
+                      <td>【前提】既存アセットを参照できる状態。<br>【操作】登録済みアセットの参照先を更新して保存する。</td>
+                      <td>【判定】参照先が更新され、使用中画面から新ファイルが参照される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-059</td>
+                      <td>F-007 アセット管理</td>
+                      <td>異常系</td>
+                      <td>【前提】アセット管理画面に遷移し、アップロード欄が表示されている。<br>【操作】不正拡張子のファイルをアップロードする。</td>
+                      <td>【判定】拡張子エラーが表示され、保存されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-060</td>
+                      <td>F-007 アセット管理</td>
+                      <td>異常系</td>
+                      <td>【前提】アセット管理画面に遷移し、アップロード欄が表示されている。<br>【操作】サイズ上限を超えるファイルをアップロードする。</td>
+                      <td>【判定】サイズ超過エラーが表示され、保存されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-061</td>
+                      <td>F-007 アセット管理</td>
+                      <td>異常系</td>
+                      <td>【前提】アセット管理画面に遷移し、アップロード処理を実行できる。<br>【操作】Storage保存失敗を発生させてアップロードする。</td>
+                      <td>【判定】保存失敗メッセージが表示され、DB更新は中断される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-062</td>
+                      <td>F-007 アセット管理</td>
+                      <td>異常系</td>
+                      <td>【前提】既存アセットが他画面から参照されている。<br>【操作】参照中アセットを削除する。</td>
+                      <td>【判定】参照整合チェックまたは警告が表示され、参照切れが残らない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-063</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>異常系</td>
+                      <td>【前提】未認可ユーザーが管理画面URLを直接開ける状態。<br>【操作】/app/dashboard.html などの直URLへアクセスする。</td>
+                      <td>【判定】認証ページへ戻されるか、アクセス拒否が表示される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-064</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>正常系</td>
+                      <td>【前提】管理者・一般ユーザーの両方でログインできる。<br>【操作】ロール別のメニュー表示を確認する。</td>
+                      <td>【判定】権限に応じたメニューだけが表示され、不要な操作は出ない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-065</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>正常系</td>
+                      <td>【前提】運用設定画面に遷移し、保存可能な状態。<br>【操作】Supabase関連の設定値を保存する。</td>
+                      <td>【判定】設定が保存され、再読込後も値が保持される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-066</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>正常系</td>
+                      <td>【前提】操作を実行できるユーザーでログインしている。<br>【操作】設定保存や状態変更などの操作を実行する。</td>
+                      <td>【判定】操作ログが記録され、後から追跡できる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-067</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>異常系</td>
+                      <td>【前提】運用設定画面に遷移し、通知設定を確認できる。<br>【操作】エラー通知が必要な条件を発生させる。</td>
+                      <td>【判定】エラー通知が表示または送信され、失敗が見逃されない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-068</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>互換性</td>
+                      <td>【前提】同一URLを複数ブラウザで開ける。<br>【操作】Chrome、Edge、Safariで表示と操作を確認する。</td>
+                      <td>【判定】主要ブラウザで表示崩れや致命的エラーがない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-069</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>互換性</td>
+                      <td>【前提】PC、Tablet、Mobile相当の画面幅を用意できる。<br>【操作】画面幅を切り替えて表示を確認する。</td>
+                      <td>【判定】レスポンシブUIが崩れず、主要導線が操作できる。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-070</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>異常系</td>
+                      <td>【前提】モーダルまたは確認ダイアログが表示される。<br>【操作】Escキーで閉じる操作を行う。</td>
+                      <td>【判定】ダイアログが閉じ、背後の画面状態が維持される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-071</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>正常系</td>
+                      <td>【前提】公開サイトから管理導線まで到達できる。<br>【操作】Top、Workshop、Booking、Admin のナビゲーションを順に確認する。</td>
+                      <td>【判定】主要導線が相互に辿れ、リンク切れがない。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>TC-072</td>
+                      <td>F-010 運用設定・監査</td>
+                      <td>正常系</td>
+                      <td>【前提】テスト実行後のサマリ画面を表示できる。<br>【操作】実行サマリを確認し、OK率と未実施件数を確認する。</td>
+                      <td>【判定】OK率、未実施件数、公開判定情報が正しく集計される。</td>
+                      <td>未実施</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </section>
+
         <section class="section" id="sec3">
           <h2 class="section-title"><span class="section-icon">3</span> テスト結果サマリー</h2>
-
           <div class="fill-block">
-            <div class="fill-label">テスト結果サマリー <span class="required">必須</span></div>
-            <div class="fill-hint">テスト実施後に集計結果を記入してください</div>
-        <table class="doc-table">
-          <thead><tr><th>項目</th><th>件数</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>総テストケース数</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>OK</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>NG</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>未実施</td><td>（数値を入力）</td></tr>
-          <tr class="template-row"><td>合格率</td><td>（％を入力）</td></tr>
-          </tbody>
-        </table>
-
+            <div class="fill-label">サマリー <span class="required">必須</span></div>
+            <div class="fill-content">
+              <p>実施後に件数、OK率、NG率、保留件数、再試験の要否を記録してください。</p>
+            </div>
           </div>
         </section>
 
         <section class="section" id="sec4">
           <h2 class="section-title"><span class="section-icon">4</span> バグ一覧</h2>
-
           <div class="fill-block">
-            <div class="fill-label">発見されたバグと対応状況 <span class="required">必須</span></div>
-        <table class="doc-table">
-          <thead><tr><th>バグID</th><th>発見日</th><th>対象機能</th><th>内容</th><th>重大度</th><th>対応状況</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>BUG-001</td><td>（日付）</td><td>（機能名）</td><td>（バグの内容）</td><td>（高/中/低）</td><td>（修正済/対応中/保留）</td></tr>
-          <tr class="template-row"><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
-          </tbody>
-        </table>
-
+            <div class="fill-label">欠陥記録 <span class="required">必須</span></div>
+            <div class="fill-content">
+              <p>不具合ID、概要、重大度、発生条件、再現手順、期待結果、実際結果、対応状況を記録してください。</p>
+            </div>
           </div>
         </section>
 
         <section class="section" id="sec5">
           <h2 class="section-title"><span class="section-icon">5</span> ブラウザ・デバイス対応</h2>
-
           <div class="fill-block">
-            <div class="fill-label">対応状況 <span class="required">必須</span></div>
-        <table class="doc-table">
-          <thead><tr><th>ブラウザ/デバイス</th><th>バージョン</th><th>表示</th><th>機能</th><th>備考</th></tr></thead>
-          <tbody>
-          <tr class="template-row"><td>Chrome（PC）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Firefox（PC）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Edge（PC）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Chrome（スマートフォン）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          <tr class="template-row"><td>Safari（iPhone）</td><td>（バージョン）</td><td>（○/△/×）</td><td>（○/△/×）</td><td>（備考）</td></tr>
-          </tbody>
-        </table>
-
+            <div class="fill-label">対応環境 <span class="required">必須</span></div>
+            <div class="fill-content">
+              <p>ブラウザは Chrome / Edge の最新安定版、OS は Windows 11 と macOS の組み合わせを基本に記録してください。</p>
+            </div>
           </div>
         </section>
-
       </div>
     </main>
   </div>
-
-  <script src="../js/main.js"></script>
 </body>
+
 </html>

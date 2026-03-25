@@ -1,5 +1,5 @@
-/* ============================================================
-    プロジェクトアーカイブテンプレート 共通CSS
+﻿/* ============================================================
+    繝励Ο繧ｸ繧ｧ繧ｯ繝医い繝ｼ繧ｫ繧､繝悶ユ繝ｳ繝励Ξ繝ｼ繝・蜈ｱ騾咾SS
     Modern Simple Design - Black, White, Gray
    ============================================================ */
 
@@ -356,7 +356,7 @@ a:hover {
 }
 
 .screenshot-accordion summary::before {
-  content: "▶";
+  content: "笆ｶ";
   display: inline-block;
   margin-right: 8px;
   font-size: 11px;
@@ -659,6 +659,85 @@ a:hover {
 
 .external-link-box .link-btn .material-symbols-outlined {
   font-size: 16px;
+}
+
+/* --- Test Report Accordion --- */
+.test-case-accordion {
+  margin-top: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.test-case-accordion:hover {
+  border-color: rgba(99, 102, 241, 0.42);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.test-case-accordion[open] {
+  background: var(--white);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.09);
+}
+
+.test-case-accordion__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 16px;
+  font-weight: 700;
+  background: rgba(15, 23, 42, 0.04);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  user-select: none;
+}
+
+.test-case-accordion__summary:hover {
+  background: rgba(15, 23, 42, 0.07);
+}
+
+.test-case-accordion__summary:focus-visible {
+  outline: 2px solid var(--gray-700);
+  outline-offset: -2px;
+}
+
+.test-case-accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.test-case-accordion__summary::after {
+  content: '▾';
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--gray-500);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.test-case-accordion[open] .test-case-accordion__summary::after {
+  transform: rotate(180deg);
+  color: var(--black);
+}
+
+.test-case-accordion__body {
+  padding: 0 0 2px;
+}
+
+.test-case-accordion .info-box {
+  margin: 16px 16px 0;
+}
+
+.test-case-accordion .fill-block {
+  margin: 16px;
+}
+
+.test-case-accordion .doc-table {
+  margin-top: 0;
 }
 
 /* --- Sitemap image embed --- */
@@ -2382,7 +2461,7 @@ a:hover {
   color: #551a8b;
 }
 
-/* 07-specification: システム目的テーブルのカラム幅調整 */
+/* 07-specification: 繧ｷ繧ｹ繝・Β逶ｮ逧・ユ繝ｼ繝悶Ν縺ｮ繧ｫ繝ｩ繝蟷・ｪｿ謨ｴ */
 .spec-purpose-table col:first-child {
   width: 25%;
   white-space: nowrap;
@@ -3112,3 +3191,4 @@ a:hover {
     border-bottom: 2px solid #000;
   }
 }
+
