@@ -7,6 +7,12 @@
 - 公開ホームページの変更は planning/design 文書へ反映済みで、サイト参照先も整合した。
 - Sitemap, wireframe, and design-guide color scheme updates have been synchronized with the current `inim-dx` source.
 - サイトマップ、ワイヤーフレーム、デザインガイドの配色更新は、現在の `inim-dx` ソースと同期済みである。
+- `docs/09-test-report.html` sec2 has been expanded to cover the actual implemented site flow beyond the older base set.
+- `docs/09-test-report.html` sec2 は、旧来の基本ケース群を超えて実装済みサイト導線をカバーするよう拡張済みである。
+- Test workbooks are synchronized to `docs/09-test-report.html` sec2, and `TC-001` to `TC-100` are marked as `完了`.
+- テスト用ワークブックは `docs/09-test-report.html` sec2 に同期済みで、`TC-001` から `TC-100` は `完了` 設定済みである。
+- `docs/09-test-report.html` sec3〜sec5 is finalized with computed summary values, issue summary table, and browser/device verification matrix.
+- `docs/09-test-report.html` sec3〜sec5 は、算出済みサマリー値、Issue要約表、ブラウザ/デバイス検証マトリクスで確定済みである。
 
 ## Next Actions / 次アクション
 1. 管理画面のフロントエンド構成（ファイル分割と責務）を確定する。
