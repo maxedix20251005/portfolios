@@ -581,47 +581,43 @@
 
   <script>
     const palettes = {
-      "p01": { name: "ジャパニーズ・モダン", desc: "和の静寂と現代の洗練。落ち着いた深み。", colors: { bg: "#F9F8F4", panel: "#EAE4D3", line: "#2C2C2C", text: "#1A1A1A", accent: "#B24531", button: "#B24531", muted: "#666666" } },
-      "p02": { name: "エクリュ・ミニマリズム", desc: "生成り色とベージュ。清潔感と優しさ。", colors: { bg: "#FAF9F7", panel: "#F2EBE1", line: "#D9CDBF", text: "#4A4540", accent: "#8C8479", button: "#8C8479", muted: "#9E978E" } },
-      "p03": { name: "ミッドナイト・ラグジュアリー", desc: "深い夜の色とゴールド。高級感のある重厚さ。", colors: { bg: "#0B0F1A", panel: "#121A2E", line: "#D4AF37", text: "#E0E0E0", accent: "#D4AF37", button: "#800020", muted: "#8A8A8A" } },
-      "p04": { name: "ボタニカル・フレッシュ", desc: "ハーブと植物の息吹。自然体でいられる色。", colors: { bg: "#FFFFFF", panel: "#E8F0E9", line: "#87A98D", text: "#2D362E", accent: "#87A98D", button: "#F2D06B", muted: "#708072" } },
-      "p05": { name: "パウダリー・ロマンス", desc: "優しく甘い、粉雪のようなピンクベージュ。", colors: { bg: "#FDFBFB", panel: "#F5EBEB", line: "#D4A5A5", text: "#5C4B4B", accent: "#D4A5A5", button: "#B88F8F", muted: "#998A8A" } },
-      "p06": { name: "ウッディ・エッジ", desc: "切り出したばかりの木材と鉄の質感。", colors: { bg: "#F2F1EF", panel: "#A3927D", line: "#3D3D3D", text: "#2B2B2B", accent: "#3D3D3D", button: "#6B5E4F", muted: "#7D7D7D" } },
-      "p07": { name: "アクア・ライト", desc: "透き通る水面のような、軽やかで涼しい配色。", colors: { bg: "#FFFFFF", panel: "#E1F0F4", line: "#A8D0DA", text: "#334143", accent: "#2C5D63", button: "#A8D0DA", muted: "#7F9094" } },
-      "p08": { name: "ヴィンテージ・スパイス", desc: "使い込まれたレザーとスパイスの暖かみ。", colors: { bg: "#F7F3EE", panel: "#E9DCC9", line: "#BF7342", text: "#3B2316", accent: "#BF7342", button: "#59321E", muted: "#8C776D" } },
-      "p09": { name: "ラベンダー・ミスト", desc: "夕暮れ時の霧がかったラベンダー畑の幻想。", colors: { bg: "#FAF9FC", panel: "#EBE8F2", line: "#9A8CB9", text: "#3A3545", accent: "#9A8CB9", button: "#6A5D8A", muted: "#817D8A" } },
-      "p10": { name: "アーバン・クリーン", desc: "無機質で都会的。完璧な清潔感とプロ意識。", colors: { bg: "#FFFFFF", panel: "#E0E0E0", line: "#555555", text: "#121212", accent: "#000000", button: "#555555", muted: "#888888" } },
-      "p11": { name: "朝霧のハーブガーデン", desc: "露に濡れた葉とハーブの瑞々しい朝。", colors: { bg: "#F4F7F6", panel: "#C2D3CD", line: "#5E726A", text: "#2F3E38", accent: "#5E726A", button: "#E8BEAC", muted: "#7B8F87" } },
-      "p12": { name: "図書館の記憶", desc: "古い紙と革装丁の本。知的な静寂を纏う。", colors: { bg: "#F5F5F0", panel: "#D7CCC8", line: "#6D4C41", text: "#3E2723", accent: "#6D4C41", button: "#A1887F", muted: "#8D6E63" } },
-      "p13": { name: "真夏のナイトプール", desc: "ネオンが反射する水面と賑やかな夜。", colors: { bg: "#E0F7FA", panel: "#00BCD4", line: "#1A237E", text: "#0D1240", accent: "#1A237E", button: "#FF4081", muted: "#546E7A" } },
-      "p14": { name: "禅・静寂の竹林", desc: "緑深い竹林に差し込む光。精神を研ぎ澄ます。", colors: { bg: "#FCFDFB", panel: "#A4AC86", line: "#333D29", text: "#1A1F16", accent: "#333D29", button: "#656D4A", muted: "#6B705C" } },
-      "p15": { name: "都会のコンクリート", desc: "洗練されたグレーの階調。無駄を削ぎ落とした美。", colors: { bg: "#FFFFFF", panel: "#90A4AE", line: "#263238", text: "#1A252B", accent: "#263238", button: "#CFD8DC", muted: "#546E7A" } },
-      "p16": { name: "陽だまりのコットン", desc: "天日干ししたシーツの白と温かい光。", colors: { bg: "#FBFBFF", panel: "#E8EAF6", line: "#7986CB", text: "#303F9F", accent: "#7986CB", button: "#FFCCBC", muted: "#5C6BC0" } },
-      "p17": { name: "禁じられた果実", desc: "妖艶なベリーとダークチョコレート。強い誘惑。", colors: { bg: "#FCE4EC", panel: "#AD1457", line: "#4A148C", text: "#1A0033", accent: "#4A148C", button: "#000000", muted: "#880E4F" } },
-      "p18": { name: "夕暮れのサハラ砂漠", desc: "地平線に沈む太陽。灼熱の記憶と静寂。", colors: { bg: "#FFF9F0", panel: "#F39C12", line: "#E67E22", text: "#3E2723", accent: "#E67E22", button: "#2C3E50", muted: "#8D6E63" } },
-      "p19": { name: "シャンパン・バブル", desc: "煌めく泡と祝祭。華やかで上品なゴールド。", colors: { bg: "#FFFFFF", panel: "#F4F1DE", line: "#C5B358", text: "#3D405B", accent: "#C5B358", button: "#E07A5F", muted: "#818181" } },
-      "p20": { name: "北極のオーロラ", desc: "氷のような冷たさと幻想的な光のカーテン。", colors: { bg: "#001F1F", panel: "#004D40", line: "#80CBC4", text: "#E0F2F1", accent: "#B2EBF2", button: "#80CBC4", muted: "#4DB6AC" } },
-      "p21": { name: "フローズン・サファイア", desc: "凍てつく空気に煌めく青。知的でクール。", colors: { bg: "#F5F7FA", panel: "#A1C4FD", line: "#0F4C81", text: "#1B262C", accent: "#0F4C81", button: "#E0EAFC", muted: "#5A717D" } },
-      "p22": { name: "ミッドナイト・フォグ", desc: "霧がかった真夜中の静寂。深い思索を促す。", colors: { bg: "#ECF0F1", panel: "#BDC3C7", line: "#2C3E50", text: "#1A1A1B", accent: "#2C3E50", button: "#34495E", muted: "#7F8C8D" } },
-      "p23": { name: "深海のアブサン", desc: "光の届かない海底に揺れる妖艶な緑。", colors: { bg: "#F2F4F3", panel: "#3D5A53", line: "#162623", text: "#0D1412", accent: "#162623", button: "#82A098", muted: "#6B7C77" } },
-      "p24": { name: "ムーンライト・メタル", desc: "月光に照らされた金属の冷たい輝き。", colors: { bg: "#0A0A0A", panel: "#4B4B4B", line: "#D1D1D1", text: "#E0E0E0", accent: "#F5F5F5", button: "#D1D1D1", muted: "#777777" } },
-      "p25": { name: "静寂のアイリス", desc: "雨に濡れたアイリスの花びら。気品と憂い。", colors: { bg: "#F8F8FC", panel: "#9B95D1", line: "#5D54A4", text: "#1E1A3D", accent: "#5D54A4", button: "#423A7E", muted: "#746F9E" } },
-      "p26": { name: "アークティック・スカイ", desc: "どこまでも澄み切った極北の空のパノラマ。", colors: { bg: "#FFFFFF", panel: "#D8DEE9", line: "#81A1C1", text: "#2E3440", accent: "#5E81AC", button: "#81A1C1", muted: "#4C566A" } },
-      "p27": { name: "モノリス・ブラック", desc: "圧倒的な黒の静謐。強さと揺るぎない自信。", colors: { bg: "#010101", panel: "#333333", line: "#121212", text: "#FFFFFF", accent: "#AAAAAA", button: "#333333", muted: "#888888" } },
-      "p28": { name: "ウィンター・フォレスト", desc: "雪に閉ざされた森の奥深く。厳格で純粋。", colors: { bg: "#F0F2F0", panel: "#A3B18A", line: "#344E41", text: "#1B201D", accent: "#344E41", button: "#DAD7CD", muted: "#588157" } },
-      "p29": { name: "クール・インク", desc: "万年筆のインクが染み込む瞬間の美学。", colors: { bg: "#F8FAFC", panel: "#334155", line: "#0F172A", text: "#1E293B", accent: "#0F172A", button: "#64748B", muted: "#94A3B8" } },
-      "p30": { name: "シャドウ・ラベンダー", desc: "影の中に浮かび上がる大人のラベンダー。", colors: { bg: "#F2E9E4", panel: "#9A8C98", line: "#4A4E69", text: "#22223B", accent: "#4A4E69", button: "#C9ADA7", muted: "#30334D" } },
-      "p31": { name: "ネオン・ベリー", desc: "鮮やかに弾けるベリーと夜のネオンサイン。", colors: { bg: "#FFF0F6", panel: "#FF80BF", line: "#FF007F", text: "#33001A", accent: "#FF007F", button: "#400080", muted: "#99004C" } },
-      "p32": { name: "エレクトリック・シトラス", desc: "痺れるような刺激とエネルギーに満ちた橙。", colors: { bg: "#FFF9E6", panel: "#FFD700", line: "#FF8C00", text: "#4D2A00", accent: "#FF8C00", button: "#FF0000", muted: "#CC7000" } },
-      "p33": { name: "トロピカル・パラダイス", desc: "色彩豊かな極彩色の楽園。自由と遊び心。", colors: { bg: "#E0F2F1", panel: "#FF6D00", line: "#00BFA5", text: "#004D40", accent: "#00BFA5", button: "#AA00FF", muted: "#00796B" } },
-      "p34": { name: "ロイヤル・ベルベット", desc: "気高く燃える赤と、格式高い伝統。", colors: { bg: "#FFF5F5", panel: "#FFC107", line: "#D32F2F", text: "#4B0000", accent: "#D32F2F", button: "#1A1A1A", muted: "#B71C1C" } },
-      "p35": { name: "ライム・ブラスト", desc: "瞬時に目を引く、鮮烈なライムグリーンの衝撃。", colors: { bg: "#F7FFF7", panel: "#ADFF2F", line: "#32CD32", text: "#003300", accent: "#32CD32", button: "#0000FF", muted: "#008000" } },
-      "p36": { name: "コズミック・バイオレット", desc: "宇宙の深淵に煌めく星雲のパープル。", colors: { bg: "#0A001F", panel: "#B388FF", line: "#6200EA", text: "#E0E0E0", accent: "#6200EA", button: "#00E5FF", muted: "#9575CD" } },
-      "p37": { name: "サンセット・グロウ", desc: "燃えるような夕焼け。ドラマチックな一瞬。", colors: { bg: "#FFF5E6", panel: "#FC913A", line: "#FF4E50", text: "#3B0B0B", accent: "#FF4E50", button: "#F9D423", muted: "#D63E40" } },
-      "p38": { name: "オーシャン・サイダー", desc: "弾ける泡と澄み渡るブルー。開放感。", colors: { bg: "#E6F3FF", panel: "#00D2FF", line: "#007BFF", text: "#002144", accent: "#007BFF", button: "#F0F8FF", muted: "#0056B3" } },
-      "p39": { name: "ワイルド・オーキッド", desc: "野生の蘭のように力強く、美しい生命力。", colors: { bg: "#F3E5F5", panel: "#E1BEE7", line: "#9C27B0", text: "#311B92", accent: "#9C27B0", button: "#FFEB3B", muted: "#7B1FA2" } },
-      "p40": { name: "マグマ・フロー", desc: "圧倒的な熱量と情熱。力強さを極める。", colors: { bg: "#1A0000", panel: "#EF5350", line: "#B71C1C", text: "#FFFFFF", accent: "#B71C1C", button: "#FFCA28", muted: "#E57373" } }
+      "p01": { name: "Floral Breeze", desc: "和の静けさと現代的な洗練をあわせ持つ、落ち着いた基準テーマ。", colors: { bg: "#FCF8F2", panel: "#EAE4D3", line: "#EAE4D3", text: "#3E2723", accent: "#B24531", button: "#2C2C2C", muted: "#666666" } },
+      "p41": { name: "Velvet Petal", desc: "花びらのように柔らかいピンクとベージュで整えた、穏やかな体温感のある配色。", colors: { bg: "#FAF3F2", panel: "#EAD7D1", line: "#EAD7D1", text: "#4A4040", accent: "#B38B8B", button: "#D8A7B1", muted: "#998A8A" } },
+      "p42": { name: "Amber Morning", desc: "朝の光のようなやわらかいアンバー系。温度感と知性を両立する配色。", colors: { bg: "#FDFBF5", panel: "#F2E5D5", line: "#F2E5D5", text: "#4A4036", accent: "#C08B5C", button: "#E6C28A", muted: "#8C7E6D" } },
+      "p43": { name: "Silky Memory", desc: "グレージュと深いブラウンで静かな余韻をつくる、上品で記憶に残る配色。", colors: { bg: "#F7F5F2", panel: "#D9D1CB", line: "#D9D1CB", text: "#2D2622", accent: "#5C4B43", button: "#9E9088", muted: "#7A706A" } },
+      "p44": { name: "Apricot Mist", desc: "現行既定テーマ。アプリコットとベージュを重ねた、温かくやわらかい配色。", colors: { bg: "#FFF5EC", panel: "#FAD4B2", line: "#FAD4B2", text: "#5D4037", accent: "#CD853F", button: "#F4A460", muted: "#A1887F" } },
+      "p45": { name: "Sunset Linen", desc: "夕暮れのリネンを思わせるオレンジベージュ。やさしい陰影が出る配色。", colors: { bg: "#FCF8F2", panel: "#F5E1D2", line: "#F5E1D2", text: "#3E2723", accent: "#A0522D", button: "#E9967A", muted: "#8D6E63" } },
+      "p46": { name: "Honey Glow", desc: "蜂蜜のような光沢感を持つ、あたたかく深みのある配色。", colors: { bg: "#FEF9F0", panel: "#FDF5E6", line: "#FDF5E6", text: "#4E342E", accent: "#8B4513", button: "#DEB887", muted: "#795548" } },
+      "p04": { name: "Clean Linen", desc: "清潔感のある白とグリーンを中心にした、軽やかなナチュラルトーン。", colors: { bg: "#FFFFFF", panel: "#E8F0E9", line: "#E8F0E9", text: "#2D362E", accent: "#F2D06B", button: "#87A98D", muted: "#708072" } },
+      "p05": { name: "Violet Mist", desc: "やわらかなピンクとラベンダーの空気感を持つ、静かなフェミニントーン。", colors: { bg: "#FDFBFB", panel: "#F5EBEB", line: "#F5EBEB", text: "#5C4B4B", accent: "#B88F8F", button: "#D4A5A5", muted: "#998A8A" } },
+      "p06": { name: "Cool Water", desc: "木や石の質感を感じる、クールで落ち着いたニュートラルトーン。", colors: { bg: "#F2F1EF", panel: "#A3927D", line: "#A3927D", text: "#2B2B2B", accent: "#6B5E4F", button: "#3D3D3D", muted: "#7D7D7D" } },
+      "p07": { name: "Herbal Air", desc: "透明な水とハーブの軽さを感じる、爽やかでクリーンな配色。", colors: { bg: "#FFFFFF", panel: "#E1F0F4", line: "#E1F0F4", text: "#334143", accent: "#2C5D63", button: "#A8D0DA", muted: "#7F9094" } },
+      "p08": { name: "Dark Roast", desc: "焙煎やスパイスを思わせる、深みと温度のあるブラウン系配色。", colors: { bg: "#F7F3EE", panel: "#E9DCC9", line: "#E9DCC9", text: "#3B2316", accent: "#59321E", button: "#BF7342", muted: "#8C776D" } },
+      "p09": { name: "Sweet Scent", desc: "夕暮れの甘い余韻を感じる、やさしいラベンダー系の配色。", colors: { bg: "#FAF9FC", panel: "#EBE8F2", line: "#EBE8F2", text: "#3A3545", accent: "#6A5D8A", button: "#9A8CB9", muted: "#817D8A" } },
+      "p10": { name: "Iron Smoke", desc: "無機質な都会感と冷静さを備えた、硬質なモノトーン寄りの配色。", colors: { bg: "#FFFFFF", panel: "#E0E0E0", line: "#E0E0E0", text: "#121212", accent: "#555555", button: "#000000", muted: "#888888" } },
+      "p12": { name: "Fruity Pop", desc: "軽やかな親しみやすさを持ちながら、紙や本のような落ち着きもある配色。", colors: { bg: "#F5F5F0", panel: "#D7CCC8", line: "#D7CCC8", text: "#3E2723", accent: "#A1887F", button: "#6D4C41", muted: "#8D6E63" } },
+      "p13": { name: "Forest Path", desc: "夜のネオン感と深い青を組み合わせた、印象の強いコントラスト配色。", colors: { bg: "#E0F7FA", panel: "#00BCD4", line: "#00BCD4", text: "#0D1240", accent: "#FF4081", button: "#1A237E", muted: "#546E7A" } },
+      "p14": { name: "Bold Wine", desc: "静けさの中に芯の強さを持つ、自然と深緑を感じる重厚な配色。", colors: { bg: "#FCFDFB", panel: "#A4AC86", line: "#A4AC86", text: "#1A1F16", accent: "#656D4A", button: "#333D29", muted: "#6B705C" } },
+      "p15": { name: "Aqueous Calm", desc: "コンクリートや都市の空気を思わせる、整然としたブルーグレートーン。", colors: { bg: "#FFFFFF", panel: "#90A4AE", line: "#90A4AE", text: "#1A252B", accent: "#CFD8DC", button: "#263238", muted: "#546E7A" } },
+      "p16": { name: "Milky Tea", desc: "やわらかな光と淡い色の重なりを感じる、穏やかなパステルトーン。", colors: { bg: "#FBFBFF", panel: "#E8EAF6", line: "#E8EAF6", text: "#303F9F", accent: "#FFCCBC", button: "#7986CB", muted: "#5C6BC0" } },
+      "p17": { name: "Soft Velvet", desc: "ベリーやダークフラワーのような、濃密で少し危うい配色。", colors: { bg: "#FCE4EC", panel: "#AD1457", line: "#AD1457", text: "#1A0033", accent: "#000000", button: "#4A148C", muted: "#880E4F" } },
+      "p18": { name: "Silent Storm", desc: "熱を帯びた砂や夕方の空気を思わせる、ドラマのある暖色トーン。", colors: { bg: "#FFF9F0", panel: "#F39C12", line: "#F39C12", text: "#3E2723", accent: "#2C3E50", button: "#E67E22", muted: "#8D6E63" } },
+      "p19": { name: "Refreshing Chill", desc: "祝祭感のある明るさと上品さを両立した、軽やかなゴールド系配色。", colors: { bg: "#FFFFFF", panel: "#F4F1DE", line: "#F4F1DE", text: "#3D405B", accent: "#E07A5F", button: "#C5B358", muted: "#818181" } },
+      "p23": { name: "Silk Touch", desc: "深海のような静かなグリーンと柔らかな無彩色を組み合わせた配色。", colors: { bg: "#F2F4F3", panel: "#3D5A53", line: "#3D5A53", text: "#0D1412", accent: "#82A098", button: "#162623", muted: "#6B7C77" } },
+      "p25": { name: "Sea Salt", desc: "静かな紫の空気感を持つ、気品のあるクールトーン。", colors: { bg: "#F8F8FC", panel: "#9B95D1", line: "#9B95D1", text: "#1E1A3D", accent: "#423A7E", button: "#5D54A4", muted: "#746F9E" } },
+      "p26": { name: "Orchid Fragrance", desc: "北の空気のように澄んだ、清潔で透明感のあるブルーグレー配色。", colors: { bg: "#FFFFFF", panel: "#D8DEE9", line: "#D8DEE9", text: "#2E3440", accent: "#5E81AC", button: "#81A1C1", muted: "#4C566A" } },
+      "p29": { name: "Spring Sprout", desc: "インクのような深い青黒さを中心にした、知的で静かな配色。", colors: { bg: "#F8FAFC", panel: "#334155", line: "#334155", text: "#1E293B", accent: "#64748B", button: "#0F172A", muted: "#94A3B8" } },
+      "p30": { name: "Deep Graphite", desc: "影をまとったようなラベンダーとグレージュが混ざる、繊細で落ち着いた配色。", colors: { bg: "#F2E9E4", panel: "#9A8C98", line: "#9A8C98", text: "#22223B", accent: "#C9ADA7", button: "#4A4E69", muted: "#30334D" } },
+      "p31": { name: "Berry Fizz", desc: "鮮やかなベリーとネオン感を持つ、強い印象のハイトーン配色。", colors: { bg: "#FFF0F6", panel: "#FF80BF", line: "#FF80BF", text: "#33001A", accent: "#400080", button: "#FF007F", muted: "#99004C" } },
+      "p32": { name: "Jungle Leaf", desc: "刺激的なシトラスの明るさを持つ、エネルギッシュな高彩度配色。", colors: { bg: "#FFF9E6", panel: "#FFD700", line: "#FFD700", text: "#4D2A00", accent: "#FF0000", button: "#FF8C00", muted: "#CC7000" } },
+      "p33": { name: "Dark Shadow", desc: "トロピカルな鮮やかさと深い緑が混ざる、遊び心の強い配色。", colors: { bg: "#E0F2F1", panel: "#FF6D00", line: "#FF6D00", text: "#004D40", accent: "#AA00FF", button: "#00BFA5", muted: "#00796B" } },
+      "p34": { name: "Sparkling Wine", desc: "赤とゴールドの祝祭感を前面に出した、強く華やかな配色。", colors: { bg: "#FFF5F5", panel: "#FFC107", line: "#FFC107", text: "#4B0000", accent: "#1A1A1A", button: "#D32F2F", muted: "#B71C1C" } },
+      "p35": { name: "Marshmallow Cloud", desc: "鮮烈なライムグリーンが主役の、瞬発力のある配色。", colors: { bg: "#F7FFF7", panel: "#ADFF2F", line: "#ADFF2F", text: "#003300", accent: "#0000FF", button: "#32CD32", muted: "#008000" } },
+      "p37": { name: "Dried Rose", desc: "燃える夕焼けのような熱量を持つ、強いオレンジレッドの配色。", colors: { bg: "#FFF5E6", panel: "#FC913A", line: "#FC913A", text: "#3B0B0B", accent: "#F9D423", button: "#FF4E50", muted: "#D63E40" } },
+      "p40": { name: "Solar Flare", desc: "ダークベースに高温の赤と黄を差し込んだ、最もドラマチックな配色。", colors: { bg: "#1A0000", panel: "#EF5350", line: "#EF5350", text: "#FFFFFF", accent: "#FFCA28", button: "#B71C1C", muted: "#E57373" } }
     };
+
+    const paletteOrder = ["p01", "p41", "p42", "p43", "p44", "p45", "p46", "p04", "p05", "p06", "p07", "p08", "p09", "p10", "p12", "p13", "p14", "p15", "p16", "p17", "p18", "p19", "p23", "p25", "p26", "p29", "p30", "p31", "p32", "p33", "p34", "p35", "p37", "p40"];
 
     const tokenOrder = ["bg", "panel", "line", "text", "muted", "accent", "button"];
     const tokenLabels = {
@@ -695,9 +691,7 @@
       renderTokenList(palette.colors);
     }
 
-    Object.keys(palettes)
-      .sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)))
-      .forEach((id) => {
+    paletteOrder.forEach((id) => {
         const opt = document.createElement("option");
         opt.value = id;
         opt.textContent = `${id.toUpperCase()} | ${palettes[id].name}`;
@@ -706,7 +700,7 @@
 
     select.addEventListener("change", (e) => applyPalette(e.target.value));
 
-    select.value = "p01";
+    select.value = "p44";
     applyPalette(select.value);
   </script>
 </body>

@@ -95,44 +95,44 @@
               <tbody>
                 <tr class="template-row">
                   <td>メインカラー</td>
-                  <td>#2C2C2C</td>
-                  <td><span class="design-swatch" style="background-color: #2C2C2C;"></span></td>
+                  <td>#F4A460</td>
+                  <td><span class="design-swatch" style="background-color: #F4A460;"></span></td>
                   <td>ヘッダー、ボタン、見出し</td>
                 </tr>
                 <tr class="template-row">
                   <td>サブカラー</td>
-                  <td>#EAE4D3</td>
-                  <td><span class="design-swatch" style="background-color: #EAE4D3;"></span></td>
+                  <td>#FAD4B2</td>
+                  <td><span class="design-swatch" style="background-color: #FAD4B2;"></span></td>
                   <td>背景、カード、セクション区切り</td>
                 </tr>
                 <tr class="template-row">
                   <td>アクセントカラー</td>
-                  <td>#B24531</td>
-                  <td><span class="design-swatch" style="background-color: #B24531;"></span></td>
+                  <td>#CD853F</td>
+                  <td><span class="design-swatch" style="background-color: #CD853F;"></span></td>
                   <td>CTA、リンク、強調</td>
                 </tr>
                 <tr class="template-row">
                   <td>背景色</td>
-                  <td>#F9F8F4</td>
-                  <td><span class="design-swatch" style="background-color: #F9F8F4;"></span></td>
+                  <td>#FFF5EC</td>
+                  <td><span class="design-swatch" style="background-color: #FFF5EC;"></span></td>
                   <td>ページ背景</td>
                 </tr>
                 <tr class="template-row">
                   <td>テキスト色</td>
-                  <td>#1A1A1A</td>
-                  <td><span class="design-swatch" style="background-color: #1A1A1A;"></span></td>
+                  <td>#5D4037</td>
+                  <td><span class="design-swatch" style="background-color: #5D4037;"></span></td>
                   <td>本文テキスト</td>
                 </tr>
                 <tr class="template-row">
                   <td>テキスト色（薄）</td>
-                  <td>#666666</td>
-                  <td><span class="design-swatch" style="background-color: #666666;"></span></td>
+                  <td>#A1887F</td>
+                  <td><span class="design-swatch" style="background-color: #A1887F;"></span></td>
                   <td>補助テキスト、注釈</td>
                 </tr>
               </tbody>
             </table>
 
-            <p class="fill-hint">下記のPalette Previewにて比較検討した結果、"ジャパニーズ・モダン"を選択しました。<br>下記画面上部中央のドロップダウンの "P01〜P40"を切り替えることにより、同一画面内で配色とトークン一覧を比較できます。</p>
+            <p class="fill-hint">下記のPalette Previewは、`references/06-design-guide/colour-comparison-40.html` のドロップダウンから切り替え可能です。<br>配色候補は `inim-dx/js/site-shell.js` の `themeOptions` と `inim-dx/css/style.css` のテーマ定義に合わせて更新し、現行の既定テーマ `P44 / Apricot Mist` を既定表示にしています。</p>
             <div class="palette-embed">
               <p class="palette-embed-title">カラーパレット比較</p>
               <iframe src="../references/06-design-guide/colour-comparison-40.html" title="カラーパレット比較"></iframe>
@@ -262,34 +262,34 @@
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(44, 44, 44, 0.16);
+  box-shadow: 0 6px 14px rgba(93, 64, 55, 0.16);
 }
 
 .btn-primary {
-  background: #2C2C2C;
+  background: #F4A460;
   color: #FFF;
 }
 .btn-primary:hover {
-  background: #1A1A1A;
+  background: #CD853F;
 }
 
 .btn-secondary {
   background: #FFF;
-  color: #2C2C2C;
-  border-color: #2C2C2C;
+  color: #5D4037;
+  border-color: #F4A460;
 }
 .btn-secondary:hover {
-  background: #F3F1EC;
-  color: #1A1A1A;
-  border-color: #1A1A1A;
+  background: #FFF5EC;
+  color: #5D4037;
+  border-color: #CD853F;
 }
 
 .btn-danger {
-  background: #B24531;
+  background: #CD853F;
   color: #FFF;
 }
 .btn-danger:hover {
-  background: #943222;
+  background: #B87333;
 }
 &lt;/style&gt;</code></pre>
             </div>
@@ -369,26 +369,26 @@
 &lt;style&gt;
 .form-control {
   min-height: 44px;
-  border: 1px solid #C9C5BB;
+  border: 1px solid #FAD4B2;
   border-radius: 10px;
   font-family: "Noto Sans JP", sans-serif;
 }
 
 .form-control:focus {
   outline: none;
-  border-color: #2C2C2C;
-  box-shadow: 0 0 0 3px rgba(44, 44, 44, 0.14);
+  border-color: #F4A460;
+  box-shadow: 0 0 0 3px rgba(244, 164, 96, 0.24);
 }
 
 .form-control.is-error,
 .form-control.is-error:focus {
-  border-color: #B24531;
-  box-shadow: 0 0 0 3px rgba(178, 69, 49, 0.18);
-  background: #FFF8F6;
+  border-color: #CD853F;
+  box-shadow: 0 0 0 3px rgba(205, 133, 63, 0.18);
+  background: #FFF5EC;
 }
 
 .choice input {
-  accent-color: #2C2C2C;
+  accent-color: #F4A460;
 }
 &lt;/style&gt;</code></pre>
             </div>
@@ -503,25 +503,25 @@
 
 &lt;style&gt;
 .workshop-step {
-  border: 1px solid #CFC9BC;
+  border: 1px solid #FAD4B2;
   border-radius: 12px;
   padding: 18px;
   background: #FFF;
 }
 
 .ui-table thead th {
-  background: #2C2C2C;
-  color: #FFF;
+  background: #FAD4B2;
+  color: #5D4037;
 }
 
 .ui-table tbody tr:nth-child(even) {
-  background: #F9F8F4;
+  background: #FFF5EC;
 }
 
-.ui-alert.info { border-left: 4px solid #2C2C2C; background: #F3F3F3; }
-.ui-alert.success { border-left: 4px solid #2F7A4A; background: #EDF7F0; }
-.ui-alert.warning { border-left: 4px solid #9A6A17; background: #FFF8E8; }
-.ui-alert.error { border-left: 4px solid #B24531; background: #FFF1EE; }
+.ui-alert.info { border-left: 4px solid #F4A460; background: #FFF5EC; }
+.ui-alert.success { border-left: 4px solid #A1887F; background: #F7EFE8; }
+.ui-alert.warning { border-left: 4px solid #F4A460; background: #FFF1E2; }
+.ui-alert.error { border-left: 4px solid #CD853F; background: #FDE9D9; }
 &lt;/style&gt;</code></pre>
             </div>
           </div>
@@ -541,9 +541,9 @@
               <p><strong>4. 要素間の余白</strong><br>大要素（カード群・主要ブロック間）: 32px<br>中要素（見出しと本文・フォーム行間）: 20px<br>小要素（ラベルと入力欄・補足テキスト）: 8px</p>
               <p><strong>5. 角丸の数値</strong><br>カード・モーダル: 12px<br>ボタン・入力欄: 10px<br>タグ・バッジ: 8px</p>
               <p><strong>6. シャドウ設定（box-shadow）</strong><br>基本カード:
-                <code>0 6px 18px rgba(44, 44, 44, 0.10)</code><br>強調カード/ホバー:
-                <code>0 12px 28px rgba(44, 44, 44, 0.14)</code><br>フォーカスリング:
-                <code>0 0 0 3px rgba(44, 44, 44, 0.14)</code></p>
+                <code>0 6px 18px rgba(93, 64, 55, 0.10)</code><br>強調カード/ホバー:
+                <code>0 12px 28px rgba(93, 64, 55, 0.14)</code><br>フォーカスリング:
+                <code>0 0 0 3px rgba(244, 164, 96, 0.24)</code></p>
               <p><strong>7. ブレークポイント（PC / タブレット / スマートフォン）</strong><br>PC: 1024px以上<br>タブレット: 768px〜1023px<br>スマートフォン: 767px以下</p>
             </div>
           </div>

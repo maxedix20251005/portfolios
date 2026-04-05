@@ -6,6 +6,18 @@
 - Spring Boot is not adopted at this stage; future migration remains an option in the specification.
 - Spring Boot は現時点では未採用であり、将来の移行余地は仕様書側で言及する。
 
+## 1-1. Current Public Site Surface / 現在の公開サイト構成
+- Entry point: `index.html` under the `inim-dx` site root.
+- 入口ページは `inim-dx` のサイトルートにある `index.html` とする。
+- Current homepage order: hero, booking shortcut, experience banner, journey, pickup, new arrivals.
+- 現在のホームページ構成は hero、booking shortcut、experience banner、journey、pickup、new arrivals の順とする。
+- The homepage uses a hero slider and CTA hierarchy to prioritize reservation flow first.
+- ホームページは hero スライダーと CTA 階層で、予約導線を最優先に設計する。
+- Current shell scripts: `js/site-config.js`, Supabase JS CDN, `js/site-shell.js`.
+- 現在のシェル構成は `js/site-config.js`、Supabase JS CDN、`js/site-shell.js` とする。
+- The homepage keeps the top-level voice in Japanese while using English labels for section cues where helpful.
+- ホームページは本文を日本語中心としつつ、セクションキューには必要に応じて英語ラベルを併用する。
+
 ## 2. Data & Auth Model / データ・認証モデル
 - Auth population: `auth.users`.
 - 認証の母集団は `auth.users` とする。
@@ -99,7 +111,13 @@
 - `instructions/sql_migration_plan.md`
 - `instructions/cross-project-handover-admin-implementation.md`
 
-## 11. Project-side Mirror Links / project側ミラー
+## 11. Public UI Notes / 公開UIメモ
+- The public landing page is currently a marketing-oriented entry page, not an admin screen.
+- 公開ランディングページは、現時点では管理画面ではなく集客導線を重視した入口ページである。
+- Key sections to preserve in future edits: hero, booking shortcut, experience banner, journey, pickup, and new arrivals.
+- 今後の編集で維持する主要セクションは hero、booking shortcut、experience banner、journey、pickup、new arrivals である。
+
+## 12. Project-side Mirror Links / project側ミラー
 - `archives/instructions/handover-notes.md`
 - `archives/instructions/supabase-admin-setup.md`
 - `archives/instructions/supabase-rls-setup.md`

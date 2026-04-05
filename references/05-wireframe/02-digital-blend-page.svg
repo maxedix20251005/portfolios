@@ -1,5 +1,5 @@
-<svg id="wf-lower" width="1440" height="1450" viewBox="0 0 1440 1450" xmlns="http://www.w3.org/2000/svg"
-                  role="img" aria-label="香りと遊ぶ！香游（左ナビ込み） ワイヤーフレーム（PC版）">
+<svg id="wf-lower" width="1264" height="1450" viewBox="0 0 1264 1450" xmlns="http://www.w3.org/2000/svg"
+                  role="img" aria-label="香りと遊ぶ！香游ワイヤーフレーム（PC版）">
 <style>
   text { font-family: "Noto Sans JP", "Inter", sans-serif; fill: #333333; letter-spacing: 0.01em; }
   .wf-sidenav-bg { fill: #ffffff; stroke: #e6e6e6; stroke-width: 2; }
@@ -25,48 +25,7 @@
   .sm { font-size: 12px; fill: #666666; }
   .small { font-size: 12px; fill: #666666; }
 </style>
-
-                  <!-- Left Navigation (same for both) -->
-                  <g>
-                    <rect x="0" y="0" width="200" height="1450" class="wf-sidenav-bg" />
-                    <!-- Logo placeholder -->
-                    <rect x="40" y="24" width="120" height="44" class="wf-logo-box" />
-                    <line x1="40" y1="24" x2="160" y2="68" class="wf-logo-line" />
-                    <line x1="160" y1="24" x2="40" y2="68" class="wf-logo-line" />
-
-                    <g class="wf-sidenav-text">
-                      <text x="24" y="110" font-weight="700">ブランド</text>
-                      <text x="24" y="132">■■■■■■■■■■</text>
-                      <text x="24" y="150">■■■■■■■■■■</text>
-                      <text x="24" y="168">■■■■■■■■■■</text>
-
-                      <text x="24" y="200" font-weight="700">アイテム</text>
-                      <text x="24" y="222">■■■■■■■■■■</text>
-                      <text x="24" y="240">■■■■■■■■■■</text>
-                      <text x="24" y="258">DIY</text>
-                      <text x="24" y="276">■■■■■■■■■■</text>
-                      <text x="24" y="294">ギフトセット</text>
-
-                      <text x="24" y="326" font-weight="700">香りから探す</text>
-                      <text x="24" y="348">■■■■■■■■■■</text>
-
-                      <text x="24" y="380" font-weight="700">香りと遊ぶ！香游</text>
-                      <text x="24" y="402">■■■■■■■■■■</text>
-
-                      <text x="24" y="434" font-weight="700">記事</text>
-                      <text x="24" y="456">■■■■■■■■■■</text>
-                      <text x="24" y="474">Sale</text>
-
-                      <text x="24" y="506" font-weight="700">実店舗</text>
-                      <text x="24" y="528">■■■■■■イベント</text>
-                      <text x="24" y="546">■■■■■ ■■店</text>
-
-                      <text x="24" y="578" font-weight="700">ショッピングガイド</text>
-                      <text x="24" y="600">マイアカウント</text>
-                      <text x="24" y="618">会員登録</text>
-                      <text x="24" y="636">ログイン</text>
-                    </g>
-                  </g>
+                <g transform="translate(-200,0)">
 
                   <g transform="translate(220,0) scale(0.85)">
                     <rect x="0" y="0" width="1440" height="44" class="section" />
@@ -173,4 +132,5 @@
                       <text x="820" y="1410" text-anchor="middle" fill="#BBBBBB">inim-dx wireframe document</text>
                     </g>
                   </g>
-                </svg>
+                                </g>
+</svg>

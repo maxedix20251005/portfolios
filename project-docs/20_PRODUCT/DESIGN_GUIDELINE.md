@@ -17,6 +17,36 @@
 - Icons: Material Symbols Outlined.
 - アイコンは Material Symbols Outlined を使用する。
 
+## Current Theme Palette / 現在のテーマ配色
+- The design-guide preview and component samples should follow the current `inim-dx/js/site-shell.js` `themeOptions` source.
+- デザインガイドのプレビューとコンポーネント見本は、現在の `inim-dx/js/site-shell.js` の `themeOptions` を参照元とする。
+- The current default palette is `P44 / Apricot Mist`.
+- 現在のデフォルト配色は `P44 / Apricot Mist` とする。
+- Core tokens:
+- 主要トークン:
+  - `main` = `#F4A460`
+  - `sub` = `#FAD4B2`
+  - `accent` = `#CD853F`
+  - `background` = `#FFF5EC`
+  - `text` = `#5D4037`
+  - `muted` = `#A1887F`
+- Keep document-side previews aligned with `references/06-design-guide/colour-comparison-40.html`.
+- 文書側プレビューは `references/06-design-guide/colour-comparison-40.html` と整合させる。
+
+## Current Public Landing Page / 現在の公開ランディングページ
+- The homepage should feel like a guided fragrance experience, not a generic brochure page.
+- ホームページは、一般的な紹介ページではなく、香り体験へ誘導する構成にする。
+- Preserve the current section order: hero, booking shortcut, experience banner, journey, pickup, and new arrivals.
+- 現在のセクション順である hero、booking shortcut、experience banner、journey、pickup、new arrivals を維持する。
+- Hero copy should lead with a strong emotional hook and a clear reservation CTA.
+- hero のコピーは、感情に訴える強いフックと明確な予約 CTA を先頭に置く。
+- Booking-related actions should remain visually dominant over secondary browsing actions.
+- 予約系のアクションは、閲覧系の補助アクションよりも視覚的に優先する。
+- Product and feature blocks should use compact cards with strong imagery and short supporting copy.
+- 商品・特集ブロックは、強い画像と短い補足文を持つコンパクトなカードで構成する。
+- Use bilingual micro-labels where they help orientation, but keep the main page narrative coherent in Japanese.
+- 案内に役立つ箇所では bilingual の小見出しを使い、本文の物語性は日本語で一貫させる。
+
 ## Layout / レイアウト
 - Shared structure: `.page-wrapper` + `.sidebar` + `.main-content`.
 - 共通構造は `.page-wrapper` + `.sidebar` + `.main-content` とする。
@@ -70,6 +100,10 @@
 - 配色調整は個別値ではなく CSS 変数で行う。
 - Keep heading hierarchy as `h2 (chapter) -> h3 (section)`.
 - 見出し階層は `h2(章) -> h3(節)` を維持する。
+- Keep the booking-first hero CTA hierarchy intact when adding or revising content blocks.
+- コンテンツ追加や見直し時も、予約優先の hero CTA 階層を維持する。
+- When wireframe assets are revised, embed the shared SVG files from `references/05-wireframe/` rather than duplicating inline SVG markup in `docs/05-wireframe.html`.
+- ワイヤーフレーム資産を更新する場合は、`docs/05-wireframe.html` に SVG をインライン複製せず、`references/05-wireframe/` の共通 SVG を参照する。
 
 ## Source / 参照元
 - `instructions/design-guideline.md`

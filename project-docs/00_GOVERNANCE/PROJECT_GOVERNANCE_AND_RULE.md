@@ -9,9 +9,10 @@
 - 実装と文書更新は同じタスクで完了する。
 
 ## 0-1. Basic Information / 基本情報
-- Site URL / 開発対象サイト: `C:\academia\src\inim-dx`
-- Design document references / デザイン文書参照先: `C:\academia\src\portfolio\docs`
-- Governance document references / ガバナンス文書参照先: `C:\academia\src\portfolio\project-docs`
+- Site URL / 開発対象サイト: `C:\Users\maxsh\OneDrive\Documents\EDIX\src\inim-dx`
+- Public URL / 公開URL: `https://maxedix20251005.github.io/inim-dx/index.html`
+- Design document references / デザイン文書参照先: `C:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\docs`
+- Governance document references / ガバナンス文書参照先: `C:\Users\maxsh\OneDrive\Documents\EDIX\src\portfolio\project-docs`
 - Test plan source of truth / テスト計画の正本: `project-docs/60_TEST/inim-dx_test_plan_refined.xlsx`
 - Test report source document / テスト報告書の元文書: `docs/09-test-report.html`
 

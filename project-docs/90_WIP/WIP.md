@@ -3,6 +3,10 @@
 ## In Progress / 現在作業
 - `project-docs` ドキュメントを新ガバナンス形式へ統一し、運用の正本を確立する。
 - Unify the `project-docs` documents into the new governance format and establish the operational source of truth.
+- Public homepage changes have been reflected in the planning/design documents and the site path has been aligned.
+- 公開ホームページの変更は planning/design 文書へ反映済みで、サイト参照先も整合した。
+- Sitemap, wireframe, and design-guide color scheme updates have been synchronized with the current `inim-dx` source.
+- サイトマップ、ワイヤーフレーム、デザインガイドの配色更新は、現在の `inim-dx` ソースと同期済みである。
 
 ## Next Actions / 次アクション
 1. 管理画面のフロントエンド構成（ファイル分割と責務）を確定する。
@@ -40,5 +44,4 @@
   3. `01a_register_sample_members.sql`（必要時）
   4. `01_seed_core_data.sql`
   5. `02_verify_seed_data.sql`
-  6. `03_rls_policies.sql`
   6. `03_rls_policies.sql`

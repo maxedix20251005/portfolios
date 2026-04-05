@@ -67,86 +67,140 @@
             <div class="fill-hint">テーブル間のリレーション図（テキストベースまたは画像で記載）</div>
             <div class="fill-content">
               <p>採用構成は `GitHub Pages + JavaScript + Supabase` を前提とするため、認証は Supabase Auth の `auth.users`
-                を利用し、業務データはアプリ側テーブルで管理する。以下は Must 機能を中心に、将来拡張で参照される主要テーブルも含めた ER 図である。</p>
+                を利用し、業務データはアプリ側テーブルで管理する。以下は Must 機能に加え、ワークショップ予約マスタ/開催日程管理とスマート調香保存機能まで含めた現行 ER
+                図である。</p>
 
               <div class="spec-summary">
                 <pre class="code">[auth.users] 1 ──── 1 [user_profiles]
-  id (PK)               id (PK)
-  email                 auth_user_id (FK, UNIQUE)
-  encrypted_password    display_name
-  last_sign_in_at       account_status
-                         last_login_at
-                         created_at / updated_at
+  auth.users                     user_profiles
+  - id (PK)                      - id (PK)
+  - email                        - auth_user_id (FK, UNIQUE)
+  - encrypted_password           - display_name
+  - last_sign_in_at              - account_status
+                                 - last_login_at
+                                 - created_at / updated_at
 
 [roles] 1 ──── * [user_role_assignments] * ──── 1 [user_profiles]
-  id (PK)                id (PK)                    id (PK)
-  role_code              user_profile_id (FK)       auth_user_id (FK)
-  role_name              role_id (FK)               display_name
-  description            assigned_at                account_status
+  roles                          user_role_assignments            user_profiles
+  - id (PK)                      - id (PK)                        - id (PK)
+  - role_code                    - user_profile_id (FK)           - auth_user_id (FK)
+  - role_name                    - role_id (FK)                   - display_name
+  - description                  - assigned_at                    - account_status
 
 [content_assets] 1 ──── * [top_hero_items]
-  id (PK)                 id (PK)
-  file_path               title
-  file_type               lead_text
-  alt_text                cta_label
-  bucket_name             cta_url
-  uploaded_by (FK)        asset_id (FK)
-  created_at / updated_at display_order
-                          is_active
-                          updated_by (FK)
-
-[user_profiles] 1 ──── * [top_hero_items]
-  id (PK)                 updated_by (FK)
-  display_name            ...
+  content_assets                 top_hero_items
+  - id (PK)                      - id (PK)
+  - file_path                    - title
+  - file_type                    - lead_text
+  - alt_text                     - cta_label
+  - bucket_name                  - cta_url
+  - uploaded_by (FK)             - asset_id (FK)
+  - created_at / updated_at      - display_order / is_active
+                                 - updated_by (FK)
 
 [user_profiles] 1 ──── * [journey_steps]
-  id (PK)                 id (PK)
-  display_name            step_no
-                          step_name
-                          link_url
-                          helper_text
-                          is_visible
-                          updated_by (FK)
-                          created_at / updated_at
+  user_profiles                  journey_steps
+  - id (PK)                      - id (PK)
+  - display_name                 - step_no
+                                 - step_name
+                                 - link_url
+                                 - helper_text
+                                 - is_visible
+                                 - updated_by (FK)
+                                 - created_at / updated_at
+
+[content_assets] 1 ──── * [workshop_plans]
+  content_assets                 workshop_plans
+  - id (PK)                      - id (PK)
+  - file_path                    - plan_code
+  - file_type                    - plan_name
+  - alt_text                     - hero_asset_id (FK)
+  - uploaded_by (FK)             - plan_image_url
+  - created_at / updated_at      - status / sort_order
+
+[workshop_plans] 1 ──── * [workshop_plan_inclusions]
+  workshop_plans                 workshop_plan_inclusions
+  - id (PK)                      - id (PK)
+  - plan_name                    - plan_id (FK)
+                                 - inclusion_text
+                                 - display_order
+                                 - created_at / updated_at
+
+[workshop_plans] 1 ──── * [workshop_plan_flow_steps]
+  workshop_plans                 workshop_plan_flow_steps
+  - id (PK)                      - id (PK)
+  - plan_name                    - plan_id (FK)
+                                 - step_no
+                                 - step_title
+                                 - asset_id (FK)
+                                 - display_order
+                                 - created_at / updated_at
+
+[workshop_plans] 1 ──── * [workshop_sessions] * ──── 1 [stores]
+  workshop_plans                 workshop_sessions                stores
+  - id (PK)                      - id (PK)                        - id (PK)
+  - plan_name                    - plan_id (FK)                   - store_name
+                                 - store_id (FK)                  - prefecture
+                                 - session_date                   - address
+                                 - booking_method                 - is_active
+                                 - session_status                 - created_at / updated_at
+                                 - capacity_total
+                                 - published_at
 
 [user_profiles] 1 ──── * [bookings] * ──── 1 [stores]
-  id (PK)                 id (PK)                   id (PK)
-  display_name            customer_profile_id (FK) store_name
-                          store_id (FK)            prefecture
-                          booking_type             address
-                          booked_at                is_active
-                          participant_count        created_at / updated_at
-                          status
-                          note
-                          created_at / updated_at
+  user_profiles                  bookings                         stores
+  - id (PK)                      - id (PK)                        - id (PK)
+  - display_name                 - customer_profile_id (FK)       - store_name
+                                 - store_id (FK)                  - prefecture
+                                 - session_id (FK)                - address
+                                 - plan_id (FK)                   - is_active
+                                 - booking_type                   - created_at / updated_at
+                                 - booked_at
+                                 - participant_count / party_size
+                                 - quoted_price_jpy / currency_code
+                                 - booking_method / contact_email
+                                 - status / note
+                                 - created_at / updated_at
 
 [user_profiles] 1 ──── * [enquiries]
-  id (PK)                 id (PK)
-  display_name            customer_profile_id (FK)
-                          category
-                          subject
-                          body
-                          status
-                          assigned_to (FK)
-                          created_at / updated_at
+  user_profiles                  enquiries
+  - id (PK)                      - id (PK)
+  - display_name                 - customer_profile_id (FK)
+                                 - category
+                                 - subject
+                                 - body
+                                 - status
+                                 - assigned_to (FK)
+                                 - created_at / updated_at
 
 [bookings] 1 ──── * [booking_status_logs]
-  id (PK)                   id (PK)
-  status                    booking_id (FK)
-                            previous_status
-                            next_status
-                            changed_by (FK)
-                            change_note
-                            created_at
+  bookings                       booking_status_logs
+  - id (PK)                      - id (PK)
+  - status                       - booking_id (FK)
+                                 - previous_status
+                                 - next_status
+                                 - changed_by (FK)
+                                 - change_note
+                                 - created_at
 
 [enquiries] 1 ──── * [enquiry_status_logs]
-  id (PK)                id (PK)
-  status                 enquiry_id (FK)
-                         previous_status
-                         next_status
-                         changed_by (FK)
-                         change_note
-                         created_at</pre>
+  enquiries                      enquiry_status_logs
+  - id (PK)                      - id (PK)
+  - status                       - enquiry_id (FK)
+                                 - previous_status
+                                 - next_status
+                                 - changed_by (FK)
+                                 - change_note
+                                 - created_at
+
+[auth.users] 1 ──── * [smart_scent_blends]
+  auth.users                     smart_scent_blends
+  - id (PK)                      - id (PK)
+  - email                        - auth_user_id (FK)
+                                 - blend_name
+                                 - notes_json
+                                 - recommendation_reason
+                                 - created_at / updated_at</pre>
               </div>
 
               <table class="doc-table">
@@ -174,6 +228,11 @@
                     <td>1つのアセットを複数のヒーロー/掲載要素から再利用できる。</td>
                   </tr>
                   <tr>
+                    <td>`workshop_plans` → `workshop_plan_inclusions` / `workshop_plan_flow_steps` / `workshop_sessions`</td>
+                    <td>1対多</td>
+                    <td>プラン説明、体験フロー、開催日程をプラン単位で管理する。</td>
+                  </tr>
+                  <tr>
                     <td>`user_profiles` → `top_hero_items` / `journey_steps`</td>
                     <td>1対多</td>
                     <td>誰が更新したかを保持し、運用履歴を追跡できる。</td>
@@ -189,15 +248,26 @@
                     <td>1店舗に複数予約が紐づく。店舗管理機能拡張時も整合する。</td>
                   </tr>
                   <tr>
+                    <td>`workshop_sessions` → `bookings`</td>
+                    <td>1対多</td>
+                    <td>公開カレンダー上の開催枠に対して予約を紐づけ、時点情報を bookings 側に保持する。</td>
+                  </tr>
+                  <tr>
                     <td>`bookings` / `enquiries` → 各ステータス履歴</td>
                     <td>1対多</td>
                     <td>対応状況の変更履歴を監査目的で残す。</td>
                   </tr>
+                  <tr>
+                    <td>`auth.users` → `smart_scent_blends`</td>
+                    <td>1対多</td>
+                    <td>ログイン会員ごとにスマート調香候補を保存・再読込できる。</td>
+                  </tr>
                 </tbody>
               </table>
 
-              <p class="note">補足: `auth.users` は Supabase 管理テーブルであり、通常の業務カラム追加は `user_profiles` 側で行う。`stores` は現時点では
-                Could 機能だが、予約ログの参照整合性を保つため ER 図に含めている。</p>
+              <p class="note">補足: `auth.users` は Supabase 管理テーブルであり、通常の業務カラム追加は `user_profiles` 側で行う。`workshop_sessions`
+                は公開予約カレンダーと管理画面の両方で参照され、`bookings` はその時点のプラン/連絡先スナップショットも保持する。`smart_scent_blends`
+                は seed 投入ではなく、会員操作によって蓄積されるユーザー所有データである。</p>
             </div>
           </div>
 
@@ -210,6 +280,11 @@
             <strong>ER図に基づき主要テーブルの定義を整理する</strong>
             認証本体は Supabase 管理テーブル `auth.users` を利用し、本節ではアプリ側で管理するテーブルを中心に定義する。全テーブルに `created_at`, `updated_at`
             を持たせ、論理削除が必要なテーブルには `deleted_at` を追加する。
+          </div>
+
+          <div class="note">
+            2026-03-25 以降の `inim-dx/sql` 反映内容として、ワークショップ予約のマスタ/セッション管理テーブル群と、スマート調香の保存テーブル
+            `smart_scent_blends` を追加した。既存 `bookings` テーブルにも、プラン・セッション・連絡先・見積金額を保持するカラムを拡張している。
           </div>
 
           <div class="fill-block">
@@ -901,8 +976,476 @@
           </div>
 
           <div class="fill-block">
+            <div class="fill-label">テーブル名：workshop_plans <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：公開/管理画面で利用するワークショッププランのマスタを保持する</div>
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>カラム名</th>
+                  <th>データ型</th>
+                  <th>NULL</th>
+                  <th>デフォルト</th>
+                  <th>制約</th>
+                  <th>説明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>gen_random_uuid()</td>
+                  <td>PK</td>
+                  <td>主キー</td>
+                </tr>
+                <tr>
+                  <td>plan_code</td>
+                  <td>VARCHAR(50)</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>UNIQUE, NOT NULL</td>
+                  <td>プラン識別コード</td>
+                </tr>
+                <tr>
+                  <td>plan_name</td>
+                  <td>VARCHAR(120)</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL</td>
+                  <td>プラン名</td>
+                </tr>
+                <tr>
+                  <td>plan_summary</td>
+                  <td>TEXT</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL</td>
+                  <td>一覧用の要約文</td>
+                </tr>
+                <tr>
+                  <td>plan_description</td>
+                  <td>TEXT</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL</td>
+                  <td>詳細説明</td>
+                </tr>
+                <tr>
+                  <td>booking_label</td>
+                  <td>VARCHAR(120)</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>予約導線に表示する補助ラベル</td>
+                </tr>
+                <tr>
+                  <td>duration_min_minutes</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL, CHECK (&gt; 0)</td>
+                  <td>最小所要時間（分）</td>
+                </tr>
+                <tr>
+                  <td>duration_max_minutes</td>
+                  <td>SMALLINT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (NULL or &gt;= duration_min_minutes)</td>
+                  <td>最大所要時間（分）</td>
+                </tr>
+                <tr>
+                  <td>base_price_jpy</td>
+                  <td>INTEGER</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL, CHECK (&gt;= 0)</td>
+                  <td>基本料金（JPY）</td>
+                </tr>
+                <tr>
+                  <td>currency_code</td>
+                  <td>VARCHAR(3)</td>
+                  <td>NO</td>
+                  <td>'JPY'</td>
+                  <td>NOT NULL, CHECK (length = 3)</td>
+                  <td>通貨コード</td>
+                </tr>
+                <tr>
+                  <td>pair_price_jpy</td>
+                  <td>INTEGER</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (NULL or &gt;= 0)</td>
+                  <td>ペア料金（JPY）</td>
+                </tr>
+                <tr>
+                  <td>min_party_size</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>1</td>
+                  <td>NOT NULL, CHECK (&gt;= 1)</td>
+                  <td>最小予約人数</td>
+                </tr>
+                <tr>
+                  <td>max_party_size</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>1</td>
+                  <td>NOT NULL, CHECK (&gt;= min_party_size)</td>
+                  <td>最大予約人数</td>
+                </tr>
+                <tr>
+                  <td>available_period_start / available_period_end</td>
+                  <td>DATE</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (終了日 &gt;= 開始日)</td>
+                  <td>販売期間</td>
+                </tr>
+                <tr>
+                  <td>meeting_place_text / experience_place_text / access_text</td>
+                  <td>TEXT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>集合場所・体験場所・アクセス案内</td>
+                </tr>
+                <tr>
+                  <td>cancellation_policy_text / notice_text</td>
+                  <td>TEXT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>キャンセルポリシーと注意事項</td>
+                </tr>
+                <tr>
+                  <td>hero_asset_id</td>
+                  <td>UUID</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>FK → content_assets.id</td>
+                  <td>メイン画像アセット</td>
+                </tr>
+                <tr>
+                  <td>plan_image_url</td>
+                  <td>TEXT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>プランカード用の公開画像URLまたは相対パス</td>
+                </tr>
+                <tr>
+                  <td>status</td>
+                  <td>VARCHAR(20)</td>
+                  <td>NO</td>
+                  <td>'draft'</td>
+                  <td>CHECK (draft, active, inactive)</td>
+                  <td>公開状態</td>
+                </tr>
+                <tr>
+                  <td>sort_order</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>1</td>
+                  <td>NOT NULL</td>
+                  <td>表示順</td>
+                </tr>
+                <tr>
+                  <td>created_by / updated_by</td>
+                  <td>UUID</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>FK → user_profiles.id</td>
+                  <td>作成者 / 更新者</td>
+                </tr>
+                <tr>
+                  <td>created_at / updated_at</td>
+                  <td>TIMESTAMPTZ</td>
+                  <td>NO</td>
+                  <td>now()</td>
+                  <td>NOT NULL</td>
+                  <td>作成日時 / 更新日時</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：workshop_plan_inclusions <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：各プランに含まれる内容を順序付きで保持する</div>
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>カラム名</th>
+                  <th>データ型</th>
+                  <th>NULL</th>
+                  <th>デフォルト</th>
+                  <th>制約</th>
+                  <th>説明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>gen_random_uuid()</td>
+                  <td>PK</td>
+                  <td>主キー</td>
+                </tr>
+                <tr>
+                  <td>plan_id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>FK → workshop_plans.id, NOT NULL</td>
+                  <td>対象プラン</td>
+                </tr>
+                <tr>
+                  <td>inclusion_text</td>
+                  <td>VARCHAR(255)</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL</td>
+                  <td>含まれる内容の文言</td>
+                </tr>
+                <tr>
+                  <td>display_order</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>1</td>
+                  <td>NOT NULL</td>
+                  <td>表示順</td>
+                </tr>
+                <tr>
+                  <td>created_at / updated_at</td>
+                  <td>TIMESTAMPTZ</td>
+                  <td>NO</td>
+                  <td>now()</td>
+                  <td>NOT NULL</td>
+                  <td>作成日時 / 更新日時</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：workshop_plan_flow_steps <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：各プランの体験フローを段階ごとに管理する</div>
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>カラム名</th>
+                  <th>データ型</th>
+                  <th>NULL</th>
+                  <th>デフォルト</th>
+                  <th>制約</th>
+                  <th>説明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>gen_random_uuid()</td>
+                  <td>PK</td>
+                  <td>主キー</td>
+                </tr>
+                <tr>
+                  <td>plan_id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>FK → workshop_plans.id, NOT NULL</td>
+                  <td>対象プラン</td>
+                </tr>
+                <tr>
+                  <td>step_no</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL, UNIQUE(plan_id, step_no)</td>
+                  <td>プラン内ステップ番号</td>
+                </tr>
+                <tr>
+                  <td>step_title</td>
+                  <td>VARCHAR(120)</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL</td>
+                  <td>ステップ見出し</td>
+                </tr>
+                <tr>
+                  <td>step_description</td>
+                  <td>TEXT</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL</td>
+                  <td>説明文</td>
+                </tr>
+                <tr>
+                  <td>asset_id</td>
+                  <td>UUID</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>FK → content_assets.id</td>
+                  <td>補助画像アセット</td>
+                </tr>
+                <tr>
+                  <td>display_order</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>1</td>
+                  <td>NOT NULL</td>
+                  <td>表示順</td>
+                </tr>
+                <tr>
+                  <td>created_at / updated_at</td>
+                  <td>TIMESTAMPTZ</td>
+                  <td>NO</td>
+                  <td>now()</td>
+                  <td>NOT NULL</td>
+                  <td>作成日時 / 更新日時</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：workshop_sessions <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：予約可能な開催日程・人数枠・受付方式を管理する</div>
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>カラム名</th>
+                  <th>データ型</th>
+                  <th>NULL</th>
+                  <th>デフォルト</th>
+                  <th>制約</th>
+                  <th>説明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>gen_random_uuid()</td>
+                  <td>PK</td>
+                  <td>主キー</td>
+                </tr>
+                <tr>
+                  <td>plan_id / store_id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>FK → workshop_plans.id / stores.id, NOT NULL</td>
+                  <td>対象プラン / 開催店舗</td>
+                </tr>
+                <tr>
+                  <td>session_date</td>
+                  <td>DATE</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL</td>
+                  <td>開催日</td>
+                </tr>
+                <tr>
+                  <td>gather_time / start_time / end_time</td>
+                  <td>TIME</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>CHECK (end_time &gt; start_time)</td>
+                  <td>集合 / 開始 / 終了時刻</td>
+                </tr>
+                <tr>
+                  <td>booking_method</td>
+                  <td>VARCHAR(20)</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>CHECK (instant, request)</td>
+                  <td>即時予約かリクエスト受付か</td>
+                </tr>
+                <tr>
+                  <td>min_party_size / max_party_size</td>
+                  <td>SMALLINT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (1以上、最大値は最小値以上)</td>
+                  <td>セッション単位の人数制限</td>
+                </tr>
+                <tr>
+                  <td>capacity_total / capacity_reserved</td>
+                  <td>SMALLINT</td>
+                  <td>NO</td>
+                  <td>0 or 既定値</td>
+                  <td>CHECK (reserved &lt;= total)</td>
+                  <td>総枠数 / 予約済み数</td>
+                </tr>
+                <tr>
+                  <td>session_status</td>
+                  <td>VARCHAR(20)</td>
+                  <td>NO</td>
+                  <td>'open'</td>
+                  <td>CHECK (open, limited, full, closed, cancelled)</td>
+                  <td>受付状態</td>
+                </tr>
+                <tr>
+                  <td>price_override_jpy</td>
+                  <td>INTEGER</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (NULL or &gt;= 0)</td>
+                  <td>セッション個別価格</td>
+                </tr>
+                <tr>
+                  <td>currency_code</td>
+                  <td>VARCHAR(3)</td>
+                  <td>NO</td>
+                  <td>'JPY'</td>
+                  <td>NOT NULL, CHECK (length = 3)</td>
+                  <td>通貨コード</td>
+                </tr>
+                <tr>
+                  <td>public_note</td>
+                  <td>VARCHAR(255)</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>公開向け補足文</td>
+                </tr>
+                <tr>
+                  <td>request_deadline_at / published_at</td>
+                  <td>TIMESTAMPTZ</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>申込締切 / 公開日時</td>
+                </tr>
+                <tr>
+                  <td>created_by / updated_by</td>
+                  <td>UUID</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>FK → user_profiles.id</td>
+                  <td>作成者 / 更新者</td>
+                </tr>
+                <tr>
+                  <td>created_at / updated_at</td>
+                  <td>TIMESTAMPTZ</td>
+                  <td>NO</td>
+                  <td>now()</td>
+                  <td>NOT NULL</td>
+                  <td>作成日時 / 更新日時</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fill-block">
             <div class="fill-label">テーブル名：bookings <span class="required">必須</span></div>
-            <div class="fill-hint">テーブルの目的：ワークショップ予約情報を保持する</div>
+            <div class="fill-hint">テーブルの目的：ワークショップ予約情報と、申込時点のプラン/連絡先スナップショットを保持する</div>
             <table class="doc-table">
               <thead>
                 <tr>
@@ -940,6 +1483,22 @@
                   <td>対象店舗</td>
                 </tr>
                 <tr>
+                  <td>session_id</td>
+                  <td>UUID</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>FK → workshop_sessions.id</td>
+                  <td>予約対象セッション</td>
+                </tr>
+                <tr>
+                  <td>plan_id</td>
+                  <td>UUID</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>FK → workshop_plans.id</td>
+                  <td>予約時点の対象プラン</td>
+                </tr>
+                <tr>
                   <td>booking_type</td>
                   <td>VARCHAR(40)</td>
                   <td>NO</td>
@@ -962,6 +1521,70 @@
                   <td>1</td>
                   <td>NOT NULL, CHECK (participant_count &gt;= 1)</td>
                   <td>参加人数</td>
+                </tr>
+                <tr>
+                  <td>party_size</td>
+                  <td>SMALLINT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (NULL or &gt;= 1)</td>
+                  <td>新UI用の申込人数</td>
+                </tr>
+                <tr>
+                  <td>quoted_price_jpy</td>
+                  <td>INTEGER</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (NULL or &gt;= 0)</td>
+                  <td>見積時点の料金（JPY）</td>
+                </tr>
+                <tr>
+                  <td>currency_code</td>
+                  <td>VARCHAR(3)</td>
+                  <td>YES</td>
+                  <td>'JPY'</td>
+                  <td>CHECK (NULL or length = 3)</td>
+                  <td>通貨コード</td>
+                </tr>
+                <tr>
+                  <td>booking_method</td>
+                  <td>VARCHAR(20)</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>CHECK (instant, request)</td>
+                  <td>即時予約 / リクエスト予約</td>
+                </tr>
+                <tr>
+                  <td>contact_name / contact_email / contact_phone</td>
+                  <td>VARCHAR / VARCHAR / VARCHAR</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>申込者の連絡先スナップショット</td>
+                </tr>
+                <tr>
+                  <td>special_requests</td>
+                  <td>TEXT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>要望・備考</td>
+                </tr>
+                <tr>
+                  <td>internal_note</td>
+                  <td>TEXT</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>管理者向け内部メモ</td>
+                </tr>
+                <tr>
+                  <td>confirmed_at</td>
+                  <td>TIMESTAMPTZ</td>
+                  <td>YES</td>
+                  <td>NULL</td>
+                  <td>—</td>
+                  <td>予約確定日時</td>
                 </tr>
                 <tr>
                   <td>status</td>
@@ -1271,6 +1894,81 @@
               </tbody>
             </table>
           </div>
+
+          <div class="fill-block">
+            <div class="fill-label">テーブル名：smart_scent_blends <span class="required">必須</span></div>
+            <div class="fill-hint">テーブルの目的：スマート調香機能の候補保存・再読込用データをユーザー単位で保持する</div>
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>カラム名</th>
+                  <th>データ型</th>
+                  <th>NULL</th>
+                  <th>デフォルト</th>
+                  <th>制約</th>
+                  <th>説明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>gen_random_uuid()</td>
+                  <td>PK</td>
+                  <td>主キー</td>
+                </tr>
+                <tr>
+                  <td>auth_user_id</td>
+                  <td>UUID</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>FK → auth.users.id, NOT NULL</td>
+                  <td>保存者の認証ユーザーID</td>
+                </tr>
+                <tr>
+                  <td>blend_name</td>
+                  <td>TEXT</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>CHECK (1〜120文字)</td>
+                  <td>保存名</td>
+                </tr>
+                <tr>
+                  <td>blend_memo</td>
+                  <td>TEXT</td>
+                  <td>NO</td>
+                  <td>''</td>
+                  <td>NOT NULL</td>
+                  <td>任意メモ</td>
+                </tr>
+                <tr>
+                  <td>notes_json</td>
+                  <td>JSONB</td>
+                  <td>NO</td>
+                  <td>—</td>
+                  <td>NOT NULL, CHECK (jsonb_typeof = 'array')</td>
+                  <td>候補ノート配列</td>
+                </tr>
+                <tr>
+                  <td>recommendation_reason</td>
+                  <td>TEXT</td>
+                  <td>NO</td>
+                  <td>''</td>
+                  <td>NOT NULL</td>
+                  <td>推薦理由</td>
+                </tr>
+                <tr>
+                  <td>created_at / updated_at</td>
+                  <td>TIMESTAMPTZ</td>
+                  <td>NO</td>
+                  <td>now()</td>
+                  <td>NOT NULL</td>
+                  <td>作成日時 / 更新日時</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section class="section" id="sec3">
@@ -1444,6 +2142,83 @@
                   <td>予約日時での並び替えに使用するため</td>
                 </tr>
                 <tr>
+                  <td>bookings</td>
+                  <td>idx_bookings_session_id</td>
+                  <td>session_id</td>
+                  <td>INDEX</td>
+                  <td>セッション単位の予約参照に使用するため</td>
+                </tr>
+                <tr>
+                  <td>bookings</td>
+                  <td>idx_bookings_plan_id</td>
+                  <td>plan_id</td>
+                  <td>INDEX</td>
+                  <td>プラン単位の予約集計に使用するため</td>
+                </tr>
+                <tr>
+                  <td>bookings</td>
+                  <td>idx_bookings_contact_email</td>
+                  <td>contact_email</td>
+                  <td>INDEX</td>
+                  <td>メールアドレス検索・照合に使用するため</td>
+                </tr>
+                <tr>
+                  <td>workshop_plans</td>
+                  <td>uq_workshop_plans_plan_code</td>
+                  <td>plan_code</td>
+                  <td>UNIQUE</td>
+                  <td>プランコードの重複防止と管理画面参照の高速化</td>
+                </tr>
+                <tr>
+                  <td>workshop_plans</td>
+                  <td>idx_workshop_plans_status_sort</td>
+                  <td>status, sort_order</td>
+                  <td>INDEX</td>
+                  <td>公開状態で絞り込みつつ表示順で取得するため</td>
+                </tr>
+                <tr>
+                  <td>workshop_plan_inclusions</td>
+                  <td>idx_workshop_plan_inclusions_plan_order</td>
+                  <td>plan_id, display_order</td>
+                  <td>INDEX</td>
+                  <td>プラン詳細表示時に順序付きで取得するため</td>
+                </tr>
+                <tr>
+                  <td>workshop_plan_flow_steps</td>
+                  <td>workshop_plan_flow_steps_plan_step_no_key</td>
+                  <td>plan_id, step_no</td>
+                  <td>UNIQUE</td>
+                  <td>同一プラン内のステップ番号重複を防ぐため</td>
+                </tr>
+                <tr>
+                  <td>workshop_plan_flow_steps</td>
+                  <td>idx_workshop_plan_flow_steps_plan_order</td>
+                  <td>plan_id, display_order</td>
+                  <td>INDEX</td>
+                  <td>フロー表示用に順序付きで取得するため</td>
+                </tr>
+                <tr>
+                  <td>workshop_sessions</td>
+                  <td>idx_workshop_sessions_unique_slot</td>
+                  <td>plan_id, store_id, session_date, start_time</td>
+                  <td>UNIQUE INDEX</td>
+                  <td>同一プラン・店舗・日時の重複開催枠を防ぐため</td>
+                </tr>
+                <tr>
+                  <td>workshop_sessions</td>
+                  <td>idx_workshop_sessions_calendar_lookup</td>
+                  <td>session_date, session_status, booking_method</td>
+                  <td>INDEX</td>
+                  <td>公開カレンダーの検索に使用するため</td>
+                </tr>
+                <tr>
+                  <td>workshop_sessions</td>
+                  <td>idx_workshop_sessions_plan_lookup</td>
+                  <td>plan_id, session_date, start_time</td>
+                  <td>INDEX</td>
+                  <td>プラン別日程の取得と並び替えに使用するため</td>
+                </tr>
+                <tr>
                   <td>enquiries</td>
                   <td>idx_enquiries_customer_profile_id</td>
                   <td>customer_profile_id</td>
@@ -1506,6 +2281,13 @@
                   <td>INDEX</td>
                   <td>履歴の時系列ソートに使用するため</td>
                 </tr>
+                <tr>
+                  <td>smart_scent_blends</td>
+                  <td>idx_smart_scent_blends_user_created</td>
+                  <td>auth_user_id, created_at DESC</td>
+                  <td>INDEX</td>
+                  <td>ユーザーごとの保存候補一覧を新しい順に取得するため</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1565,6 +2347,46 @@
 --   - RLS 有効化
 --   - 公開データ / 管理データ / 本人データの policy 作成
 
+-- 7. ワークショップ予約スキーマ追加
+-- sql/05_create_workshop_booking_tables.sql
+--   - workshop_plans
+--   - workshop_plan_inclusions
+--   - workshop_plan_flow_steps
+--   - workshop_sessions
+--   - bookings 追加カラム
+
+-- 8. ワークショップ予約スキーマ確認
+-- sql/06_verify_workshop_booking_tables.sql
+-- sql/08_verify_workshop_booking_schema.sql
+--   - テーブル、列、インデックスの存在確認
+
+-- 9. 通貨・人数制限の拡張
+-- sql/07_add_currency_code_and_party_limits.sql
+--   - workshop_plans / workshop_sessions / bookings の currency_code
+--   - workshop_sessions の人数制限
+
+-- 10. ワークショップ公開用マスタ/日程投入
+-- sql/09_seed_workshop_booking_master_and_sessions.sql
+--   - active な workshop_plans
+--   - 公開用 workshop_sessions
+
+-- 11. 公開参照 policy と確認
+-- sql/10_workshop_public_read_policies.sql
+-- sql/11_verify_workshop_public_data.sql
+--   - stores / workshop_plans / workshop_sessions の公開参照設定
+--   - 公開ページ向け件数・サンプル行確認
+
+-- 12. ワークショップ画像 URL 拡張
+-- sql/12_add_workshop_plan_image_url.sql
+--   - workshop_plans.plan_image_url を追加
+
+-- 13. スマート調香保存テーブル追加
+-- sql/18_create_smart_scent_blends.sql
+-- sql/19_add_smart_scent_blends_updated_at_trigger.sql
+--   - smart_scent_blends 作成
+--   - own rows only の RLS
+--   - updated_at 自動更新 trigger
+
 -- 補足
 -- auth.users は Supabase 管理テーブルのため、
 -- SQL で直接 INSERT する運用は採らず、
@@ -1581,7 +2403,10 @@
 -- bookings                = 5
 -- enquiries               = 5
 -- booking_status_logs     = 4
--- enquiry_status_logs     = 3</pre>
+-- enquiry_status_logs     = 3
+-- workshop_plans          = 2 (seed)
+-- workshop_sessions       = generated for upcoming dates
+-- smart_scent_blends      = no seed (user-generated)</pre>
             </div>
 
             <table class="doc-table">
@@ -1632,11 +2457,54 @@
                   <td>RLS / 権限制御の適用</td>
                   <td>補助関数、RLS 有効化、policy 作成</td>
                 </tr>
+                <tr>
+                  <td>7</td>
+                  <td>`sql/05_create_workshop_booking_tables.sql`</td>
+                  <td>ワークショップ予約スキーマ追加</td>
+                  <td>`workshop_plans` `workshop_plan_inclusions` `workshop_plan_flow_steps` `workshop_sessions` と `bookings` 拡張</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>`sql/06_verify_workshop_booking_tables.sql` / `sql/08_verify_workshop_booking_schema.sql`</td>
+                  <td>ワークショップ予約スキーマ確認</td>
+                  <td>テーブル、列、制約、インデックスの存在確認</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>`sql/07_add_currency_code_and_party_limits.sql`</td>
+                  <td>通貨・人数制限の拡張</td>
+                  <td>`workshop_plans` `workshop_sessions` `bookings` の currency / party size ルール</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>`sql/09_seed_workshop_booking_master_and_sessions.sql`</td>
+                  <td>公開用ワークショップデータ投入</td>
+                  <td>`workshop_plans` 2件、`workshop_sessions` の将来開催枠を投入</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>`sql/10_workshop_public_read_policies.sql` / `sql/11_verify_workshop_public_data.sql`</td>
+                  <td>公開参照 policy と検証</td>
+                  <td>`stores` `workshop_plans` `workshop_sessions` の公開読み取り条件と件数確認</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>`sql/12_add_workshop_plan_image_url.sql`</td>
+                  <td>プラン画像 URL 項目の追加</td>
+                  <td>`workshop_plans.plan_image_url`</td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>`sql/18_create_smart_scent_blends.sql` / `sql/19_add_smart_scent_blends_updated_at_trigger.sql`</td>
+                  <td>スマート調香保存機能の追加</td>
+                  <td>`smart_scent_blends`、own rows only RLS、`updated_at` trigger</td>
+                </tr>
               </tbody>
             </table>
 
             <p class="note">補足: 本節の旧来の `auth.users` 直接 INSERT 草案は、Supabase 実運用方針と乖離するため廃止した。ユーザー作成は `Authentication &gt;
-              Users` または Admin API を用い、SQL 側ではアプリテーブルの関連付けと初期データ投入を行う。</p>
+              Users` または Admin API を用い、SQL 側ではアプリテーブルの関連付けと初期データ投入を行う。`13_admin_demo_read_policies.sql` /
+              `14_revert_admin_demo_read_policies.sql` と `15`〜`17` は一時検証/権限補助用であり、恒常的な初期投入フローには含めない。</p>
           </div>
       </div>
 
